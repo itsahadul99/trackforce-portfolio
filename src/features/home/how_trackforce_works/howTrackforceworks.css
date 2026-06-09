@@ -1,0 +1,86 @@
+.how_trackforce_works {
+    background: var(--Linear, linear-gradient(90deg, #1B73E8 0%, #9F60EE 100%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+
+
+/* section title border start */
+
+.section_title_border {
+  position: relative;
+  border-radius: 100px;
+  padding: 3px; /* This creates the border thickness */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Your requested Shadow */
+  box-shadow: 0 5px 6px 0 rgba(22, 109, 225, 0.05);
+  isolation: isolate; /* Ensures the glow stays behind the text */
+}
+
+/* The "Spinning" Light */
+.section_title_border::before {
+  content: '';
+  position: absolute;
+  inset: -150%; /* Large enough to cover the rotation */
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    rgba(22, 109, 225, 1) 15%, /* The "head" of the spark */
+    transparent 40%
+  );
+  animation: rotate 3s linear infinite;
+  z-index: -2;
+}
+
+/* The Inner Background (Your specified color) */
+.section_title_border::after {
+  content: '';
+  position: absolute;
+  inset: 3px; /* Shrink it to let the border show through */
+  background: black; /* Your specified background color */
+  border-radius: 100px;
+  z-index: -1;
+}
+
+/* section title border end */
+
+
+.custom-button {
+    position: relative;
+    overflow: hidden;
+    transition: color 0.7s ease-in-out;
+    z-index: 1;
+}
+
+.custom-button::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: -100;
+  width: 300%;
+  height: 0;
+  transform-origin: bottom right;
+  transform: rotate(-45deg);
+  background: linear-gradient(
+    0deg, 
+    rgb(170, 165, 186),
+    rgb(58, 58, 204),
+    rgba(44, 44, 199, 0.7)
+  );
+  transition: all 0.7s ease;
+  z-index: -1;
+}
+
+.custom-button:hover::before {
+  height: 600%;
+}
+
+.custom-button:hover {
+    color: white;
+}

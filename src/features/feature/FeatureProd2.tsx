@@ -1,0 +1,149 @@
+'use client';
+
+import Image from 'next/image';
+import React from 'react';
+import { motion, type Variants } from 'framer-motion';
+const dashboard = '/dashboard.png';
+const activityLogs = '/activity_logs.png';
+const searchLogs = '/search_logs.png';
+const employees = '/employees.png';
+const trackforce = '/trackforce.png';
+import Link from 'next/link';
+import { FaArrowRightLong } from 'react-icons/fa6';
+import '../home/how_trackforce_works/howTrackforceworks.css';
+import FeaturesListMore from '@/components/all/FeaturesListMore';
+
+const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
+    hidden: { opacity: 0, x, y, scale: 0.85 },
+    visible: {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        scale: 1,
+        transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number], delay },
+    },
+});
+
+const FeatureProd2 = () => {
+
+    const features = [
+        {
+            title: "Activity Summaries",
+            description:
+                "Track real-time online and idle statuses to understand team availability and active work time.",
+        },
+        {
+            title: "Productivity Trends",
+            description:
+                "Visualize performance trends with intuitive charts that reveal productivity patterns at a glance.",
+        },
+        {
+            title: "Risk Detection",
+            description:
+                "Identify unusual activity and potential risks early to safeguard productivity and security.",
+        },
+        {
+            title: "Workload Analysis",
+            description:
+                "Analyze task distribution and effort across your team to balance workloads effectively.",
+        },
+        {
+            title: "Custom Reports",
+            description:
+                "Generate tailored reports that focus on the metrics that matter most to your organization.",
+        },
+        {
+            title: "Data Insights",
+            description:
+                "Turn raw data into actionable insights for faster, smarter, evidence-based decisions.",
+        },
+    ];
+    return (
+        <div className="mt-28 text-[#2B2B2B] flex gap-3 items-center justify-between">
+            <div className="w-1/2">
+                <h2 className="text-4xl font-bold mb-8">
+                    Comprehensive Reports for Smarter Decisions
+                </h2>
+                <p className="text-lg  mb-8">
+                    Access detailed daily, weekly, and monthly reports that uncover productivity patterns, identify risk users, and empower data-driven decision-making across your organization with TrackForce.
+                </p>
+                <FeaturesListMore height={"360px"} features={features} txtColor='text-black' />
+
+
+                <div className="mt-12">
+                    <button className="group custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
+                        <span className='group-hover:italic '>See how it works</span> <FaArrowRightLong className='group-hover:-rotate-[30deg] transition ease-in-out' />
+                        <motion.div
+                            className="ml-2 absolute right-0"
+                            animate={{
+                                x: [0, -190, 0],   // initial, move right, return
+                                opacity: [0, 1, 0, 0, 1, 0], // fade out at the end of the move
+                            }}
+                            transition={{
+                                duration: 7,
+                                repeat: Infinity,
+                                repeatType: 'loop',
+                            }}
+                        >
+                            <Image
+                                src={trackforce}
+                                alt="TrackForce Logo"
+                                width={400}
+                                height={400}
+                                className="w-8 h-8 group-hover:hidden"
+                            />
+                        </motion.div>
+                    </button>
+                </div>
+            </div>
+
+            <div className='w-1/2 relative h-[520px]'>
+                {/* Main dashboard - center, fades in from slight scale */}
+                <motion.div
+                    className="object-cover absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[75%] drop-shadow-2xl z-10"
+                    variants={imageVariants(0, 40, 0)}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: false, amount: 0.1 }}
+                >
+                    <Image src={dashboard} alt="Productivity Dashboard" className="w-full" width={800} height={500} />
+                </motion.div>
+
+                {/* Employees - top right, slides from center */}
+                <motion.div
+                    className="object-cover absolute top-0 right-0 w-[45%] drop-shadow-xl z-20"
+                    variants={imageVariants(50, -50, 0.35)}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: false, amount: 0.1 }}
+                >
+                    <Image src={employees} alt="Employees" className="w-full" width={400} height={300} />
+                </motion.div>
+
+                {/* Activity Logs - bottom left, slides from center */}
+                <motion.div
+                    className="object-cover absolute bottom-0 left-0 w-[40%] drop-shadow-xl z-20"
+                    variants={imageVariants(-50, 50, 0.35)}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: false, amount: 0.1 }}
+                >
+                    <Image src={activityLogs} alt="Activity Logs" className="w-full" width={400} height={300} />
+                </motion.div>
+
+                {/* Search Logs - bottom right, slides from center */}
+                <motion.div
+                    className="object-cover absolute bottom-0 right-0 w-[38%] drop-shadow-xl z-20"
+                    variants={imageVariants(50, 50, 0.35)}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: false, amount: 0.1 }}
+                >
+                    <Image src={searchLogs} alt="Search Logs" className="w-full" width={400} height={300} />
+                </motion.div>
+            </div>
+        </div>
+    );
+};
+
+export default FeatureProd2;

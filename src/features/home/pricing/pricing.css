@@ -1,0 +1,6 @@
+.title_wrapper {
+ border-radius: 47px;
+border: 7px solid #070909;
+background: var(--Linear, linear-gradient(90deg, #1B73E8 0%, #9F60EE 100%));
+}
+

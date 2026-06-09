@@ -1,0 +1,24 @@
+.real_work {
+    background: linear-gradient(90deg, #1B73E8 6.73%, #9F60EE 24.04%, #8664ED 36.06%, #1B73E8 47.6%, #9F60EE 54.81%, #9F60EE 65.38%, #1B73E8 77.4%, #9F60EE 94.23%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* font-family: Rubik; */
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 128.248%;
+}
+
+.book-demo {
+    border-radius: 0 16px 16px 0;
+    background: var(--Linear, linear-gradient(90deg, #1B73E8 0%, #9F60EE 100%));
+    display: flex;
+    width: 167px;
+    height: 62px;
+    padding: 14px 22px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}

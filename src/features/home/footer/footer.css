@@ -1,0 +1,55 @@
+/* Pyramid Shape
+.pyramid-glow{
+  background: linear-gradient(90deg,#2563eb,#22d3ee,#2563eb);
+  clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
+}
+
+
+@keyframes pyramidBlip {
+
+  0%{
+    transform: scale(0.9);
+    opacity: .2;
+  }
+
+  50%{
+    transform: scale(1.1);
+    opacity: .45;
+  }
+
+  100%{
+    transform: scale(0.9);
+    opacity: .2;
+  }
+
+}
+
+.pyramid-blip{
+  background: linear-gradient(90deg,#3b82f6,#67e8f9,#3b82f6);
+  clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
+  animation: pyramidBlip 5s ease-in-out infinite;
+} */
+
+
+
+
+
+
+@keyframes pyramidBlip {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.45;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0.2;
+  }
+}
+
+.pyramid-blip {
+  animation: pyramidBlip 5s ease-in-out infinite;
+}

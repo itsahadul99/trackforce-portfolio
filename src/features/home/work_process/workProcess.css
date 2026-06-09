@@ -1,0 +1,48 @@
+
+/* content title border start */
+
+.content_title_border {
+  position: relative;
+  border-radius: 100px;
+  padding: 5px; 
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Your requested Shadow */
+  box-shadow: 0 5px 6px 0 rgba(22, 109, 225, 0.05);
+  isolation: isolate; /* Ensures the glow stays behind the text */
+}
+
+/* The "Spinning" Light */
+.content_title_border::before {
+  content: '';
+  position: absolute;
+  inset: -150%; /* Large enough to cover the rotation */
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    rgba(22, 109, 225, 0.12), /* The "head" of the spark */
+    transparent 40%
+  );
+  animation: rotate 3s linear infinite;
+  z-index: -2;
+}
+
+/* The Inner Background (Your specified color) */
+.content_title_border::after {
+  content: '';
+  position: absolute;
+  inset: 5px; /* Shrink it to let the border show through */
+  background: rgba(22, 109, 225, 0.12); /* Your specified background color */
+  border-radius: 100px;
+  z-index: -1;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+/* content title border end */

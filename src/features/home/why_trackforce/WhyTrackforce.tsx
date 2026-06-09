@@ -1,0 +1,134 @@
+
+"use client";
+import ProgressCircle from "@/components/graph/ProgressCircle";
+import { motion, Variants } from "framer-motion";
+import Image from "next/image";
+import trackforce from '../../../../public/trackforce.png';
+import { FaArrowRightLong } from "react-icons/fa6";
+const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
+    hidden: { opacity: 1, x, y, scale: 0.85 },
+    visible: {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        scale: 1,
+        transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number], delay },
+    },
+});
+
+
+const WhyTrackforce = () => {
+
+
+    return (
+        <div className="flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-2 lg:w-[1200] xl:w-[1300] mx-auto mt-16 sm:mt-24 lg:mt-32 px-4 sm:px-6 lg:px-0">
+            <div className="w-full lg:w-1/2 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
+                <div className="content_title_border w-fit text-[#0C59C0] rounded-full mb-1">
+                    <div className="px-4 py-2 text-sm font-semibold">
+                        Why Trackforce
+
+                    </div>
+                </div>
+                <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold mb-2 text-black leading-tight">
+                    Employee Monitoring Built for <span className="font-playball font-normal">Smarter Workflows</span>
+                </h1>
+                <p className="text-gray-600 text-sm sm:text-base mb-6 max-w-lg mt-6">
+                    TrackForce delivers real-time visibility, accountability, and performance insights — helping teams work better, not harder.
+                </p>
+                <button className="group custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
+                    <span className='group-hover:italic '>Book a Demo</span> <FaArrowRightLong className='group-hover:-rotate-[30deg] transition ease-in-out' />
+                    <motion.div
+                        className="ml-2 absolute right-0"
+                        animate={{
+                            x: [0, -190, 0],   // initial, move right, return
+                            opacity: [0, 1, 0, 0, 1, 0], // fade out at the end of the move
+                        }}
+                        transition={{
+                            duration: 7,
+                            repeat: Infinity,
+                            repeatType: 'loop',
+                        }}
+                    >
+                        <Image
+                            src={trackforce}
+                            alt="TrackForce Logo"
+                            className="w-8 h-8 group-hover:hidden"
+                        />
+                    </motion.div>
+                </button>
+            </div>
+
+            <div className='w-full lg:w-1/2 relative h-[420px] sm:h-[480px] lg:h-[520px] flex justify-center lg:justify-end items-center scale-75 sm:scale-90 lg:scale-100 origin-center lg:origin-right'>
+                <div className="absolute right-24 bg-[#FFFFFF59] rounded-[43px] min-h-[397px] max-h-[400px] w-full max-w-[420px] mx-auto"></div>
+                {/* blue div */}
+                <motion.div
+                    className="  absolute -top-[1px] left-20  drop-shadow-2xl z-10"
+                    variants={imageVariants(-80, -40, 0)}  // left, down    // intial
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: false, amount: 0.1 }}
+                >
+                    <ProgressCircle
+                        percentage={80}
+                        strokeWidth={20}
+                        strokeColor={'#2B7FFF'}
+                        label="Better Remote Work Efficiency"
+                        hoverBackground="linear-gradient(180deg, #FFFFFF 0%, #E6F9FA 48.87%, #0BC5D1 100%)"
+                        hoverBorder="2px solid #0BC5D1"
+                        hoverBoxShadow="-14.34px 43.2px 52.87px 0px #514E782E, 1.55px 2.32px 0px 0px #FFFFFF99 inset"
+                        hoverBackdropFilter="blur(18.906px)"
+                    />
+                </motion.div>
+
+                {/* yellow div */}
+                <motion.div
+                    className=" absolute -bottom-[1px] left-20  drop-shadow-2xl z-10"
+                    variants={imageVariants(-80, 70, 0)}   // left, up
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: false, amount: 0.1 }}
+                >
+                    <ProgressCircle
+                        percentage={50}
+                        strokeWidth={20}
+                        strokeColor={'#FFB93B'}
+                        label="Prevented Data Breaches"
+                        hoverBackground="linear-gradient(180deg, #FFFFFF 0%, #FFF9E9 49.1%, #FFD66B 100%)"
+                        hoverBorder="2px solid #FFD66B"
+                        hoverBoxShadow="-14.34px 43.2px 52.87px 0px #514E782E, 1.55px 2.32px 0px 0px #FFFFFF99 inset"
+                        hoverBackdropFilter="blur(18.906px)"
+                    />
+                </motion.div>
+
+                {/* red div */}
+                <motion.div
+                    className=" absolute top-1/2 -translate-1/2 -right-[85px]  drop-shadow-2xl z-10"
+                    variants={imageVariants(80, 0, 0)}   // right
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: false, amount: 0.1 }}
+                >
+                    <ProgressCircle
+                        percentage={60}
+                        strokeWidth={20}
+                        strokeColor={'#FF2056'}
+                        label="Increased Productivity"
+                        hoverBackground="linear-gradient(180deg, #FFFFFF 0%, #FFF3F0 49.83%, #FF8F6B 100%)"
+                        hoverBorder="1px solid #FF8F6B"
+                        hoverBoxShadow="-14.34px 43.2px 52.87px 0px #514E782E, 1.55px 2.32px 0px 0px #FFFFFF99 inset"
+                        hoverBackdropFilter="blur(18.906px)"
+                    />
+                </motion.div>
+            </div>
+
+        </div>
+    );
+};
+
+export default WhyTrackforce
+    ;
+
+
+
+
+

@@ -1,0 +1,36 @@
+.animate-shine-reverse {
+  border-right: 1px solid white;
+  box-shadow: 5px 0 10px -2px rgba(0, 0, 0, 0.3);
+
+}
+
+
+@keyframes shine-reverse-sweep {
+  0% {
+    left: -20%;
+  }
+
+  20% {
+    left: 100%;
+    /* সামনে গেল */
+  }
+
+  35% {
+    left: 20%;
+    /* সামান্য বিরতি */
+  }
+
+  55% {
+    left: -100%;
+    /* উল্টো দিকে ফিরে এল (Reverse) */
+  }
+
+  100% {
+    left: -20%;
+    /* বাকি সময় স্থির থাকবে */
+  }
+}
+
+.animate-shine-reverse {
+  animation: shine-reverse-sweep 10s infinite ease-in-out;
+}
