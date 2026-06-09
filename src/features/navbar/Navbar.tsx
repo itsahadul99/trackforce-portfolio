@@ -12,8 +12,8 @@ const Navbar = () => {
     const [mobileOpen, setMobileOpen] = useState(false);
     const [resourcesOpen, setResourcesOpen] = useState(false);
     const pathname = usePathname();
-    const isCaseStudy = pathname?.startsWith("/case-study") || pathname?.startsWith("/documentation") ;
-    const isPricing = pathname?.startsWith("/pricing");
+    const isCaseStudy = pathname?.startsWith("/case-study");
+    const isPricing = pathname?.startsWith("/pricing") || pathname?.startsWith("/blog-details") || pathname?.startsWith("/documentation")
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 0);
@@ -36,17 +36,17 @@ const Navbar = () => {
     };
 
     return (
-        <nav className={`fixed top-0 left-0 w-full z-50 text-white transition-colors duration-300 ${isCaseStudy
-                ? "bg-[#DEEDFF] pb-4 px-4 sm:px-6 md:px-8"
-                : isPricing
-                    ? "bg-transparent pb-4 px-4 sm:px-6 md:px-8"
+        <nav className={`fixed top-0 left-0 w-full z-[999] text-white transition-colors duration-300 ${isCaseStudy
+            ? "bg-[#DEEDFF] pb-4 px-4 sm:px-6 md:px-8"
+            : isPricing
+                ? "bg-transparent pb-4 px-4 sm:px-6 md:px-8"
                 : scrolled || mobileOpen
                     ? "bg-[#000000b2]"
                     : "bg-transparent"
             }`}>
             <div className={`mx-auto flex items-center justify-between ${isCaseStudy || isPricing
-                    ? "w-full max-w-[1300px] mt-4 rounded-full bg-gradient-to-r from-[#1B3A8C] via-[#0F1B5C] to-black px-3 sm:px-5 lg:px-8 py-2 sm:py-3 shadow-lg"
-                    : "lg:w-[1200] xl:w-[1300] px-4 sm:px-6 lg:px-0 py-4"
+                ? "w-full max-w-[1300px] mt-4 rounded-full bg-gradient-to-r from-[#1B3A8C] via-[#0F1B5C] to-black px-3 sm:px-5 lg:px-8 py-2 sm:py-3 shadow-lg"
+                : "lg:w-[1200] xl:w-[1300] px-4 sm:px-6 lg:px-0 py-4"
                 }`}>
 
                 {/* Left - Logo */}

@@ -63,12 +63,11 @@ import PortfolioParallax from "./PortfolioParallax";
 
 const ProductivityInsights = () => {
     return (
-        <div className="bg-[#000000] w-full">
-            <div className="flex flex-col lg:flex-row justify-between gap-4 lg:w-[1200] xl:w-[1300] mx-auto ">
-
+        <div className="bg-[#000000] w-full bg-[url('/portfolioBg.png')] bg-cover bg-center">
+            <div className="flex flex-col lg:flex-row justify-between gap-4 lg:w-[1200] xl:w-[1300] mx-auto pt-44 pb-20 ">
                 {/* Left Side - Sticky & Centered */}
                 <div className="lg:w-[40%] relative">
-                    <div className="sticky top-0 h-screen flex flex-col justify-center text-left text-white">
+                    <div className="sticky top-36 flex flex-col justify-start text-left text-white">
                         <div className="section_title_border w-fit text-black rounded-full mb-6">
                             <div className="how_trackforce_works px-4 py-2 text-sm font-semibold">
                                 Productivity Insights
@@ -91,10 +90,9 @@ const ProductivityInsights = () => {
                 </div>
 
                 {/* Right Side - Scrolling Content */}
-                <div className="lg:w-[55%] py-20">
+                <div className="lg:w-[55%]">
                     <PortfolioParallax />
                 </div>
-
             </div>
         </div>
     );

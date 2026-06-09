@@ -13,12 +13,12 @@ const BlogDetails = ({ blog }: { blog: BlogPost }) => {
         <div>
             <BlogDetailsHero blog={blog} />
             <BlogDetailsContent blog={blog} />
-            <div className='bg-[#DEEDFF] pt-28 pb-20'>
+            <div className='bg-[#DEEDFF] py-20'>
                 <HowWeEvaluated />
                 <MonitoringSoftwareList />
             </div>
             <SimilarBlogs currentSlug={blog.slug} />
-            <div className='bg-[#DEEDFF] pt-1 pb-20'>
+            <div className='bg-[#DEEDFF] py-20'>
                 <HomeFreeTailer />
             </div>
         </div>

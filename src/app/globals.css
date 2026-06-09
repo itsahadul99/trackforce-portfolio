@@ -258,6 +258,40 @@
   z-index: -1;
 }
 
+.section_title_border_light {
+  position: relative;
+  border-radius: 100px;
+  padding: 3px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 6px 0 rgba(22, 109, 225, 0.05);
+  isolation: isolate;
+}
+
+.section_title_border_light::before {
+  content: '';
+  position: absolute;
+  inset: -150%;
+  background: conic-gradient(from 0deg,
+      transparent 0%,
+      #9F60EE 15%,
+      transparent 40%);
+  animation: rotate 3s linear infinite;
+  z-index: -2;
+}
+
+.section_title_border_light::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  background: #BFD5FD;
+  border-radius: 100px;
+  z-index: -1;
+}
+
+
 .custom-button {
   position: relative;
   overflow: hidden;

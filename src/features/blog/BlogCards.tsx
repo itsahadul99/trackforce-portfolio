@@ -1,9 +1,11 @@
 "use client";
 
+import { blogs as cards } from "@/data/blogs";
+import { motion } from 'framer-motion';
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo, useRef, useState, useEffect } from "react";
-import { blogs as cards } from "@/data/blogs";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { FaArrowRightLong } from 'react-icons/fa6';
 
 const filters = ["All Post", "Software", "Uncategorized", "Category", "TrackForce"];
 
@@ -90,8 +92,78 @@ const BlogCards = () => {
         sortOptions.find((o) => o.value === sortBy)?.label ?? "Sort by";
 
     return (
-        <section className="bg-[#DEEDFF]  lg:w-[1200] xl:w-[1300] mx-auto p-14 rounded-2xl shadow my-24">
+        <section className="bg-[#DEEDFF]  lg:w-[1200] xl:w-[1300] mx-auto p-14 rounded-2xl my-24 bg-[url('/blogBg.png')] bg-no-repeat bg-cover bg-top">
             <div className="max-w-[1200px] xl:max-w-[1300px] mx-auto ">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center justify-center rounded-2xl overflow-hidden ">
+                    <motion.div
+                        initial={{ x: -100, opacity: 0 }}
+                        whileInView={{ x: 0, opacity: 1 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.3, ease: "easeOut" }}
+                        className="relative w-full h-[320px] lg:h-[380px] "
+                    >
+                        <Image
+                            src="/feature-blog.png"
+                            alt="Fortune 100 Company Optimizes Hybrid Work"
+                            fill
+                            sizes="(max-width: 1024px) 100vw, 50vw"
+                            className="object-cover rounded-2xl"
+                            priority
+                        />
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ x: 100, opacity: 0 }}
+                        whileInView={{ x: 0, opacity: 1 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.3, ease: "easeOut" }}
+                        className="p-8 lg:p-10"
+                    >
+                        <div className='flex'>
+                            <div className="flex justify-center ">
+                                <div className="content_title_border w-fit text-[#0C59C0] rounded-full">
+                                    <div className="px-4 py-2 text-sm font-semibold">Software</div>
+                                </div>
+                            </div>
+                        </div>
+                        <h2 className="text-[42px] font-semibold text-black">
+                            Fortune 100 Company <br /> Optimizes  <span className="font-playball font-normal">Hybrid Work</span>
+                        </h2>
+                        <div className="mt-5">
+                            <p className="text-sm text-gray-500 mb-2">April 15, 2025</p>
+                            <p className="text-[15px] text-gray-600 leading-relaxed mb-8 max-w-xl">
+                                A Fortune 100 company tracks remote vs. in-office productivity by
+                                centralizing employee location and activity data in a single
+                                dashboard, revealing policy violations and performance gaps.
+                            </p>
+                        </div>
+                        <div className="">
+                            <button className="group custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
+                                <span className='group-hover:italic '>Book a Demo</span> <FaArrowRightLong className='group-hover:-rotate-[30deg] transition ease-in-out' />
+                                <motion.div
+                                    className="ml-2 absolute right-0"
+                                    animate={{
+                                        x: [0, -190, 0],   // initial, move right, return
+                                        opacity: [0, 1, 0, 0, 1, 0], // fade out at the end of the move
+                                    }}
+                                    transition={{
+                                        duration: 7,
+                                        repeat: Infinity,
+                                        repeatType: 'loop',
+                                    }}
+                                >
+                                    <Image
+                                        src={'/trackforce.png'}
+                                        alt="TrackForce Logo"
+                                        width={1200}
+                                        height={800}
+                                        className="w-8 h-8 group-hover:hidden"
+                                    />
+                                </motion.div>
+                            </button>
+                        </div>
+                    </motion.div>
+                </div>
                 {/* Filter bar */}
                 <div className="flex flex-wrap items-center justify-between gap-4 mb-10">
                     <div className="flex flex-wrap items-center gap-3">
@@ -99,11 +171,10 @@ const BlogCards = () => {
                             <button
                                 key={f}
                                 onClick={() => setActiveFilter(f)}
-                                className={`px-5 py-2 rounded-full text-sm font-medium border transition-colors ${
-                                    activeFilter === f
+                                className={`px-5 py-2 rounded-full text-sm font-medium border transition-colors ${activeFilter === f
                                         ? "bg-[#5f6bff] text-white border-[#5f6bff]"
                                         : "bg-white text-gray-700 border-gray-200 hover:border-[#5f6bff]"
-                                }`}
+                                    }`}
                             >
                                 {f}
                             </button>
@@ -113,9 +184,8 @@ const BlogCards = () => {
                         {/* Search */}
                         <div ref={searchRef} className="relative">
                             <div
-                                className={`flex items-center bg-white border border-gray-200 rounded-full transition-all duration-300 ${
-                                    searchOpen ? "w-56 px-3" : "w-10"
-                                } h-10`}
+                                className={`flex items-center bg-white border border-gray-200 rounded-full transition-all duration-300 ${searchOpen ? "w-56 px-3" : "w-10"
+                                    } h-10`}
                             >
                                 <button
                                     onClick={() => setSearchOpen((v) => !v)}
@@ -179,11 +249,10 @@ const BlogCards = () => {
                                                 setSortBy(opt.value);
                                                 setSortOpen(false);
                                             }}
-                                            className={`w-full text-left px-4 py-2.5 text-sm hover:bg-gray-50 ${
-                                                sortBy === opt.value
+                                            className={`w-full text-left px-4 py-2.5 text-sm hover:bg-gray-50 ${sortBy === opt.value
                                                     ? "text-[#5f6bff] font-medium"
                                                     : "text-gray-700"
-                                            }`}
+                                                }`}
                                         >
                                             {opt.label}
                                         </button>

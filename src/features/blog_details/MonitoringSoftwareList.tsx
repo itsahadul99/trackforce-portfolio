@@ -5,9 +5,9 @@ const MonitoringSoftwareList = () => {
     return (
         <section className="relative overflow-hidden  pt-28 px-4">
             <div className="lg:w-[1200] xl:w-[1300] mx-auto text-[#2B2B2B]">
-                <div className="max-w-[1000] mx-auto">
+                <div className="max-w-[1100] mx-auto bg-[url('/10bestSft.png')] bg-top bg-cover bg-no-repeat">
                     {/* Top heading */}
-                    <h2 className="text-2xl md:text-3xl font-bold mb-16">
+                    <h2 className="text-2xl md:text-3xl lg:text-[42px] font-bold mb-16">
                         10 best employee monitoring software for startups.
                     </h2>
 

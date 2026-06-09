@@ -8,13 +8,13 @@ import HomeFreeTailer from '../home/home_free_trailer/HomeFreeTailer'
 const Pricing = () => {
   return (
     <div>
-        <PricingHero />
-        <HomePricing/>
-        <Benefits />
-       <div className='bg-[#DEEDFF] py-28 flex flex-col items-center gap-24'>
+      {/* <PricingHero /> */}
+      <HomePricing />
+      {/* <Benefits /> */}
+      <div className='bg-[#DEEDFF] py-28 flex flex-col items-center gap-24'>
         <HomeFaq />
-         <HomeFreeTailer />
-       </div>
+        <HomeFreeTailer />
+      </div>
     </div>
   )
 }

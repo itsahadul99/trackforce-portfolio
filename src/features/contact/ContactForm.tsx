@@ -12,10 +12,6 @@ const ContactForm = () => {
         <span className="pointer-events-none absolute top-3 right-3 w-20 h-20 border-t-4 border-r-4 border-[#1D72E7] rounded-tr-lg group-hover:translate-x-10 group-hover:-translate-y-10 transition-all duration-500 ease-in-out" />
         <span className="pointer-events-none absolute bottom-3 left-3 w-20 h-20 border-b-4 border-l-4 border-[#1D72E7] rounded-bl-lg group-hover:-translate-x-10 group-hover:translate-y-10 transition-all duration-500 ease-in-out" />
         <span className="pointer-events-none absolute bottom-3 right-3 w-20 h-20 border-b-4 border-r-4 border-[#1D72E7] rounded-br-lg group-hover:translate-x-10 group-hover:translate-y-10 transition-all duration-500 ease-in-out" />
-
-
-
-
         <div
           className="relative rounded-md p-8 w-full bg-[#0a0a0a] border-4 border-transparent transition-shadow  duration-300 group-hover:[background:linear-gradient(#0a0a0a,#0a0a0a)_padding-box,linear-gradient(90deg,#1B73E8_0%,#9F60EE_100%)_border-box] group-hover:shadow-[0_0_40px_rgba(168,85,247,0.45)]"
         >

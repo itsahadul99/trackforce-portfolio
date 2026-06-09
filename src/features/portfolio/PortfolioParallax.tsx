@@ -340,9 +340,7 @@ const PortfolioParallax = () => {
   return (
     <div ref={containerRef} className="relative flex flex-col items-center w-full">
       {cards.map((card, index) => {
-        // কার্ডগুলো স্ক্রল করার সাথে সাথে কিছুটা ছোট হবে (Stacking effect)
         const targetScale = 1 - (cards.length - index) * 0.04;
-        
         return (
           <div 
             key={index} 

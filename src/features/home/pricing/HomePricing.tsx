@@ -79,7 +79,7 @@ const HomePricing = () => {
   );
 
   return (
-    <section className="pt-12 sm:pt-16 pb-16 sm:pb-24 bg-cover bg-center bg-no-repeat bg-[url('/home-price-bg.png')]">
+    <section className="pt-12 sm:pt-36 pb-16 sm:pb-24 bg-cover bg-center bg-no-repeat bg-[url('/home-price-bg.png')]">
       <div className="lg:w-[1200] xl:w-[1300] mx-auto px-4 sm:px-6 lg:px-0">
         <div className="container mx-auto text-center relative z-10">
           <div className="section_title_border w-fit mx-auto text-black rounded-full mb-6">

@@ -13,7 +13,7 @@ const commonTransition: Transition = {
 
 const BlogHero = () => {
     return (
-        <section className="relative overflow-hidden bg-[#0a0a1a] pt-32 pb-20">
+        <section className="relative overflow-hidden bg-[#000000] pt-32 pb-20 bg-[url('/ContactHeroBg.png')] bg-cover bg-center">
             {/* Background glow effects */}
             <div className="absolute inset-0">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-blue-600/20 rounded-full blur-[120px]" />
