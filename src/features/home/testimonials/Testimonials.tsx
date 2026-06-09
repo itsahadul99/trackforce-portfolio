@@ -6,11 +6,10 @@
 
 "use client";
 
-import Image from "next/image";
-import { Play } from "lucide-react";
+import BookDemoBtn from "@/components/shared/BookDemoBtn";
 import { motion } from "framer-motion";
-import { FaArrowRightLong } from 'react-icons/fa6';
-import trackforce from '../../../../public/trackforce.png';
+import { Play } from "lucide-react";
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -115,27 +114,7 @@ const Testimonials = () => {
             </p>
 
             <div className="mt-5">
-              <button className="group custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
-                <span className='group-hover:italic '>Book a Demo</span> <FaArrowRightLong className='group-hover:-rotate-[30deg] transition ease-in-out' />
-                <motion.div
-                  className="ml-2 absolute right-0"
-                  animate={{
-                    x: [0, -190, 0],   // initial, move right, return
-                    opacity: [0, 1, 0, 0, 1, 0], // fade out at the end of the move
-                  }}
-                  transition={{
-                    duration: 7,
-                    repeat: Infinity,
-                    repeatType: 'loop',
-                  }}
-                >
-                  <Image
-                    src={trackforce}
-                    alt="TrackForce Logo"
-                    className="w-8 h-8 group-hover:hidden"
-                  />
-                </motion.div>
-              </button>
+             <BookDemoBtn />
             </div>
           </div>
 
@@ -149,23 +128,6 @@ const Testimonials = () => {
             <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-[#e4e9fa] to-transparent z-10" />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 h-[500px] sm:h-[600px] overflow-hidden">
-
-              {/* COLUMN 1 */}
-              {/* <motion.div
-                animate={{ y: [0, -300, 0] }}
-                transition={{
-                  duration: 12,
-                  repeat: Infinity,
-                  repeatDelay: 4,
-                  ease: "easeInOut",
-            
-                }}
-                className="flex flex-col gap-6"
-              >
-                {col1.map((item, i) => (
-                  <Card key={i} item={item} />
-                ))}
-              </motion.div> */}
               <motion.div
                 animate={{
                   y: [0, 0, -300, -300, 0],
@@ -182,22 +144,6 @@ const Testimonials = () => {
                   <Card key={i} item={item} />
                 ))}
               </motion.div>
-
-              {/* COLUMN 2 */}
-              {/* <motion.div
-                animate={{ y: [0, 300, 0] }}
-                transition={{
-                  duration: 12,
-                  repeat: Infinity,
-                  repeatDelay: 4,
-                  ease: "easeInOut",
-                }}
-                className="flex flex-col gap-6"
-              >
-                {col2.map((item, i) => (
-                  <Card key={i} item={item} />
-                ))}
-              </motion.div> */}
               <motion.div
                 animate={{
                   y: [0, 0, 300, 300, 0],
@@ -214,7 +160,6 @@ const Testimonials = () => {
                   <Card key={i} item={item} />
                 ))}
               </motion.div>
-
             </div>
           </div>
 

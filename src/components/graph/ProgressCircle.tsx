@@ -118,7 +118,7 @@ const ProgressCircle: React.FC<ProgressCircleProps> = ({
             </svg>
 
             {label && (
-                <p className="mt-4 text-center font-medium text-gray-700 relative z-10">{label}</p>
+                <p className="mt-4 text-center font-bold text-[#2E2D32] text-base w-1/2 relative z-10">{label}</p>
             )}
         </div>
     );

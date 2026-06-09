@@ -1,10 +1,8 @@
 
 "use client";
 import ProgressCircle from "@/components/graph/ProgressCircle";
+import BookDemoBtn from "@/components/shared/BookDemoBtn";
 import { motion, Variants } from "framer-motion";
-import Image from "next/image";
-import trackforce from '../../../../public/trackforce.png';
-import { FaArrowRightLong } from "react-icons/fa6";
 const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
     hidden: { opacity: 1, x, y, scale: 0.85 },
     visible: {
@@ -35,34 +33,14 @@ const WhyTrackforce = () => {
                 <p className="text-gray-600 text-sm sm:text-base mb-6 max-w-lg mt-6">
                     TrackForce delivers real-time visibility, accountability, and performance insights — helping teams work better, not harder.
                 </p>
-                <button className="group custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
-                    <span className='group-hover:italic '>Book a Demo</span> <FaArrowRightLong className='group-hover:-rotate-[30deg] transition ease-in-out' />
-                    <motion.div
-                        className="ml-2 absolute right-0"
-                        animate={{
-                            x: [0, -190, 0],   // initial, move right, return
-                            opacity: [0, 1, 0, 0, 1, 0], // fade out at the end of the move
-                        }}
-                        transition={{
-                            duration: 7,
-                            repeat: Infinity,
-                            repeatType: 'loop',
-                        }}
-                    >
-                        <Image
-                            src={trackforce}
-                            alt="TrackForce Logo"
-                            className="w-8 h-8 group-hover:hidden"
-                        />
-                    </motion.div>
-                </button>
+                <BookDemoBtn />
             </div>
 
             <div className='w-full lg:w-1/2 relative h-[420px] sm:h-[480px] lg:h-[520px] flex justify-center lg:justify-end items-center scale-75 sm:scale-90 lg:scale-100 origin-center lg:origin-right'>
                 <div className="absolute right-24 bg-[#FFFFFF59] rounded-[43px] min-h-[397px] max-h-[400px] w-full max-w-[420px] mx-auto"></div>
                 {/* blue div */}
                 <motion.div
-                    className="  absolute -top-[1px] left-20  drop-shadow-2xl z-10"
+                    className="  absolute -top-[1px] left-16  drop-shadow-2xl z-10"
                     variants={imageVariants(-80, -40, 0)}  // left, down    // intial
                     initial="hidden"
                     whileInView="visible"
@@ -71,7 +49,7 @@ const WhyTrackforce = () => {
                     <ProgressCircle
                         percentage={80}
                         strokeWidth={20}
-                        strokeColor={'#2B7FFF'}
+                        strokeColor={'#0BC5D1'}
                         label="Better Remote Work Efficiency"
                         hoverBackground="linear-gradient(180deg, #FFFFFF 0%, #E6F9FA 48.87%, #0BC5D1 100%)"
                         hoverBorder="2px solid #0BC5D1"
@@ -82,7 +60,7 @@ const WhyTrackforce = () => {
 
                 {/* yellow div */}
                 <motion.div
-                    className=" absolute -bottom-[1px] left-20  drop-shadow-2xl z-10"
+                    className=" absolute -bottom-[16px] left-16  drop-shadow-2xl z-10"
                     variants={imageVariants(-80, 70, 0)}   // left, up
                     initial="hidden"
                     whileInView="visible"
@@ -111,7 +89,7 @@ const WhyTrackforce = () => {
                     <ProgressCircle
                         percentage={60}
                         strokeWidth={20}
-                        strokeColor={'#FF2056'}
+                        strokeColor={'#FF8F6B'}
                         label="Increased Productivity"
                         hoverBackground="linear-gradient(180deg, #FFFFFF 0%, #FFF3F0 49.83%, #FF8F6B 100%)"
                         hoverBorder="1px solid #FF8F6B"
