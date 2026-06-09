@@ -1,19 +1,7 @@
 "use client";
-
-import { Feature, motion, Transition } from "framer-motion";
-
-
-const commonTransition: Transition = {
-    duration: 1.2,
-    ease: "easeInOut",
-    repeat: Infinity,
-    repeatType: "loop",
-    repeatDelay: 0.8
-};
-
 const AboutHero = () => {
     return (
-        <section className="relative overflow-hidden bg-[#0a0a1a] pt-32 pb-20">
+        <section className="relative overflow-hidden bg-[#0a0a1a] pt-32 pb-20 bg-[url('/ContactHeroBg.png')] bg-cover bg-center">
             {/* Background glow effects */}
             <div className="absolute inset-0">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-blue-600/20 rounded-full blur-[120px]" />

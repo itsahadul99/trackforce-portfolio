@@ -80,7 +80,7 @@ const Parallax = () => {
       {/* plx 2 */}
       <div className="h-[520px] sm:h-[600px] lg:h-[650px] sticky top-20 lg:top-30 z-20">
         <motion.div
-          style={{ y: card2Y, background: "linear-gradient(180deg, #D3E5FF 0%, #C0B2FB 100%)" }}
+          style={{ y: card2Y, background: "linear-gradient(180deg, #D3E5FF 0%, #C0B2FB 100%" }}
           
           initial="rest"
           whileHover="hover"
@@ -112,11 +112,10 @@ const Parallax = () => {
                 <Image src={plxLogo1} alt="logo" width={72} height={72} />
               </div>
 
-              <h3 className="text-xl font-semibold">Productivity</h3>
+              <h3 className="text-xl font-semibold">Accountability</h3>
 
               <p className="w-full max-w-xs sm:w-72 group-hover:text-left text-sm sm:text-base px-4 sm:px-0">
-                Measure real output through active work, application usage,
-                and task behavior — not idle time.
+            With detailed reporting and workforce analytics, TrackForce builds transparency, tracks progress, and enables data-driven decisions with full operational visibility.
               </p>
             </motion.div>
 
@@ -148,11 +147,10 @@ const Parallax = () => {
                 <Image src={plxLogo1} alt="logo" width={72} height={72} />
               </div>
 
-              <h3 className="text-xl font-semibold">Productivity</h3>
+              <h3 className="text-xl font-semibold">Security</h3>
 
               <p className="w-full max-w-xs sm:w-72 group-hover:text-left text-sm sm:text-base px-4 sm:px-0">
-                Measure real output through active work, application usage,
-                and task behavior — not idle time.
+             It safeguards sensitive data through proactive insider threat detection & activity monitoring.
               </p>
             </motion.div>
 
@@ -206,11 +204,10 @@ const Parallax = () => {
                 <Image src={plxLogo1} alt="logo" width={72} height={72} />
               </div>
 
-              <h3 className="text-xl font-semibold">Productivity</h3>
+              <h3 className="text-xl font-semibold">Efficiency</h3>
 
               <p className="w-full max-w-xs sm:w-72 group-hover:text-left text-sm sm:text-base px-4 sm:px-0">
-                Measure real output through active work, application usage,
-                and task behavior — not idle time.
+            TrackForce boosts operational efficiency by optimizing workflows, reducing manual overhead, and enabling teams to execute faster with precision.
               </p>
             </motion.div>
 
