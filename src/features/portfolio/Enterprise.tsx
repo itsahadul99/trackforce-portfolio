@@ -2,18 +2,18 @@
 
 
 import {
-  FaCamera,
-  FaKeyboard,
-  FaComments,
-  FaCalendarAlt,
+    FaCalendarAlt,
+    FaCamera,
+    FaComments,
+    FaKeyboard,
 } from "react-icons/fa";
 
 import {
-  MdScreenShare,
-  MdOutlineWeb,
-  MdOutlineApps,
-  MdInsertDriveFile,
-  MdSearch,
+    MdInsertDriveFile,
+    MdOutlineApps,
+    MdOutlineWeb,
+    MdScreenShare,
+    MdSearch,
 } from "react-icons/md";
 
 
@@ -21,13 +21,8 @@ import {
 import FeaturesList from '@/components/all/FeaturesList';
 import { motion, type Variants } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
 import { FaArrowRightLong } from 'react-icons/fa6';
-const emailing = '/emailing.png';
-const employeeList = '/employeeList.png';
-const sidebar = '/sidebar.png';
 const trackforce = '/trackforce.png';
-
 const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
     hidden: { opacity: 0, x, y, scale: 0.85 },
     visible: {
@@ -38,7 +33,6 @@ const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
         transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number], delay },
     },
 });
-
 const Enterprise = () => {
     const features = [
   { icon: <FaCamera />, text: "Smart Screenshot Capture" },
@@ -52,7 +46,7 @@ const Enterprise = () => {
   { icon: <FaCalendarAlt />, text: "Online Meeting Detection" },
 ];
     return (
-        <div className='bg-black py-24'>
+        <div className='bg-black py-20 bg-[url("/enterpriseBg.png")] bg-no-repeat bg-cover bg-center'>
             <div className="lg:w-[1200] xl:w-[1300] mx-auto text-white flex gap-3 items-center justify-between">
                 <div className='w-1/2 relative h-[520px]'>
                     {/* Main dashboard - center, fades in from slight scale */}

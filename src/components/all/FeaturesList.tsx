@@ -10,7 +10,7 @@ type FeaturesList = {
 
 const FeaturesList = ({ features, title }: FeaturesList) => {
   return (
-    <div className="bg-black text-white py-4">
+    <div className=" text-white py-4">
       <div className="max-w-6xl mx-auto">
 
         {/* Title */}

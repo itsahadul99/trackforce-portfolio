@@ -1,15 +1,12 @@
 'use client';
 
+import FeaturesListMore from '@/components/all/FeaturesListMore';
 import { motion, type Variants } from 'framer-motion';
 import Image from 'next/image';
-import { useState } from 'react';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import '../home/how_trackforce_works/howTrackforceworks.css';
-import FeaturesListMore from '@/components/all/FeaturesListMore';
-const portEmployees = '/employees.png'
 const portOverview = '/portOverview.png'
 const trackforce = '/trackforce.png';
-
 const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
     hidden: { opacity: 0, x, y, scale: 0.85 },
     visible: {
@@ -20,7 +17,6 @@ const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
         transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number], delay },
     },
 });
-
 const RealTime = () => {
        const features = [
         {
@@ -46,7 +42,7 @@ const RealTime = () => {
     ];
 
     return (
-        <div className='bg-[#DEEDFF] '>
+        <div className='bg-[#DEEDFF] bg-[url("/realTimeCommandCenter.png")] bg-no-repeat bg-cover bg-center'>
             <div className="  lg:w-[1200] xl:w-[1300] mx-auto  py-24 text-[#2B2B2B] flex items-center justify-between">
 
                 <div className="w-1/2">

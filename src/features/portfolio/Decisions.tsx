@@ -137,7 +137,7 @@ const Decisions = () => {
     };
 
     return (
-        <div className="bg-[#DEEDFF] py-24">
+        <div className="bg-[#DEEDFF] py-24 bg-[url('/decisionBg.png')] bg-no-repeat bg-cover bg-center">
             <div className="lg:w-[1200] xl:w-[1300] mx-auto px-4">
 
                 {/* Title */}

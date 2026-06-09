@@ -246,7 +246,7 @@ const Card = ({
 const Structure = () => {
     return (
         <section className="w-full py-12 px-4">
-            <div className="max-w-7xl mx-auto relative overflow-hidden bg-[#E9F3FF] rounded-[40px] border border-white/40 p-8 md:p-16 min-h-[600px] flex flex-col lg:flex-row items-center gap-12">
+            <div className="max-w-7xl bg-[url('/buildForBg.png')] mx-auto relative overflow-hidden bg-[#E9F3FF] rounded-[40px] border border-white/40 p-8 md:p-16 min-h-[600px] flex flex-col lg:flex-row items-center gap-12">
 
                 {/* Background */}
                 <div className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-blue-400/20 blur-[120px] rounded-full" />

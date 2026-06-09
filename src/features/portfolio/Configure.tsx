@@ -224,7 +224,7 @@ const Configure = () => {
     ];
 
     return (
-        <section className="w-full py-24 bg-[#DEEDFF]">
+        <section className="w-full py-24 bg-[#DEEDFF] bg-[url('/flexibleConBg.png')] bg-cover bg-center">
             <div className="lg:w-[1200] xl:w-[1300] mx-auto">
                 <div className="flex flex-col md:flex-row gap-8 w-full px-4">
 

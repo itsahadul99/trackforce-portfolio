@@ -208,9 +208,8 @@ const trackforce = '/trackforce.png'
 
 const ImpactBusiness = () => {
     return (
-        <section className="bg-black py-20 px-4">
+        <section className="py-20 px-4 bg-[url('/bussinessImpactBg.png')] bg-cover bg-center">
             <div className="lg:w-[1200] xl:w-[1300]  mx-auto">
-
                 {/* Header Section */}
                 <div className="text-center mb-16">
                     <div className="section_title_border w-fit mx-auto text-black rounded-full mb-6">

@@ -31,7 +31,7 @@ const features = [
 ];
     return (
 
-        <div className='bg-black py-24'>
+        <div className=" py-24 bg-[url('/deivceInteBg.png')] bg-no-repeat bg-cover bg-center">
             <div className="lg:w-[1200] xl:w-[1300] mx-auto text-white flex gap-3 items-center justify-between">
                 <div className="w-1/2">
                     <h2 className="text-[42px] font-semibold text- leading-tight mb-6">

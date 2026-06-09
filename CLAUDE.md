@@ -86,3 +86,6 @@ Create FeaturedBlog component (image left, Software badge, title with italic "Hy
 
 ## Query-29
 Use free-trailer.mp4 video from public as bg in HomeFreeTailer.tsx (autoPlay, loop, muted, object-cover with dark overlay, content lifted to z-10).
+
+## Query-30
+Add Rubik font to src/app/layout.tsx (imported from next/font/google, exposed as --font-rubik CSS variable on body).
