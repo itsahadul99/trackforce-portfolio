@@ -450,8 +450,8 @@
   position: absolute;
   inset: -150%;
   background: conic-gradient(from 0deg,
-      transparent 0%,
-      rgba(22, 109, 225, 0.12),
+    transparent 0%,
+      #9F60EE 100%,
       transparent 40%);
   animation: rotate 3s linear infinite;
   z-index: -2;
@@ -461,7 +461,7 @@
   content: '';
   position: absolute;
   inset: 5px;
-  background: rgba(22, 109, 225, 0.12);
+  background: rgba(1, 4, 8, 0.12);
   border-radius: 100px;
   z-index: -1;
 }
@@ -554,8 +554,15 @@
 .content_title_border_new::after {
   content: '';
   position: absolute;
-  inset: 5px;
-  background: #DEEDFF;
+  inset: 3px;
+  background: #d0e3ff;
   border-radius: 100px;
   z-index: -1;
+}
+
+.context_title_text_dark {
+  background: var(--Linear, linear-gradient(90deg, #1B73E8 0%, #9F60EE 100%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

@@ -19,10 +19,10 @@ const WhyTrackforce = () => {
 
 
     return (
-        <div className="flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-2 max-w-[1300] mx-auto mt-16 sm:mt-24 lg:mt-32 px-4 sm:px-6 xl:px-0">
+        <div className="flex overflow-hidden pb-20 flex-col lg:flex-row lg:justify-between gap-8 lg:gap-2 max-w-[1300] mx-auto mt-16 sm:mt-24 lg:mt-32 px-4 sm:px-6 xl:px-0">
             <div className="w-full lg:w-1/2 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
-                <div className="content_title_border w-fit text-[#0C59C0] rounded-full mb-1">
-                    <div className="px-4 py-2 text-sm font-semibold">
+                <div className="content_title_border_new w-fit mb-1">
+                    <div className="px-4 py-2 text-sm font-semibold content_title_text_new">
                         Why Trackforce
 
                     </div>
@@ -36,7 +36,7 @@ const WhyTrackforce = () => {
                 <BookDemoBtn />
             </div>
 
-            <div className='w-full lg:w-1/2 relative h-[420px] sm:h-[480px] lg:h-[520px] flex justify-center lg:justify-end items-center scale-75 sm:scale-90 lg:scale-100 origin-center lg:origin-right'>
+            <div className=' w-full lg:w-1/2 relative h-[420px] sm:h-[480px] lg:h-[520px] flex justify-center lg:justify-end items-center scale-75 sm:scale-90 lg:scale-100 origin-center lg:origin-right'>
                 <div className="absolute right-24 bg-[#FFFFFF59] rounded-[43px] min-h-[397px] max-h-[400px] w-full max-w-[420px] mx-auto"></div>
                 {/* blue div */}
                 <motion.div
@@ -103,8 +103,7 @@ const WhyTrackforce = () => {
     );
 };
 
-export default WhyTrackforce
-    ;
+export default WhyTrackforce;
 
 
 

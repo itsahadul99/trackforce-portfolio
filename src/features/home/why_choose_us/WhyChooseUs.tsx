@@ -69,8 +69,8 @@ const WhyChooseUs = () => {
         <div className="flex flex-col lg:flex-row gap-8 w-full px-4 sm:px-6 lg:px-4">
           {/* Right: Heading & Description — moved up on mobile via order */}
           <div className="w-full lg:w-2/5 flex flex-col justify-center items-center lg:items-start text-center lg:text-left px-2 md:px-8 order-1 lg:order-2">
-            <div className="content_title_border w-fit text-[#0C59C0] rounded-full mb-1">
-              <div className="px-4 py-2 text-sm font-semibold">
+            <div className="section_title_border w-fit mx-auto text-black rounded-full mb-6">
+              <div className="how_trackforce_works px-4 py-2 text-sm font-semibold">
                 Why Choose Us
               </div>
             </div>

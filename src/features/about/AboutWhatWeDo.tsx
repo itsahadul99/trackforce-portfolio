@@ -8,8 +8,8 @@ const AboutWhatWeDo = () => {
         {/* Header */}
         <div className="text-center">
           <div className="flex justify-center mb-4">
-            <div className="content_title_border w-fit text-[#0C59C0] rounded-full">
-              <div className="px-4 py-2 text-sm font-semibold">What We Do</div>
+            <div className="content_title_border_new w-fit">
+              <div className="px-4 py-2 text-sm font-semibold content_title_text_new">What We Do</div>
             </div>
           </div>
           <h2 className="text-[42px] font-semibold text-black">

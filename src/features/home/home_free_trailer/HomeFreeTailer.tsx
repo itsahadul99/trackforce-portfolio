@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import trackforce from '../../../../public/trackforce.png';
 import dashboard from '../../../../public/dashboard.png';
+import Link from 'next/link';
 
 const HomeFreeTailer = () => {
     return (
@@ -31,28 +32,34 @@ const HomeFreeTailer = () => {
 
 
                 <div className="mt-8 lg:mt-12 flex flex-wrap justify-center lg:justify-start gap-4 lg:gap-5">
-                    <button className="group custom-button relative w-fit bg-white text-black font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
-                        <span className='group-hover:italic '>Start Free Trial</span> <FaArrowRightLong className='group-hover:-rotate-[30deg] transition ease-in-out' />
-                        <motion.div
-                            className="ml-2 absolute right-0"
-                            animate={{
-                                x: [0, -190, 0],
-                                opacity: [0, 1, 0, 0, 1, 0],
-                            }}
-                            transition={{
-                                duration: 7,
-                                repeat: Infinity,
-                                repeatType: 'loop',
-                            }}
-                        >
-                            <Image
-                                src={trackforce}
-                                alt="TrackForce Logo"
-                                className="w-8 h-8 group-hover:hidden"
-                            />
-                        </motion.div>
-                    </button>
-                    <button className='py-3 px-6 rounded-[16px] border'>Book a Demo</button>
+                    <a
+                        href="https://app.trackforce.io/3/Professional/signup?trial=true"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <button className="group custom-button cursor-pointer relative w-fit bg-white text-black font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
+                            <span className='group-hover:italic '>Start Free Trial</span> <FaArrowRightLong className='group-hover:-rotate-[30deg] transition ease-in-out' />
+                            <motion.div
+                                className="ml-2 absolute right-0"
+                                animate={{
+                                    x: [0, -190, 0],
+                                    opacity: [0, 1, 0, 0, 1, 0],
+                                }}
+                                transition={{
+                                    duration: 7,
+                                    repeat: Infinity,
+                                    repeatType: 'loop',
+                                }}
+                            >
+                                <Image
+                                    src={trackforce}
+                                    alt="TrackForce Logo"
+                                    className="w-8 h-8 group-hover:hidden"
+                                />
+                            </motion.div>
+                        </button>
+                    </a>
+                    <Link href="/contact" className='py-3 px-6 rounded-[16px] border cursor-pointer'>Book a Demo</Link>
                 </div>
             </div>
             <div className="hidden lg:block w-1/2 relative z-10 h-[450px] overflow-hidden">

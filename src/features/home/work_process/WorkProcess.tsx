@@ -9,6 +9,7 @@ import { useState } from "react";
 import { FaArrowRightLong } from 'react-icons/fa6';
 import employeeListForCard from "../../../../public/employeeListForCard.png";
 import trackforce from '../../../../public/trackforce.png';
+import Link from 'next/link';
 
 const steps = [
   { id: 1, title: "Connect Your Team", desc: "TrackForce enables peak efficiency through real-time tracking and smart performance insights." },
@@ -25,8 +26,8 @@ export default function WorkProcess() {
 
         {/* Left Content */}
         <div className="w-full lg:w-[40%] space-y-6 text-center lg:text-left">
-          <div className="content_title_border w-fit mx-auto lg:mx-0 text-[#0C59C0] rounded-full mb-6">
-            <div className="px-4 py-2 text-sm font-semibold">
+          <div className="content_title_border_new w-fit mx-auto lg:mx-0 mb-6">
+            <div className="px-4 py-2 text-sm font-semibold content_title_text_new">
               Our Work Process
             </div>
           </div>
@@ -41,7 +42,7 @@ export default function WorkProcess() {
 
           <div className="flex items-center justify-center lg:justify-start gap-4 pt-2 flex-wrap">
             <div>
-              <button className="group custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
+              <Link href="/contact" className="group custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
                 <span className='group-hover:italic '>Book a Demo</span> <FaArrowRightLong className='group-hover:-rotate-[30deg] transition ease-in-out' />
                 <motion.div
                   className="ml-2 absolute right-0"
@@ -61,7 +62,7 @@ export default function WorkProcess() {
                     className="w-8 h-8 group-hover:hidden"
                   />
                 </motion.div>
-              </button>
+              </Link>
             </div>
             <button className="px-6 py-3 border border-[#2B2B2B] text-[#2B2B2B] rounded-[16px] font-medium text-base hover:bg-gray-100">
               Learn more

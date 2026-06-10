@@ -22,8 +22,8 @@ const CaseStudyHero = () => {
         {/* Left Content */}
         <div className="w-full lg:w-1/2 h-full  flex flex-col items-start justify-center gap-6">
           {/* Case Study Badge */}
-          <div className="content_title_border w-fit text-[#0C59C0] rounded-full mb-1">
-            <div className="px-4 py-2 text-sm font-semibold">
+          <div className="content_title_border_new w-fit  mb-1">
+            <div className="px-4 py-2 text-sm font-semibold content_title_text_new">
               Case Study
             </div>
           </div>

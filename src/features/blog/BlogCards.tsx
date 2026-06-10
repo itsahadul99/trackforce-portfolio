@@ -121,8 +121,8 @@ const BlogCards = () => {
                     >
                         <div className='flex'>
                             <div className="flex justify-center ">
-                                <div className="content_title_border w-fit text-[#0C59C0] rounded-full">
-                                    <div className="px-4 py-2 text-sm font-semibold">Software</div>
+                                <div className="content_title_border_new w-fit">
+                                    <div className="px-4 py-2 text-sm font-semibold content_title_text_new">Software</div>
                                 </div>
                             </div>
                         </div>

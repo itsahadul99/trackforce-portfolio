@@ -97,8 +97,8 @@ const Testimonials = () => {
 
           {/* LEFT TEXT */}
           <div className="w-full lg:w-[35%] flex flex-col justify-center text-center lg:text-left items-center lg:items-start">
-            <div className="content_title_border w-fit text-[#0C59C0] rounded-full mb-1">
-              <div className="px-4 py-2 text-sm font-semibold">
+                <div className="content_title_border_new w-fit mb-1">
+                  <div className="px-4 py-2 text-sm font-semibold content_title_text_new">
                 Testimonials
               </div>
             </div>

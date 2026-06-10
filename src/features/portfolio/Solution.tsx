@@ -56,8 +56,8 @@ const Solution = () => {
             {/* Header */}
             <div className="w-full flex flex-col justify-center items-start text-center">
                 <div className="w-full flex justify-center">
-                    <div className="content_title_border w-fit text-[#0C59C0] rounded-full mb-1">
-                        <div className="px-4 py-2 text-sm font-semibold">
+                    <div className="content_title_border_new w-fit  mb-1">
+                        <div className="px-4 py-2 text-sm font-semibold content_title_text_new">
                             All in One Solution
                         </div>
                     </div>

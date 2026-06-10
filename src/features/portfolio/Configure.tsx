@@ -268,8 +268,8 @@ const Configure = () => {
                         viewport={{ once: false, margin: "-100px" }}
                         className="w-full lg:w-2/5 flex flex-col justify-center items-start px-2 md:px-8"
                     >
-                        <div className="content_title_border w-fit text-[#0C59C0] rounded-full mb-1">
-                            <div className="px-4 py-2 text-sm font-semibold">
+                        <div className="content_title_border_new w-fit  mb-1">
+                            <div className="px-4 py-2 text-sm font-semibold content_title_text_new">
                                 Why Choose Us
                             </div>
                         </div>
