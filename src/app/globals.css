@@ -566,3 +566,36 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.demo-wrapper {
+  overflow: hidden;
+}
+
+.book-demo {
+  width: 170px;
+  transition: all 0.5s ease;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.book-demo-text {
+  transition: all 0.3s ease;
+}
+
+.demo-wrapper:hover .book-demo {
+  width: 62px;
+}
+
+.demo-wrapper:hover .book-demo-text {
+  opacity: 0;
+  width: 0;
+  margin: 0;
+}
+
+.demo-wrapper input {
+  transition: all 0.5s ease;
+}

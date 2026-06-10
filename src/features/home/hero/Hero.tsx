@@ -77,10 +77,19 @@ const Hero = () => {
                     </div>
                     {/* book a demo */}
                     <div className="relative mt-8 w-full max-w-[480px] mx-auto lg:mx-0 lg:w-fit">
-                        <div className="flex border rounded-4xl border-[#1B73E8]">
-                            <input type="text" name="demo" id="demo" placeholder="Book a demo"
-                                className="pl-4 h-[62px] bg-[#FFFFFF12] rounded-s-[16px] text-[#626262] flex-1 min-w-0 lg:w-[312px] lg:flex-none outline-none border-none text-sm sm:text-lg" />
-                            <button className="text-white book-demo bg-white shrink-0 cursor-pointer text-sm sm:text-base">Book Demo <FiArrowRight className="text-xl -ml-1" /> </button>
+                        <div className="demo-wrapper flex border rounded-[20px] border-[#1B73E8] overflow-hidden">
+                            <input
+                                type="text"
+                                name="demo"
+                                id="demo"
+                                placeholder="Book a demo"
+                                className="demo-input pl-4 h-[62px] bg-[#FFFFFF12] text-[#626262] flex-1 min-w-0 outline-none border-none text-sm sm:text-lg"
+                            />
+
+                            <button className="book-demo bg-white shrink-0 cursor-pointer text-white font-medium text-lg">
+                                <span className="book-demo-text">Book Demo</span>
+                                <FiArrowRight className="text-xl" />
+                            </button>
                         </div>
 
                         <div className="hidden sm:flex flex-wrap justify-center lg:justify-between gap-x-3 gap-y-1 text-[#ABABAB] mt-3 px-1 text-sm sm:text-base">
