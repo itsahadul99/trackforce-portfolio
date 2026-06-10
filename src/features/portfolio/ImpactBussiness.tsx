@@ -7,7 +7,7 @@
 // const ImpactBussiness = () => {
 //     return (
 //         <section className=" bg-gray-700 py-20">
-//             <div className="lg:w-[1200] xl:w-[1300] mx-auto">
+//             <div className="max-w-[1300] mx-auto">
 //                 <div className="container mx-auto text-center relative z-10">
 //                     <div className="section_title_border w-fit mx-auto text-black rounded-full mb-6">
 //                         <div className="how_trackforce_works px-4 py-2 text-sm font-semibold">
@@ -209,7 +209,7 @@ const trackforce = '/trackforce.png'
 const ImpactBusiness = () => {
     return (
         <section className="py-20 px-4 bg-[url('/bussinessImpactBg.png')] bg-cover bg-center">
-            <div className="lg:w-[1200] xl:w-[1300]  mx-auto">
+            <div className="max-w-[1300]  mx-auto">
                 {/* Header Section */}
                 <div className="text-center mb-16">
                     <div className="section_title_border w-fit mx-auto text-black rounded-full mb-6">

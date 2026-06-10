@@ -17,7 +17,7 @@
 // const ProductivityInsights = () => {
 //     return (
 //         <div className="bg-[#000000]">
-//             <div className="flex justify-between gap-4 lg:w-[1200] xl:w-[1300] mx-auto py-4">
+//             <div className="flex justify-between gap-4 max-w-[1300] mx-auto py-4">
 //                 {/* left div */}
 //                 <div className="relative">
 //                     <div className="w-[640] border sticky top-0 h-screen  mt-60 z-10 text-left flex flex-col items-start text-white">
@@ -64,7 +64,7 @@ import PortfolioParallax from "./PortfolioParallax";
 const ProductivityInsights = () => {
     return (
         <div className="bg-[#000000] w-full bg-[url('/portfolioBg.png')] bg-cover bg-center">
-            <div className="flex flex-col lg:flex-row justify-between gap-4 lg:w-[1200] xl:w-[1300] mx-auto pt-44 pb-20 ">
+            <div className="flex flex-col lg:flex-row justify-between gap-4 max-w-[1300] mx-auto pt-44 pb-20 ">
                 {/* Left Side - Sticky & Centered */}
                 <div className="lg:w-[40%] relative">
                     <div className="sticky top-36 flex flex-col justify-start text-left text-white">

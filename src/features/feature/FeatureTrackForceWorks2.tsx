@@ -7,8 +7,8 @@ import FeatureProd2 from './FeatureProd2';
 
 const FeatureTrackForceWorks2 = () => {
     return (
-        // <section className="lg:w-[1200] xl:w-[1300] mx-auto  px-[93px] py-[96px] mt-32 bg-cover bg-center bg-no-repeat bg-[url('/worksBg.png')]">
-        <section className="lg:w-[1200] xl:w-[1300] mx-auto  px-[93px] py-[96px] mt-24 rounded-2xl  bg-cover bg-center bg-no-repeat bg-[url('/feature2.png')]">
+        // <section className="max-w-[1300] mx-auto  px-[93px] py-[96px] mt-32 bg-cover bg-center bg-no-repeat bg-[url('/worksBg.png')]">
+        <section className="max-w-[1300] mx-auto  px-[93px] py-[96px] mt-24 rounded-2xl  bg-cover bg-center bg-no-repeat bg-[url('/feature2.png')]">
 
             <FeatureProd2 />
             <FeatureWork2 />

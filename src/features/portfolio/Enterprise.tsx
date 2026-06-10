@@ -46,8 +46,8 @@ const Enterprise = () => {
   { icon: <FaCalendarAlt />, text: "Online Meeting Detection" },
 ];
     return (
-        <div className='bg-black py-20 bg-[url("/enterpriseBg.png")] bg-no-repeat bg-cover bg-center'>
-            <div className="lg:w-[1200] xl:w-[1300] mx-auto text-white flex gap-3 items-center justify-between">
+        <div className='bg-black py-20 bg-[url("/enterpriseBg.png")] overflow-hidden bg-no-repeat bg-cover bg-center'>
+            <div className="max-w-[1300] mx-auto text-white flex gap-3 items-center justify-between">
                 <div className='w-1/2 relative h-[520px]'>
                     {/* Main dashboard - center, fades in from slight scale */}
                     <motion.div
@@ -111,8 +111,6 @@ const Enterprise = () => {
                         </button>
                     </div>
                 </div>
-
-
             </div>
         </div>
     );

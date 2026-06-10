@@ -28,7 +28,7 @@ const PortfolioHero = () => {
                 <div className="absolute top-20 left-1/4 w-[300px] h-[300px] bg-purple-600/15 rounded-full blur-[100px]" />
                 <div className="absolute top-10 right-1/4 w-[250px] h-[250px] bg-indigo-500/15 rounded-full blur-[100px]" />
             </div >
-            <div className="relative z-10 text-center text-white lg:w-[1200] xl:w-[1300] mx-auto">
+            <div className="relative z-10 text-center text-white max-w-[1300] mx-auto">
                 {/* Top Badge */}
                 <div className="mb-4 inline-flex items-center gap-4 px-16 py-3 rounded-full bg-white/30 backdrop-blur-md border border-white/20 text-sm font-semibold text-gray-200 tracking-wide">
                     <span>Monitor smarter</span>

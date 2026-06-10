@@ -66,7 +66,7 @@
 //     return (
 //         <div
 //             ref={containerRef}
-//             className="relative h-fit lg:w-[1200] xl:w-[1300] mx-auto mt-28 text-black"
+//             className="relative h-fit max-w-[1300] mx-auto mt-28 text-black"
 //         >
 //             {cards.map((card, index) => (
 //                 <div
@@ -160,7 +160,7 @@
 //   return (
 //     <div
 //       ref={containerRef}
-//       className="relative h-fit lg:w-[1200] xl:w-[1300] mx-auto mt-28 text-black"
+//       className="relative h-fit max-w-[1300] mx-auto mt-28 text-black"
 //     >
 //       {cards.map((card, index) => (
 //         <div key={index} className="h-[650px] sticky top-28">

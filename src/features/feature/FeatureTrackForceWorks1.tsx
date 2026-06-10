@@ -6,8 +6,8 @@ import FeatureWork1 from './FeatureWork1';
 
 const FeatureTrackForceWorks1 = () => {
     return (
-        // <section className="lg:w-[1200] xl:w-[1300] mx-auto  px-[93px] py-[96px] mt-32 bg-cover bg-center bg-no-repeat bg-[url('/worksBg.png')]">
-        <section className="lg:w-[1200] xl:w-[1300] mx-auto  px-[93px] py-[96px] mt-24 rounded-2xl bg-cover bg-center bg-no-repeat bg-[url('/trackforce_work_bg.png')]">
+        // <section className="max-w-[1300] mx-auto  px-[93px] py-[96px] mt-32 bg-cover bg-center bg-no-repeat bg-[url('/worksBg.png')]">
+        <section className="max-w-[1300] mx-auto  px-[93px] py-[96px] mt-24 rounded-2xl bg-cover bg-center bg-no-repeat bg-[url('/trackforce_work_bg.png')]">
 
             <FeatureProd1 />
             <FeatureWork1 />

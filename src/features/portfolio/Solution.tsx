@@ -51,7 +51,7 @@ const Solution = () => {
     ];
 
     return (
-        <div className="lg:w-[1200] xl:w-[1300] mx-auto bg-[#D6E8FF] rounded-2xl my-24 py-24 px-16 bg-[url('/contactbg.png')] bg-no-repeat bg-cover">
+        <div className="max-w-[1300] mx-auto bg-[#D6E8FF] rounded-2xl my-24 py-24 px-16 bg-[url('/contactbg.png')] bg-no-repeat bg-cover">
 
             {/* Header */}
             <div className="w-full flex flex-col justify-center items-start text-center">

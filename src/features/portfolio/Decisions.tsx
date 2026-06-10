@@ -3,7 +3,7 @@
 // const Decisions = () => {
 //     return (
 //         <div className='bg-[#DEEDFF] py-24'>
-//             <div className='lg:w-[1200] xl:w-[1300] mx-auto'>
+//             <div className='max-w-[1300] mx-auto'>
 //                 <div className='flex justify-center'>
 //                     <div className="relative inline-block mt-[2]">
 //                         <h2 className="text-[42px] font-semibold leading-tight">
@@ -137,8 +137,8 @@ const Decisions = () => {
     };
 
     return (
-        <div className="bg-[#DEEDFF] py-24 bg-[url('/decisionBg.png')] bg-no-repeat bg-cover bg-center">
-            <div className="lg:w-[1200] xl:w-[1300] mx-auto px-4">
+        <div className="bg-[#DEEDFF] py-24 bg-[url('/decisionBg.png')] overflow-hidden bg-no-repeat bg-cover bg-center">
+            <div className="max-w-[1300] mx-auto px-4">
 
                 {/* Title */}
                 <div className="flex justify-center">
