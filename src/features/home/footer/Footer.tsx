@@ -180,7 +180,7 @@ import trackforce_logo from "../../../../public/trackforce_logo.png";
 export default function Footer() {
   return (
     <footer className="group/footer relative bg-[#020617] text-gray-300 pt-20 sm:pt-24 lg:pt-28 pb-10 overflow-hidden transition-colors duration-1000">
-      <div>
+      <div className="hidden md:block">
         <Image src={footerActiveBg} alt="Footer Background" className="absolute inset-0 w-full ease-in-out h-full opacity-0 duration-1000 object-fill group-hover/footer:opacity-100 pointer-events-none z-20" />
       </div>
       {/* Footer Content Area */}

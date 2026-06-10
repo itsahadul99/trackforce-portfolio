@@ -1,10 +1,26 @@
-
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
 
 const HomePricing = () => {
+  /* 1. Track whether the user is on a mobile/tablet screen */
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      // 1024px matches Tailwind's 'lg' breakpoint
+      setIsMobile(window.innerWidth < 1024);
+    };
+
+    // Run on initial mount
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const plans = [
     {
       name: "Essential",
@@ -79,8 +95,9 @@ const HomePricing = () => {
   );
 
   return (
-    <section className="pt-12 sm:pt-36 pb-16 sm:pb-24 bg-cover bg-center bg-no-repeat bg-[url('/home-price-bg.png')]">
-      <div className="max-w-[1300] mx-auto px-4 sm:px-6 xl:px-0">
+    <section className="pt-32 sm:pt-36 pb-16 sm:pb-24 bg-cover bg-center bg-no-repeat bg-[url('/home-price-bg.png')] overflow-hidden">
+      {/* Fixed: Added 'px' to max-w-[1300px] */}
+      <div className="max-w-[1300px] mx-auto px-4 sm:px-6 xl:px-0">
         <div className="container mx-auto text-center relative z-10">
           <div className="section_title_border w-fit mx-auto text-black rounded-full mb-6">
             <div className="how_trackforce_works px-4 py-2 text-sm font-semibold">
@@ -88,7 +105,7 @@ const HomePricing = () => {
             </div>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold mb-6 text-white leading-tight">
-            <span className="font-playball font-normal">Price plans </span>  that click
+            <span className="font-playball font-normal">Price plans </span> that click
           </h1>
           <p className="text-sm sm:text-base lg:text-lg max-w-3xl mx-auto text-white">
             Every TrackForce plan includes the core monitoring, productivity, and security features your team needs — no hidden add-ons, no feature lock-ins.
@@ -97,18 +114,17 @@ const HomePricing = () => {
         <div className="flex flex-col lg:flex-row justify-center items-center gap-6 lg:gap-8 mt-12 lg:mt-16 flex-wrap">
 
           {plans.map((plan, idx) => {
-
             const isProfessional = plan.highlight;
             const isLeft = idx === 0;
-            const isRight = idx === 2;
-
             let initial: Record<string, number> = {};
             let animate: Record<string, number | number[]> = {};
             let transition: Record<string, unknown> = { duration: 0 };
 
-            if (isProfessional) {
+            /* 2. Check if it's professional plan OR if we are on mobile to skip keyframes */
+            if (isProfessional || isMobile) {
               initial = { opacity: 1, scale: 1, x: 0 };
               animate = { opacity: 1, scale: 1, x: 0 };
+              transition = { duration: 0 };
             } else {
               const dir = isLeft ? 1 : -1;
               initial = { opacity: 0, x: 280 * dir, scale: 0.85 };
@@ -145,9 +161,9 @@ const HomePricing = () => {
                 }
               >
                 {isProfessional && (
-                  <div
-                    className="title_wrapper absolute -top-6 left-1/2 -translate-x-1/2 w-[200] h-14 flex justify-center items-center text-lg font-medium text-center text-white overflow-hidden" >
-                    <div className="absolute top-0 -left-full w-[100] h-full bg-linear-to-r from-transparent via-white/60 to-white/80  skew-x-[-25deg] animate-shine-reverse pointer-events-none"></div>
+                  /* Fixed: Added 'px' to w-[200px] and w-[100px] variables */
+                  <div className="title_wrapper absolute -top-6 left-1/2 -translate-x-1/2 w-[200px] h-14 flex justify-center items-center text-lg font-medium text-center text-white overflow-hidden" >
+                    <div className="absolute top-0 -left-full w-[100px] h-full bg-linear-to-r from-transparent via-white/60 to-white/80 skew-x-[-25deg] animate-shine-reverse pointer-events-none"></div>
                     Most popular
                   </div>
                 )}
@@ -207,4 +223,3 @@ const HomePricing = () => {
 };
 
 export default HomePricing;
-

@@ -70,8 +70,8 @@ const FeatureProd1 =({title, subTitle, height = '400px', features, txtColor='tex
     //     },
     // ];
     return (
-        <div className="mt-28 text-white flex gap-3 items-center justify-between">
-            <div className="w-1/2">
+        <div className="mt-28 text-white flex flex-col lg:flex-row gap-3 items-center justify-between">
+            <div className="w-full lg:w-1/2">
                 <h2 className="text-4xl font-bold mb-8">
                    {title}
                 </h2>
@@ -108,7 +108,7 @@ const FeatureProd1 =({title, subTitle, height = '400px', features, txtColor='tex
                 </div>
             </div>
 
-            <div className='w-1/2 relative h-[520px]'>
+            <div className='w-full lg:w-1/2 relative h-[520px]'>
                 {/* Main dashboard - center, fades in from slight scale */}
                 <motion.div
                     className="object-cover absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[75%] drop-shadow-2xl z-10"

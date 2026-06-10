@@ -143,8 +143,7 @@ const Feature = () => {
     <div>
       <FeatureHero />
       <Optimization />
-      {/* FeatureTrackForceWorks1 */}
-      <section className="max-w-[1300] mx-auto  px-[93px] py-[96px] mt-24 rounded-2xl bg-cover bg-center bg-no-repeat bg-[url('/trackforce_work_bg.png')]">
+      <section className="max-w-[1300] mx-auto px-4 md:px-6 lg:px-[93px] py-4 md:py-8 lg:py-[96px] mt-6 md:mt-10 mt-24 rounded-2xl bg-cover bg-center bg-no-repeat bg-[url('/trackforce_work_bg.png')] overflow-hidden">
         <FeatureProd1
           title=' Real-Time Dashboard for Complete Visibility'
           subTitle='Access productivity, activity data, and performance analytics in one intuitive employee monitoring software dashboard.'
@@ -157,9 +156,7 @@ const Feature = () => {
       </section>
 
       <FeatureTrackForceWorks2 />
-
-      {/* FeatureTrackForceWorks3 */}
-      <section className="max-w-[1300] mx-auto  px-[93px] py-[96px] mt-24 rounded-2xl bg-cover bg-center bg-no-repeat bg-[url('/trackforce_work_bg.png')]">
+      <section className="max-w-[1300] mx-auto  px-4 md:px-6 lg:px-[93px] py-4 md:py-8 lg:py-[96px] mt-6 md:mt-10 lg:mt-24 rounded-2xl bg-cover bg-center bg-no-repeat bg-[url('/trackforce_work_bg.png')] overflow-hidden">
         <FeatureProd1
           title='Time Tracking and Productivity Insights'
           subTitle='Track active and idle time, measure project costs, and analyze performance trends to optimize workforce efficiency using TrackForce’s advanced time tracking software.'
