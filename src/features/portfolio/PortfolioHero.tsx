@@ -30,79 +30,29 @@ const PortfolioHero = () => {
             </div >
             <div className="relative z-10 text-center text-white max-w-[1300] mx-auto">
                 {/* Top Badge */}
-                <div className="mb-4 inline-flex items-center gap-4 px-16 py-3 rounded-full bg-white/30 backdrop-blur-md border border-white/20 text-sm font-semibold text-gray-200 tracking-wide">
+                <div className="mb-4 inline-flex items-center md:gap-4 *:text-nowrap px-4 md:px-16 py-3 rounded-full bg-white/30 backdrop-blur-md border border-white/20 text-xs gap-2 md:text-sm font-semibold text-gray-200 tracking-wide">
                     <span>Monitor smarter</span>
                     <span className="w-2 h-2 bg-gray-100 rounded-full"></span>
                     <span>Improve faster</span>
                     <span className="w-2 h-2 bg-gray-100 rounded-full"></span>
                     <span>Lead with data</span>
                 </div>
-                <h1 className="text-[42px] font-semibold leading-tight">
+                <h1 className="text-4xl lg:text-[42px] font-semibold leading-tight">
                     Workforce Intelligence for High-
                 </h1>
 
                 <div className="relative inline-block mt-[2]">
-                    <h2 className="text-[42px] font-semibold leading-tight">
+                    <h2 className="text-4xl lg:text-[42px] font-semibold leading-tight">
                         Performance {" "}
                         <span className="font-playball font-normal">Teams</span>
                     </h2>
-                    {/* spark animation */}
-                    {/* <div className="absolute -right-13 -top-2 rotate-120" >
-                        <motion.svg
-                            width="37"
-                            height="37"
-                            viewBox="0 0 37 37"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <motion.path
-                                d="M22.3966 31.5582C22.3966 31.5582 16.7601 32.0442 11.4624 34.0293"
-                                fill="none"
-                                stroke="white"
-                                strokeOpacity="0.64"
-                                strokeWidth="4"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                initial={{ pathLength: 0 }}
-                                animate={{ pathLength: 1 }}
-                                transition={commonTransition}
-                            />
-
-                            <motion.path
-                                d="M24.4997 23.2532C17.4498 17.8954 8.26279 15.3839 2.49653 13.8603"
-                                fill="none"
-                                stroke="white"
-                                strokeOpacity="0.64"
-                                strokeWidth="4"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                initial={{ pathLength: 0 }}
-                                animate={{ pathLength: 1 }}
-                                transition={commonTransition}
-                            />
-
-                            <motion.path
-                                d="M33.6205 19.1061C33.035 14.4653 22.104 2.80171 22.104 2.80171"
-                                fill="none"
-                                stroke="white"
-                                strokeOpacity="0.64"
-                                strokeWidth="4"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                initial={{ pathLength: 0 }}
-                                animate={{ pathLength: 1 }}
-                                transition={commonTransition}
-                            />
-                        </motion.svg>
-
-
-                    </div> */}
                 </div>
                 <p className="text-gray-300 text-base mt-6 max-w-2xl mx-auto leading-relaxed">
                     An enterprise-grade employee monitoring & productivity intelligence platform developed by Akij iBOS Limited.
                 </p>
 
                 <div className="w-full flex justify-center">
-                    <div className="relative flex w-fit gap-6 justify-center items-center mt-10">
+                    <div className="relative flex flex-col md:flex-row w-fit gap-6 justify-center items-center mt-10">
                         {/* Gradient Button */}
                         <button className="group w-76 flex justify-center items-center gap-2 px-8 py-4 rounded-2xl text-white font-semibold text-lg 
         bg-gradient-to-r from-blue-600 via-blue-500 to-purple-600 
