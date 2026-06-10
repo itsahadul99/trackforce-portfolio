@@ -5,6 +5,7 @@ import CaseStudyHero from './CaseStudyHero'
 import CaseStudyKeyFeatures from './CaseStudyKeyFeatures'
 import CaseStudyParallax from './CaseStudyParallax'
 import CaseStudyResults from './CaseStudyResults'
+import CaseStudyWhyStandsOut from './CaseStudyWhyStandsOut'
 
 const CaseStudy = () => {
     return (
@@ -15,6 +16,7 @@ const CaseStudy = () => {
             <CaseStudyParallax />
             <CaseStudyDeployment />
             <CaseStudyResults />
+            <CaseStudyWhyStandsOut />
             <div className='my-28'>
                 <HomeFreeTailer />
             </div>

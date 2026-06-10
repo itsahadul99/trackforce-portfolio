@@ -294,7 +294,6 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import CaseStudyWhyStandsOut from "./CaseStudyWhyStandsOut";
 
 const CURVE_DEPTH = 80; // কার্ভটি কতটা গভীর হবে
 
@@ -319,7 +318,6 @@ const CaseStudyResults = () => {
     rowRefs.forEach((ref) => {
       if (ref.current) {
         const rect = ref.current.getBoundingClientRect();
-        // ডট এর সেন্টার Y পজিশন (ডট এর সাইজ ৫৬ পিক্সেল বা w-14)
         ys.push(rect.top + 28 - containerRect.top);
       }
     });
@@ -394,7 +392,7 @@ const CaseStudyResults = () => {
   ];
 
   return (
-    <div className="py-16 md:py-24 bg-[#e8eefb] relative overflow-hidden">
+    <div className="py-16 md:py-24 bg-[#e8eefb] relative overflow-hidden bg-[url('/mesurableBg.png')] bg-cover bg-center bg-no-repeat">
       <div className="w-full lg:w-[1200px] mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-[42px] font-bold text-[#1a1a2e] mb-3">
@@ -455,7 +453,6 @@ const CaseStudyResults = () => {
           </div>
         </div>
       </div>
-      <CaseStudyWhyStandsOut />
     </div>
   );
 };

@@ -26,7 +26,7 @@ const checkItems = [
 
 const CaseStudyWhyStandsOut = () => {
   return (
-    <div className="relative bg-[#0a1628] h-[700] w-full lg:w-[1200] xl:w-[1300] mx-auto rounded-2xl py-16 md:py-24 overflow-hidden">
+    <div className="relative bg-[#0a1628] h-[700] w-full lg:w-[1200] xl:w-[1300] mx-auto rounded-2xl py-16 md:py-24 overflow-hidden bg-[url('/whyTStandBg.png')] bg-cover bg-center bg-no-repeat mt-16 lg:mt-24">
       {/* Decorative circle outline top-right */}
       <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full border border-dashed border-blue-500/20 pointer-events-none" />
       <div className="absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full border border-dashed border-blue-500/10 pointer-events-none" />
