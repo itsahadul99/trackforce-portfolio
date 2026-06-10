@@ -1,9 +1,6 @@
-import React from 'react'
-import Benefits from './Benefits'
-import PricingHero from './PricingHero'
-import HomePricing from '../home/pricing/HomePricing'
 import HomeFaq from '../home/home_faq/HomeFaq'
 import HomeFreeTailer from '../home/home_free_trailer/HomeFreeTailer'
+import HomePricing from '../home/pricing/HomePricing'
 
 const Pricing = () => {
   return (

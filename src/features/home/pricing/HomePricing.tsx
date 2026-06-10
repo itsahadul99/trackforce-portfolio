@@ -115,7 +115,7 @@ const HomePricing = () => {
               animate = {
                 opacity: [0, 1, 1, 1],
                 x: [280 * dir, 0, 30 * dir, 0],
-                scale: [0.85, 1, 0.95, 1.05],
+                scale: [1, 1, 1, 1],
               };
               transition = {
                 duration: 2.4,

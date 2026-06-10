@@ -6,7 +6,7 @@ import { useState } from "react";
 import { FaArrowRightLong } from 'react-icons/fa6';
 import { IoIosArrowDown } from "react-icons/io";
 import trackforce from '../../../../public/trackforce.png';
-
+import faqBg from "../../../../public/faqBg.png";
 const faqs = [
     {
         question: "1. What is TrackForce used for?",
@@ -37,11 +37,39 @@ const faqs = [
 
 const HomeFaq = () => {
     const [open, setOpen] = useState<number | null>(0);
+    const [isHovered, setIsHovered] = useState(false);
 
     return (
-        <div className="flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-2 max-w-[1300] mx-auto px-4 sm:px-6 xl:px-0">
-            <div className="w-full lg:w-1/2 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
-                <div className="content_title_border_new w-fit  mb-1">
+        /* 1. Added mouse enter/leave listeners to track the container hover state */
+        /* 2. Fixed 'max-w-[1300]' to 'max-w-[1300px]' */
+        <div
+            className="flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-2 max-w-[1300px] mx-auto px-4 sm:px-6 xl:px-0 relative overflow-hidden"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+        >
+
+            {/* 3. Replaced standard div with motion.div for the background slide-up */}
+            <motion.div
+                className="absolute inset-0 pointer-events-none"
+                initial={{ y: "100%" }}
+                animate={{ y: isHovered ? "0%" : "100%" }}
+                transition={{
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 20,
+                    mass: 0.8
+                }}
+            >
+                <Image
+                    src={faqBg}
+                    alt="FAQ Background"
+                    className="w-full h-full object-contain"
+                />
+            </motion.div>
+
+            {/* Added z-10 to content structures to keep them layered cleanly above the background */}
+            <div className="w-full lg:w-1/2 flex flex-col justify-center items-center lg:items-start text-center lg:text-left z-10">
+                <div className="content_title_border_new w-fit mb-1">
                     <div className="px-4 py-1 text-sm font-semibold content_title_text_new">
                         FAQ
                     </div>
@@ -53,31 +81,33 @@ const HomeFaq = () => {
                 <p className="text-gray-600 text-sm sm:text-base mb-6 max-w-lg mt-6">
                     Track employee activity, productivity, and work patterns in one place without disrupting everyday workflows.
                 </p>
-             <div className="">
-              <button className="group custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
-                <span className='group-hover:italic '>Book a Demo</span> <FaArrowRightLong className='group-hover:-rotate-[30deg] transition ease-in-out' />
-                <motion.div
-                  className="ml-2 absolute right-0"
-                  animate={{
-                    x: [0, -190, 0],   // initial, move right, return
-                    opacity: [0, 1, 0, 0, 1, 0], // fade out at the end of the move
-                  }}
-                  transition={{
-                    duration: 7,
-                    repeat: Infinity,
-                    repeatType: 'loop',
-                  }}
-                >
-                  <Image
-                    src={trackforce}
-                    alt="TrackForce Logo"
-                    className="w-8 h-8 group-hover:hidden"
-                  />
-                </motion.div>
-              </button>
+                <div>
+                    <button className="group custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
+                        <span className='group-hover:italic'>Book a Demo</span>
+                        <FaArrowRightLong className='group-hover:-rotate-[30deg] transition ease-in-out' />
+                        <motion.div
+                            className="ml-2 absolute right-0"
+                            animate={{
+                                x: [0, -190, 0],
+                                opacity: [0, 1, 0, 0, 1, 0],
+                            }}
+                            transition={{
+                                duration: 7,
+                                repeat: Infinity,
+                                repeatType: 'loop',
+                            }}
+                        >
+                            <Image
+                                src={trackforce}
+                                alt="TrackForce Logo"
+                                className="w-8 h-8 group-hover:hidden"
+                            />
+                        </motion.div>
+                    </button>
+                </div>
             </div>
-            </div>
-            <div className="w-full lg:w-1/2 py-8 lg:py-16 px-0 sm:px-2 lg:px-6">
+
+            <div className="w-full lg:w-1/2 py-8 lg:py-16 px-0 sm:px-2 lg:px-6 z-10">
                 <div className="space-y-3">
                     {faqs.map((faq, index) => {
                         const isOpen = open === index;
@@ -122,8 +152,8 @@ const HomeFaq = () => {
                     })}
                 </div>
 
-                <div className="mt-2 group/button">
-                    <button className="group/button custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-medium py-3 px-6 rounded-[14] flex gap-3 justify-between font-semibold items-center">
+                <div className="mt-2">
+                    <button className="group/button custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-medium py-3 px-6 rounded-[14px] flex gap-3 justify-between font-semibold items-center">
                         <span className="group-hover/button:italic">Load More</span>
                         <FaArrowRightLong className="group-hover/button:-rotate-[30deg] transition ease-in-out" />
                         <motion.div
@@ -141,7 +171,7 @@ const HomeFaq = () => {
                             <Image
                                 src={trackforce}
                                 alt="TrackForce Logo"
-                                className="w-8 h-8 group-hover:hidden"
+                                className="w-8 h-8 group-hover/button:hidden"
                             />
                         </motion.div>
                     </button>
@@ -152,7 +182,6 @@ const HomeFaq = () => {
 };
 
 export default HomeFaq;
-
 
 
 

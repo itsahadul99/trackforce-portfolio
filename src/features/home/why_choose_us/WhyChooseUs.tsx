@@ -108,7 +108,7 @@ const WhyChooseUs = () => {
           <div className="left-card p-6 sm:p-8 w-full lg:w-3/5 flex flex-col justify-center relative order-2 lg:order-1" style={{ backdropFilter: 'blur(8px)' }}>
             <ul className="space-y-1 relative z-10">
               {features.map((f, i) => (
-                <li key={i} className="why_choose_li group/why_left flex items-start gap-3 sm:gap-4" style={{ '--hover-color': f.color } as React.CSSProperties}>
+                <li key={i} className="why_choose_li group/why_left hover:rounded-2xl flex items-start gap-3 sm:gap-4" style={{ '--hover-color': f.color } as React.CSSProperties}>
                   <span className="flex shrink-0 items-center justify-center w-10 h-10 rounded-full text-xl font-bold" style={{ backgroundColor: f.color }}>{f.icon}</span>
                   <div>
                     <h4 className="font-semibold text-white group-hover/why_left:text-black text-base sm:text-lg mb-1">{f.title}</h4>
