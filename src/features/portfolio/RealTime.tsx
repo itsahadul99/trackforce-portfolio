@@ -18,7 +18,7 @@ const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
     },
 });
 const RealTime = () => {
-       const features = [
+    const features = [
         {
             title: "Live online / idle status tracking",
             description: "Track real-time online and idle statuses to understand team availability and active work time at a glance."
@@ -43,9 +43,9 @@ const RealTime = () => {
 
     return (
         <div className='bg-[#DEEDFF] overflow-hidden bg-[url("/realTimeCommandCenter.png")] bg-no-repeat bg-cover bg-center'>
-            <div className="  max-w-[1300] mx-auto  py-24 text-[#2B2B2B] flex items-center justify-between">
+            <div className="  max-w-[1300] mx-auto  py-24 text-[#2B2B2B] flex flex-col lg:flex-row items-center justify-between">
 
-                <div className="w-1/2">
+                <div className="w-full lg:w-1/2">
 
                     <h2 className="text-4xl font-bold mb-8">
                         Real-Time Command Center
@@ -59,7 +59,7 @@ const RealTime = () => {
                         </p>
                     </div>
                     {/* features list */}
-                <FeaturesListMore height="380" features={features} />
+                    <FeaturesListMore height="380" features={features} />
                     <div className='mt-6'>
                         <p>Clean design. Zero clutter. Instant clarity.</p>
                     </div>
@@ -91,7 +91,7 @@ const RealTime = () => {
                     </div>
                 </div>
 
-                <div className='w-1/2 relative h-[520px] '>
+                <div className='w-full lg:w-1/2 relative h-[520px] '>
 
                     {/* Activity Logs - bottom left, slides from center */}
                     <motion.div

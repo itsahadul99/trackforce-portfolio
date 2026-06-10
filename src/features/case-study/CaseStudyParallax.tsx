@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 
 const cards = [
   {
@@ -51,6 +51,17 @@ const cards = [
 const CaseStudyParallax = () => {
   const containerRef = useRef(null);
 
+  const [isSmall, setIsSmall] = useState(false);
+
+  useEffect(() => {
+    // Treat tablets and smaller (<= 1023px) as non-parallax for better responsiveness
+    const mq = window.matchMedia("(max-width: 1023px)");
+    const setMatch = () => setIsSmall(mq.matches);
+    setMatch();
+    mq.addEventListener?.("change", setMatch);
+    return () => mq.removeEventListener?.("change", setMatch);
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
@@ -65,58 +76,77 @@ const CaseStudyParallax = () => {
   return (
     <div
       ref={containerRef}
-      className="relative h-fit max-w-[1300] mx-auto mt-28 text-black"
+      className="relative h-fit max-w-[1300] mx-auto mt-12 md:mt-16 lg:mt-28 text-black"
     >
-      {cards.map((card, index) => (
-        <div
-          key={index}
-          className="h-[650px] sticky top-30"
-          style={{ zIndex: (index + 1) * 10 }}
-        >
-          <motion.div
-            style={{ y: cardYValues[index], background: card.gradient }}
-            className="absolute inset-0 rounded-2xl w-full h-[450px] overflow-hidden shadow-lg border-2"
-          >
-            <div className="flex items-center h-full px-12 gap-8">
-              {/* Left - Title */}
-              <div className="w-[280px] shrink-0">
-                <h3 className="text-4xl md:text-[42px] font-bold text-[#1a1a2e] leading-tight">
-                  {card.title}
-                </h3>
-              </div>
-
-              {/* Center - Number */}
-              <div className="shrink-0">
-                <span className="text-7xl md:text-8xl font-bold text-[#2ec4b6]">
-                  {card.number}
-                </span>
-              </div>
-
-              {/* Right - Content */}
-              <div className="flex-1">
-                {card.description && (
-                  <p className="text-[#1a1a2e] text-[20px] mb-3">
-                    {card.description}
-                  </p>
-                )}
-                <ul className="text-[#1a1a2e]/80 text-[20px] leading-relaxed space-y-2 mb-4">
-                  {card.points.map((point, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#1a1a2e]/60 shrink-0" />
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-                {card.result && (
-                  <p className="text-[#1a1a2e] text-[20px]">
-                    <span className="font-bold">Result:</span> {card.result}
-                  </p>
-                )}
+      {cards.map((card, index) => {
+        if (isSmall) {
+          return (
+            <div key={index} className="w-full mb-6" style={{ zIndex: (index + 1) * 10 }}>
+              <div style={{ background: card.gradient }} className="rounded-2xl w-full overflow-hidden shadow-lg border-2 p-6">
+                <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
+                  <div className="w-full sm:w-[280px]">
+                    <h3 className="text-xl md:text-2xl font-bold text-[#1a1a2e] leading-tight">
+                      {card.title}
+                    </h3>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="shrink-0">
+                      <span className="text-4xl font-bold text-[#2ec4b6]">{card.number}</span>
+                    </div>
+                    <div className="flex-1">
+                      {card.description && <p className="text-[#1a1a2e] text-sm mb-2">{card.description}</p>}
+                      <ul className="text-[#1a1a2e]/80 text-sm leading-relaxed space-y-2 mb-2">
+                        {card.points.map((point, i) => (
+                          <li key={i} className="flex items-start gap-2">
+                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#1a1a2e]/60 shrink-0" />
+                            {point}
+                          </li>
+                        ))}
+                      </ul>
+                      {card.result && <p className="text-[#1a1a2e] text-sm"><span className="font-bold">Result:</span> {card.result}</p>}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </motion.div>
-        </div>
-      ))}
+          );
+        }
+
+        return (
+          <div key={index} className="lg:h-[650px] lg:sticky lg:top-30 h-auto" style={{ zIndex: (index + 1) * 10 }}>
+            <motion.div
+              style={{ y: cardYValues[index], background: card.gradient }}
+              className="lg:absolute lg:inset-0 rounded-2xl w-full lg:h-[450px] h-auto overflow-hidden shadow-lg border-2 relative"
+            >
+              <div className="flex flex-col lg:flex-row items-start lg:items-center h-auto lg:h-full px-6 lg:px-12 gap-6 lg:gap-8">
+                {/* Left - Title */}
+                <div className="w-full lg:w-[280px] shrink-0">
+                  <h3 className="text-2xl lg:text-4xl font-bold text-[#1a1a2e] leading-tight">{card.title}</h3>
+                </div>
+
+                {/* Center - Number */}
+                <div className="shrink-0">
+                  <span className="text-4xl lg:text-7xl font-bold text-[#2ec4b6]">{card.number}</span>
+                </div>
+
+                {/* Right - Content */}
+                <div className="flex-1">
+                  {card.description && <p className="text-[#1a1a2e] text-base lg:text-[20px] mb-3">{card.description}</p>}
+                  <ul className="text-[#1a1a2e]/80 text-sm lg:text-[20px] leading-relaxed space-y-2 mb-4">
+                    {card.points.map((point, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#1a1a2e]/60 shrink-0" />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                  {card.result && <p className="text-[#1a1a2e] text-sm lg:text-[20px]"><span className="font-bold">Result:</span> {card.result}</p>}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        );
+      })}
     </div>
   );
 };

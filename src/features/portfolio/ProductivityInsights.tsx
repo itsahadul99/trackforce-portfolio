@@ -64,10 +64,10 @@ import PortfolioParallax from "./PortfolioParallax";
 const ProductivityInsights = () => {
     return (
         <div className="bg-[#000000] w-full bg-[url('/portfolioBg.png')] bg-cover bg-center">
-            <div className="flex flex-col lg:flex-row justify-between gap-4 max-w-[1300] mx-auto pt-44 pb-20 ">
+            <div className="flex flex-col lg:flex-row justify-between gap-4 max-w-[1300] mx-auto pt-20 md:pt-28 lg:pt-44 pb-12 md:pb-16 lg:pb-20 px-4 md:px-8 lg:px-0">
                 {/* Left Side - Sticky & Centered */}
                 <div className="lg:w-[40%] relative">
-                    <div className="sticky top-36 flex flex-col justify-start text-left text-white">
+                    <div className="lg:sticky lg:top-36 flex flex-col justify-start text-left text-white">
                         <div className="section_title_border w-fit text-black rounded-full mb-6">
                             <div className="how_trackforce_works px-4 py-2 text-sm font-semibold">
                                 Productivity Insights
@@ -75,7 +75,7 @@ const ProductivityInsights = () => {
                         </div>
 
                         <div className="relative inline-block mt-[2]">
-                            <h2 className="text-[42px] font-semibold leading-tight">
+                            <h2 className="text-2xl md:text-3xl lg:text-[42px] font-semibold leading-tight">
                                 A {" "}
                                 <span className="font-playball font-normal">Smarter</span> {" "}
                                 Way to Manage Productivity

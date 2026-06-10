@@ -33,7 +33,7 @@ const features = [
 
         <div className=" py-24 bg-[url('/deivceInteBg.png')] bg-no-repeat bg-cover bg-center">
             <div className="max-w-[1300] mx-auto text-white flex gap-3 items-center justify-between">
-                <div className="w-1/2">
+                <div className="w-full lg:w-1/2">
                     <h2 className="text-[42px] font-semibold text- leading-tight mb-6">
                         Device Intelligence<span className="font-playball font-normal"> {" "}Layer</span>{" "}
 
@@ -71,7 +71,7 @@ const features = [
                     </div>
                 </div>
 
-                <div className='w-1/2 relative h-[520px]'>
+                <div className='w-full lg:w-1/2 relative h-[520px]'>
 
                     {/* Employees - top right, slides from center */}
                     <motion.div

@@ -51,9 +51,9 @@ const Designed = () => {
     ];
     return (
         <div className='bg-[#DEEDFF] bg-[url("/designForBg.png")] overflow-hidden bg-no-repeat bg-cover bg-center'>
-            <div className="  max-w-[1300] mx-auto  py-24 text-[#2B2B2B] flex items-center justify-between">
+            <div className="  max-w-[1300] mx-auto py-12 lg:py-24 text-[#2B2B2B] flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0">
 
-                <div className="w-1/2 h-[600]">
+                <div className="w-full lg:w-1/2 h-[600]">
 
                     <h2 className="text-[42px] font-semibold text- leading-tight mb-6">
                         Designed for  Makers <span className="font-playball font-normal">Decision</span>{" "}
@@ -94,7 +94,7 @@ const Designed = () => {
                     </div>
                 </div>
 
-                <div className='w-1/2 relative h-[520] '>
+                <div className='w-full lg:w-1/2 relative h-[520] '>
 
                     {/* Activity Logs - bottom left, slides from center */}
                     <motion.div

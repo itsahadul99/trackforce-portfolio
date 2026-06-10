@@ -141,17 +141,17 @@ import Image from "next/image";
 const CaseStudyChallengeAndSolution = () => {
   return (
     <div
-      className="relative bg-cover bg-center bg-no-repeat py-16 md:py-24"
+      className="relative bg-cover bg-center bg-no-repeat py-12 md:py-24"
       style={{ backgroundImage: "url('/multipleBg.png')" }}
     >
-      <div className="w-full mb-12 relative z-10 max-w-[1300] mx-auto">
+      <div className="w-full mb-12 relative z-10 max-w-[1300px] mx-auto px-4 md:px-0">
         
         {/* 1st */}
-        <div className="flex justify-between gap-12">
+        <div className="flex flex-col md:flex-row justify-between gap-6 md:gap-12">
           
           {/* Industry Tag */}
           <div
-            className="w-full rounded-xl px-6 py-3 flex items-center gap-3"
+            className="w-full rounded-xl px-4 md:px-6 py-3 flex items-center gap-3 mb-4 md:mb-0"
             style={{
               background:
                 "linear-gradient(180deg, #CFE4FE 0%, #83CFD9 100%)",
@@ -176,7 +176,7 @@ const CaseStudyChallengeAndSolution = () => {
 
           {/* Product Tag */}
           <div
-            className="w-full rounded-xl px-6 py-3 flex items-center gap-3"
+            className="w-full rounded-xl px-4 md:px-6 py-3 flex items-center gap-3"
             style={{
               background:
                 "linear-gradient(180deg, #D3E5FF 0%, #C0B2FB 100%)",
@@ -201,20 +201,20 @@ const CaseStudyChallengeAndSolution = () => {
         </div>
 
         {/* 2nd div */}
-        <div className="flex justify-between gap-12 items-stretch mt-12 text-[20px]">
+        <div className="flex flex-col md:flex-row justify-between gap-6 md:gap-12 items-stretch mt-8 md:mt-12">
           
           {/* Left - Text */}
           <div className="w-full h-full flex flex-col justify-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6">
               The Challenge
             </h2>
 
-            <p className="text-white/80 text-[20px] leading-relaxed mb-4">
+            <p className="text-white/80 text-base md:text-[20px] leading-relaxed mb-4">
               As Akij iBOS expanded across multiple departments and remote
               teams, leadership faced increasing operational blind spots:
             </p>
 
-            <ul className="text-white/80 text-[20px] leading-relaxed space-y-2 list-disc list-inside mb-4">
+            <ul className="text-white/80 text-base md:text-[20px] leading-relaxed space-y-2 list-disc list-inside mb-4">
               <li>Limited visibility into remote employee productivity</li>
               <li>Manual attendance tracking with inconsistent accuracy</li>
               <li>No centralized dashboard for performance insights</li>
@@ -222,51 +222,51 @@ const CaseStudyChallengeAndSolution = () => {
               <li>Security concerns around file transfers and sensitive data</li>
             </ul>
 
-            <p className="text-white/80 text-[20px] leading-relaxed">
+            <p className="text-white/80 text-base md:text-[20px] leading-relaxed">
               Management needed a scalable, secure, and data-driven system to
               monitor performance without disrupting workflow.
             </p>
           </div>
 
           {/* Right - Image */}
-          <div className="w-full flex justify-center items-center">
+          <div className="w-full flex justify-center items-center mt-6 md:mt-0">
             <Image
               src="/question.png"
               alt="The Challenge"
-              width={1200}
-              height={800}
-              className="h-full object-contain"
+              width={800}
+              height={600}
+              className="w-full max-w-[480px] object-contain"
             />
           </div>
         </div>
 
         {/* 3rd div */}
-        <div className="flex justify-between gap-12 items-stretch mt-12 text-[20px]">
+        <div className="flex flex-col md:flex-row justify-between gap-6 md:gap-12 items-stretch mt-8 md:mt-12">
           
           {/* Left - Image */}
-          <div className="w-full flex justify-center items-center">
+          <div className="w-full flex justify-center items-center mb-6 md:mb-0">
             <Image
               src="/light.png"
               alt="The Solution"
-              width={1200}
-              height={800}
-              className="h-full object-contain"
+              width={800}
+              height={600}
+              className="w-full max-w-[480px] object-contain"
             />
           </div>
 
           {/* Right - Text */}
           <div className="w-full h-full flex flex-col justify-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6">
               The Solution: TrackForce
             </h2>
 
-            <p className="text-white/80 text-[20px] leading-relaxed mb-4">
+            <p className="text-white/80 text-base md:text-[20px] leading-relaxed mb-4">
               TrackForce was developed as a centralized workforce intelligence
               system that provides real-time monitoring, analytics, and reporting
               — all within a secure, role-based environment.
             </p>
 
-            <p className="text-white/80 text-[20px] leading-relaxed">
+            <p className="text-white/80 text-base md:text-[20px] leading-relaxed">
               Unlike generic monitoring tools such as Teramind, TrackForce was
               customized to fit internal operational workflows, department
               structures, and enterprise security policies.

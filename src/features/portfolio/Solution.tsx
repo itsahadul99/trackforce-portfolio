@@ -51,7 +51,7 @@ const Solution = () => {
     ];
 
     return (
-        <div className="max-w-[1300] mx-auto bg-[#D6E8FF] rounded-2xl my-24 py-24 px-16 bg-[url('/contactbg.png')] bg-no-repeat bg-cover">
+        <div className="max-w-[1300] mx-auto bg-[#D6E8FF] rounded-2xl my-24 py-20 md:py-24 px-4 md:px-10 lg:px-16 bg-[url('/contactbg.png')] bg-no-repeat bg-cover">
 
             {/* Header */}
             <div className="w-full flex flex-col justify-center items-start text-center">
@@ -72,7 +72,7 @@ const Solution = () => {
             </div>
 
             {/* Tabs */}
-            <div className="flex justify-center gap-3 mb-8 mt-6">
+            <div className="flex flex-wrap justify-center gap-3 mb-8 mt-6">
                 {tabs.map((tab) => {
                     const isActive = activeTab === tab;
 
@@ -87,6 +87,7 @@ const Solution = () => {
                                 }
                                 hover:bg-gradient-to-r hover:from-blue-300 hover:to-purple-300 
                                 hover:text-white hover:shadow-lg hover:shadow-blue-500/30 hover:scale-105
+                                sm:px-6 px-3 md:px-14
                             `}
                         >
                             {tab}
@@ -114,7 +115,7 @@ const Solution = () => {
         transition-all duration-300 ease-in-out
         hover:shadow-md hover:scale-[1.02]
         ${isLast && isOdd ? "justify-center" : "justify-between"}
-        w-[calc(50%-24px)]
+        w-full sm:w-[calc(50%-24px)]
     `}
                             style={{ background: card.background }}
                         >
@@ -124,14 +125,14 @@ const Solution = () => {
                             <div className={`relative w-full ${isLast && isOdd ? "w-[48%]" : ""}`}>
 
                                 <div className="flex items-center gap-3 mb-4">
-                                    <Image src={card.icon} alt="icon" width={44} height={44} />
+                                    <Image src={card.icon} alt="icon" width={40} height={40} />
 
-                                    <h3 className="font-semibold text-xl text-gray-800 transition-all duration-300 group-hover:text-[21px]">
+                                    <h3 className="font-semibold text-base md:text-xl text-gray-800 transition-all duration-300 group-hover:text-[21px]">
                                         {card.title}
                                     </h3>
                                 </div>
 
-                                <p className="text-gray-700 leading-relaxed transition-all duration-300 group-hover:text-[15.5px]">
+                                <p className="text-gray-700 text-sm md:text-base leading-relaxed transition-all duration-300 group-hover:text-[15.5px]">
                                     {card.desc}
                                 </p>
 

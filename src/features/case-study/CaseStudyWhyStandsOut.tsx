@@ -26,18 +26,18 @@ const checkItems = [
 
 const CaseStudyWhyStandsOut = () => {
   return (
-    <div className="relative bg-[#0a1628] h-[700] w-full max-w-[1300] mx-auto rounded-2xl py-16 md:py-24 overflow-hidden bg-[url('/whyTStandBg.png')] bg-cover bg-center bg-no-repeat mt-16 lg:mt-24">
+    <div className="relative bg-[#0a1628] w-full max-w-[1300px] mx-auto rounded-2xl py-12 md:py-16 lg:py-24 overflow-hidden bg-[url('/whyTStandBg.png')] bg-cover bg-center bg-no-repeat mt-12 lg:mt-24 lg:h-[700px] h-auto">
       {/* Decorative circle outline top-right */}
       <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full border border-dashed border-blue-500/20 pointer-events-none" />
       <div className="absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full border border-dashed border-blue-500/10 pointer-events-none" />
 
       <div className=" px-4 relative z-10">
-        <div className="flex flex-col md:flex-row items-center gap-28">
+        <div className="flex flex-col md:flex-row items-center gap-10 md:gap-20 lg:gap-28">
           {/* Left - Images */}
           <div className="w-full md:w-1/2 relative">
             {/* Time tracking image */}
             <motion.div
-              className="absolute -top-48 left-16 z-20"
+              className="lg:absolute lg:-top-48 lg:left-16 relative mt-6 lg:mt-0 z-20"
               variants={imageVariants(-50, -50, 0.35)}
               initial="hidden"
               whileInView="visible"
@@ -48,12 +48,12 @@ const CaseStudyWhyStandsOut = () => {
                 alt="Case Study Hero"
                 width={1200}
                 height={600}
-                className="w-[470] object-contain"
+                className="lg:w-[470px] w-full max-w-[320px] object-contain"
               />
             </motion.div>
             {/* Ensure image overlay */}
             <motion.div
-              className="absolute -bottom-[350px] -right-28 z-20"
+              className="lg:absolute lg:-bottom-[350px] lg:-right-28 relative mt-6 lg:mt-0 z-20"
               variants={imageVariants(50, 50, 0.35)}
               initial="hidden"
               whileInView="visible"
@@ -64,7 +64,7 @@ const CaseStudyWhyStandsOut = () => {
                 alt="Case Study Hero"
                 width={1200}
                 height={600}
-                className="w-[440] object-contain"
+                className="lg:w-[440px] w-full max-w-[300px] object-contain"
               />
             </motion.div>
 
@@ -72,13 +72,13 @@ const CaseStudyWhyStandsOut = () => {
           </div>
 
           {/* Right - Content */}
-          <div className="w-full md:w-1/2 mt-8 md:mt-0">
-            <h2 className="text-4xl md:text-[42px] font-bold text-white mb-8">
+          <div className="w-full md:w-1/2 mt-8 md:mt-0 text-center md:text-left">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6 md:mb-8">
               Why TrackForce{" "}
               <span className="font-playball font-normal">Stands Out</span>
             </h2>
 
-            <ul className="space-y-3 mb-8 text-lg">
+            <ul className="space-y-3 mb-6 md:mb-8 text-base md:text-lg">
               {checkItems.map((item, index) => (
                 <li key={index} className="flex items-center gap-3 text-white/80 ">
                   <svg
@@ -99,7 +99,7 @@ const CaseStudyWhyStandsOut = () => {
               ))}
             </ul>
 
-            <p className="text-white/60 text-lg leading-relaxed">
+            <p className="text-white/60 text-base md:text-lg leading-relaxed">
               TrackForce is not just monitoring software — it is a workforce
               intelligence engine built for modern enterprises.
             </p>

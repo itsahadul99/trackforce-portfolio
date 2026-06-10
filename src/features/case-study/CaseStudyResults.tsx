@@ -294,6 +294,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { motion, Variants } from "framer-motion";
 
 const CURVE_DEPTH = 80; // কার্ভটি কতটা গভীর হবে
 
@@ -375,6 +376,16 @@ const CaseStudyResults = () => {
     };
   }, [update]);
 
+  // Disable animations on small screens for performance and UX
+  const [isSmall, setIsSmall] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 1023px)");
+    const handler = () => setIsSmall(mq.matches);
+    handler();
+    mq.addEventListener?.("change", handler);
+    return () => mq.removeEventListener?.("change", handler);
+  }, []);
+
   const colors = [
     { border: "border-[#e74c3c]", bg: "bg-[#e74c3c]", shadow: "shadow-[0_0_12px_rgba(231,76,60,0.3)]" },
     { border: "border-[#3498db]", bg: "bg-[#3498db]", shadow: "shadow-[0_0_12px_rgba(52,152,219,0.3)]" },
@@ -390,6 +401,20 @@ const CaseStudyResults = () => {
     { title: "Faster Issue Resolution", desc: "Screen records activity logs enabled quick conflict resolution." },
     { title: "Stronger Data Governance", desc: "File transfer monitoring reduced internal security risks." },
   ];
+
+  const containerVariants: Variants = {
+    hidden: { opacity: 0, y: 8 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { staggerChildren: 0.12, when: "beforeChildren" },
+    },
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 12 },
+    visible: { opacity: 1, y: 0 },
+  };
 
   return (
     <div className="py-16 md:py-24 bg-[#e8eefb] relative overflow-hidden bg-[url('/mesurableBg.png')] bg-cover bg-center bg-no-repeat">
@@ -409,15 +434,29 @@ const CaseStudyResults = () => {
               width="100%"
               height="100%"
             >
-              <path d={arc.path} stroke="rgba(0,0,0,0.1)" strokeWidth="2" fill="none" strokeDasharray="5,5" />
-              <path
-                d={arc.path}
-                stroke="url(#lineGradient)"
-                strokeWidth="3"
-                fill="none"
-                strokeLinecap="round"
-                className="opacity-60"
-              />
+              <path d={arc.path} stroke="rgba(0,0,0,0.08)" strokeWidth="2" fill="none" strokeDasharray="5,5" />
+              {!isSmall ? (
+                <motion.path
+                  d={arc.path}
+                  stroke="url(#lineGradient)"
+                  strokeWidth="3"
+                  fill="none"
+                  strokeLinecap="round"
+                  className="opacity-80"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ duration: 1.6, ease: "easeOut" }}
+                />
+              ) : (
+                <path
+                  d={arc.path}
+                  stroke="url(#lineGradient)"
+                  strokeWidth="3"
+                  fill="none"
+                  strokeLinecap="round"
+                  className="opacity-60"
+                />
+              )}
               <defs>
                 <linearGradient id="lineGradient" x1="0%" y1="0%" x2="0%" y2="100%">
                   <stop offset="0%" stopColor="#e74c3c" />
@@ -430,27 +469,39 @@ const CaseStudyResults = () => {
             </svg>
           )}
 
-          <div className="flex flex-col gap-10">
+          <motion.div
+            className="flex flex-col gap-10"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.12 }}
+          >
             {content.map((item, i) => (
-              <div
+              <motion.div
                 key={i}
                 ref={rowRefs[i]}
-                className="flex items-center gap-12 transition-all duration-500"
+                className="flex items-center gap-12"
                 style={{ marginLeft: `${offsets[i]}px` }}
+                variants={itemVariants}
+                transition={{ duration: 0.6, ease: "easeOut" }}
               >
                 {/* The Point (Dot) */}
                 <div className={`relative z-10 shrink-0 w-14 h-14 rounded-full bg-white flex items-center justify-center border-[2.5px] ${colors[i].border} ${colors[i].shadow}`}>
-                  <div className={`w-8 h-8 rounded-full ${colors[i].bg}`} />
+                  <motion.div
+                    className={`w-8 h-8 rounded-full ${colors[i].bg}`}
+                    animate={isSmall ? undefined : { scale: [0.95, 1.05, 0.95] }}
+                    transition={isSmall ? undefined : { duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
+                  />
                 </div>
 
                 {/* Card */}
-                <div className="bg-white rounded-full px-10 py-4 flex-1 shadow-sm border border-black/5">
+                <motion.div className="bg-white rounded-full px-10 py-4 flex-1 shadow-sm border border-black/5">
                   <h3 className="text-sm md:text-base font-bold text-[#1a1a2e] mb-0.5">{item.title}</h3>
                   <p className="text-[#1a1a2e]/60 text-xs md:text-sm">{item.desc}</p>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>
