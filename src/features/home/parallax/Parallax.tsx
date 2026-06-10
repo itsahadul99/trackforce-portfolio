@@ -6,6 +6,9 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 import plxLogo1 from "../../../../public/paralax-logo-1.png";
+import plxLogo2 from "../../../../public/paralax-logo-2.png";
+import plxLogo3 from "../../../../public/paralax-logo-3.png";
+import plxLogo4 from "../../../../public/paralax-logo-4.png";
 import plx1 from "../../../../public/paralax-1.png";
 
 const Parallax = () => {
@@ -33,11 +36,11 @@ const Parallax = () => {
       {/* plx 1 */}
       <div className="h-[520px] sm:h-[600px] lg:h-[650px] sticky top-20 lg:top-30 z-10">
         <motion.div
-          style={{ y: card1Y, background: "linear-gradient(180deg, #CFE4FE 0%, #83CFD9 100%)" }}
+          style={{ y: card1Y, background: "linear-gradient(180deg, #CFE4FE 0%, #83CFD9 100%)",boxShadow: "0 0 34.5px 0 rgba(0, 0, 0, 0.13)" }}
           initial="rest"
           whileHover="hover"
           animate="rest"
-          className=" absolute inset-0 rounded-2xl w-full h-[380px] sm:h-[420px] lg:h-[450px] overflow-hidden group shadow-lg border border-white px-4 sm:px-6 xl:px-0"
+          className=" absolute inset-0 rounded-2xl w-full h-[380px] sm:h-[420px] lg:h-[450px] overflow-hidden group px-4 sm:px-6 xl:px-0"
         >
           <div className="relative flex flex-col items-center text-center">
 
@@ -80,12 +83,12 @@ const Parallax = () => {
       {/* plx 2 */}
       <div className="h-[520px] sm:h-[600px] lg:h-[650px] sticky top-20 lg:top-30 z-20">
         <motion.div
-          style={{ y: card2Y, background: "linear-gradient(180deg, #D3E5FF 0%, #C0B2FB 100%" }}
-          
+          style={{ y: card2Y, background: "linear-gradient(180deg, #D3E5FF 0%, #C0B2FB 100%)", boxShadow: "0 0 34.5px 0 rgba(0, 0, 0, 0.13)" }}
+
           initial="rest"
           whileHover="hover"
           animate="rest"
-          className="absolute inset-0 rounded-2xl w-full h-[380px] sm:h-[420px] lg:h-[450px] overflow-hidden group shadow-lg border border-white px-4 sm:px-6 lg:px-0"
+          className="absolute inset-0 rounded-2xl w-full h-[380px] sm:h-[420px] lg:h-[450px] overflow-hidden group px-4 sm:px-6 lg:px-0"
         >
           <div className="relative flex flex-col items-center text-center">
 
@@ -109,13 +112,13 @@ const Parallax = () => {
               className="flex flex-col gap-3 items-center group-hover:items-start"
             >
               <div className="mb-3">
-                <Image src={plxLogo1} alt="logo" width={72} height={72} />
+                <Image src={plxLogo2} alt="logo" width={72} height={72} />
               </div>
 
               <h3 className="text-xl font-semibold">Accountability</h3>
 
               <p className="w-full max-w-xs sm:w-72 group-hover:text-left text-sm sm:text-base px-4 sm:px-0">
-            With detailed reporting and workforce analytics, TrackForce builds transparency, tracks progress, and enables data-driven decisions with full operational visibility.
+                With detailed reporting and workforce analytics, TrackForce builds transparency, tracks progress, and enables data-driven decisions with full operational visibility.
               </p>
             </motion.div>
 
@@ -127,14 +130,14 @@ const Parallax = () => {
       {/* plx 3 */}
       <div className="h-[520px] sm:h-[600px] lg:h-[650px] sticky top-20 lg:top-30 z-30">
         <motion.div
-          style={{ y: card3Y, background: "linear-gradient(180deg, #D8E9FE 0%, #BEF8CE 100%)" }}
-              initial="rest"
+          style={{ y: card3Y, background: "linear-gradient(180deg, #D8E9FE 0%, #BEF8CE 100%)", boxShadow: "0 0 34.5px 0 rgba(0, 0, 0, 0.13)" }}
+          initial="rest"
           whileHover="hover"
           animate="rest"
-          className="absolute inset-0 rounded-2xl w-full h-[380px] sm:h-[420px] lg:h-[450px] overflow-hidden group shadow-lg border border-white px-4 sm:px-6 lg:px-0"
+          className="absolute inset-0 rounded-2xl w-full h-[380px] sm:h-[420px] lg:h-[450px] overflow-hidden group px-4 sm:px-6 lg:px-0"
+
         >
           <div className="relative flex flex-col items-center text-center">
-
             <motion.div
               variants={{
                 rest: { x: 0, y: 60 },
@@ -144,13 +147,13 @@ const Parallax = () => {
               className="flex flex-col gap-3 items-center group-hover:items-start"
             >
               <div className="mb-3">
-                <Image src={plxLogo1} alt="logo" width={72} height={72} />
+                <Image src={plxLogo3} alt="logo" width={72} height={72} />
               </div>
 
               <h3 className="text-xl font-semibold">Security</h3>
 
               <p className="w-full max-w-xs sm:w-72 group-hover:text-left text-sm sm:text-base px-4 sm:px-0">
-             It safeguards sensitive data through proactive insider threat detection & activity monitoring.
+                It safeguards sensitive data through proactive insider threat detection & activity monitoring.
               </p>
             </motion.div>
 
@@ -173,11 +176,11 @@ const Parallax = () => {
       {/* plx 4 */}
       <div className="h-[520px] sm:h-[600px] lg:h-[650px] sticky top-20 lg:top-30 z-40">
         <motion.div
-          style={{ y: card4Y, background: "linear-gradient(180deg, #DFE6F2 53.53%, #F2D7BF 100%)" }}
+          style={{ y: card4Y, background: "linear-gradient(180deg, #DFE6F2 53.53%, #F2D7BF 100%)",boxShadow: "0 0 34.5px 0 rgba(0, 0, 0, 0.13)" }}
           initial="rest"
           whileHover="hover"
           animate="rest"
-          className="absolute inset-0 rounded-2xl w-full h-[380px] sm:h-[420px] lg:h-[450px] overflow-hidden group shadow-lg border border-white px-4 sm:px-6 lg:px-0"
+          className="absolute inset-0 rounded-2xl w-full h-[380px] sm:h-[420px] lg:h-[450px] overflow-hidden group px-4 sm:px-6 lg:px-0"
         >
           <div className="relative flex flex-col items-center text-center">
 
@@ -201,13 +204,13 @@ const Parallax = () => {
               className="flex flex-col gap-3 items-center group-hover:items-start"
             >
               <div className="mb-3">
-                <Image src={plxLogo1} alt="logo" width={72} height={72} />
+                <Image src={plxLogo4} alt="logo" width={72} height={72} />
               </div>
 
               <h3 className="text-xl font-semibold">Efficiency</h3>
 
               <p className="w-full max-w-xs sm:w-72 group-hover:text-left text-sm sm:text-base px-4 sm:px-0">
-            TrackForce boosts operational efficiency by optimizing workflows, reducing manual overhead, and enabling teams to execute faster with precision.
+                TrackForce boosts operational efficiency by optimizing workflows, reducing manual overhead, and enabling teams to execute faster with precision.
               </p>
             </motion.div>
 
