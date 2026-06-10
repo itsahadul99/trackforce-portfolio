@@ -36,11 +36,11 @@ const WhyTrackforce = () => {
                 <BookDemoBtn />
             </div>
 
-            <div className=' w-full lg:w-1/2 relative h-[420px] sm:h-[480px] lg:h-[520px] flex justify-center lg:justify-end items-center scale-75 sm:scale-90 lg:scale-100 origin-center lg:origin-right'>
-                <div className="absolute right-24 bg-[#FFFFFF59] rounded-[43px] min-h-[397px] max-h-[400px] w-full max-w-[420px] mx-auto"></div>
+            <div className='w-full lg:w-1/2 relative lg:h-[520px] flex flex-col items-center gap-6 md:flex-row md:flex-wrap md:justify-center md:gap-8 lg:block lg:justify-end'>
+                <div className="hidden lg:block absolute lg:right-24 bg-[#FFFFFF59] rounded-[43px] min-h-[397px] max-h-[400px] w-full max-w-[420px] mx-auto"></div>
                 {/* blue div */}
                 <motion.div
-                    className="  absolute -top-[1px] left-16  drop-shadow-2xl z-10"
+                    className="relative drop-shadow-2xl z-10 lg:absolute lg:-top-[1px] lg:left-16"
                     variants={imageVariants(-80, -40, 0)}  // left, down    // intial
                     initial="hidden"
                     whileInView="visible"
@@ -60,7 +60,7 @@ const WhyTrackforce = () => {
 
                 {/* yellow div */}
                 <motion.div
-                    className=" absolute -bottom-[16px] left-16  drop-shadow-2xl z-10"
+                    className="relative drop-shadow-2xl z-10 lg:absolute lg:-bottom-[16px] lg:left-16"
                     variants={imageVariants(-80, 70, 0)}   // left, up
                     initial="hidden"
                     whileInView="visible"
@@ -80,7 +80,7 @@ const WhyTrackforce = () => {
 
                 {/* red div */}
                 <motion.div
-                    className=" absolute top-1/2 -translate-1/2 -right-[85px]  drop-shadow-2xl z-10"
+                    className="relative drop-shadow-2xl z-10 lg:absolute lg:top-1/2 lg:-translate-1/2 lg:-right-[85px]"
                     variants={imageVariants(80, 0, 0)}   // right
                     initial="hidden"
                     whileInView="visible"

@@ -149,8 +149,8 @@ const HomePricing = () => {
                 transition={transition}
                 viewport={{ once: false, amount: 0.5 }}
                 className={`relative rounded-3xl shadow-xl flex flex-col ${isProfessional
-                  ? "py-12 px-7 w-[340px] z-10"
-                  : "bg-white p-8 w-[320px] border border-gray-200"
+                  ? "py-12 px-7 w-full max-w-[340px] z-10"
+                  : "bg-white p-8 w-full max-w-[320px] border border-gray-200"
                   }`}
                 style={
                   isProfessional

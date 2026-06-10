@@ -5,7 +5,7 @@
 
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaArrowRightLong } from 'react-icons/fa6';
 import employeeListForCard from "../../../../public/employeeListForCard.png";
 import trackforce from '../../../../public/trackforce.png';
@@ -19,6 +19,14 @@ const steps = [
 
 export default function WorkProcess() {
   const [activeRow, setActiveRow] = useState(1);
+  const [isLg, setIsLg] = useState(true);
+
+  useEffect(() => {
+    const handleResize = () => setIsLg(window.innerWidth >= 1024);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <section className="py-16 sm:py-20 lg:py-24 overflow-hidden bg-cover bg-center bg-no-repeat bg-[url('/work-process-bg.png')]">
@@ -72,22 +80,25 @@ export default function WorkProcess() {
 
         {/* Right Side — cards */}
         <div className="w-full lg:w-[60%]">
-          <div className="flex gap-5 items-start">
+          <div className="flex flex-col lg:flex-row gap-5 items-start">
             {steps.map((step) => {
               const isActive = activeRow === step.id;
               return (
                 <motion.div
                   key={step.id}
                   onMouseEnter={() => setActiveRow(step.id)}
-                  animate={{
+                  animate={isLg ? {
                     width: isActive ? "46%" : "27%",
                     opacity: isActive ? 1 : 0.88,
+                  } : {
+                    width: "100%",
+                    opacity: 1,
                   }}
                   transition={{
                     width: { duration: 1.1, ease: [0.32, 0.72, 0, 1] },
                     opacity: { duration: 0.6, ease: "easeOut" },
                   }}
-                  className="relative h-[360px] sm:h-[400px] lg:h-[420px] rounded-2xl px-4 sm:px-5 py-6 sm:py-8 overflow-hidden flex flex-col cursor-pointer shrink-0"
+                  className="relative h-[360px] sm:h-[400px] lg:h-[420px] rounded-2xl px-4 sm:px-5 py-6 sm:py-8 overflow-hidden flex flex-col cursor-pointer shrink-0 w-full lg:w-auto"
                   style={{
                     background: "rgba(255,255,255,0.5)",
                     backdropFilter: "blur(10px)",

@@ -18,8 +18,8 @@ const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
 const AboutValues = () => {
     return (
         <div className='w-full bg-[url("/ourValues.png")] bg-cover bg-center bg-no-repeat overflow-hidden py-12 lg:py-24'>
-            <div className='flex justify-between items-center gap-10 max-w-[1300] mx-auto'>
-                <div className="w-[50%]">
+            <div className='flex flex-col lg:flex-row justify-between items-center gap-10 max-w-[1300] mx-auto px-4 lg:px-0'>
+                <div className="w-full lg:w-[50%]">
                     <div className="flex flex-col justify-center">
                         <div className="content_title_border_new w-fit mb-1">
                             <div className="px-4 py-2 text-sm font-semibold content_title_text_new">
@@ -28,7 +28,7 @@ const AboutValues = () => {
                         </div>
 
                         <h3
-                            className={`text-[32px] font-semibold leading-tight mb-4 text-black`}
+                            className={`text-2xl md:text-[32px] font-semibold leading-tight mb-4 text-black`}
                         >
                             Core Principles That Drive  <br />
                             <span className="font-playball font-normal">Transparency</span> {" "}
@@ -66,10 +66,10 @@ const AboutValues = () => {
                         </div>
                     </div>
                 </div>
-                <div className="w-[50%]">
-                    <div className="relative w-full flex justify-end">
+                <div className="w-full lg:w-[50%]">
+                    <div className="relative w-full flex flex-col items-center gap-6 lg:flex-row lg:justify-end lg:gap-0">
                         <motion.div
-                            className="absolute -top-48 right-14 z-20"
+                            className="z-20 relative lg:absolute lg:-top-48 lg:right-14"
                             variants={imageVariants(50, -50, 0.35)}
                             initial="hidden"
                             whileInView="visible"
@@ -80,13 +80,13 @@ const AboutValues = () => {
                                 alt="Case Study Hero"
                                 width={1200}
                                 height={600}
-                                className="w-[400] object-contain"
+                                className="w-[280px] sm:w-[340px] lg:w-[400] object-contain"
                             />
                         </motion.div>
 
                         {/* Center Card (Welcome) */}
                         <motion.div
-                            className="absolute -bottom-52 left-6 z-20"
+                            className="z-20 relative lg:absolute lg:-bottom-52 lg:left-6"
                             variants={imageVariants(-50, 50, 0.35)}
                             initial="hidden"
                             whileInView="visible"
@@ -97,7 +97,7 @@ const AboutValues = () => {
                                 alt="Case Study Hero"
                                 width={1200}
                                 height={600}
-                                className="w-[350] object-contain"
+                                className="w-[240px] sm:w-[300px] lg:w-[350] object-contain"
                             />
                         </motion.div>
 

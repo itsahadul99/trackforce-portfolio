@@ -6,8 +6,8 @@ import Link from "next/link";
 const SimilarBlogs = ({ currentSlug }: { currentSlug: string }) => {
     const similarBlogs = getSimilarBlogs(currentSlug, 3);
     return (
-        <section className="relative overflow-hidden py-24 px-4">
-            <div className="max-w-[1300] mx-auto  relative rounded-3xl overflow-hidden bg-[url('/similerBlog.png)] bg-no-repeat bg-cover bg-center p-10 md:p-14" style={
+        <section className="relative overflow-hidden py-12 md:py-24 px-4">
+            <div className="max-w-[1300] mx-auto  relative rounded-3xl overflow-hidden bg-[url('/similerBlog.png)] bg-no-repeat bg-cover bg-center p-6 md:p-14" style={
                 {
                     boxShadow: "0 0 34.5px 0 rgba(0, 0, 0, 0.13)"
                 }

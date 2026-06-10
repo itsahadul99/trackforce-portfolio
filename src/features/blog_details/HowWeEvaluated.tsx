@@ -76,14 +76,14 @@ const Connector = ({ kind, side, position, delay = 0 }: ConnectorProps) => {
 export default function HowWeEvaluated() {
     return (
         <div className="w-full  px-4 bg-[#DEEDFF] py-14 lg:py-24 ">
-            <div className="max-w-[1300] mx-auto relative rounded-3xl overflow-hidden bg-[url(/featurebg.png)] bg-center bg-cover py-16 md:p-14 " style={{ boxShadow: "filter(0px 0px 34.5px 0px #00000021)" }}>
+            <div className="max-w-[1300] mx-auto relative rounded-3xl overflow-hidden bg-[url(/featurebg.png)] bg-center bg-cover px-4 py-12 md:p-14 " style={{ boxShadow: "filter(0px 0px 34.5px 0px #00000021)" }}>
                 {/* left glow */}
                 <div className="absolute -left-20 top-1/3 w-[320px] h-[320px] bg-blue-500/30 rounded-full blur-[110px] " />
 
                 <div className="relative z-10">
                     {/* Title */}
-                    <div className="text-center mb-14">
-                        <h2 className="text-4xl md:text-[42px] font-bold text-[#0a0a1a]">
+                    <div className="text-center mb-10 md:mb-14">
+                        <h2 className="text-2xl md:text-4xl lg:text-[42px] font-bold text-[#0a0a1a]">
                             How We Evaluated These {" "}
                             <span className="font-playball font-normal">Tools</span>
 
@@ -96,11 +96,11 @@ export default function HowWeEvaluated() {
                     </div>
 
                     {/* Diagram */}
-                    <div className="relative h-[360px] md:h-[380px]">
+                    <div className="relative flex flex-col items-center gap-3 md:block md:h-[380px]">
 
 
                         {/* Center logo */}
-                        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+                        <div className="order-first md:order-none md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-10">
                             <motion.div
                                 className="w-24 h-24 md:w-28 md:h-28 bg-white rounded-full shadow-lg border flex items-center justify-center"
                                 animate={{
@@ -122,25 +122,25 @@ export default function HowWeEvaluated() {
                         </div>
 
                         {/* Left pills */}
-                        <div className="absolute left-0 top-[10%]">
-                            <div className="relative bg-white w-80 text-center rounded-full shadow-md px-6 py-3 md:px-7 md:py-4">
-                                <p className="text-[#0a0a1a] font-semibold text-sm md:text-base whitespace-nowrap">
+                        <div className="w-full md:w-auto md:absolute md:left-0 md:top-[10%]">
+                            <div className="relative bg-white w-full md:w-80 text-center rounded-full shadow-md px-6 py-3 md:px-7 md:py-4">
+                                <p className="text-[#0a0a1a] font-semibold text-sm md:text-base md:whitespace-nowrap">
                                    Real-time productivity track
                                 </p>
                                 <Connector kind="curve" side="left" position="top" delay={0} />
                             </div>
                         </div>
-                        <div className="absolute left-0 top-1/2 -translate-y-1/2">
-                            <div className="relative w-80 text-center bg-white rounded-full shadow-md px-6 py-3 md:px-7 md:py-4">
-                                <p className="text-[#0a0a1a] font-semibold text-sm md:text-base whitespace-nowrap">
+                        <div className="w-full md:w-auto md:absolute md:left-0 md:top-1/2 md:-translate-y-1/2">
+                            <div className="relative w-full md:w-80 text-center bg-white rounded-full shadow-md px-6 py-3 md:px-7 md:py-4">
+                                <p className="text-[#0a0a1a] font-semibold text-sm md:text-base md:whitespace-nowrap">
                                    Reporting depth & clarity
                                 </p>
                                 <Connector kind="straight" side="left" position="middle" delay={0.2} />
                             </div>
                         </div>
-                        <div className="absolute left-0 bottom-[10%]">
-                            <div className="relative w-80 text-center bg-white rounded-full shadow-md px-6 py-3 md:px-7 md:py-4">
-                                <p className="text-[#0a0a1a] font-semibold text-sm md:text-base whitespace-nowrap">
+                        <div className="w-full md:w-auto md:absolute md:left-0 md:bottom-[10%]">
+                            <div className="relative w-full md:w-80 text-center bg-white rounded-full shadow-md px-6 py-3 md:px-7 md:py-4">
+                                <p className="text-[#0a0a1a] font-semibold text-sm md:text-base md:whitespace-nowrap">
                                   Ease of onboarding
                                 </p>
                                 <Connector kind="curve" side="left" position="bottom" delay={0.4} />
@@ -148,25 +148,25 @@ export default function HowWeEvaluated() {
                         </div>
 
                         {/* Right pills */}
-                        <div className="absolute right-0 top-[10%]">
-                            <div className="relative w-80 text-center bg-white rounded-full shadow-md px-6 py-3 md:px-7 md:py-4">
-                                <p className="text-[#0a0a1a] font-semibold text-sm md:text-base whitespace-nowrap">
+                        <div className="w-full md:w-auto md:absolute md:right-0 md:top-[10%]">
+                            <div className="relative w-full md:w-80 text-center bg-white rounded-full shadow-md px-6 py-3 md:px-7 md:py-4">
+                                <p className="text-[#0a0a1a] font-semibold text-sm md:text-base md:whitespace-nowrap">
                                   Role-based access control
                                 </p>
                                 <Connector kind="curve" side="right" position="top" delay={0.1} />
                             </div>
                         </div>
-                        <div className="absolute right-0 top-1/2 -translate-y-1/2">
-                            <div className="relative w-80 text-center bg-white rounded-full shadow-md px-6 py-3 md:px-7 md:py-4">
-                                <p className="text-[#0a0a1a] font-semibold text-sm md:text-base whitespace-nowrap">
+                        <div className="w-full md:w-auto md:absolute md:right-0 md:top-1/2 md:-translate-y-1/2">
+                            <div className="relative w-full md:w-80 text-center bg-white rounded-full shadow-md px-6 py-3 md:px-7 md:py-4">
+                                <p className="text-[#0a0a1a] font-semibold text-sm md:text-base md:whitespace-nowrap">
                                    Startup scalability
                                 </p>
                                 <Connector kind="straight" side="right" position="middle" delay={0.3} />
                             </div>
                         </div>
-                        <div className="absolute right-0 bottom-[10%]">
-                            <div className="relative w-80 text-center bg-white rounded-full shadow-md px-6 py-3 md:px-7 md:py-4">
-                                <p className="text-[#0a0a1a] font-semibold text-sm md:text-base whitespace-nowrap">
+                        <div className="w-full md:w-auto md:absolute md:right-0 md:bottom-[10%]">
+                            <div className="relative w-full md:w-80 text-center bg-white rounded-full shadow-md px-6 py-3 md:px-7 md:py-4">
+                                <p className="text-[#0a0a1a] font-semibold text-sm md:text-base md:whitespace-nowrap">
                                    Transparency and flexibility
                                 </p>
                                 <Connector kind="curve" side="right" position="bottom" delay={0.5} />

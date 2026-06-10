@@ -8,13 +8,13 @@ const AboutHero = () => {
                 <div className="absolute top-20 left-1/4 w-[300px] h-[300px] bg-purple-600/15 rounded-full blur-[100px]" />
                 <div className="absolute top-10 right-1/4 w-[250px] h-[250px] bg-indigo-500/15 rounded-full blur-[100px]" />
             </div>
-            <div className="relative z-10 text-center text-white max-w-[1300] mx-auto">
-                <h1 className="text-[42px] font-semibold leading-tight">
+            <div className="relative z-10 text-center text-white max-w-[1300] mx-auto px-4">
+                <h1 className="text-2xl md:text-[42px] font-semibold leading-tight">
                     Building Technology that   <span className="font-playball font-normal">Empowers</span>
                 </h1>
 
                 <div className="relative inline-block">
-                    <h2 className="text-[42px] font-semibold leading-tight">
+                    <h2 className="text-3xl md:text-[42px] font-semibold leading-tight">
                         Businesses
                     </h2>
                     {/* spark animation */}
@@ -68,7 +68,7 @@ const AboutHero = () => {
 
                     </div> */}
                 </div>
-                <p className="text-gray-300 mt-6 max-w-2xl mx-auto leading-relaxed text-lg">
+                <p className="text-gray-300 mt-6 max-w-2xl mx-auto leading-relaxed text-base md:text-lg px-2 md:px-0">
                     From employee monitoring to enterprise automation, we design intelligent business solutions that simplify operations, strengthen accountability, and help organizations achieve efficiency through real-time visibility and control.
                 </p>
             </div>

@@ -33,11 +33,11 @@ const AboutWhyChooseUs = () => {
 
 
   return (
-    <section className="w-full bg-gradient-to-b from-[#e8ecf8] via-[#edf0fa] to-[#e8ecf8] pb-6 bg-[url('/whyChoiceUs.png')] bg-cover bg-center bg-no-repeat">
-      <div className="max-w-[1300] mx-auto">
-        <div className="flex gap-16 items-center justify-between">
+    <section className="w-full bg-gradient-to-b from-[#e8ecf8] via-[#edf0fa] to-[#e8ecf8] py-12 lg:pt-24 bg-[url('/whyChoiceUs.png')] bg-cover bg-center bg-no-repeat">
+      <div className="max-w-[1300px] mx-auto px-4">
+        <div className="flex flex-col md:flex-row gap-8 items-start justify-between">
           {/* Left Side */}
-          <div className="w-[40%] flex flex-col justify-center">
+          <div className="w-full md:w-2/5 flex flex-col justify-center">
             <div className="mb-4">
               <div className="content_title_border_new w-fit mb-1">
                 <div className="px-4 py-2 text-sm font-semibold content_title_text_new">
@@ -46,7 +46,7 @@ const AboutWhyChooseUs = () => {
               </div>
             </div>
 
-            <h2 className="text-[42px] font-semibold text-black leading-tight mb-6">
+            <h2 className="text-2xl md:text-[42px] font-semibold text-black leading-tight mb-6">
               Smarter <span className="font-playball font-normal">tools</span>{" "}
               for a more efficient team
             </h2>
@@ -58,7 +58,7 @@ const AboutWhyChooseUs = () => {
           </div>
 
           {/* Right Side - Accordion */}
-          <div className="w-1/2 py-16">
+          <div className="w-full md:w-1/2 py-8 md:py-16">
             <div className="space-y-3">
               {faqs.map((faq, index) => {
                 const isOpen = open === index;

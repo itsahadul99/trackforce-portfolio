@@ -18,17 +18,17 @@ const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
 
 const AboutVision = () => {
     return (
-        <div className="h-[75vh] max-w-[1300] mx-auto bg-gradient-to-r from-[#0a0a2e] via-[#0d1033] to-[#0a0a2e] rounded-3xl mt-12 lg:mt-24 p-12 relative overflow-hidden bg-[url('/whyTStandBg.png')] bg-cover bg-center bg-no-repeat">
+        <div className="lg:h-[75vh] max-w-[1300] mx-4 lg:mx-auto bg-gradient-to-r from-[#0a0a2e] via-[#0d1033] to-[#0a0a2e] rounded-3xl mt-12 lg:mt-24 p-6 md:p-10 lg:p-12 relative overflow-hidden bg-[url('/whyTStandBg.png')] bg-cover bg-center bg-no-repeat">
             {/* Glow effects */}
             <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-green-500/10 rounded-full blur-[120px]" />
             <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-blue-500/10 rounded-full blur-[120px]" />
 
             <div className="z-10  h-full flex flex-col lg:flex-row gap-12 justify-between items-center">
                 <div className="w-full lg:w-[50%]">
-                    <div className="relative w-full ">
+                    <div className="relative w-full flex flex-col items-center gap-6 lg:block lg:gap-0">
                          {/* Time tracking image */}
                          <motion.div
-                           className="absolute -top-44 left-10 z-20"
+                           className="z-20 relative lg:absolute lg:-top-44 lg:left-10"
                            variants={imageVariants(-50, -50, 0.35)}
                            initial="hidden"
                            whileInView="visible"
@@ -39,12 +39,12 @@ const AboutVision = () => {
                              alt="Case Study Hero"
                              width={1200}
                              height={600}
-                             className="w-[360] object-contain"
+                             className="w-[260px] sm:w-[320px] lg:w-[360] object-contain"
                            />
                          </motion.div>
                          {/* Ensure image overlay */}
                          <motion.div
-                           className="absolute -bottom-[225px] right-[70] z-20"
+                           className="z-20 relative lg:absolute lg:-bottom-[225px] lg:right-[70]"
                            variants={imageVariants(50, 50, 0.35)}
                            initial="hidden"
                            whileInView="visible"
@@ -55,10 +55,10 @@ const AboutVision = () => {
                              alt="Case Study Hero"
                              width={1200}
                              height={600}
-                             className="w-[320] object-contain"
+                             className="w-[240px] sm:w-[280px] lg:w-[320] object-contain"
                            />
                          </motion.div>
-             
+
 
                     </div>
                 </div>
@@ -72,7 +72,7 @@ const AboutVision = () => {
                             </div>
                         </div>
                         <h3
-                            className={`text-[32px] font-semibold leading-tight mb-4  text-white`}
+                            className={`text-2xl md:text-[32px] font-semibold leading-tight mb-4  text-white`}
                         >
                             Shaping the Future of Intelligent  <br />  and
                             <span className="font-playball font-normal"> Accountable </span>{" "}

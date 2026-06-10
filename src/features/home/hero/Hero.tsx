@@ -36,7 +36,7 @@ const Hero = () => {
     const path = "M1.37062 48.9656C18.3278 26.677 58.5996 25.7684 74.2747 26.7115";
 
     return (
-        <div className=" bg-cover bg-center bg-no-repeat bg-[url('/HeroBg.png')]">
+        <div className="overflow-hidden bg-cover bg-center bg-no-repeat bg-[url('/HeroBg.png')]">
             <div className="max-w-[1300] mx-auto px-4 sm:px-6 xl:px-0 pt-20 lg:pt-0 pb-16 lg:pb-0 flex flex-col lg:flex-row lg:justify-between items-center gap-12 lg:gap-0 min-h-screen lg:h-full">
                 <div className="w-full lg:w-1/2 space-y-4 text-center lg:text-left">
                     {/* Top Badge */}

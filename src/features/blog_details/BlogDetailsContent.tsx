@@ -3,8 +3,8 @@ import { BlogPost } from "@/data/blogs";
 const BlogDetailsContent = ({ blog }: { blog: BlogPost }) => {
     return (
 
-        <section className="relative overflow-hidden bg-[#0a0a1a] py-20">
-            <div className="  max-w-[1300] mx-auto">
+        <section className="relative overflow-hidden bg-[#0a0a1a] py-12 md:py-20">
+            <div className="  max-w-[1300] mx-auto px-4 lg:px-0">
                 {/* Background glow effects */}
                 <div className="absolute inset-0">
                     <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-blue-600/20 rounded-full blur-[140px]" />

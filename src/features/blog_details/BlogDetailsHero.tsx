@@ -20,18 +20,18 @@ const BlogDetailsHero = ({ blog }: { blog: BlogPost }) => {
                 <div className="absolute top-20 left-1/4 w-[300px] h-[300px] bg-purple-600/15 rounded-full blur-[100px]" />
                 <div className="absolute top-10 right-1/4 w-[250px] h-[250px] bg-indigo-500/15 rounded-full blur-[100px]" />
             </div >
-            <div className="relative z-10 text-center text-[#2B2B2B] max-w-[1300] mx-auto">
+            <div className="relative z-10 text-center text-[#2B2B2B] max-w-[1300] mx-auto px-4 lg:px-0">
                 <div className="section_title_border_light w-fit mx-auto text-black rounded-full mb-6">
                     <div className="how_trackforce_works px-4 py-2 text-sm font-semibold">
                         {blog.tag}
                     </div>
                 </div>
-                <h1 className="text-[42px] font-semibold leading-tight">
+                <h1 className="text-2xl md:text-[42px] font-semibold leading-tight">
                     {blog.hero.titleTop}
                 </h1>
 
                 <div className="relative inline-block mt-[2]">
-                    <h2 className="text-[42px] font-semibold leading-tight">
+                    <h2 className="text-2xl md:text-[42px] font-semibold leading-tight">
                         {blog.hero.titleBottomPrefix}
                         <span className="font-playball font-normal">{blog.hero.titleItalic}</span>
                     </h2>
@@ -86,7 +86,7 @@ const BlogDetailsHero = ({ blog }: { blog: BlogPost }) => {
 
                     </div>
                 </div>
-                <div className="flex justify-center items-center gap-3  font-semibold mt-4">
+                <div className="flex flex-wrap justify-center items-center gap-2 md:gap-3 font-semibold mt-4 text-sm md:text-base">
                     <p>{blog.date}</p>
                     <p>• </p>
                     <p>Author: {blog.author}</p>
