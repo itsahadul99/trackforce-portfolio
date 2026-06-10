@@ -3,7 +3,7 @@
 import AboutMission from "./AboutMission";
 const AboutWhatWeDo = () => {
   return (
-    <section className="w-full bg-gradient-to-b from-[#e8ecf8] via-[#edf0fa] to-[#e8ecf8] py-20 bg-[url('/ourMission.png')] bg-cover bg-center bg-no-repeat">
+    <section className="w-full bg-gradient-to-b from-[#e8ecf8] via-[#edf0fa] to-[#e8ecf8] px-4 py-20 bg-[url('/ourMission.png')] bg-cover bg-center bg-no-repeat">
       <div className="max-w-[1300] mx-auto">
         {/* Header */}
         <div className="text-center">

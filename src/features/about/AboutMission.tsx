@@ -17,8 +17,8 @@ const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
 });
 const AboutMission = () => {
     return (
-        <div className='w-full h-[80vh]  flex justify-between items-center gap-10'>
-            <div className="w-[50%]">
+        <div className='w-full h-[80vh]  flex flex-col lg:flex-row justify-between items-center gap-10'>
+            <div className="w-full lg:w-[50%]">
                 <div className="flex flex-col justify-center">
                     <div className="content_title_border_new w-fit mb-1 button">
                         <div className="px-4 py-2 text-sm font-semibold content_title_text_new">
@@ -63,7 +63,7 @@ const AboutMission = () => {
                     </div>
                 </div>
             </div>
-            <div className="w-[50%]">
+            <div className="w-full lg:w-[50%]">
                 <div className="relative w-full flex justify-end">
                     <motion.div
                         className="absolute -top-48 right-14 z-20"

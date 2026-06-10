@@ -23,8 +23,8 @@ const AboutVision = () => {
             <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-green-500/10 rounded-full blur-[120px]" />
             <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-blue-500/10 rounded-full blur-[120px]" />
 
-            <div className="z-10  h-full flex gap-12 justify-between items-center">
-                <div className="w-[50%]">
+            <div className="z-10  h-full flex flex-col lg:flex-row gap-12 justify-between items-center">
+                <div className="w-full lg:w-[50%]">
                     <div className="relative w-full ">
                          {/* Time tracking image */}
                          <motion.div
@@ -62,7 +62,7 @@ const AboutVision = () => {
 
                     </div>
                 </div>
-                <div className="w-[50%] h-full  flex items-center">
+                <div className="w-full lg:w-[50%] h-full  flex items-center">
                     <div className="">
                         <div className='flex justify-start'>
                             <div className="section_title_border  w-fit  text-black rounded-full mb-6">

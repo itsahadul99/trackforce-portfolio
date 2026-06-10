@@ -9,7 +9,7 @@ const DocContent = ({ activeSection }: { activeSection: string }) => {
       initial={{ x: 100, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="flex-1 min-w-0"
+      className="flex-1 min-w-0 bg-transparent"
     >
       {activeSection === "installation" && <InstallationSection />}
       {activeSection === "dashboard" && <PlaceholderSection title="2. Dashboard" />}

@@ -92,7 +92,7 @@ const BlogCards = () => {
         sortOptions.find((o) => o.value === sortBy)?.label ?? "Sort by";
 
     return (
-        <section className="bg-[#DEEDFF]  max-w-[1300] mx-auto p-14 rounded-2xl my-24 bg-[url('/blogBg.png')] bg-no-repeat bg-cover bg-top">
+        <section className="bg-[#DEEDFF]  max-w-[1300] mx-auto p-4 md:p-8 lg:p-14 rounded-2xl my-24 bg-[url('/blogBg.png')] bg-no-repeat bg-cover bg-top">
             <div className="max-w-[1200px] xl:max-w-[1300px] mx-auto ">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center justify-center rounded-2xl overflow-hidden ">
                     <motion.div
@@ -117,7 +117,7 @@ const BlogCards = () => {
                         whileInView={{ x: 0, opacity: 1 }}
                         viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.3, ease: "easeOut" }}
-                        className="p-8 lg:p-10"
+                        className="p-4 lg:p-10"
                     >
                         <div className='flex'>
                             <div className="flex justify-center ">
