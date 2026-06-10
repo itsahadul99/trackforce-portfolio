@@ -111,7 +111,7 @@ const HomePricing = () => {
             Every TrackForce plan includes the core monitoring, productivity, and security features your team needs — no hidden add-ons, no feature lock-ins.
           </p>
         </div>
-        <div className="flex flex-col lg:flex-row justify-center items-center gap-6 lg:gap-8 mt-12 lg:mt-16 flex-wrap">
+        <div className="flex flex-col lg:flex-row justify-center items-center lg:items-stretch gap-10 sm:gap-8 lg:gap-6 xl:gap-8 mt-12 lg:mt-16 flex-wrap">
 
           {plans.map((plan, idx) => {
             const isProfessional = plan.highlight;
@@ -148,9 +148,9 @@ const HomePricing = () => {
                 whileInView={animate}
                 transition={transition}
                 viewport={{ once: false, amount: 0.5 }}
-                className={`relative rounded-3xl shadow-xl flex flex-col ${isProfessional
-                  ? "py-12 px-7 w-full max-w-[340px] z-10"
-                  : "bg-white p-8 w-full max-w-[320px] border border-gray-200"
+                className={`relative rounded-3xl shadow-xl flex flex-col mx-auto lg:mx-0 ${isProfessional
+                  ? "py-10 sm:py-12 px-6 sm:px-7 w-full max-w-[340px] lg:max-w-[300px] xl:max-w-[340px] z-10"
+                  : "bg-white p-6 sm:p-8 w-full max-w-[320px] lg:max-w-[280px] xl:max-w-[320px] border border-gray-200"
                   }`}
                 style={
                   isProfessional
