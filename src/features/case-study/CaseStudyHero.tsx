@@ -18,7 +18,7 @@ const CaseStudyHero = () => {
   return (
     <div className="overflow-hidden py-12 bg-cover bg-center bg-no-repeat bg-[url('/caseStudyBg.png')]">
 
-      <div className="  lg:w-[1200] xl:w-[1300] h-[calc(100vh-350px)] mx-auto flex flex-col lg:flex-row items-center justify-between gap-10">
+      <div className="  max-w-[1300] h-[calc(100vh-350px)] mx-auto flex flex-col lg:flex-row items-center justify-between gap-10">
         {/* Left Content */}
         <div className="w-full lg:w-1/2 h-full  flex flex-col items-start justify-center gap-6">
           {/* Case Study Badge */}

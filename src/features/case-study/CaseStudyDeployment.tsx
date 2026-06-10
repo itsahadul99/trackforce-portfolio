@@ -1,7 +1,7 @@
 const CaseStudyDeployment = () => {
   return (
     <div className="-mt-60 py-16 md:py-24 bg-[#e8eefb] bg-[url('/10bestSft.png')] bg-cover bg-center bg-no-repeat">
-      <div className="w-full lg:w-[1200] xl:w-[1300] mx-auto px-4">
+      <div className="w-full max-w-[1300] mx-auto px-4">
         <div className="relative overflow-hidden  py-14 md:py-20 flex flex-col md:flex-row gap-12 items-center justify-between">
           {/* Left */}
           <div className="w-1/2 relative z-10 ">

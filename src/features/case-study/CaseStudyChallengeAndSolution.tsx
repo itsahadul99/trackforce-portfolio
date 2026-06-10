@@ -9,7 +9,7 @@
 
 
 
-//       <div className="w-full  mb-12 relative z-10 lg:w-[1200] xl:w-[1300] mx-auto">
+//       <div className="w-full  mb-12 relative z-10 max-w-[1300] mx-auto">
 //         {/* 1st */}
 //         <div className="flex justify-between gap-12">
 //           {/* Industry Tag */}
@@ -144,7 +144,7 @@ const CaseStudyChallengeAndSolution = () => {
       className="relative bg-cover bg-center bg-no-repeat py-16 md:py-24"
       style={{ backgroundImage: "url('/multipleBg.png')" }}
     >
-      <div className="w-full mb-12 relative z-10 lg:w-[1200] xl:w-[1300] mx-auto">
+      <div className="w-full mb-12 relative z-10 max-w-[1300] mx-auto">
         
         {/* 1st */}
         <div className="flex justify-between gap-12">

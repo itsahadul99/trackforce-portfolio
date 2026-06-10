@@ -21,7 +21,7 @@ const PricingHero = () => {
                 <div className="absolute top-20 left-1/4 w-[300px] h-[300px] bg-purple-600/15 rounded-full blur-[100px]" />
                 <div className="absolute top-10 right-1/4 w-[250px] h-[250px] bg-indigo-500/15 rounded-full blur-[100px]" />
             </div >
-            <div className="relative z-10 text-center text-[#2B2B2B] lg:w-[1200] xl:w-[1300] mx-auto">
+            <div className="relative z-10 text-center text-[#2B2B2B] max-w-[1300] mx-auto">
                 <div className="section_title_border w-fit mx-auto text-black rounded-full mb-6">
                     <div className="how_trackforce_works px-4 py-2 text-sm font-semibold">
                         Pricing Plan

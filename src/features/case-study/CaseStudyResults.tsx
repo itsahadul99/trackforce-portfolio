@@ -105,7 +105,7 @@
 //       {/* Decorative blur - right side */}
 //       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-[#8b9cf7]/25 blur-[100px] pointer-events-none" />
 
-//       <div className="w-full lg:w-[1200] xl:w-[1300] mx-auto px-4 relative z-10">
+//       <div className="w-full max-w-[1300] mx-auto px-4 relative z-10">
 //         {/* Heading */}
 //         <div className="text-center mb-12">
 //           <h2 className="text-4xl md:text-[42px] font-bold text-[#1a1a2e] mb-3">

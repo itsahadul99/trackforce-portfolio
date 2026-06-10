@@ -19,7 +19,7 @@ const Documentation = () => {
                 className="absolute bottom-0 left-0 w-full h-1/2 bg-cover bg-center bg-no-repeat pointer-events-none"
                 style={{ backgroundImage: "url('/docbg2.png')" }}
             />
-            <div className="relative z-10 w-full lg:w-[1200] xl:w-[1300] mx-auto px-4 py-20">
+            <div className="relative z-10 w-full max-w-[1300] mx-auto px-4 py-20">
                 <div className="flex gap-10">
                     <DocSidebar
                         activeSection={activeSection}

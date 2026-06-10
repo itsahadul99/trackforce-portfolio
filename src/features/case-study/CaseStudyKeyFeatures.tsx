@@ -3,7 +3,7 @@ import Image from "next/image";
 const CaseStudyKeyFeatures = () => {
   return (
     <div className=" py-16 md:py-24 bg-[#e8eefb] bg-[url('/10bestSft.png')] bg-cover bg-center bg-no-repeat">
-      <div className="w-full lg:w-[1200] xl:w-[1300] mx-auto px-4">
+      <div className="w-full max-w-[1300] mx-auto px-4">
         <h1 className="text-[42px] text-[#2B2B2B] text-center font-semibold mb-2">
           Key {" "}
           <span className="font-playball font-normal">Features</span> {" "}

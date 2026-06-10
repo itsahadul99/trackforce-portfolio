@@ -34,7 +34,7 @@ const StatusCell = ({ status }: { status: Status }) => {
 
 const Benefits = () => {
   return (
-    <section className=" lg:w-[1200] xl:w-[1300] mx-auto  bg-[#DEEDFF] my-24 p-16 rounded-2xl relative overflow-hidden">
+    <section className=" max-w-[1300] mx-auto  bg-[#DEEDFF] my-24 p-16 rounded-2xl relative overflow-hidden">
       {/* Decorative blue gradient blob - left side */}
       <div className="absolute -left-20 top-1/4 w-[400px] h-[500px] bg-gradient-to-br from-[#9dd0f5]/50 to-[#c8e4fc]/20 rounded-full blur-[100px]" />
 

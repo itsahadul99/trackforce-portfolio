@@ -20,7 +20,7 @@ const BlogHero = () => {
                 <div className="absolute top-20 left-1/4 w-[300px] h-[300px] bg-purple-600/15 rounded-full blur-[100px]" />
                 <div className="absolute top-10 right-1/4 w-[250px] h-[250px] bg-indigo-500/15 rounded-full blur-[100px]" />
             </div>
-            <div className="relative z-10 text-center text-white lg:w-[1200] xl:w-[1300] mx-auto">
+            <div className="relative z-10 text-center text-white max-w-[1300] mx-auto">
                 <h1 className="text-[42px] font-semibold leading-tight">
                     Real Customers
                 </h1>
