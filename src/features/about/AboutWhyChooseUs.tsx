@@ -33,14 +33,14 @@ const AboutWhyChooseUs = () => {
 
 
   return (
-    <section className="w-full bg-gradient-to-b from-[#e8ecf8] via-[#edf0fa] to-[#e8ecf8] pb-6">
+    <section className="w-full bg-gradient-to-b from-[#e8ecf8] via-[#edf0fa] to-[#e8ecf8] pb-6 bg-[url('/whyChoiceUs.png')] bg-cover bg-center bg-no-repeat">
       <div className="lg:w-[1200] xl:w-[1300] mx-auto">
         <div className="flex gap-16 items-center justify-between">
           {/* Left Side */}
           <div className="w-[40%] flex flex-col justify-center">
             <div className="mb-4">
-              <div className="content_title_border w-fit text-[#0C59C0] rounded-full">
-                <div className="px-4 py-2 text-sm font-semibold">
+              <div className="content_title_border_new w-fit mb-1">
+                <div className="px-4 py-2 text-sm font-semibold content_title_text_new">
                   Why choose us
                 </div>
               </div>

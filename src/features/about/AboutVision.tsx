@@ -18,7 +18,7 @@ const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
 
 const AboutVision = () => {
     return (
-        <div className="h-[75vh] bg-gradient-to-r from-[#0a0a2e] via-[#0d1033] to-[#0a0a2e] rounded-3xl p-12 relative overflow-hidden">
+        <div className="h-[75vh] lg:w-[1200] xl:w-[1300] mx-auto bg-gradient-to-r from-[#0a0a2e] via-[#0d1033] to-[#0a0a2e] rounded-3xl mt-12 lg:mt-24 p-12 relative overflow-hidden bg-[url('/whyTStandBg.png')] bg-cover bg-center bg-no-repeat">
             {/* Glow effects */}
             <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-green-500/10 rounded-full blur-[120px]" />
             <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-blue-500/10 rounded-full blur-[120px]" />

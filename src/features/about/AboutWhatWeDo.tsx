@@ -1,15 +1,9 @@
 "use client";
 
 import AboutMission from "./AboutMission";
-import AboutValues from "./AboutValues";
-import AboutVision from "./AboutVision";
-
-
 const AboutWhatWeDo = () => {
-
-
   return (
-    <section className="w-full bg-gradient-to-b from-[#e8ecf8] via-[#edf0fa] to-[#e8ecf8] py-20">
+    <section className="w-full bg-gradient-to-b from-[#e8ecf8] via-[#edf0fa] to-[#e8ecf8] py-20 bg-[url('/ourMission.png')] bg-cover bg-center bg-no-repeat">
       <div className="lg:w-[1200] xl:w-[1300] mx-auto">
         {/* Header */}
         <div className="text-center">
@@ -28,8 +22,6 @@ const AboutWhatWeDo = () => {
 
         {/* Sections */}
         <AboutMission />
-        <AboutVision />
-        <AboutValues />
       </div>
     </section>
   );

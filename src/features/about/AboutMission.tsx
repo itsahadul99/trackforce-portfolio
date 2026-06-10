@@ -20,12 +20,11 @@ const AboutMission = () => {
         <div className='w-full h-[80vh]  flex justify-between items-center gap-10'>
             <div className="w-[50%]">
                 <div className="flex flex-col justify-center">
-                    <div className="content_title_border w-fit text-[#0C59C0] rounded-full mb-1">
-                        <div className="px-4 py-2 text-sm font-semibold">
+                    <div className="content_title_border_new w-fit mb-1 button">
+                        <div className="px-4 py-2 text-sm font-semibold content_title_text_new">
                             Mission
                         </div>
                     </div>
-
                     <h3
                         className={`text-[32px] font-semibold leading-tight mb-4 text-black`}
                     >
@@ -33,7 +32,6 @@ const AboutMission = () => {
                         <span className="font-playball font-normal">Transparent</span><br />
                         Performance
                     </h3>
-
                     <p
                         className={`text-base leading-relaxed mb-6 text-gray-600`}
                     >
