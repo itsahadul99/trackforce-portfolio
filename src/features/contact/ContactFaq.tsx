@@ -41,7 +41,7 @@ const faqs = [
 const ContactFaq = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   return (
-    <div className="w-full lg:w-1/2">
+    <div className="w-full xl:w-1/2">
       <div className="flex items-center justify-center">
         <h2 className="text-[42px] font-semibold text-[#2B2B2B] mb-8">
           FAQ

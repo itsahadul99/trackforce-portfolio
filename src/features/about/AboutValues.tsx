@@ -18,7 +18,7 @@ const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
 const AboutValues = () => {
     return (
         <div className='w-full bg-[url("/ourValues.png")] bg-cover bg-center bg-no-repeat overflow-hidden py-12 lg:py-24'>
-            <div className='flex justify-between items-center gap-10 lg:w-[1200] xl:w-[1300] mx-auto'>
+            <div className='flex justify-between items-center gap-10 max-w-[1300] mx-auto'>
                 <div className="w-[50%]">
                     <div className="flex flex-col justify-center">
                         <div className="content_title_border_new w-fit mb-1">

@@ -21,7 +21,7 @@ export default function WorkProcess() {
 
   return (
     <section className="py-16 sm:py-20 lg:py-24 overflow-hidden bg-cover bg-center bg-no-repeat bg-[url('/work-process-bg.png')]">
-      <div className="lg:max-w-[1200] xl:max-w-[1300] w-full mx-auto flex flex-col lg:flex-row items-center lg:items-start gap-12 px-4 sm:px-6 lg:px-0">
+      <div className="lg:max-w-[1200] xl:max-w-[1300] w-full mx-auto flex flex-col lg:flex-row items-center lg:items-start gap-12 px-4 sm:px-6 xl:px-0">
 
         {/* Left Content */}
         <div className="w-full lg:w-[40%] space-y-6 text-center lg:text-left">

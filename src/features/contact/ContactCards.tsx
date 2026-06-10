@@ -4,8 +4,8 @@ import Image from "next/image";
 const ContactCards = () => {
   return (
     <section className="py-16">
-      <div className="lg:w-[1200] xl:w-[1300] mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="max-w-[1300] mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
           {/* Call us */}
           <div className="bg-gradient-to-b from-[#CFE4FE] to-[#83CFD9] rounded-2xl p-6 border border-white/40 shadow-lg hover:shadow-gray-500 hover:shadow-xl transition-all duration-300 ease-in">
             <div className="flex items-center justify-center w-12 h-12 bg-white/30 border-2 border-white rounded-full">

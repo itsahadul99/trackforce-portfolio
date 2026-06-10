@@ -28,7 +28,7 @@ const Contact = () => {
           <div className="absolute top-20 left-1/4 w-[300px] h-[300px] bg-purple-600/15 rounded-full blur-[100px]" />
           <div className="absolute top-10 right-1/4 w-[250px] h-[250px] bg-indigo-500/15 rounded-full blur-[100px]" />
         </div>
-        <div className="relative z-10 text-center text-white lg:w-[1200] xl:w-[1300] mx-auto">
+        <div className="relative z-10 text-center text-white max-w-[1300px] mx-auto">
           <h1 className="text-[42px] font-semibold leading-tight">
             Let&apos;s Talk
           </h1>
@@ -104,7 +104,7 @@ const Contact = () => {
 
           {/* FAQ + Contact Form Section */}
           <section>
-            <div className="lg:w-[1200] xl:w-[1300] mx-auto flex flex-col lg:flex-row items-center gap-10">
+            <div className="max-w-[1300] mx-auto flex flex-col xl:flex-row items-center gap-10">
               {/* FAQ */}
               <ContactFaq />
               {/* Contact Form */}

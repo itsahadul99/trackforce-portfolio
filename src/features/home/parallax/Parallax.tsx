@@ -27,7 +27,7 @@ const Parallax = () => {
   return (
     <div
       ref={containerRef}
-      className="relative h-fit lg:w-[1200] xl:w-[1300] mx-auto mt-16 sm:mt-20 lg:mt-28 text-black px-4 sm:px-6 lg:px-0"
+      className="relative h-fit max-w-[1300] mx-auto mt-16 sm:mt-20 lg:mt-28 text-black px-4 sm:px-6 xl:px-0"
     >
 
       {/* plx 1 */}
@@ -37,7 +37,7 @@ const Parallax = () => {
           initial="rest"
           whileHover="hover"
           animate="rest"
-          className=" absolute inset-0 rounded-2xl w-full h-[380px] sm:h-[420px] lg:h-[450px] overflow-hidden group shadow-lg border border-white px-4 sm:px-6 lg:px-0"
+          className=" absolute inset-0 rounded-2xl w-full h-[380px] sm:h-[420px] lg:h-[450px] overflow-hidden group shadow-lg border border-white px-4 sm:px-6 xl:px-0"
         >
           <div className="relative flex flex-col items-center text-center">
 

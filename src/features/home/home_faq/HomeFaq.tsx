@@ -39,7 +39,7 @@ const HomeFaq = () => {
     const [open, setOpen] = useState<number | null>(0);
 
     return (
-        <div className="flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-2 lg:w-[1200] xl:w-[1300] mx-auto px-4 sm:px-6 lg:px-0">
+        <div className="flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-2 max-w-[1300] mx-auto px-4 sm:px-6 xl:px-0">
             <div className="w-full lg:w-1/2 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
                 <div className="content_title_border w-fit text-[#0C59C0] rounded-full mb-1">
                     <div className="px-4 py-2 text-sm font-semibold">

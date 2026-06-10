@@ -92,8 +92,8 @@ const Testimonials = () => {
 
   return (
     <section className="w-full ">
-      <div className="lg:w-[1200] xl:w-[1300] mx-auto px-4 sm:px-6 lg:px-0">
-        <div className="flex flex-col lg:flex-row gap-10">
+      <div className="max-w-[1300] mx-auto px-4 sm:px-6 xl:px-0">
+        <div className="flex flex-col lg:flex-row gap-10 px-4 xl:px-0">
 
           {/* LEFT TEXT */}
           <div className="w-full lg:w-[35%] flex flex-col justify-center text-center lg:text-left items-center lg:items-start">

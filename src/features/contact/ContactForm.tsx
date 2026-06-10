@@ -5,7 +5,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 
 const ContactForm = () => {
   return (
-    <div className="w-full lg:w-1/2 h-hit flex justify-end">
+    <div className="w-full xl:w-1/2 h-hit flex justify-center xl:justify-end">
       <div className="relative w-full max-w-[480px] p-4 group">
         {/* Corner brackets - flush on idle, move outward on hover */}
         <span className="pointer-events-none absolute top-3 left-3 w-20 h-20 border-t-4 border-l-4 border-[#1D72E7] rounded-tl-lg group-hover:-translate-x-10 group-hover:-translate-y-10 transition-all duration-500 ease-in-out" />

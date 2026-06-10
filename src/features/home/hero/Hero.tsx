@@ -37,7 +37,7 @@ const Hero = () => {
 
     return (
         <div className=" bg-cover bg-center bg-no-repeat bg-[url('/HeroBg.png')]">
-            <div className="lg:w-[1200] xl:w-[1300] mx-auto px-4 sm:px-6 lg:px-0 pt-20 lg:pt-0 pb-16 lg:pb-0 flex flex-col lg:flex-row lg:justify-between items-center gap-12 lg:gap-0 min-h-screen lg:h-full">
+            <div className="max-w-[1300] mx-auto px-4 sm:px-6 xl:px-0 pt-20 lg:pt-0 pb-16 lg:pb-0 flex flex-col lg:flex-row lg:justify-between items-center gap-12 lg:gap-0 min-h-screen lg:h-full">
                 <div className="w-full lg:w-1/2 space-y-4 text-center lg:text-left">
                     {/* Top Badge */}
                     {/* <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs sm:text-sm text-gray-200">

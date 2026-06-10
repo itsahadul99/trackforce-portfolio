@@ -8,7 +8,7 @@ import dashboard from '../../../../public/dashboard.png';
 
 const HomeFreeTailer = () => {
     return (
-        <div className="group/free_trailer relative overflow-hidden lg:w-[1200] xl:w-[1300] mx-4 sm:mx-6 lg:mx-auto min-h-[480px] lg:h-[450px] text-white flex flex-col lg:flex-row gap-8 lg:gap-20 items-center lg:justify-between pl-6 sm:pl-8 lg:pl-10 pr-6 sm:pr-8 lg:pr-0 py-10 lg:py-0 rounded-2xl">
+        <div className="group/free_trailer relative overflow-hidden max-w-[1300] mx-4 sm:mx-6 lg:mx-auto min-h-[480px] lg:h-[450px] text-white flex flex-col lg:flex-row gap-8 lg:gap-20 items-center lg:justify-between pl-6 sm:pl-8 lg:pl-10 pr-6 sm:pr-8 lg:pr-0 py-10 lg:py-0 rounded-2xl px-4 xl:px-0">
             <video
                 autoPlay
                 loop

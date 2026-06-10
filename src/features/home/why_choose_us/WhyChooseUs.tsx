@@ -65,7 +65,7 @@ const WhyChooseUs = () => {
   return (
 
     <section className=" w-full py-16 sm:py-20 lg:py-24 text-white bg-cover bg-center bg-no-repeat bg-[url('/why-choose-us-bg.png')]">
-      <div className='lg:w-[1200] xl:w-[1300] mx-auto  '>
+      <div className='max-w-[1300] mx-auto px-4 sm:px-6 xl:px-0'>
         <div className="flex flex-col lg:flex-row gap-8 w-full px-4 sm:px-6 lg:px-4">
           {/* Right: Heading & Description — moved up on mobile via order */}
           <div className="w-full lg:w-2/5 flex flex-col justify-center items-center lg:items-start text-center lg:text-left px-2 md:px-8 order-1 lg:order-2">

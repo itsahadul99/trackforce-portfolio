@@ -58,7 +58,7 @@ const features = [
 const AboutJoinTeam = () => {
   return (
     <section className="w-full py-12 lg:py-24 bg-[url('/joinOurTeam.png')] bg-cover bg-center bg-no-repeat">
-      <div className="lg:w-[1200] xl:w-[1300] mx-auto">
+      <div className="max-w-[1300] mx-auto">
         <div className="flex flex-col md:flex-row gap-8 w-full px-4">
           {/* Left: Features Card */}
           <div

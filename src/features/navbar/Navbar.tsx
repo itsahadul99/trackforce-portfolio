@@ -44,9 +44,9 @@ const Navbar = () => {
                     ? "bg-[#000000b2]"
                     : "bg-transparent"
             }`}>
-            <div className={`mx-auto flex items-center justify-between ${isCaseStudy || isPricing
-                ? "w-full max-w-[1300px] mt-4 rounded-full bg-gradient-to-r from-[#1B3A8C] via-[#0F1B5C] to-black px-3 sm:px-5 lg:px-8 py-2 sm:py-3 shadow-lg"
-                : "lg:w-[1200] xl:w-[1300] px-4 sm:px-6 lg:px-0 py-4"
+            <div className={`mx-auto flex max-w-[1300px] mx-auto items-center justify-between ${isCaseStudy || isPricing
+                ? "w-full  mt-4 rounded-full bg-gradient-to-r from-[#1B3A8C] via-[#0F1B5C] to-black px-3 sm:px-5 lg:px-8 py-2 sm:py-3 shadow-lg"
+                : "px-4 sm:px-6 lg:px-0 py-4"
                 }`}>
 
                 {/* Left - Logo */}
