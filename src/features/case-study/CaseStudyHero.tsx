@@ -55,12 +55,12 @@ const CaseStudyHero = () => {
 
 
         {/* Right Content */}
-        <div className="relative w-full lg:w-1/2  flex justify-end">
+        <div className="relative w-full lg:w-1/2 flex flex-col items-center lg:flex-row lg:items-stretch justify-end">
 
 
           {/* Top Right Image */}
           <motion.div
-            className="lg:absolute lg:-top-60 lg:right-10 z-20 relative mt-6 lg:mt-0"
+            className="lg:absolute lg:-top-52 lg:right-0 z-20 relative mt-6 lg:mt-0"
             variants={imageVariants(50, -50, 0.35)}
             initial="hidden"
             whileInView="visible"
@@ -71,7 +71,7 @@ const CaseStudyHero = () => {
               alt="Case Study Hero"
               width={1200}
               height={600}
-              className="lg:w-[470px] w-full max-w-[320px] object-contain"
+              className="lg:w-[490px] w-full max-w-[450px] object-contain"
             />
           </motion.div>
 
@@ -88,7 +88,7 @@ const CaseStudyHero = () => {
               alt="Case Study Hero"
               width={1200}
               height={600}
-              className="lg:w-[400px] w-full max-w-[300px] object-contain"
+              className="lg:w-[400px] w-full max-w-[380px] lg:max-w-[350px] object-contain"
             />
           </motion.div>
 
