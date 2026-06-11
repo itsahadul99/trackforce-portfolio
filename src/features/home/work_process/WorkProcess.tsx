@@ -5,16 +5,18 @@
 
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from "next/image";
+import Link from 'next/link';
 import { useEffect, useState } from "react";
 import { FaArrowRightLong } from 'react-icons/fa6';
-import employeeListForCard from "../../../../public/employeeListForCard.png";
+import connectTeam from '../../../../public/home/connectTeam.png';
+import monitorAnalyze from '../../../../public/home/monitorAnalysis.png';
+import optimizePerformance from '../../../../public/home/optimizePermomence.png';
 import trackforce from '../../../../public/trackforce.png';
-import Link from 'next/link';
 
 const steps = [
-  { id: 1, title: "Connect Your Team", desc: "TrackForce enables peak efficiency through real-time tracking and smart performance insights." },
-  { id: 2, title: "Monitor & Analyze", desc: "TrackForce enables peak efficiency through real-time tracking and smart performance insights." },
-  { id: 3, title: "Optimize Performance", desc: "TrackForce enables peak efficiency through real-time tracking and smart performance insights." },
+  { id: 1, title: "Connect Your Team", desc: "TrackForce enables peak efficiency through real-time tracking and smart performance insights.", img: connectTeam },
+  { id: 2, title: "Monitor & Analyze", desc: "TrackForce enables peak efficiency through real-time tracking and smart performance insights.", img: monitorAnalyze },
+  { id: 3, title: "Optimize Performance", desc: "TrackForce enables peak efficiency through real-time tracking and smart performance insights.", img: optimizePerformance },
 ];
 
 export default function WorkProcess() {
@@ -152,7 +154,7 @@ export default function WorkProcess() {
                         className="absolute left-5 right-5 bottom-5 rounded-xl overflow-hidden shadow-md"
                       >
                         <Image
-                          src={employeeListForCard}
+                          src={step.img}
                           alt="Dashboard preview"
                           className="w-full h-auto object-cover"
                         />
