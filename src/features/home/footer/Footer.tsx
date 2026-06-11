@@ -177,11 +177,12 @@ import { FaArrowRightLong, FaPinterestP, FaWhatsapp, FaXTwitter } from 'react-ic
 import footerActiveBg from '../../../../public/footerActive.png';
 import trackforce from '../../../../public/trackforce.png';
 import trackforce_logo from "../../../../public/trackforce_logo.png";
+import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="group/footer relative bg-[#020617] text-gray-300 pt-20 sm:pt-24 lg:pt-28 pb-10 overflow-hidden transition-colors duration-1000">
       <div>
-        <Image src={footerActiveBg} alt="Footer Background" className="absolute inset-0 w-full ease-in-out h-full opacity-100 md:opacity-0 duration-1000 object-cover md:object-fill group-hover/footer:opacity-100 pointer-events-none z-20" />
+        <Image src={footerActiveBg} alt="Footer Background" className="absolute inset-0 w-full ease-in-out h-full opacity-0 lg:opacity-100 duration-1000 object-cover md:object-fill group-hover/footer:opacity-100 pointer-events-none z-20" />
       </div>
       {/* Footer Content Area */}
       <div className="max-w-[1200px] xl:max-w-[1300px] mx-auto px-4 sm:px-6 relative z-30">
@@ -235,44 +236,68 @@ export default function Footer() {
           {/* Resources */}
           <div>
             <h3 className="text-white font-semibold mb-4">Resorces</h3>
-            <ul className="space-y-3 text-sm text-gray-200">
-              <li className="hover:text-white cursor-pointer transition">About us</li>
-              <li className="hover:text-white cursor-pointer transition">FAQ</li>
-              <li className="hover:text-white cursor-pointer transition">Blogs</li>
+            <ul className="space-y-3 text-sm text-gray-200 *:block">
+              <Link href="/about" className="hover:text-white cursor-pointer inline-block transition-all duration-300 hover:translate-x-1">About us</Link>
+              <Link href="/faq" className="hover:text-white cursor-pointer inline-block transition-all duration-300 hover:translate-x-1">FAQ</Link>
+              <Link href="/blogs" className="hover:text-white cursor-pointer inline-block transition-all duration-300 hover:translate-x-1">Blogs</Link>
             </ul>
           </div>
 
           {/* Quick Links */}
           <div>
             <h3 className="text-white font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-3 text-sm text-gray-200">
-              <li className="hover:text-white cursor-pointer transition">Pricing</li>
-              <li className="hover:text-white cursor-pointer transition">Features</li>
-              <li className="hover:text-white cursor-pointer transition">Contact us</li>
+            <ul className="space-y-3 text-sm text-gray-200 *:block">
+              <Link href="/pricing" className="hover:text-white cursor-pointer inline-block transition-all duration-300 hover:translate-x-1">Pricing</Link>
+              <Link href="/features" className="hover:text-white cursor-pointer inline-block transition-all duration-300 hover:translate-x-1">Features</Link>
+              <Link href="/contact" className="hover:text-white cursor-pointer inline-block transition-all duration-300 hover:translate-x-1">Contact us</Link>
             </ul>
           </div>
 
           {/* Contact */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <h3 className="text-white font-semibold mb-4">Contact us</h3>
+            <Link href="/contact" className="block text-white font-semibold mb-4 transition-colors duration-300 hover:text-cyan-300">Contact us</Link>
 
             <ul className="space-y-4 text-sm text-gray-200">
-              <li className="flex items-center gap-3">
-                <Phone size={16} /> +88 01329-731839
+              <li>
+                <a
+                  href="tel:+8801329731839"
+                  className="flex items-center gap-3 hover:text-white transition-all duration-300 hover:translate-x-1"
+                >
+                  <Phone size={16} /> +88 01329-731839
+                </a>
               </li>
 
-              <li className="flex items-center gap-3">
-                <Mail size={16} /> support@trackforce.io
+              <li>
+                <a
+                  href="mailto:support@trackforce.io"
+                  className="flex items-center gap-3 hover:text-white transition-all duration-300 hover:translate-x-1"
+                >
+                  <Mail size={16} /> support@trackforce.io
+                </a>
               </li>
 
-              <li className="flex items-start gap-3">
-                <MapPin size={16} className="mt-1 shrink-0" />
-                <span>6/2 Kazi Nazrul Islam Rd, Dhaka, Bangladesh</span>
+              <li>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=6%2F2+Kazi+Nazrul+Islam+Rd%2C+Dhaka%2C+Bangladesh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 hover:text-white transition-all duration-300 hover:translate-x-1"
+                >
+                  <MapPin size={16} className="mt-1 shrink-0" />
+                  <span>6/2 Kazi Nazrul Islam Rd, Dhaka, Bangladesh</span>
+                </a>
               </li>
 
-              <li className="flex items-start gap-3">
-                <MapPin size={16} className="mt-1 shrink-0" />
-                <span>945 Taraval St #1083, San Francisco, CA 94116, USA</span>
+              <li>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=945+Taraval+St+%231083%2C+San+Francisco%2C+CA+94116%2C+USA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 hover:text-white transition-all duration-300 hover:translate-x-1"
+                >
+                  <MapPin size={16} className="mt-1 shrink-0" />
+                  <span>945 Taraval St #1083, San Francisco, CA 94116, USA</span>
+                </a>
               </li>
             </ul>
           </div>
@@ -285,12 +310,12 @@ export default function Footer() {
             <p>©{new Date().getFullYear()} trackforce All rights reserved. Developed by AKIJ iBOS</p>
 
             <div className="flex gap-4 text-lg text-gray-300">
-              <span className="hover:text-white cursor-pointer transition"><Facebook size={18} /></span>
-              <span className="hover:text-white cursor-pointer transition"><Linkedin size={18} /></span>
-              <span className="hover:text-white cursor-pointer transition"><FaXTwitter size={18} /></span>
-              <span className="hover:text-white cursor-pointer transition"><FaWhatsapp size={18} /></span>
-              <span className="hover:text-white cursor-pointer transition"><Instagram size={18} /></span>
-              <span className="hover:text-white cursor-pointer transition"><FaPinterestP size={18} /></span>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><Facebook size={18} /></a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><Linkedin size={18} /></a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><FaXTwitter size={18} /></a>
+              <a href="https://wa.me/8801329731839" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><FaWhatsapp size={18} /></a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><Instagram size={18} /></a>
+              <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><FaPinterestP size={18} /></a>
             </div>
           </div>
         </div>
