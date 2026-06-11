@@ -1,9 +1,8 @@
 "use client";
 import { motion, Transition } from "framer-motion";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FiArrowRight } from "react-icons/fi";
-import { IoPlayCircle } from "react-icons/io5";
 import { TypeAnimation } from "react-type-animation";
 import video_bg from '../../../../public/video_bg.png';
 
@@ -11,6 +10,15 @@ import video_bg from '../../../../public/video_bg.png';
 const Hero = () => {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [isPlaying, setIsPlaying] = useState(false);
+    const [isFullscreen, setIsFullscreen] = useState(false);
+
+    useEffect(() => {
+        const handleFullscreenChange = () => {
+            setIsFullscreen(document.fullscreenElement === videoRef.current);
+        };
+        document.addEventListener("fullscreenchange", handleFullscreenChange);
+        return () => document.removeEventListener("fullscreenchange", handleFullscreenChange);
+    }, []);
 
 
     const handleVideoClick = () => {
@@ -23,8 +31,6 @@ const Hero = () => {
             setIsPlaying(!isPlaying);
         }
     };
-
-
     const commonTransition: Transition = {
         duration: 1.2,
         ease: "easeInOut",
@@ -167,7 +173,7 @@ const Hero = () => {
                             onClick={handleVideoClick}
                             onPlay={() => setIsPlaying(true)}
                             onPause={() => setIsPlaying(false)}
-                            className="-mt-2.5 absolute top-[53%] left-1/2 w-[94.5%] z-10 object-cover cursor-pointer -translate-x-1/2 -translate-y-1/2"
+                            className={isFullscreen ? "" : "-mt-2.5 absolute top-[53%] left-1/2 w-[94.5%] z-10 object-cover cursor-pointer -translate-x-1/2 -translate-y-1/2"}
                         />
 
                         {!isPlaying && (
