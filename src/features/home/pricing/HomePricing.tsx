@@ -145,7 +145,7 @@ const HomePricing = () => {
               <motion.div
                 key={plan.name}
                 initial={initial}
-                whileInView={animate}
+                {...(isMobile ? { animate } : { whileInView: animate })}
                 transition={transition}
                 viewport={{ once: false, amount: 0.5 }}
                 className={`relative rounded-3xl shadow-xl flex flex-col mx-auto lg:mx-0 ${isProfessional

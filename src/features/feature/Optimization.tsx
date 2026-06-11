@@ -38,7 +38,7 @@ const Connector = ({ kind, side, position, delay = 0 }: ConnectorProps) => {
 
     return (
         <svg
-            className={`hidden md:block absolute ${positionClasses}`}
+            className={`hidden lg:block absolute ${positionClasses}`}
             width={width}
             height={height}
             viewBox={viewBox}
@@ -100,10 +100,10 @@ export default function Optimization() {
                     </div>
 
                     {/* Diagram */}
-                    <div className="relative h-[360px] md:h-[380px]">
+                    <div className="relative flex flex-col items-center gap-4 lg:block lg:h-[380px]">
 
                         {/* Center logo */}
-                        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+                        <div className="lg:absolute lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 z-10">
                             <motion.div
                                 className="w-24 h-24 md:w-28 md:h-28 bg-white rounded-full shadow-lg border flex items-center justify-center"
                                 animate={{
@@ -125,24 +125,24 @@ export default function Optimization() {
                         </div>
 
                         {/* Left pills */}
-                        <div className="absolute left-0 top-[10%]">
-                            <div className="relative bg-white w-80 text-center rounded-full shadow-md px-6 py-3 md:px-7 md:py-4">
+                        <div className="lg:absolute lg:left-0 lg:top-[10%]">
+                            <div className="relative bg-white w-full max-w-[320px] lg:w-80 text-center rounded-full shadow-md px-6 py-3 md:px-7 md:py-4">
                                 <p className="text-[#0a0a1a] font-semibold text-sm md:text-base whitespace-nowrap">
                                     Productivity Dashboard
                                 </p>
                                 <Connector kind="curve" side="left" position="top" delay={0} />
                             </div>
                         </div>
-                        <div className="absolute left-0 top-1/2 -translate-y-1/2">
-                            <div className="relative w-80 text-center bg-white rounded-full shadow-md px-6 py-3 md:px-7 md:py-4">
+                        <div className="lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2">
+                            <div className="relative w-full max-w-[320px] lg:w-80 text-center bg-white rounded-full shadow-md px-6 py-3 md:px-7 md:py-4">
                                 <p className="text-[#0a0a1a] font-semibold text-sm md:text-base whitespace-nowrap">
                                     Reporting & Analytics
                                 </p>
                                 <Connector kind="straight" side="left" position="middle" delay={0.2} />
                             </div>
                         </div>
-                        <div className="absolute left-0 bottom-[10%]">
-                            <div className="relative w-80 text-center bg-white rounded-full shadow-md px-6 py-3 md:px-7 md:py-4">
+                        <div className="lg:absolute lg:left-0 lg:bottom-[10%]">
+                            <div className="relative w-full max-w-[320px] lg:w-80 text-center bg-white rounded-full shadow-md px-6 py-3 md:px-7 md:py-4">
                                 <p className="text-[#0a0a1a] font-semibold text-sm md:text-base whitespace-nowrap">
                                     Performance & Efficiency
                                 </p>
@@ -151,24 +151,24 @@ export default function Optimization() {
                         </div>
 
                         {/* Right pills */}
-                        <div className="absolute right-0 top-[10%]">
-                            <div className="relative w-80 text-center bg-white rounded-full shadow-md px-6 py-3 md:px-7 md:py-4">
+                        <div className="lg:absolute lg:right-0 lg:top-[10%]">
+                            <div className="relative w-full max-w-[320px] lg:w-80 text-center bg-white rounded-full shadow-md px-6 py-3 md:px-7 md:py-4">
                                 <p className="text-[#0a0a1a] font-semibold text-sm md:text-base whitespace-nowrap">
                                     Workforce Monitoring
                                 </p>
                                 <Connector kind="curve" side="right" position="top" delay={0.1} />
                             </div>
                         </div>
-                        <div className="absolute right-0 top-1/2 -translate-y-1/2">
-                            <div className="relative w-80 text-center bg-white rounded-full shadow-md px-6 py-3 md:px-7 md:py-4">
+                        <div className="lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2">
+                            <div className="relative w-full max-w-[320px] lg:w-80 text-center bg-white rounded-full shadow-md px-6 py-3 md:px-7 md:py-4">
                                 <p className="text-[#0a0a1a] font-semibold text-sm md:text-base whitespace-nowrap">
                                     User & Device Control
                                 </p>
                                 <Connector kind="straight" side="right" position="middle" delay={0.3} />
                             </div>
                         </div>
-                        <div className="absolute right-0 bottom-[10%]">
-                            <div className="relative w-80 text-center bg-white rounded-full shadow-md px-6 py-3 md:px-7 md:py-4">
+                        <div className="lg:absolute lg:right-0 lg:bottom-[10%]">
+                            <div className="relative w-full max-w-[320px] lg:w-80 text-center bg-white rounded-full shadow-md px-6 py-3 md:px-7 md:py-4">
                                 <p className="text-[#0a0a1a] font-semibold text-sm md:text-base whitespace-nowrap">
                                     Billing & Financial Control
                                 </p>
