@@ -99,10 +99,10 @@ const AboutJoinTeam = () => {
                 Join our team
               </div>
             </div>
-            <h1 className="text-2xl md:text-[42px] font-semibold mb-2 text-black">
+            <h2 className="text-2xl md:text-[42px] font-semibold mb-2 text-black">
               Build the future of productivity with{" "}
               <span className="font-playball font-normal">TrackForce</span>
-            </h1>
+            </h2>
             <p className="text-gray-600 text-base mb-6 max-w-lg mt-6">
               We&apos;re building smarter employee monitoring and workforce
               management solutions that make a real impact.

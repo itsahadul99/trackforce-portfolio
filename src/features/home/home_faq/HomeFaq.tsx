@@ -74,10 +74,10 @@ const HomeFaq = () => {
                         FAQ
                     </div>
                 </div>
-                <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold mb-2 text-black leading-tight">
+                <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold mb-2 text-black leading-tight">
                     Got a <span className="font-playball font-normal">Question?</span> <br className="hidden sm:block" />
                     We&apos;re Here to Help
-                </h1>
+                </h2>
                 <p className="text-gray-600 text-sm sm:text-base mb-6 max-w-lg mt-6">
                     Track employee activity, productivity, and work patterns in one place without disrupting everyday workflows.
                 </p>

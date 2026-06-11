@@ -103,10 +103,10 @@ const Testimonials = () => {
               </div>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold mb-2 text-black leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold mb-2 text-black leading-tight">
               <span className="font-playball font-normal">Trusted</span> By
               Leading Companies
-            </h1>
+            </h2>
 
             <p className="text-gray-600 text-sm sm:text-base mt-6">
               The best proof of TrackForce’s impact comes from teams
@@ -178,7 +178,7 @@ const Card = ({ item }: any) => {
       {/* VIDEO */}
       {item.type === "video" && (
         <div className="relative h-[180px] sm:h-[220px] w-full rounded-xl overflow-hidden">
-          <Image src={item.image} alt="" fill className="object-cover" />
+          <Image src={item.image} alt={`Video testimonial from ${item.name}, ${item.role}`} fill className="object-cover" />
 
           <div className="absolute inset-0 flex items-center justify-center">
             <button className="bg-white/90 p-3 rounded-full shadow">
@@ -189,7 +189,7 @@ const Card = ({ item }: any) => {
           <div className="absolute top-4 left-4 flex items-center gap-2 text-white">
             <Image
               src={item.avatar}
-              alt=""
+              alt={item.name}
               width={34}
               height={34}
               className="rounded-full border-2 border-white"
@@ -218,7 +218,7 @@ const Card = ({ item }: any) => {
           <div className="flex items-center gap-3">
             <Image
               src={item.avatar}
-              alt=""
+              alt={item.name}
               width={36}
               height={36}
               className="rounded-full"

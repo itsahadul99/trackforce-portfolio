@@ -40,9 +40,9 @@ export default function WorkProcess() {
             </div>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold mb-6 text-[#2B2B2B] leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold mb-6 text-[#2B2B2B] leading-tight">
             <span className="font-playball font-normal">Automate</span>  Productivity in <br className="hidden sm:block" /> 3 Simple Steps
-          </h1>
+          </h2>
 
           <p className="text-gray-600 text-sm sm:text-base lg:text-[16px] leading-relaxed max-w-sm mx-auto lg:mx-0">
             TrackForce gives you real-time visibility, accountability, and performance insights to manage teams efficiently and securely.

@@ -74,9 +74,9 @@ const WhyChooseUs = () => {
                 Why Choose Us
               </div>
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold mb-2 text-white leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold mb-2 text-white leading-tight">
               Built for Teams That <br className="hidden sm:block" /> Need  <span className="font-playball font-normal">Real Visibility</span>
-            </h1>
+            </h2>
             <p className="text-white text-sm sm:text-base mb-6 max-w-lg mt-6">
               Track employee activity, productivity, and work patterns in one place without disrupting everyday workflows.
             </p>

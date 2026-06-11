@@ -64,10 +64,10 @@ const Solution = () => {
                 </div>
 
                 <div className="w-full flex justify-center">
-                    <h1 className="text-center text-[42px] font-semibold mb-2 text-black">
+                    <h2 className="text-center text-[42px] font-semibold mb-2 text-black">
                         The Modern Workforce{" "}
                         <span className="font-playball font-normal">Problem</span>
-                    </h1>
+                    </h2>
                 </div>
             </div>
 

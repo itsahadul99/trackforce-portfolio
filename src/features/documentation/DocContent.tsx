@@ -26,7 +26,7 @@ const DocContent = ({ activeSection }: { activeSection: string }) => {
 
 const PlaceholderSection = ({ title }: { title: string }) => (
   <div>
-    <h1 className="text-3xl font-bold text-[#1a1a2e] mb-6">{title}</h1>
+    <h2 className="text-3xl font-bold text-[#1a1a2e] mb-6">{title}</h2>
     <p className="text-[#1a1a2e]/60 text-[20px]">Content coming soon...</p>
   </div>
 );
@@ -34,7 +34,7 @@ const PlaceholderSection = ({ title }: { title: string }) => (
 const InstallationSection = () => {
   return (
     <div>
-      <h1 className="text-3xl font-bold text-[#1a1a2e] mb-4">1. Installation</h1>
+      <h2 className="text-3xl font-bold text-[#1a1a2e] mb-4">1. Installation</h2>
       <p className="text-[#1a1a2e]/70 text-[20px] mb-8">
         There are 3 ways to access TrackForce for a user -
       </p>

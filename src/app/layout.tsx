@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Playball, Rubik } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/features/navbar/Navbar";
 import Footer from "@/features/home/footer/Footer";
+import { siteUrl, siteName, defaultOgImage } from "@/lib/seo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,12 +26,70 @@ const rubik = Rubik({
   subsets: ["latin"],
 });
 
+const defaultTitle = "TrackForce – Employee Monitoring & Productivity Software";
+const defaultDescription =
+  "TrackForce is employee monitoring software with real-time activity tracking, time management, and detailed reporting to boost productivity and keep data secure.";
+
 export const metadata: Metadata = {
-  title: "TrackForce",
-  description: "TrackForce is a powerful employee monitoring software designed to help businesses enhance productivity, ensure data security, and manage remote teams effectively. With features like real-time activity tracking, time management, and detailed reporting, TrackForce provides valuable insights into employee performance while maintaining privacy and compliance. Whether you're looking to boost efficiency or safeguard sensitive information, TrackForce offers a comprehensive solution for modern workforce management.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: defaultTitle,
+    template: `%s | ${siteName}`,
+  },
+  description: defaultDescription,
+  keywords: [
+    "employee monitoring software",
+    "productivity tracking",
+    "time tracking",
+    "remote team management",
+    "workforce analytics",
+    "TrackForce",
+  ],
   icons: {
     icon: "/trackforce_logo.png",
   },
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: defaultTitle,
+    description: defaultDescription,
+    url: "/",
+    siteName,
+    type: "website",
+    locale: "en_US",
+    images: [{ url: defaultOgImage, alt: defaultTitle }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: defaultTitle,
+    description: defaultDescription,
+    images: [defaultOgImage],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      name: siteName,
+      url: siteUrl,
+      logo: `${siteUrl}/trackforce_logo.png`,
+    },
+    {
+      "@type": "SoftwareApplication",
+      name: siteName,
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Windows, macOS, Linux",
+      description: defaultDescription,
+      url: siteUrl,
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -43,6 +102,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${playball.variable} ${rubik.variable} antialiased relative`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         <Navbar />
         {children}
          <Footer />

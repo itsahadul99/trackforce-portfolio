@@ -14,9 +14,9 @@ const OurFeatures = () => {
                             Our Features
                         </div>
                     </div>
-                    <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold mb-6 text-white leading-tight">
+                    <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold mb-6 text-white leading-tight">
                         <span className="font-playball font-normal">Core</span>  Platform Capabilities
-                    </h1>
+                    </h2>
                     <p className="text-sm sm:text-base lg:text-lg max-w-3xl mx-auto text-white">
                         TrackForce provides transparent employee monitoring tools that strengthen collaboration and enhance performance without disrupting daily workflow.
                     </p>

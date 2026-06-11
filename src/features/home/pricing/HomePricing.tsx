@@ -152,9 +152,9 @@ const HomePricing = () => {
               Pricing
             </div>
           </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold mb-6 text-white leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold mb-6 text-white leading-tight">
             <span className="font-playball font-normal">Price plans </span> that click
-          </h1>
+          </h2>
           <p className="text-sm sm:text-base lg:text-lg max-w-3xl mx-auto text-white">
             Every TrackForce plan includes the core monitoring, productivity, and security features your team needs — no hidden add-ons, no feature lock-ins.
           </p>

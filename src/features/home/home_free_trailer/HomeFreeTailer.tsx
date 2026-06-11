@@ -21,9 +21,9 @@ const HomeFreeTailer = () => {
             </video>
             <div className="absolute inset-0  z-0" />
             <div className="w-full lg:w-1/2 relative z-10 text-center lg:text-left">
-                <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold mb-6 text-white leading-tight">
+                <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold mb-6 text-white leading-tight">
                     Start Your 30-Day <br className="hidden sm:block" /> <span className="font-playball font-normal">Free</span>  TrackForce Trial
-                </h1>
+                </h2>
                 <p className="text-sm sm:text-base lg:text-lg mb-6 lg:mb-8">
                     Monitor employee activity, productivity trends, and performance
                     metrics from one centralized dashboard – updated in real time for

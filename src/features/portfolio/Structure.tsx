@@ -260,9 +260,9 @@ const Structure = () => {
                     viewport={{ once: false, margin: "-100px" }}
                     className="w-full lg:w-2/5 flex flex-col justify-center items-start px-2 md:px-8"
                 >
-                    <h1 className="text-[42px] font-semibold mb-2 text-black">
+                    <h2 className="text-[42px] font-semibold mb-2 text-black">
                         Built for Enterprise Structure
-                    </h1>
+                    </h2>
 
                     <p className="text-gray-600 text-base mb-6 max-w-lg mt-6">
                         Hierarchy-Based Access Control, <br />

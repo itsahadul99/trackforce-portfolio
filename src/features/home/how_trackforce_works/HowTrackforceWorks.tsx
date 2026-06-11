@@ -14,9 +14,9 @@ const HowTrackforceWorks = () => {
                         How TrackForce Works
                     </div>
                 </div>
-                <h1 className="text-2xl sm:text-3xl lg:text-[42px] font-semibold mb-6 text-white leading-tight">
+                <h2 className="text-2xl sm:text-3xl lg:text-[42px] font-semibold mb-6 text-white leading-tight">
                     Built for Managers <span className="font-playball font-normal">Who Need Clarity,</span> <br className="hidden sm:block" /> Not Micromanagement
-                </h1>
+                </h2>
                 <p className="text-sm sm:text-base lg:text-lg max-w-3xl mx-auto text-white">
                     TrackForce strengthens collaboration and performance through
                     transparent monitoring that respects productivity and privacy.

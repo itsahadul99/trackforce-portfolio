@@ -274,11 +274,11 @@ const Configure = () => {
                             </div>
                         </div>
 
-                        <h1 className="text-[42px] font-semibold mb-2 text-black">
+                        <h2 className="text-[42px] font-semibold mb-2 text-black">
                             Flexible. <br />
                             Configurable. <br />
                             <span className="font-playball font-normal">Scalable.</span>
-                        </h1>
+                        </h2>
 
                         <p className="text-gray-600 text-base mb-6 max-w-lg mt-6">
                             Every organization works differently. <br />

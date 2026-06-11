@@ -27,9 +27,9 @@ const WhyTrackforce = () => {
 
                     </div>
                 </div>
-                <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold mb-2 text-black leading-tight">
+                <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold mb-2 text-black leading-tight">
                     Employee Monitoring Built for <span className="font-playball font-normal">Smarter Workflows</span>
-                </h1>
+                </h2>
                 <p className="text-gray-600 text-sm sm:text-base mb-6 max-w-lg mt-6">
                     TrackForce delivers real-time visibility, accountability, and performance insights — helping teams work better, not harder.
                 </p>

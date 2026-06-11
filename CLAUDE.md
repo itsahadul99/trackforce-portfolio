@@ -89,3 +89,6 @@ Use free-trailer.mp4 video from public as bg in HomeFreeTailer.tsx (autoPlay, lo
 
 ## Query-30
 Add Rubik font to src/app/layout.tsx (imported from next/font/google, exposed as --font-rubik CSS variable on body).
+
+## Query-31
+Make the website SEO friendly: shared SEO helper (src/lib/seo.ts with NEXT_PUBLIC_SITE_URL), rich root metadata (title template, OG/Twitter with thumbnail.png, robots, canonical, JSON-LD Organization/SoftwareApplication), unique metadata for all 9 static pages, generateMetadata + Article JSON-LD for blog details, sitemap.ts + robots.ts, permanentRedirect for / → /home, fixed empty image alts in Testimonials, demoted all non-hero h1 tags to h2 (one h1 per page, styles unchanged).
