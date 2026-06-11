@@ -4,9 +4,97 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
 
+/* ---- API types ---- */
+type ApiPricing = {
+  billingPeriod: string;
+  pricePerUser: number;
+  discountPercent: number;
+  effectivePricePerUser: number;
+  currencyCode: string;
+  currencySymbol: string;
+  isDiscountActive: boolean;
+};
+
+type ApiPlan = {
+  planId: number;
+  planName: string;
+  description: string;
+  planType: string;
+  isSelfServe: boolean;
+  sortOrder: number;
+  pricing: ApiPricing[];
+  features: string[];
+};
+
+type ApiResponse = {
+  plans: ApiPlan[];
+};
+
+/* ---- Card shape consumed by the UI ---- */
+type Plan = {
+  name: string;
+  description: string;
+  price: string;
+  period: string;
+  features: string[];
+  button: string;
+  highlight: boolean;
+  link: string;
+};
+
+type BillingPeriod = "monthly" | "yearly";
+
+const PRICING_API = "https://app.trackforce.io/api/PublicPricing/plans";
+
+/* Custom plan returns no features/price from the API — keep curated fallback */
+const CUSTOM_FALLBACK_FEATURES = [
+  "Everything from Essential or Professional plan",
+  "Plan customization",
+  "Custom feature development",
+  "24/7 priority support",
+  "Dedicated onboarding & setup assistance",
+  "Custom reports & dashboards",
+  "Custom monitoring rules & policies",
+];
+
+const mapApiPlan = (plan: ApiPlan): Plan => {
+  const pricing = plan.pricing?.[0];
+  const isCustom = !plan.isSelfServe || !pricing;
+
+  let price = "";
+  let period = "";
+  if (pricing) {
+    const value = pricing.isDiscountActive
+      ? pricing.effectivePricePerUser
+      : pricing.pricePerUser;
+    price = `${pricing.currencySymbol}${value.toFixed(2)}/`;
+    period = pricing.billingPeriod;
+  }
+
+  const billingLabel = pricing?.billingPeriod ?? "Monthly";
+
+  return {
+    name: plan.planName,
+    description: plan.description,
+    price,
+    period,
+    features: plan.features.length ? plan.features : isCustom ? CUSTOM_FALLBACK_FEATURES : [],
+    button: isCustom ? "Contact to Sales" : "Choose plan",
+    highlight: plan.planType === "Professional",
+    link: isCustom
+      ? "/contact"
+      : `https://app.trackforce.io/${plan.planId}/${plan.planType}/signup?billing=${billingLabel}`,
+  };
+};
+
 const HomePricing = () => {
   /* 1. Track whether the user is on a mobile/tablet screen */
   const [isMobile, setIsMobile] = useState(false);
+
+  /* 2. Billing period toggle + plans fetched from the API */
+  const [billing, setBilling] = useState<BillingPeriod>("monthly");
+  const [plans, setPlans] = useState<Plan[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const handleResize = () => {
@@ -21,70 +109,30 @@ const HomePricing = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const plans = [
-    {
-      name: "Essential",
-      description: "Basic visibility & attendance",
-      price: "$4.99/",
-      period: "Monthly",
-      features: [
-        "Screenshots",
-        "App Tracking",
-        "Website Tracking",
-        "Searches Tracking",
-        "Reports (Daily / Monthly)",
-        "Role Hierarchy",
-        "Org-level Configuration",
-        "Device List Info",
-        "Meetings Monitoring",
-      ],
-      button: "Choose plan",
-      highlight: false,
-      link: "https://app.trackforce.io/2/Essential/signup?billing=Monthly"
-    },
-    {
-      name: "Professional",
-      description: "Everything in Essential",
-      price: "$14.99/",
-      period: "Monthly",
-      features: [
-        "File Transfer Tracking",
-        "Risk User Report",
-        "HeatMap",
-        "Context Switching",
-        "Keystroke Logging",
-        "Screen Recording",
-        "Social Media Monitoring",
-        "Email Monitoring",
-        "IM (Chat) Monitoring",
-        "Console Command Monitoring",
-        "USB Block",
-        "App Block",
-        "Web Block",
-      ],
-      button: "Choose plan",
-      highlight: true,
-      link: "https://app.trackforce.io/7/Professional/signup?billing=Monthly"
-    },
-    {
-      name: "Custom Plan",
-      description: "Yearly billing only (10–30% discount based on size)",
-      price: "",
-      period: "",
-      features: [
-        "Everything from Essential or Professional plan",
-        "Plan customization",
-        "Custom feature development",
-        "24/7 priority support",
-        "Dedicated onboarding & setup assistance",
-        "Custom reports & dashboards",
-        "Custom monitoring rules & policies",
-      ],
-      button: "Contact to Sales",
-      highlight: false,
-      link: "/contact",
-    },
-  ];
+  useEffect(() => {
+    let cancelled = false;
+    setLoading(true);
+
+    fetch(`${PRICING_API}?period=${billing}`, { headers: { accept: "*/*" } })
+      .then((res) => res.json())
+      .then((data: ApiResponse) => {
+        if (cancelled) return;
+        const mapped = [...(data.plans ?? [])]
+          .sort((a, b) => a.sortOrder - b.sortOrder)
+          .map(mapApiPlan);
+        setPlans(mapped);
+      })
+      .catch(() => {
+        /* keep previously loaded plans on error */
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [billing]);
 
   const CheckIcon = ({ darkBg = false }: { darkBg?: boolean }) => (
     <span className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mr-3 ${darkBg ? "bg-emerald-400" : "bg-emerald-500"}`}>
@@ -110,8 +158,44 @@ const HomePricing = () => {
           <p className="text-sm sm:text-base lg:text-lg max-w-3xl mx-auto text-white">
             Every TrackForce plan includes the core monitoring, productivity, and security features your team needs — no hidden add-ons, no feature lock-ins.
           </p>
+
+          {/* Billing period toggle */}
+          <div className="mt-8 flex justify-center">
+            <div className="inline-flex items-center gap-1 rounded-full border border-white/20 bg-white/10 p-1 backdrop-blur">
+              {(["monthly", "yearly"] as BillingPeriod[]).map((option) => {
+                const active = billing === option;
+                return (
+                  <button
+                    key={option}
+                    type="button"
+                    onClick={() => setBilling(option)}
+                    className={`relative rounded-full px-5 py-2 text-sm font-semibold capitalize transition-all ${active ? "text-white" : "text-white/70 hover:text-white"
+                      }`}
+                    style={
+                      active
+                        ? { background: "linear-gradient(90deg, #1B73E8 0%, #9F60EE 100%)" }
+                        : {}
+                    }
+                  >
+                    {option}
+                    {option === "yearly" && (
+                      <span className="ml-2 rounded-full bg-emerald-500 px-2 py-0.5 text-[10px] font-bold text-white">
+                        Save up to 20%
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col lg:flex-row justify-center items-center gap-10 sm:gap-8 mt-12 lg:mt-16 flex-wrap">
+        <div className="flex flex-col lg:flex-row justify-center items-center lg:items-stretch gap-10 sm:gap-8 mt-12 lg:mt-16 flex-wrap min-h-[400px]">
+
+          {loading && plans.length === 0 && (
+            <div className="flex items-center justify-center w-full py-20">
+              <span className="h-10 w-10 animate-spin rounded-full border-4 border-white/30 border-t-white" />
+            </div>
+          )}
 
           {plans.map((plan, idx) => {
             const isProfessional = plan.highlight;
@@ -148,9 +232,9 @@ const HomePricing = () => {
                 {...(isMobile ? { animate } : { whileInView: animate })}
                 transition={transition}
                 viewport={{ once: false, amount: 0.5 }}
-                className={`relative rounded-3xl shadow-xl flex flex-col mx-auto lg:mx-0 ${isProfessional
-                  ? "py-10 sm:py-12 px-6 sm:px-7 w-full max-w-[340px] z-10"
-                  : "bg-white p-6 sm:p-8 w-full max-w-[320px] border border-gray-200"
+                className={`relative rounded-3xl shadow-xl flex flex-col mx-auto lg:mx-0 w-full max-w-[340px] ${isProfessional
+                  ? "p-6 sm:p-8 z-10 lg:-my-10"
+                  : "bg-white p-6 sm:p-8 border border-gray-200"
                   }`}
                 style={
                   isProfessional
@@ -183,7 +267,7 @@ const HomePricing = () => {
                   </div>
                 )}
 
-                <ul className={`mb-8 text-left flex-1 ${plan.price ? "" : "mt-2"}`}>
+                <ul className={`pricing-features-scroll mb-8 text-left flex-1 overflow-y-auto ${isProfessional ? "max-h-[380px]": "max-h-[300px]"} pr-2 ${plan.price ? "" : "mt-2"}`}>
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-start mb-3">
                       <CheckIcon darkBg={isProfessional} />
@@ -195,6 +279,7 @@ const HomePricing = () => {
                   href={plan.link}
                   target={plan.link.startsWith("http") ? "_blank" : "_self"}
                   rel={plan.link.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="mt-auto block w-full"
                 >
                   <button
                     className={`w-full py-3 rounded-full font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer ${isProfessional

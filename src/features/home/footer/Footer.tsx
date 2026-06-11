@@ -310,12 +310,12 @@ export default function Footer() {
             <p>©{new Date().getFullYear()} trackforce All rights reserved. Developed by AKIJ iBOS</p>
 
             <div className="flex gap-4 text-lg text-gray-300">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><Facebook size={18} /></a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><Linkedin size={18} /></a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><FaXTwitter size={18} /></a>
+              <a href="https://www.facebook.com/trackforce.io" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><Facebook size={18} /></a>
+              <a href="https://www.linkedin.com/company/trackforceibos/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><Linkedin size={18} /></a>
+              <a href="https://x.com/TrackForce_io" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><FaXTwitter size={18} /></a>
               <a href="https://wa.me/8801329731839" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><FaWhatsapp size={18} /></a>
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><Instagram size={18} /></a>
-              <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><FaPinterestP size={18} /></a>
+              <a href="https://www.pinterest.com/trackforce_io/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><FaPinterestP size={18} /></a>
             </div>
           </div>
         </div>
