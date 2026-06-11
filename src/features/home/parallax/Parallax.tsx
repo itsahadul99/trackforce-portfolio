@@ -9,7 +9,10 @@ import plxLogo1 from "../../../../public/paralax-logo-1.png";
 import plxLogo2 from "../../../../public/paralax-logo-2.png";
 import plxLogo3 from "../../../../public/paralax-logo-3.png";
 import plxLogo4 from "../../../../public/paralax-logo-4.png";
-import plx1 from "../../../../public/paralax-1.png";
+import accountablity from "../../../../public/home/accountability.png";
+import productivity from "../../../../public/home/productivity.png";
+import security from "../../../../public/home/security.png";
+import effiency from "../../../../public/home/efficiency.png";
 
 const Parallax = () => {
   const containerRef = useRef(null);
@@ -72,7 +75,7 @@ const Parallax = () => {
               transition={{ duration: 0.6 }}
               className="absolute z-[99]"
             >
-              <Image src={plx1} alt="parallax" width={750} height={440} />
+              <Image src={productivity} alt="parallax" width={750} height={440} />
             </motion.div>
 
           </div>
@@ -100,7 +103,7 @@ const Parallax = () => {
               transition={{ duration: 0.6 }}
               className="absolute z-[99]"
             >
-              <Image src={plx1} alt="parallax" width={750} height={440} />
+              <Image src={accountablity} alt="parallax" width={750} height={440} />
             </motion.div>
 
             <motion.div
@@ -165,7 +168,7 @@ const Parallax = () => {
               transition={{ duration: 0.6 }}
               className="absolute z-[99]"
             >
-              <Image src={plx1} alt="parallax" width={750} height={440} />
+              <Image src={security} alt="parallax" width={750} height={440} />
             </motion.div>
 
           </div>
@@ -192,7 +195,7 @@ const Parallax = () => {
               transition={{ duration: 0.6 }}
               className="absolute z-[99]"
             >
-              <Image src={plx1} alt="parallax" width={750} height={440} />
+              <Image src={effiency} alt="parallax" width={750} height={440} />
             </motion.div>
 
             <motion.div

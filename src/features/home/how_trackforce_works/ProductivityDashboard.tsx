@@ -1,15 +1,14 @@
 'use client';
 
-import Image from 'next/image';
-import React from 'react';
 import { motion, type Variants } from 'framer-motion';
-import dashboard from '../../../../public/dashboard.png'
-import activityLogs from '../../../../public/activity_logs.png'
-import searchLogs from '../../../../public/search_logs.png'
-import employees from '../../../../public/employees.png'
-import trackforce from '../../../../public/trackforce.png'
+import Image from 'next/image';
 import Link from 'next/link';
 import { FaArrowRightLong } from 'react-icons/fa6';
+import dashboardOverview from '../../../../public/home/dashboardOverviewFull.png';
+import projectProgress from '../../../../public/home/projectProgress.png';
+import taskProgress from '../../../../public/home/taskProgress.png';
+import topEmployees from '../../../../public/home/topEmployees.png';
+import trackforce from '../../../../public/trackforce.png';
 import './howTrackforceworks.css';
 
 const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
@@ -100,7 +99,7 @@ const ProductivityDashboard = () => {
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={dashboard} alt="Productivity Dashboard" className="w-full" />
+                    <Image src={dashboardOverview} alt="Productivity Dashboard" className="w-full" />
                 </motion.div>
 
                 {/* Employees - top right, slides from center */}
@@ -111,7 +110,7 @@ const ProductivityDashboard = () => {
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={employees} alt="Employees" className="w-full" />
+                    <Image src={topEmployees} alt="Employees" className="w-full" />
                 </motion.div>
 
                 {/* Activity Logs - bottom left, slides from center */}
@@ -122,7 +121,7 @@ const ProductivityDashboard = () => {
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={activityLogs} alt="Activity Logs" className="w-full" />
+                    <Image src={projectProgress} alt="Activity Logs" className="w-full" />
                 </motion.div>
 
                 {/* Search Logs - bottom right, slides from center */}
@@ -133,7 +132,7 @@ const ProductivityDashboard = () => {
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={searchLogs} alt="Search Logs" className="w-full" />
+                    <Image src={taskProgress} alt="Search Logs" className="w-full" />
                 </motion.div>
             </div>
         </div>
