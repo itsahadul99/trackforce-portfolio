@@ -1,24 +1,30 @@
 "use client"
 
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
+import { useRef } from 'react';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import trackforce from '../../../../public/trackforce.png';
 import dashboard from '../../../../public/dashboard.png';
 import Link from 'next/link';
 
 const HomeFreeTailer = () => {
+    const sectionRef = useRef<HTMLDivElement>(null);
+    // Only mount the 18MB background video once the section nears the viewport
+    const inView = useInView(sectionRef, { once: true, margin: "0px 0px 400px 0px" });
     return (
-        <div className="group/free_trailer relative overflow-hidden max-w-[1300] mx-4 sm:mx-6 lg:mx-auto min-h-[480px] lg:h-[450px] text-white flex flex-col lg:flex-row gap-8 lg:gap-20 items-center lg:justify-between pl-6 sm:pl-8 lg:pl-10 pr-6 sm:pr-8 lg:pr-0 py-10 lg:py-0 rounded-2xl px-4">
-            <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover z-0"
-            >
-                <source src="/free-trailer.mp4" type="video/mp4" />
-            </video>
+        <div ref={sectionRef} className="group/free_trailer relative overflow-hidden max-w-[1300] mx-4 sm:mx-6 lg:mx-auto min-h-[480px] lg:h-[450px] bg-[#10243E] text-white flex flex-col lg:flex-row gap-8 lg:gap-20 items-center lg:justify-between pl-6 sm:pl-8 lg:pl-10 pr-6 sm:pr-8 lg:pr-0 py-10 lg:py-0 rounded-2xl px-4">
+            {inView && (
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover z-0"
+                >
+                    <source src="/free-trailer.mp4" type="video/mp4" />
+                </video>
+            )}
             <div className="absolute inset-0  z-0" />
             <div className="w-full lg:w-1/2 relative z-10 text-center lg:text-left">
                 <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold mb-6 text-white leading-tight">
@@ -36,28 +42,27 @@ const HomeFreeTailer = () => {
                         href="https://app.trackforce.io/3/Professional/signup?trial=true"
                         target="_blank"
                         rel="noopener noreferrer"
+                        className="group custom-button cursor-pointer relative w-fit bg-white text-black font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center"
                     >
-                        <button className="group custom-button cursor-pointer relative w-fit bg-white text-black font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
-                            <span className='group-hover:italic '>Start Free Trial</span> <FaArrowRightLong className='group-hover:-rotate-[30deg] transition ease-in-out' />
-                            <motion.div
-                                className="ml-2 absolute right-0"
-                                animate={{
-                                    x: [0, -190, 0],
-                                    opacity: [0, 1, 0, 0, 1, 0],
-                                }}
-                                transition={{
-                                    duration: 7,
-                                    repeat: Infinity,
-                                    repeatType: 'loop',
-                                }}
-                            >
-                                <Image
-                                    src={trackforce}
-                                    alt="TrackForce Logo"
-                                    className="w-8 h-8 group-hover:hidden"
-                                />
-                            </motion.div>
-                        </button>
+                        <span className='group-hover:italic '>Start Free Trial</span> <FaArrowRightLong className='group-hover:-rotate-[30deg] transition ease-in-out' />
+                        <motion.div
+                            className="ml-2 absolute right-0"
+                            animate={{
+                                x: [0, -190, 0],
+                                opacity: [0, 1, 0, 0, 1, 0],
+                            }}
+                            transition={{
+                                duration: 7,
+                                repeat: Infinity,
+                                repeatType: 'loop',
+                            }}
+                        >
+                            <Image
+                                src={trackforce}
+                                alt="TrackForce Logo"
+                                className="w-8 h-8 group-hover:hidden"
+                            />
+                        </motion.div>
                     </a>
                     <Link href="/contact" className='py-3 px-6 rounded-[16px] border cursor-pointer'>Book a Demo</Link>
                 </div>

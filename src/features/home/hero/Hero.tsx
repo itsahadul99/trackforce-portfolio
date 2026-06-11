@@ -168,6 +168,7 @@ const Hero = () => {
                             ref={videoRef}
                             src="/trackforce_video.mp4"
                             controls
+                            preload="none"
                             poster="/thumbnail.png"
                             playsInline
                             onClick={handleVideoClick}
@@ -215,8 +216,9 @@ const Hero = () => {
 
                         <Image
                             src={video_bg}
-                            alt="video bg"
-                            className="absolute top-0 left-0 w-full h-full  z-0"
+                            alt="TrackForce product video frame"
+                            priority
+                            className="absolute top-0 left-0 w-full h-full object-cover z-0"
                         />
                     </div>
 

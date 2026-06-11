@@ -237,9 +237,9 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4">Resorces</h3>
             <ul className="space-y-3 text-sm text-gray-200 *:block">
-              <Link href="/about" className="hover:text-white cursor-pointer inline-block transition-all duration-300 hover:translate-x-1">About us</Link>
-              <Link href="/faq" className="hover:text-white cursor-pointer inline-block transition-all duration-300 hover:translate-x-1">FAQ</Link>
-              <Link href="/blogs" className="hover:text-white cursor-pointer inline-block transition-all duration-300 hover:translate-x-1">Blogs</Link>
+              <li><Link href="/about" className="hover:text-white cursor-pointer inline-block transition-all duration-300 hover:translate-x-1">About us</Link></li>
+              <li><Link href="/faq" className="hover:text-white cursor-pointer inline-block transition-all duration-300 hover:translate-x-1">FAQ</Link></li>
+              <li><Link href="/blogs" className="hover:text-white cursor-pointer inline-block transition-all duration-300 hover:translate-x-1">Blogs</Link></li>
             </ul>
           </div>
 
@@ -247,9 +247,9 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-3 text-sm text-gray-200 *:block">
-              <Link href="/pricing" className="hover:text-white cursor-pointer inline-block transition-all duration-300 hover:translate-x-1">Pricing</Link>
-              <Link href="/features" className="hover:text-white cursor-pointer inline-block transition-all duration-300 hover:translate-x-1">Features</Link>
-              <Link href="/contact" className="hover:text-white cursor-pointer inline-block transition-all duration-300 hover:translate-x-1">Contact us</Link>
+              <li><Link href="/pricing" className="hover:text-white cursor-pointer inline-block transition-all duration-300 hover:translate-x-1">Pricing</Link></li>
+              <li><Link href="/features" className="hover:text-white cursor-pointer inline-block transition-all duration-300 hover:translate-x-1">Features</Link></li>
+              <li><Link href="/contact" className="hover:text-white cursor-pointer inline-block transition-all duration-300 hover:translate-x-1">Contact us</Link></li>
             </ul>
           </div>
 

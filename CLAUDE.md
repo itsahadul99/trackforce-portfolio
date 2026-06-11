@@ -92,3 +92,6 @@ Add Rubik font to src/app/layout.tsx (imported from next/font/google, exposed as
 
 ## Query-31
 Make the website SEO friendly: shared SEO helper (src/lib/seo.ts with NEXT_PUBLIC_SITE_URL), rich root metadata (title template, OG/Twitter with thumbnail.png, robots, canonical, JSON-LD Organization/SoftwareApplication), unique metadata for all 9 static pages, generateMetadata + Article JSON-LD for blog details, sitemap.ts + robots.ts, permanentRedirect for / → /home, fixed empty image alts in Testimonials, demoted all non-hero h1 tags to h2 (one h1 per page, styles unchanged).
+
+## Query-32
+Improve Lighthouse scores (was mobile 45/84/73, desktop 78/81/77 for Perf/A11y/BP). Fixes: <main> landmark in layout, aria-labels on Testimonials play buttons, h4→h3 in WhyChooseUs, footer <ul> children wrapped in <li>, bg-emerald-500→700 on pricing badge, priority + object-cover on Hero video_bg LCP image, preload="none" on hero video, lazy-mount free-trailer.mp4 via useInView with dark fallback bg (#10243E), nested button-in-anchor flattened to styled <a> in HomeFreeTailer. Image format conversion skipped per user (images will be replaced soon). Verified locally: A11y 100, BP 100 both form factors; page weight 15.3MB→6.5MB.

@@ -179,7 +179,7 @@ const HomePricing = () => {
                   >
                     {option}
                     {option === "yearly" && (
-                      <span className="ml-2 rounded-full bg-emerald-500 px-2 py-0.5 text-[10px] font-bold text-white">
+                      <span className="ml-2 rounded-full bg-emerald-700 px-2 py-0.5 text-[10px] font-bold text-white">
                         Save up to 20%
                       </span>
                     )}
