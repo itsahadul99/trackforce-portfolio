@@ -1,8 +1,8 @@
 'use client';
 
+import FeaturesListMore from '@/components/all/FeaturesListMore';
 import { motion, type Variants } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import dashboardOverview from '../../../../public/home/dashboardOverviewFull.png';
 import projectProgress from '../../../../public/home/projectProgress.png';
@@ -23,6 +23,23 @@ const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
 });
 
 const ProductivityDashboard = () => {
+    const features = [
+        {
+            title: "Live activity tracking",
+            description:
+                "TrackForce boosts operational efficiency by optimizing workflows, reducing manual overhead, and enabling teams to execute faster with precision.",
+        },
+        {
+            title: "Productivity trend analysis",
+            description:
+                "Visualize performance trends with intuitive charts that reveal productivity patterns at a glance.",
+        },
+        {
+            title: "Workflow and time allocation insights",
+            description:
+                "See where time goes across projects and tasks to balance workloads and plan smarter.",
+        },
+    ];
     return (
         <div className="mt-16 sm:mt-20 lg:mt-28 text-white flex flex-col lg:flex-row gap-12 lg:gap-3 items-center lg:justify-between">
             <div className="w-full lg:w-1/2">
@@ -41,29 +58,14 @@ const ProductivityDashboard = () => {
                     faster, smarter decisions.
                 </p>
 
-                <div className="space-y-8 lg:space-y-10">
-                    <div className="flex">
-                        <div className="w-1 bg-blue-500 mr-4 lg:mr-6 flex-shrink-0"></div>
-                        <div>
-                            <h3 className="text-xl lg:text-2xl font-bold mb-2">Live activity tracking</h3>
-                            <p className="text-sm sm:text-base mb-4">
-                                TrackForce boosts operational efficiency by optimizing
-                                workflows, reducing manual overhead, and enabling teams to
-                                execute faster with precision.
-                            </p>
-                            <Link href="#" className="text-blue-500 font-semibold">
-                                Learn More →
-                            </Link>
-                        </div>
-                    </div>
-
-                    <div className="space-y-4">
-                        <h3 className="text-xl lg:text-2xl font-bold">Productivity trend analysis</h3>
-                        <h3 className="text-xl lg:text-2xl font-bold">
-                            Workflow and time allocation insights
-                        </h3>
-                    </div>
-                </div>
+                <FeaturesListMore
+                    height={"280px"}
+                    features={features}
+                    txtColor=""
+                    activeTitleColor="text-white"
+                    inactiveTitleColor="text-white/60 hover:text-white"
+                    descColor="text-gray-200"
+                />
 
                 <div className="mt-10 lg:mt-12">
                     <button className="group custom-button relative w-fit bg-white text-black font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">

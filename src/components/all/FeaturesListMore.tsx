@@ -78,14 +78,26 @@ type Props = {
     }[];
     txtColor?: string;
     bgColor?: string;
+    activeTitleColor?: string;
+    inactiveTitleColor?: string;
+    descColor?: string;
 }
 
-const FeaturesListMore = ({ height = '400px', features, txtColor='text-black' }: Props) => {
+const FeaturesListMore = ({
+    height = '400px',
+    features,
+    txtColor = 'text-black',
+    activeTitleColor = 'text-[#1d2125]',
+    inactiveTitleColor = 'text-[#444c56] hover:text-[#1a73e8]',
+    descColor = 'text-[#4a5568]',
+}: Props) => {
 
     const [activeIndex, setActiveIndex] = useState(0);
+    // Namespace the layoutId so multiple instances on one page animate independently
+    const barId = React.useId();
 
     return (
-        <div className={` flex items-center justify-center`} style={{height: `${height}`}}>
+        <div className={` flex items-center justify-start`} style={{height: `${height}`}}>
             <div className=" relative h-full">
 
                 <div className="flex flex-col  h-full">
@@ -101,14 +113,14 @@ const FeaturesListMore = ({ height = '400px', features, txtColor='text-black' }:
                                 <div className="relative shrink-0 border-l-[4px] border-[#1a73e8]/15">
                                     {isActive && (
                                         <motion.span
-                                            layoutId="features-list-more-bar"
+                                            layoutId={`features-list-more-bar-${barId}`}
                                             className="absolute inset-y-0 -left-[4px] border-l-[4px] border-[#1a73e8]"
                                             transition={{ type: 'spring', stiffness: 260, damping: 30 }}
                                         />
                                     )}
                                 </div>
                                 <div className="flex flex-col pl-5 py-2 flex-1">
-                                    <h3 className={`text-[19px] font-bold transition-colors duration-500 ${txtColor} ${isActive ? 'text-[#1d2125] mb-2' : 'text-[#444c56] hover:text-[#1a73e8]'}`}>
+                                    <h3 className={`text-[19px] font-bold transition-colors duration-500 ${txtColor} ${isActive ? `${activeTitleColor} mb-2` : inactiveTitleColor}`}>
                                         {feature.title}
                                     </h3>
 
@@ -122,7 +134,7 @@ const FeaturesListMore = ({ height = '400px', features, txtColor='text-black' }:
                                                 transition={{ duration: 0.35, ease: 'easeOut' }}
                                                 className="overflow-hidden"
                                             >
-                                                <p className={`text-[#4a5568] text-[15px] leading-relaxed mb-4 mt-2 ${txtColor} `}>
+                                                <p className={`${descColor} text-[15px] leading-relaxed mb-4 mt-2 ${txtColor} `}>
                                                     {feature.description}
                                                 </p>
                                                 <a

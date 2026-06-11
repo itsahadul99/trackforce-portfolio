@@ -1,8 +1,8 @@
 'use client';
 
+import FeaturesListMore from '@/components/all/FeaturesListMore';
 import { motion, type Variants } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import emailing from '../../../../public/home/snapShots.png';
 import sidebar from '../../../../public/home/sidebar.png';
@@ -21,6 +21,23 @@ const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
 });
 
 const WorkForceMonitoring = () => {
+    const features = [
+        {
+            title: "App Tracking",
+            description:
+                "Understand how work hours are spent across tools and applications.",
+        },
+        {
+            title: "Website Insights",
+            description:
+                "See which websites support productive work and which create distractions across your team.",
+        },
+        {
+            title: "Workflow Visibility",
+            description:
+                "Get a clear view of how tasks move through your team so you can spot bottlenecks early.",
+        },
+    ];
     return (
         <div className="mt-16 sm:mt-20 lg:mt-28 text-white flex flex-col-reverse lg:flex-row gap-12 lg:gap-3 items-center lg:justify-between">
             <div className='w-full lg:w-1/2 relative h-[320px] sm:h-[420px] lg:h-[520px]'>
@@ -73,29 +90,14 @@ const WorkForceMonitoring = () => {
                     a single platform built for modern workplaces.
                 </p>
 
-                <div className="space-y-8 lg:space-y-10">
-                    <div className="flex">
-                        <div className="w-1 bg-blue-500 mr-4 lg:mr-6 flex-shrink-0"></div>
-                        <div>
-                            <h3 className="text-[20px] font-semibold mb-2">App Tracking</h3>
-                            <p className="text-sm sm:text-base mb-4">
-                                Understand how work hours are spent across tools and applications.
-                            </p>
-                            <Link href="#" className="text-blue-500 font-semibold">
-                                Learn More →
-                            </Link>
-                        </div>
-                    </div>
-
-                    <div className="space-y-4">
-                        <h3 className="text-[20px] font-semibold">
-                            Website Insights
-                        </h3>
-                        <h3 className="text-[20px] font-semibold">
-                            Workflow Visibility
-                        </h3>
-                    </div>
-                </div>
+                <FeaturesListMore
+                    height={"280px"}
+                    features={features}
+                    txtColor=""
+                    activeTitleColor="text-white"
+                    inactiveTitleColor="text-white/60 hover:text-white"
+                    descColor="text-gray-200"
+                />
                 <div className="mt-10 lg:mt-12">
                     <button className="group custom-button relative w-fit bg-white text-black font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
                         <span className='group-hover:italic'>See how it works</span> <FaArrowRightLong className='group-hover:-rotate-[30deg] transition ease-in-out' />

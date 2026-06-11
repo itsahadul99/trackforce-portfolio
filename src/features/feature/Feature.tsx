@@ -1,9 +1,9 @@
 import HomeFreeTailer from '../home/home_free_trailer/HomeFreeTailer'
 import FeatureHero from './FeatureHero'
 import FeatureProd1 from './FeatureProd1'
-import FeatureTrackForceWorks1 from './FeatureTrackForceWorks1'
-import FeatureTrackForceWorks2 from './FeatureTrackForceWorks2'
+import FeatureProd2 from './FeatureProd2'
 import FeatureWork1 from './FeatureWork1'
+import FeatureWork2 from './FeatureWork2'
 import Optimization from './Optimization'
 
 const left_FeatureTrackForceWorks1 = [
@@ -143,30 +143,22 @@ const Feature = () => {
     <div>
       <FeatureHero />
       <Optimization />
-      <section className="max-w-[1300] mx-auto px-4 md:px-6 lg:px-[93px] py-4 md:py-8 lg:py-[96px] mt-6 md:mt-10 mt-24 rounded-2xl bg-cover bg-center bg-no-repeat bg-[url('/trackforce_work_bg.png')] overflow-hidden">
-        <FeatureProd1
-          title=' Real-Time Dashboard for Complete Visibility'
-          subTitle='Access productivity, activity data, and performance analytics in one intuitive employee monitoring software dashboard.'
-          features={left_FeatureTrackForceWorks3} />
-        <FeatureWork1
-          title="All-in-One Workforce Monitoring Platform"
-          subTitle="Monitor teams, optimize performance, and maintain compliance — all from
+      <div className="bg-[#DEEDFF]">
+        <section className="max-w-[1300] mx-auto px-4 md:px-6 lg:px-[93px] py-4 md:py-8 lg:py-[96px]  rounded-2xl bg-cover bg-center bg-no-repeat bg-[url('/feature/feature.png')] overflow-hidden">
+          <FeatureProd1
+            title=' Real-Time Dashboard for Complete Visibility'
+            subTitle='Access productivity, activity data, and performance analytics in one intuitive employee monitoring software dashboard.'
+            features={left_FeatureTrackForceWorks3} />
+          <FeatureWork1
+            title="All-in-One Workforce Monitoring Platform"
+            subTitle="Monitor teams, optimize performance, and maintain compliance — all from
                     a single platform built for modern workplaces."
-          features={right_FeatureTrackForceWorks3} />
-      </section>
-
-      <FeatureTrackForceWorks2 />
-      <section className="max-w-[1300] mx-auto  px-4 md:px-6 lg:px-[93px] py-4 md:py-8 lg:py-[96px] mt-6 md:mt-10 lg:mt-24 rounded-2xl bg-cover bg-center bg-no-repeat bg-[url('/trackforce_work_bg.png')] overflow-hidden">
-        <FeatureProd1
-          title='Time Tracking and Productivity Insights'
-          subTitle='Track active and idle time, measure project costs, and analyze performance trends to optimize workforce efficiency using TrackForce’s advanced time tracking software.'
-          features={left_FeatureTrackForceWorks3} />
-        <FeatureWork1
-          title="Automated Billing, Invoices, and Payment Tracking"
-          subTitle="Simplify financial operations with automated invoicing, accurate billing records, and real-time payment tracking. Gain transparency, prevent errors, and streamline financial management across teams."
-          features={right_FeatureTrackForceWorks3} />
-      </section>
-      <div className='my-28'>
+            features={right_FeatureTrackForceWorks3} />
+          <FeatureProd2 />
+          <FeatureWork2 />
+        </section>
+      </div>
+      <div className='py-28 bg-[#DEEDFF]'>
         <HomeFreeTailer />
       </div>
     </div>

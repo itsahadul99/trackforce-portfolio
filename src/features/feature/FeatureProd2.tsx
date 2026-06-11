@@ -59,7 +59,7 @@ const FeatureProd2 = () => {
         },
     ];
     return (
-        <div className="mt-6 md:mt-10 lg:mt-28 text-[#2B2B2B] flex flex-col lg:flex-row gap-3 items-center justify-between overflow-hidden">
+        <div className="mt-6 md:mt-10 lg:mt-28 text-white flex flex-col lg:flex-row gap-3 items-center justify-between overflow-hidden">
             <div className="w-full lg:w-1/2">
                 <h2 className="text-4xl font-bold mb-8">
                     Comprehensive Reports for Smarter Decisions
@@ -67,7 +67,7 @@ const FeatureProd2 = () => {
                 <p className="text-lg  mb-8">
                     Access detailed daily, weekly, and monthly reports that uncover productivity patterns, identify risk users, and empower data-driven decision-making across your organization with TrackForce.
                 </p>
-                <FeaturesListMore height={"360px"} features={features} txtColor='text-black' />
+                <FeaturesListMore height={"360px"} features={features} txtColor='text-white' />
 
 
                 <div className="mt-12">

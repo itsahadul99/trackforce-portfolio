@@ -95,3 +95,6 @@ Make the website SEO friendly: shared SEO helper (src/lib/seo.ts with NEXT_PUBLI
 
 ## Query-32
 Improve Lighthouse scores (was mobile 45/84/73, desktop 78/81/77 for Perf/A11y/BP). Fixes: <main> landmark in layout, aria-labels on Testimonials play buttons, h4→h3 in WhyChooseUs, footer <ul> children wrapped in <li>, bg-emerald-500→700 on pricing badge, priority + object-cover on Hero video_bg LCP image, preload="none" on hero video, lazy-mount free-trailer.mp4 via useInView with dark fallback bg (#10243E), nested button-in-anchor flattened to styled <a> in HomeFreeTailer. Image format conversion skipped per user (images will be replaced soon). Verified locally: A11y 100, BP 100 both form factors; page weight 15.3MB→6.5MB.
+
+## Query-33
+Use the FeatureProd2 system (FeaturesListMore interactive accordion list) in ProductivityDashboard.tsx and WorkForceMonitoring.tsx, replacing their static blue-bar feature blocks. FeaturesListMore gained optional activeTitleColor/inactiveTitleColor/descColor props (defaults unchanged, FeatureProd2 untouched) and a per-instance layoutId (React.useId) so multiple lists on one page animate independently. Both home components pass white-on-dark colors (active text-white, inactive text-white/60, desc text-gray-200), height 280px, 3 features each.

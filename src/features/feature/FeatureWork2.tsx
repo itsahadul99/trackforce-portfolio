@@ -55,7 +55,7 @@ const FeatureWork2 = () => {
         },
     ];
     return (
-        <div className="mt-6 md:mt-10 lg:mt-28 text-[#2B2B2B] flex flex-col lg:flex-row gap-3 items-center justify-between overflow-hidden">
+        <div className="mt-6 md:mt-10 lg:mt-28 text-white flex flex-col lg:flex-row gap-3 items-center justify-between overflow-hidden">
             <div className='w-full lg:w-1/2 relative h-[520px]'>
                 {/* Main dashboard - center, fades in from slight scale */}
                 <motion.div
@@ -100,7 +100,7 @@ const FeatureWork2 = () => {
                     Easily onboard employees, assign and manage devices, and monitor system usage securely. Ensure accountability and transparency across teams with centralized staff tracking and control.
                 </p>
 
-                <FeaturesListMore height={"360px"} features={features} txtColor='text-black' />
+                <FeaturesListMore height={"360px"} features={features} txtColor='text-white' />
 
                 <div className="mt-12">
                     <button className="group custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
