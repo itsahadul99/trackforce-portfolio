@@ -172,8 +172,8 @@ const BlogCards = () => {
                                 key={f}
                                 onClick={() => setActiveFilter(f)}
                                 className={`px-5 py-2 rounded-full text-sm font-medium border transition-colors ${activeFilter === f
-                                        ? "bg-[#5f6bff] text-white border-[#5f6bff]"
-                                        : "bg-white text-gray-700 border-gray-200 hover:border-[#5f6bff]"
+                                        ? "bg-[#166DE11F] content_title_text_new border-[#1B73E8]"
+                                        : " text-[#2B2B2BA6] border-[#2B2B2B59] hover:border-[#2b2b2bcc]"
                                     }`}
                             >
                                 {f}
@@ -270,7 +270,8 @@ const BlogCards = () => {
                             <Link
                                 key={card.id}
                                 href={`/blog-details/${card.slug}`}
-                                className="group shadow-lg bg-[#fbf9f4] rounded-2xl overflow-hidden  hover:shadow-md transition-shadow block"
+                                className="group shadow-lg rounded-2xl overflow-hidden  hover:shadow-md transition-shadow block"
+                                style={{background: "var(--Linear, linear-gradient(270deg, rgba(255, 255, 255, 0.39) 0%, rgba(210, 228, 255, 0.39) 100%))", boxShadow: "0 0 34.5px 0 rgba(0, 0, 0, 0.13)"}}
                             >
                                 <div className="relative w-full h-50 perspective-[1000px]">
                                     <Image
@@ -280,7 +281,7 @@ const BlogCards = () => {
                                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                         className="object-cover transition-transform duration-800 ease-in-out group-hover:transform-[rotateY(180deg)]"
                                     />
-                                    <span className="absolute top-3 right-3 text-xs font-semibold  text-[#5f6bff] backdrop-blur-sm bg-white/80  font-medium px-3 py-1 rounded-full">
+                                    <span className="absolute top-3 right-3 text-xs font-semibold content_title_text_new backdrop-blur bg-[#FFFFFF54]  font-medium px-3 py-1.5 rounded-full">
                                         {card.tag}
                                     </span>
                                 </div>
