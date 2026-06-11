@@ -1,8 +1,8 @@
 import Image from "next/image";
-import empAndTime from "../../../../public/empAndTime.png"
-import totalHr from "../../../../public/totalHr.png"
-import bar from "../../../../public/bar.png"
-import employeeList from "../../../../public/employeeListForCard.png"
+import bar from "../../../../public/bar.png";
+import securityMonitoring from "../../../../public/home/securityMonitoring.png";
+import workEfficiency from "../../../../public/home/workEfficiency.png";
+import totalHr from "../../../../public/totalHr.png";
 
 const OurFeatures = () => {
     return (
@@ -126,33 +126,15 @@ const OurFeatures = () => {
                             </p>
 
                             <Image
-                                src={empAndTime}
+                                src={workEfficiency}
                                 alt="total hours"
-                                className="
-      absolute -bottom-36 -right-20
-      transition-all duration-500 ease-out
-      group-hover:-translate-y-5
-      group-hover:scale-104
-      group-hover:-translate-x-1
-    "
+                                className="absolute -bottom-14 -right-2 transition-all duration-500 ease-out group-hover:-translate-y-5 group-hover:scale-104 group-hover:-translate-x-1"
                             />
 
                         </div>
 
                         <div
-                            className=" custom-card-2
-    bg-gradient-to-b from-[#4b5563] to-[#374151]
-    rounded-2xl
-    p-6 sm:p-8
-    text-white
-    border border-white/10
-    backdrop-blur
-    overflow-hidden
-    relative
-    h-80 sm:h-96
-    group
-    w-full lg:w-[40%]
-  "
+                            className=" custom-card-2  bg-gradient-to-b from-[#4b5563] to-[#374151] rounded-2xl  p-6 sm:p-8  text-white border border-white/10  backdrop-blur  overflow-hidden relative  h-80 sm:h-96 group  w-full lg:w-[40%] "
                         >
                             <h3 className="text-xl font-semibold mb-3">
                                 Security Monitoring
@@ -163,15 +145,9 @@ const OurFeatures = () => {
                             </p>
 
                             <Image
-                                src={employeeList}
+                                src={securityMonitoring}
                                 alt="total hours"
-                                className="
-                            rounded-ss-2xl
-                            scale-y-110
-      absolute bottom-0 -right-38
-      transition-all duration-800 ease-out
-      group-hover:-translate-x-16
-    "
+                                className=" rounded-ss-2xl  scale-y-110 absolute -bottom-14 -right-10 transition-all duration-800 ease-out group-hover:-translate-x-10"
                             />
 
                         </div>
