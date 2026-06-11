@@ -1,4 +1,4 @@
-/* custom card 1 start */
+/* OurFeatures cards — hover polish */
 
 .custom-card::before {
   content: '';
@@ -8,29 +8,23 @@
   width: 300px;
   height: 200px;
   border-radius: 50%;
-    background: linear-gradient(
-    135deg,
-    #667eea 0%,
-    #764ba2 40%,
-    #6a11cb 70%,
-    #2575fc 100%
-  );
+  background: linear-gradient(135deg,
+      #667eea 0%,
+      #764ba2 40%,
+      #6a11cb 70%,
+      #2575fc 100%);
   transform: scaleX(0) scaleY(0);
-  transition: 
-    transform 1.2s ease,
-    scale 1.2s ease;
+  will-change: transform;
+  /* exit: collapse a touch quicker so mouse-out feels responsive */
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   z-index: -1;
 }
 
 .custom-card:hover::before {
   transform: scaleX(5) scaleY(6);
+  /* enter: slightly longer, fast start + gentle settle */
+  transition-duration: 0.9s;
 }
-
-/* custom card 1 end */
-
-
-
-/* custom card 2 start */
 
 .custom-card-2::before {
   content: '';
@@ -40,22 +34,35 @@
   width: 300px;
   height: 200px;
   border-radius: 50%;
-    background: linear-gradient(
-    135deg,
-    #667eea 0%,
-    #764ba2 40%,
-    #6a11cb 70%,
-    #2575fc 100%
-  );
+  background: linear-gradient(135deg,
+      #667eea 0%,
+      #764ba2 40%,
+      #6a11cb 70%,
+      #2575fc 100%);
   transform: scaleX(0) scaleY(0);
-  transition: 
-    transform 1.7s ease,
-    scale 1.2s ease;
+  will-change: transform;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
   z-index: -1;
 }
 
 .custom-card-2:hover::before {
   transform: scaleX(7) scaleY(8);
+  transition-duration: 1.05s;
 }
 
-/* custom card 2 end */
+.custom-card,
+.custom-card-2 {
+  transition:
+    border-color 0.6s ease,
+    box-shadow 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    translate 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.custom-card:hover,
+.custom-card-2:hover {
+  translate: 0 -4px;
+  box-shadow:
+    -14.34px 43.2px 52.87px 0 rgba(81, 78, 120, 0.18),
+    inset 1.55px 2.32px 0 0 rgba(255, 255, 255, 0.6),
+    0 0 8px 5px rgba(159, 96, 238, 0.44);
+}

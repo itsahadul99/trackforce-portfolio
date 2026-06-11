@@ -98,3 +98,9 @@ Improve Lighthouse scores (was mobile 45/84/73, desktop 78/81/77 for Perf/A11y/B
 
 ## Query-33
 Use the FeatureProd2 system (FeaturesListMore interactive accordion list) in ProductivityDashboard.tsx and WorkForceMonitoring.tsx, replacing their static blue-bar feature blocks. FeaturesListMore gained optional activeTitleColor/inactiveTitleColor/descColor props (defaults unchanged, FeatureProd2 untouched) and a per-instance layoutId (React.useId) so multiple lists on one page animate independently. Both home components pass white-on-dark colors (active text-white, inactive text-white/60, desc text-gray-200), height 280px, 3 features each.
+
+## Query-34
+Optimize/smooth OurFeatures animations. CSS (ourFeatures.css + duplicate block in globals.css): blob ::before now uses cubic-bezier(0.22,1,0.36,1) with asymmetric timing (enter 0.9s/1.05s, exit 0.6s/0.7s), will-change transform, removed invalid `scale` transition; custom-card-2 hover shadows merged into one comma-separated box-shadow (was 3 self-overriding declarations) with box-shadow+border-color transition, dropped hover backdrop-filter bump (repaint jank); same hover glow added to custom-card. TSX: image cross-fades upgraded from flat opacity 500ms to fade+drift (outgoing translate-y-3 down, incoming rises from translate-y-4) at 700ms with the same bezier; removed redundant group-hover:border on card 1.
+
+## Query-35
+More smoothness on OurFeatures: image cross-fade 700ms→850ms, cards get subtle hover lift (translate 0 -4px, 0.8s) + glow, blob bg transitions kept (user first asked to remove, then said "keep the bg transitions"). custom-card CSS now lives only in ourFeatures.css — the duplicate block in globals.css was removed.
