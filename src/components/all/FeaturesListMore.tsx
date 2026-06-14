@@ -69,6 +69,7 @@
 // export default FeaturesListMore
 import React, { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import Link from 'next/link';
 
 type Props = {
     height?: number | string;
@@ -137,13 +138,13 @@ const FeaturesListMore = ({
                                                 <p className={`${descColor} text-[15px] leading-relaxed mb-4 mt-2 ${txtColor} `}>
                                                     {feature.description}
                                                 </p>
-                                                <a
-                                                    href="#"
+                                                <Link
+                                                    href="/documentation"
                                                     className="text-[#1a73e8] font-bold text-[15px] flex items-center group"
                                                 >
                                                     Learn More
                                                     <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
-                                                </a>
+                                                </Link>
                                             </motion.div>
                                         )}
                                     </AnimatePresence>

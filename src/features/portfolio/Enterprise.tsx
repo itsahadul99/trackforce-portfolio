@@ -21,6 +21,7 @@ import {
 import FeaturesList from '@/components/all/FeaturesList';
 import { motion, type Variants } from 'framer-motion';
 import Image from 'next/image';
+import Link from "next/link";
 import { FaArrowRightLong } from 'react-icons/fa6';
 import enterPriceL1 from '../../../public/portfolio/enterPriceL1.png';
 import enterPriceL2 from '../../../public/portfolio/enterPriceL2.png';
@@ -88,7 +89,7 @@ const Enterprise = () => {
                         Complete visibility—without operational chaos.
                     </p>
                     <div className="mt-6 lg:mt-12">
-                        <button className="group custom-button relative w-fit bg-white text-black font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
+                        <Link href="/documentation" className="group custom-button relative w-fit bg-white text-black font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
                             <span className='group-hover:italic'>See how it works</span> <FaArrowRightLong className='group-hover:-rotate-[30deg] transition ease-in-out' />
                             <motion.div
                                 className="ml-2 absolute right-0"
@@ -110,7 +111,7 @@ const Enterprise = () => {
                                     className="w-8 h-8 group-hover:hidden"
                                 />
                             </motion.div>
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>

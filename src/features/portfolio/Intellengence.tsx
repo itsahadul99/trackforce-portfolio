@@ -3,12 +3,13 @@
 import FeaturesList from '@/components/all/FeaturesList';
 import { motion, type Variants } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { FaArrowRightLong, FaCircle } from 'react-icons/fa6';
+import di1 from '../../../public/portfolio/di1.png';
+import di2 from '../../../public/portfolio/di2.png';
+import di3 from '../../../public/portfolio/di3.png';
 import '../home/how_trackforce_works/howTrackforceworks.css';
 const trackforce = '/trackforce.png'
-import di1 from '../../../public/portfolio/di1.png'
-import di2 from '../../../public/portfolio/di2.png'
-import di3 from '../../../public/portfolio/di3.png'
 
 
 const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
@@ -48,7 +49,7 @@ const features = [
                   <FeaturesList features={features} title='Each connected device logs:'/>
 
                     <div className="mt-12">
-                        <button className="group custom-button relative w-fit bg-white text-black font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
+                        <Link href="/documentation" className="group custom-button relative w-fit bg-white text-black font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
                             <span className='group-hover:italic '>See how it works</span> <FaArrowRightLong className='group-hover:-rotate-[30deg] transition ease-in-out' />
                             <motion.div
                                 className="ml-2 absolute right-0"
@@ -69,7 +70,7 @@ const features = [
                                     className="w-8 h-8 group-hover:hidden"
                                 />
                             </motion.div>
-                        </button>
+                        </Link>
                     </div>
                 </div>
 

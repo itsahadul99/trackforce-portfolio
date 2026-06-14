@@ -141,16 +141,16 @@
 
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
 import {
-    ShieldCheck,
     Settings,
-    Users,
+    ShieldCheck,
     User,
     UserCircle2,
+    Users,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 const trackforce = "/trackforce.png";
@@ -246,7 +246,7 @@ const Card = ({
 const Structure = () => {
     return (
         <section className="w-full py-12 px-4">
-            <div className="max-w-7xl bg-[url('/buildForBg.png')] mx-auto relative overflow-hidden bg-[#E9F3FF] rounded-[40px] border border-white/40 p-8 md:p-16 min-h-[600px] flex flex-col lg:flex-row items-center gap-12">
+            <div className="max-w-[1300] bg-[url('/buildForBg.png')] mx-auto relative overflow-hidden bg-[#E9F3FF] rounded-[40px] border border-white/40 p-8 md:p-16 min-h-[600px] flex flex-col lg:flex-row items-center gap-12">
 
                 {/* Background */}
                 <div className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-blue-400/20 blur-[120px] rounded-full" />
@@ -270,7 +270,7 @@ const Structure = () => {
                     </p>
 
                     <div className="">
-                        <button className="group custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
+                        <Link href="/documentation" className="group custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
                             <span className='group-hover:italic '>See how it works</span> <FaArrowRightLong className='group-hover:-rotate-[30deg] transition ease-in-out' />
                             <motion.div
                                 className="ml-2 absolute right-0"
@@ -292,7 +292,7 @@ const Structure = () => {
                                     className="w-8 h-8 group-hover:hidden"
                                 />
                             </motion.div>
-                        </button>
+                        </Link>
                     </div>
                 </motion.div>
 

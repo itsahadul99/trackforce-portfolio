@@ -2,10 +2,11 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
-import trackforce from "../../../public/trackforce.png";
 import { IoIosArrowDown } from "react-icons/io";
+import trackforce from "../../../public/trackforce.png";
 const faqs = [
   {
     question: "Centralized Performance Management",
@@ -103,7 +104,7 @@ const AboutWhyChooseUs = () => {
             </div>
 
             <div className="mt-8">
-              <button className="group/button custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-medium py-3 px-6 rounded-[14] flex gap-3 justify-between font-semibold items-center">
+              <Link href="/feature" className="group/button custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-medium py-3 px-6 rounded-[14] flex gap-3 justify-between font-semibold items-center">
                 <span className="group-hover/button:italic">Load More</span>
                 <FaArrowRightLong className="group-hover/button:-rotate-[30deg] transition ease-in-out" />
                 <motion.div
@@ -124,7 +125,7 @@ const AboutWhyChooseUs = () => {
                     className="w-8 h-8 group-hover:hidden"
                   />
                 </motion.div>
-              </button>
+              </Link>
             </div>
           </div>
         </div>

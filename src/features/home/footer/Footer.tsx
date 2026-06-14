@@ -249,7 +249,7 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-3 text-sm text-gray-200 *:block">
               <li><Link href="/pricing" className="hover:text-white cursor-pointer inline-block transition-all duration-300 hover:translate-x-1">Pricing</Link></li>
-              <li><Link href="/features" className="hover:text-white cursor-pointer inline-block transition-all duration-300 hover:translate-x-1">Features</Link></li>
+              <li><Link href="/feature" className="hover:text-white cursor-pointer inline-block transition-all duration-300 hover:translate-x-1">Features</Link></li>
               <li><Link href="/contact" className="hover:text-white cursor-pointer inline-block transition-all duration-300 hover:translate-x-1">Contact us</Link></li>
             </ul>
           </div>

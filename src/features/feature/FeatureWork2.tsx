@@ -103,7 +103,7 @@ const FeatureWork2 = () => {
                 <FeaturesListMore height={"360px"} features={features} txtColor='text-white' />
 
                 <div className="mt-12">
-                    <button className="group custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
+                    <Link href="/documentation" className="group custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
                         <span className='group-hover:italic '>See how it works</span> <FaArrowRightLong className='group-hover:-rotate-[30deg] transition ease-in-out' />
                         <motion.div
                             className="ml-2 absolute right-0"
@@ -125,7 +125,7 @@ const FeatureWork2 = () => {
                                 className="w-8 h-8 group-hover:hidden"
                             />
                         </motion.div>
-                    </button>
+                    </Link>
                 </div>
             </div>
 

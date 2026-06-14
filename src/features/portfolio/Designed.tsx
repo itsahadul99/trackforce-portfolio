@@ -3,11 +3,12 @@
 import FeaturesListMore from '@/components/all/FeaturesListMore';
 import { motion, type Variants } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { FaArrowRightLong } from 'react-icons/fa6';
-import '../home/how_trackforce_works/howTrackforceworks.css';
 import dm1 from '../../../public/portfolio/dm1.png';
 import dm2 from '../../../public/portfolio/dm2.png';
 import dm3 from '../../../public/portfolio/dm3.png';
+import '../home/how_trackforce_works/howTrackforceworks.css';
 const trackforce = '/trackforce.png';
 
 const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
@@ -68,7 +69,7 @@ const Designed = () => {
                     </div>
 
                     <div className="mt-12">
-                        <button className="group custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
+                        <Link href="/documentation" className="group custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
                             <span className='group-hover:italic '>See how it works</span> <FaArrowRightLong className='group-hover:-rotate-[30deg] transition ease-in-out' />
                             <motion.div
                                 className="ml-2 absolute right-0"
@@ -90,7 +91,7 @@ const Designed = () => {
                                     className="w-8 h-8 group-hover:hidden"
                                 />
                             </motion.div>
-                        </button>
+                        </Link>
                     </div>
                 </div>
 

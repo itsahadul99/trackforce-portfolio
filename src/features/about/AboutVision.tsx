@@ -6,6 +6,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import desktopApp from "../../../public/about/desktopApp.png";
 import trackforce from "../../../public/trackforce.png";
 
+import Link from 'next/link';
 import whyStand2 from "../../../public/casestudy/whyStand2.png";
 const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
     hidden: { opacity: 0, x, y, scale: 0.85 },
@@ -90,7 +91,7 @@ const AboutVision = () => {
 
 
                         <div className="mt-12">
-                            <button className="group custom-button relative w-fit bg-white text-black font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
+                            <Link href="/feature" className="group custom-button relative w-fit bg-white text-black font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
                                 <span className='group-hover:italic '>Learn More</span> <FaArrowRightLong className='group-hover:-rotate-[30deg] transition ease-in-out' />
                                 <motion.div
                                     className="ml-2 absolute right-0"
@@ -112,7 +113,7 @@ const AboutVision = () => {
                                         height={32}
                                     />
                                 </motion.div>
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { FaArrowRightLong } from "react-icons/fa6";
 import trackforce from "../../../public/trackforce.png";
 import coreValue from '../../../public/about/coreValue.png';
+import Link from 'next/link';
 const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
     hidden: { opacity: 0, x, y, scale: 0.85 },
     visible: {
@@ -42,7 +43,7 @@ const AboutValues = () => {
                         </p>
 
                         <div className="">
-                            <button className="group custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
+                            <Link href="/feature" className="group custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
                                 <span className='group-hover:italic '>Learn More</span> <FaArrowRightLong className='group-hover:-rotate-[30deg] transition ease-in-out' />
                                 <motion.div
                                     className="ml-2 absolute right-0"
@@ -62,7 +63,7 @@ const AboutValues = () => {
                                         className="w-8 h-8 group-hover:hidden"
                                     />
                                 </motion.div>
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

@@ -9,6 +9,7 @@ import dashboardOverview from '../../../public/home/dashboardOverviewFull.png';
 import projectProgress from '../../../public/home/projectProgress.png';
 import taskProgress from '../../../public/home/taskProgress.png';
 import topEmployees from '../../../public/home/topEmployees.png';
+import Link from 'next/link';
 const trackforce = '/trackforce.png';
 
 const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
@@ -48,7 +49,7 @@ const FeatureProd1 =({title, subTitle, height = '400px', features, txtColor='tex
                 <FeaturesListMore height={"360px"} features={features} txtColor='text-white' />
 
                 <div className="mt-12">
-                    <button className="group custom-button relative w-fit bg-white text-black font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
+                    <Link href="/documentation" className="group custom-button relative w-fit bg-white text-black font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
                         <span className='group-hover:italic '>See how it works</span> <FaArrowRightLong className='group-hover:-rotate-[30deg] transition ease-in-out' />
                         <motion.div
                             className="ml-2 absolute right-0"
@@ -70,7 +71,7 @@ const FeatureProd1 =({title, subTitle, height = '400px', features, txtColor='tex
                                 height={32}
                             />
                         </motion.div>
-                    </button>
+                    </Link>
                 </div>
             </div>
 

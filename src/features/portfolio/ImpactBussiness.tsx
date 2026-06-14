@@ -210,6 +210,7 @@ import strength from '../../../public/portfolio/strength.png'
 import productivity from '../../../public/portfolio/productivity.png'
 import improveWorkforce from '../../../public/portfolio/improveWorkforce.png'
 import enable from '../../../public/portfolio/enable.png'
+import Link from 'next/link';
 const trackforce = '/trackforce.png'
 
 const ImpactBusiness = () => {
@@ -238,6 +239,7 @@ const ImpactBusiness = () => {
                     {/* Top Row: 3 Cards */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {/* Card 1 */}
+                        
                         <div className="business-impact-card rounded-3xl p-8 h-76 relative overflow-hidden group">
                             <h3 className=" mb-3">Reduce reporting time dramatically</h3>
                             <p className="text-base font-normal  z-10 relative">
@@ -304,7 +306,7 @@ const ImpactBusiness = () => {
 
                 {/* Footer Button */}
                 <div className="mt-12 flex items-center justify-center">
-                    <button className="group custom-button relative w-fit bg-white text-black font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
+                    <Link href="/feature" className="group custom-button relative w-fit bg-white text-black font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
                         <span className='group-hover:italic '>Explore More Features</span> <FaArrowRightLong className='group-hover:-rotate-[30deg] transition ease-in-out' />
                         <motion.div
                             className="ml-2 absolute right-0"
@@ -325,7 +327,7 @@ const ImpactBusiness = () => {
                                 className="w-8 h-8 group-hover:hidden"
                             />
                         </motion.div>
-                    </button>
+                    </Link>
                 </div>
 
             </div>

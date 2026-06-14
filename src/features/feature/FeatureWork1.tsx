@@ -7,6 +7,7 @@ import { FaArrowRightLong } from 'react-icons/fa6';
 import employeeList from '../../../public/home/emailing.png';
 import sidebar from '../../../public/home/sidebar.png';
 import emailing from '../../../public/home/snapShots.png';
+import Link from 'next/link';
 const trackforce = '/trackforce.png';
 
 const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
@@ -81,7 +82,7 @@ const FeatureWork1 = ({ title, subTitle, height = '400px', features, txtColor='t
 
                 <FeaturesListMore height={"360px"} features={features} txtColor='text-white' />
                 <div className="mt-12">
-                    <button className="group custom-button relative w-fit bg-white text-black font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
+                    <Link href="/documentation" className="group custom-button relative w-fit bg-white text-black font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
                         <span className='group-hover:italic'>See how it works</span> <FaArrowRightLong className='group-hover:-rotate-[30deg] transition ease-in-out' />
                         <motion.div
                             className="ml-2 absolute right-0"
@@ -103,7 +104,7 @@ const FeatureWork1 = ({ title, subTitle, height = '400px', features, txtColor='t
                                 height={32}
                             />
                         </motion.div>
-                    </button>
+                    </Link>
                 </div>
             </div>
 
