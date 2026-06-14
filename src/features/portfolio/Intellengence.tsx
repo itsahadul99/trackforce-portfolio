@@ -6,7 +6,9 @@ import Image from 'next/image';
 import { FaArrowRightLong, FaCircle } from 'react-icons/fa6';
 import '../home/how_trackforce_works/howTrackforceworks.css';
 const trackforce = '/trackforce.png'
-
+import di1 from '../../../public/portfolio/di1.png'
+import di2 from '../../../public/portfolio/di2.png'
+import di3 from '../../../public/portfolio/di3.png'
 
 
 const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
@@ -81,7 +83,7 @@ const features = [
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.1 }}
                     >
-                        <Image src={'/intelligence-1.png'} width={1200} height={800} alt="Employees" className="w-[480]" />
+                        <Image src={di1} width={1200} height={800} alt="Employees" className="w-[480]" />
                     </motion.div>
 
                     {/* Activity Logs - bottom left, slides from center */}
@@ -92,7 +94,7 @@ const features = [
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.1 }}
                     >
-                        <Image src={'/intelligence-2.png'} width={1200} height={800} alt="Activity Logs" className="w-[250]" />
+                        <Image src={di2} width={1200} height={800} alt="Activity Logs" className="w-[250]" />
                     </motion.div>
 
                     {/* Search Logs - bottom right, slides from center */}
@@ -103,7 +105,7 @@ const features = [
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.1 }}
                     >
-                        <Image src={'/intelligence-3.png'} width={1200} height={800} alt="Search Logs" className="w-[280]" />
+                        <Image src={di3} width={1200} height={800} alt="Search Logs" className="w-[280]" />
                     </motion.div>
                 </div>
             </div>

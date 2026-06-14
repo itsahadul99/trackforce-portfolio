@@ -204,6 +204,12 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import '../home/how_trackforce_works/howTrackforceworks.css';
+import reduceReporting from '../../../public/portfolio/reduceReport.png'
+import accountability from '../../../public/portfolio/increaseAccount.png'
+import strength from '../../../public/portfolio/strength.png'
+import productivity from '../../../public/portfolio/productivity.png'
+import improveWorkforce from '../../../public/portfolio/improveWorkforce.png'
+import enable from '../../../public/portfolio/enable.png'
 const trackforce = '/trackforce.png'
 
 const ImpactBusiness = () => {
@@ -232,35 +238,35 @@ const ImpactBusiness = () => {
                     {/* Top Row: 3 Cards */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {/* Card 1 */}
-                        <div className="bg-[#1c1c1c] border border-white/10 rounded-3xl p-8 h-76 relative overflow-hidden group">
+                        <div className="business-impact-card rounded-3xl p-8 h-76 relative overflow-hidden group">
                             <h3 className=" mb-3">Reduce reporting time dramatically</h3>
                             <p className="text-base font-normal  z-10 relative">
                                 Maintain transparency across teams, align individual efforts with goals, and build trust using data-backed visibility.
                             </p>
-                            <Image src={'/impact-bussiness-1.png'} width={400} height={300} alt="Reporting" className="absolute -bottom-1 -right-4 transition-transform duration-500 group-hover:-translate-y-1" />
+                            <Image src={reduceReporting} width={400} height={300} alt="Reporting" className="absolute -bottom-1 -right-4 transition-transform duration-500 group-hover:-translate-y-1" />
                         </div>
 
                         {/* Card 2 */}
-                        <div className="bg-[#1c1c1c] border border-white/10 rounded-3xl p-8 h-76 relative overflow-hidden group">
+                        <div className="business-impact-card rounded-3xl p-8 h-76 relative overflow-hidden group">
                             <h3 className="text-xl font-bold text-white mb-3">Increase accountability <br /> across teams</h3>
                             <p className="w-36 text-base font-normal  z-10 relative">
                                 Track real work activity in real time, focus on output not screen time, and turn daily actions into clear performance insights.
                             </p>
-                            <Image src={'/impact-bussiness-2.png'} width={400} height={300} alt="Accountability" className="w-[200] absolute -bottom-1 right-0 transition-transform duration-500 group-hover:-translate-y-1" />
+                            <Image src={accountability} width={400} height={300} alt="Accountability" className="w-[200] absolute -bottom-1 right-0 transition-transform duration-500 group-hover:-translate-y-1" />
                         </div>
 
                         {/* Card 3 */}
-                        <div className="bg-[#1c1c1c] border border-white/10 rounded-3xl p-8 h-76 relative overflow-hidden group">
+                        <div className="business-impact-card rounded-3xl p-8 h-76 relative overflow-hidden group">
                             <h3 className="text-xl font-bold text-white mb-3">Strengthen compliance control</h3>
                             <p className="text-base font-normal  z-10 relative">
                                 Maintain transparency across teams, align individual efforts with goals, and build trust using data-backed visibility.
                             </p>
-                            <Image src={'/impact-bussiness-3.png'} width={600} height={550} alt="Compliance" className="w-80 absolute -bottom-4 -left-1 transition-transform duration-500 group-hover:translate-x-1" />
+                            <Image src={strength} width={600} height={550} alt="Compliance" className="w-80 absolute -bottom-4 -left-1 transition-transform duration-500 group-hover:translate-x-1" />
                         </div>
                     </div>
 
                     {/* Middle Row: 1 Full Width Card */}
-                    <div className="relative bg-[#1c1c1c] border border-white/10 rounded-3xl p-8 md:p-12  h-76  overflow-hidden group">
+                    <div className="relative business-impact-card rounded-3xl p-8 md:p-12  h-76  overflow-hidden group">
                         <div className="w-96 h-full flex items-center">
                             <div className="h-32 space-y-3 ">
                                 <h3 className="text-2xl font-bold text-white">Identify productivity blind spots</h3>
@@ -270,28 +276,28 @@ const ImpactBusiness = () => {
                             </div>
                         </div>
 
-                        <Image src={'/impact-bussiness-4.png'} width={1200} height={800} alt="Productivity" className="w-[700] absolute top-1/2 right-5 -translate-y-1/2 transition-transform duration-700 group-hover:scale-101" />
+                        <Image src={productivity} width={1200} height={800} alt="Productivity" className="w-[700] absolute top-1/2 right-5 -translate-y-1/2 transition-transform duration-700 group-hover:scale-101" />
 
                     </div>
 
                     {/* Bottom Row: 2 Cards */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {/* Card 5 */}
-                        <div className="bg-[#1c1c1c] border border-white/10 rounded-3xl p-8 h-72 relative overflow-hidden group">
+                        <div className="business-impact-card rounded-3xl p-8 h-72 relative overflow-hidden group">
                             <h3 className="text-xl font-bold text-white mb-3">Improve workforce <br /> transparency</h3>
                             <p className="w-60 text-base font-normal ">
                                 Monitor sensitive activity, detect risks early, and protect company data without invading employee privacy.
                             </p>
-                            <Image src={'/impact-bussiness-5.png'} width={1200} height={800} alt="Transparency" className="w-66 absolute -bottom-14 right-0 transition-transform duration-500 group-hover:-translate-y-1" />
+                            <Image src={improveWorkforce} width={1200} height={800} alt="Transparency" className="w-66 absolute -bottom-14 right-0 transition-transform duration-500 group-hover:-translate-y-1" />
                         </div>
 
                         {/* Card 6 */}
-                        <div className="bg-[#1c1c1c] border border-white/10 rounded-3xl p-8 h-72 relative overflow-hidden group">
+                        <div className="business-impact-card rounded-3xl p-8 h-72 relative overflow-hidden group">
                             <h3 className="text-xl font-bold text-white mb-3">Enable confident leadership decisions</h3>
                             <p className="text-base font-normal  w-3/4">
                                 Monitor sensitive activity, detect risks early, and protect company data without invading employee privacy.
                             </p>
-                            <Image src={'/impact-bussiness-6.png'} width={1200} height={800} alt="Leadership" className="w-[550] absolute -bottom-1 left-1/2 -translate-x-1/2 transition-transform duration-500 group-hover:-translate-y-1" />
+                            <Image src={enable} width={1200} height={800} alt="Leadership" className="w-[550] absolute -bottom-1 left-1/2 -translate-x-1/2 transition-transform duration-500 group-hover:-translate-y-1" />
                         </div>
                     </div>
                 </div>

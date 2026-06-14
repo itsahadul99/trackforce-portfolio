@@ -22,6 +22,8 @@ import FeaturesList from '@/components/all/FeaturesList';
 import { motion, type Variants } from 'framer-motion';
 import Image from 'next/image';
 import { FaArrowRightLong } from 'react-icons/fa6';
+import enterPriceL1 from '../../../public/portfolio/enterPriceL1.png';
+import enterPriceL2 from '../../../public/portfolio/enterPriceL2.png';
 const trackforce = '/trackforce.png';
 const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
     hidden: { opacity: 0, x, y, scale: 0.85 },
@@ -57,7 +59,7 @@ const Enterprise = () => {
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.1 }}
                     >
-                        <Image src={'/enterprise-1.png'} width={1200} height={800} alt="Emailing" className=" w-[400]" />
+                        <Image src={enterPriceL1} width={1200} height={800} alt="Emailing" className=" w-[400]" />
                     </motion.div>
 
                     {/* Employee List - bottom left, slides from center */}
@@ -68,7 +70,7 @@ const Enterprise = () => {
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.1 }}
                     >
-                        <Image src={'/enterprise-2.png'} width={1200} height={800} alt="Activity Logs" className="w-[400]" />
+                        <Image src={enterPriceL2} width={1200} height={800} alt="Activity Logs" className="w-[400]" />
                     </motion.div>
 
 

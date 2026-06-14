@@ -42,7 +42,7 @@ const InstallationSection = () => {
       {/* Choose Application Type Image */}
       <div className="mb-10">
         <Image
-          src="/installation.png"
+          src="/doc/installation.png"
           alt="Choose application type"
           width={800}
           height={400}

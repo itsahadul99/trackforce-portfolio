@@ -4,8 +4,9 @@ import FeaturesListMore from '@/components/all/FeaturesListMore';
 import { motion, type Variants } from 'framer-motion';
 import Image from 'next/image';
 import { FaArrowRightLong } from 'react-icons/fa6';
+import realD from '../../../public/portfolio/realD.png';
+import realE from '../../../public/portfolio/realE.png';
 import '../home/how_trackforce_works/howTrackforceworks.css';
-const portOverview = '/portOverview.png'
 const trackforce = '/trackforce.png';
 const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
     hidden: { opacity: 0, x, y, scale: 0.85 },
@@ -101,7 +102,7 @@ const RealTime = () => {
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.1 }}
                     >
-                        <Image width={1200} height={800} src={portOverview} alt="Activity Logs" className="w-[430]" />
+                        <Image width={1200} height={800} src={realD} alt="Activity Logs" className="w-[430]" />
                     </motion.div>
 
                     {/* Search Logs - bottom right, slides from center */}
@@ -112,7 +113,7 @@ const RealTime = () => {
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.1 }}
                     >
-                        <Image width={1200} height={800} src={'/employees.png'} alt="Search Logs" className="w-[400]" />
+                        <Image width={1200} height={800} src={realE} alt="Search Logs" className="w-[400]" />
                     </motion.div>
                 </div>
             </div>

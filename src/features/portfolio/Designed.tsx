@@ -1,13 +1,13 @@
 'use client';
 
+import FeaturesListMore from '@/components/all/FeaturesListMore';
 import { motion, type Variants } from 'framer-motion';
 import Image from 'next/image';
-import { useState } from 'react';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import '../home/how_trackforce_works/howTrackforceworks.css';
-import FeaturesListMore from '@/components/all/FeaturesListMore';
-const portEmployees = '/employees.png'
-const portOverview = '/portOverview.png'
+import dm1 from '../../../public/portfolio/dm1.png';
+import dm2 from '../../../public/portfolio/dm2.png';
+import dm3 from '../../../public/portfolio/dm3.png';
 const trackforce = '/trackforce.png';
 
 const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
@@ -104,7 +104,7 @@ const Designed = () => {
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.1 }}
                     >
-                        <Image width={1200} height={800} src={'/designed-1.png'} alt="Activity Logs" className="w-[350]" />
+                        <Image width={1200} height={800} src={dm1} alt="Activity Logs" className="w-[350]" />
                     </motion.div>
 
                     {/* Search Logs - bottom right, slides from center */}
@@ -115,7 +115,7 @@ const Designed = () => {
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.1 }}
                     >
-                        <Image width={1200} height={800} src={'/designed-2.png'} alt="Search Logs" className="w-[450]" />
+                        <Image width={1200} height={800} src={dm3} alt="Search Logs" className="w-[450]" />
                     </motion.div>
                     {/* Search Logs - bottom right, slides from center */}
                     <motion.div
@@ -125,7 +125,7 @@ const Designed = () => {
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.1 }}
                     >
-                        <Image width={1200} height={800} src={'/designed-3.png'} alt="Search Logs" className="w-[350]" />
+                        <Image width={1200} height={800} src={dm2} alt="Search Logs" className="w-[350]" />
                     </motion.div>
                 </div>
             </div>

@@ -403,7 +403,7 @@
   position: absolute;
   inset: -150%;
   background: conic-gradient(from 0deg,
-    transparent 0%,
+      transparent 0%,
       #9F60EE 100%,
       transparent 40%);
   animation: rotate 3s linear infinite;
@@ -553,9 +553,10 @@
   transition: all 0.5s ease;
 }
 
-button{
+button {
   cursor: pointer;
 }
+
 /* Thin, theme-matched scrollbar for pricing feature lists */
 .pricing-features-scroll {
   scrollbar-width: thin;
@@ -579,3 +580,8 @@ button{
   background: linear-gradient(180deg, #1B73E8 0%, #7d44d4 100%);
 }
 
+.business-impact-card {
+  background: rgba(255, 255, 255, 0.19);
+  box-shadow: 1.546px 2.319px 0 0 rgba(255, 255, 255, 0.60) inset, -14.336px 43.197px 52.865px 0 rgba(81, 78, 120, 0.18);
+  backdrop-filter: blur(9.452999114990234px);
+}

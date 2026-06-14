@@ -4,7 +4,7 @@ import { motion, type Variants } from 'framer-motion';
 import Image from "next/image";
 import { FaArrowRightLong } from "react-icons/fa6";
 import trackforce from "../../../public/trackforce.png";
-
+import desktopApp from "../../../public/about/desktopApp.png";
 const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
     hidden: { opacity: 0, x, y, scale: 0.85 },
     visible: {
@@ -35,7 +35,7 @@ const AboutVision = () => {
                            viewport={{ once: false, amount: 0.1 }}
                          >
                            <Image
-                             src="/time.png"
+                             src={desktopApp}
                              alt="Case Study Hero"
                              width={1200}
                              height={600}

@@ -301,31 +301,35 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
-
+import realTime from '../../../public/portfolio/realTime.png'
+import detect from '../../../public/portfolio/detectHit.png'
+import identify from '../../../public/portfolio/identifyRisk.png'
+import deliver from '../../../public/portfolio/delivar.png'
+import power from '../../../public/portfolio/power.png'
 const cards = [
   {
     title: "Provide real-time activity insights",
-    image: "/portPlx0.png",
+    image: realTime,
     gradient: "linear-gradient(180deg, #D6E4FF 0%, #FFFFFF 100%)",
   },
   {
     title: "Detect productivity gaps instantly",
-    image: "/portPlx2.png",
+    image: detect,
     gradient: "linear-gradient(180deg, #E0E0FF 0%, #FFFFFF 100%)",
   },
   {
     title: "Identify risk behaviors early",
-    image: "/portPlx3.png",
+    image: identify,
     gradient: "linear-gradient(180deg, #D4F3E7 0%, #FFFFFF 100%)",
   },
   {
     title: "Deliver structured, hierarchy-based control",
-    image: "/portPlx4.png",
+    image: deliver,
     gradient: "linear-gradient(180deg, #F0F4F8 0%, #FFFFFF 100%)",
   },
   {
     title: "Empower leadership with actionable analytics",
-    image: "/portPlx5.png",
+    image: power,
     gradient: "linear-gradient(180deg, #CCE0FF 0%, #FFFFFF 100%)",
   },
 ];
@@ -363,7 +367,7 @@ const PortfolioParallax = () => {
                   src={card.image}
                   alt={card.title}
                   fill
-                  className="object-contain"
+                  className="object-contain object-center"
                   priority={index === 0}
                 />
               </div>
