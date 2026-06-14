@@ -1,11 +1,11 @@
 "use client";
 
+import BookDemoBtn from "@/components/shared/BookDemoBtn";
 import { blogs as cards } from "@/data/blogs";
 import { motion } from 'framer-motion';
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { FaArrowRightLong } from 'react-icons/fa6';
 
 const filters = ["All Post", "Software", "Uncategorized", "Category", "TrackForce"];
 
@@ -138,29 +138,7 @@ const BlogCards = () => {
                             </p>
                         </div>
                         <div className="">
-                            <button className="group custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
-                                <span className='group-hover:italic '>Book a Demo</span> <FaArrowRightLong className='group-hover:-rotate-[30deg] transition ease-in-out' />
-                                <motion.div
-                                    className="ml-2 absolute right-0"
-                                    animate={{
-                                        x: [0, -190, 0],   // initial, move right, return
-                                        opacity: [0, 1, 0, 0, 1, 0], // fade out at the end of the move
-                                    }}
-                                    transition={{
-                                        duration: 7,
-                                        repeat: Infinity,
-                                        repeatType: 'loop',
-                                    }}
-                                >
-                                    <Image
-                                        src={'/trackforce.png'}
-                                        alt="TrackForce Logo"
-                                        width={1200}
-                                        height={800}
-                                        className="w-8 h-8 group-hover:hidden"
-                                    />
-                                </motion.div>
-                            </button>
+                            <BookDemoBtn />
                         </div>
                     </motion.div>
                 </div>

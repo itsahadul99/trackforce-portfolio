@@ -7,6 +7,7 @@ import trackforce from '../../../../public/trackforce.png';
 import AutomicIcon from './automic';
 import CustomMonitoringIcon from './customMonitoring';
 import SecureIcon from './secure';
+import Link from 'next/link';
 const WhyChooseUs = () => {
   const features = [
     {
@@ -81,7 +82,7 @@ const WhyChooseUs = () => {
               Track employee activity, productivity, and work patterns in one place without disrupting everyday workflows.
             </p>
             <div className="">
-              <button className="group custom-button relative w-fit bg-white text-black font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center mx-auto lg:mx-0">
+              <Link href="/contact" className="group custom-button relative w-fit bg-white text-black font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center mx-auto lg:mx-0">
                 <span className='group-hover:italic '>Book a Demo</span> <FaArrowRightLong className='group-hover:-rotate-[30deg] transition ease-in-out' />
                 <motion.div
                   className="ml-2 absolute right-0"
@@ -101,7 +102,7 @@ const WhyChooseUs = () => {
                     className="w-8 h-8 group-hover:hidden"
                   />
                 </motion.div>
-              </button>
+              </Link>
             </div>
           </div>
           {/* Left: Features Card */}

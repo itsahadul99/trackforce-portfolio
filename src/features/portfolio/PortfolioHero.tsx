@@ -1,13 +1,8 @@
 "use client";
 
-import { AnimatePresence, motion, Transition } from "framer-motion";
-import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
-import Image from "next/image";
-import { useState } from "react";
-import { FaArrowRightLong } from "react-icons/fa6";
-import { IoIosArrowDown } from "react-icons/io";
-import trackforce from "../../../public/trackforce.png";
-import { IoPlayCircle } from "react-icons/io5";
+import { motion, Transition } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 
 const commonTransition: Transition = {
@@ -54,22 +49,22 @@ const PortfolioHero = () => {
                 <div className="w-full flex justify-center">
                     <div className="relative flex flex-col md:flex-row w-fit gap-6 justify-center items-center mt-10">
                         {/* Gradient Button */}
-                        <button className="group w-76 flex justify-center items-center gap-2 px-8 py-4 rounded-2xl text-white font-semibold text-lg 
+                        <Link href="/contact" className="group w-76 flex justify-center items-center gap-2 px-8 py-4 rounded-2xl text-white font-semibold text-lg 
         bg-gradient-to-r from-blue-600 via-blue-500 to-purple-600 
         hover:opacity-90 transition-all duration-300">
 
                             Request Demo
                             <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-                        </button>
+                        </Link>
 
                         {/* Outline Button */}
-                        <button className="w-76 px-8 py-4 rounded-2xl text-white font-semibold text-lg 
+                        <Link href="/case-study" className="w-76 px-8 py-4 rounded-2xl text-white font-semibold text-lg 
         border border-white/40 
         hover:border-white hover:bg-white/5 
         transition-all duration-300">
 
                             View Full Case Study
-                        </button>
+                        </Link>
                         {/* book demo spark animation */}
                         <div className="absolute -left-8 -top-8" >
                             <motion.svg

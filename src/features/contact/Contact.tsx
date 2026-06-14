@@ -97,7 +97,7 @@ const Contact = () => {
         </div>
       </section>
 
-      <div className="bg-white py-16 lg:py-28 px-6 lg:px-[120px]">
+      <div className="bg-white py-16 lg:py-28 px-6 xxl:px-[120px]">
         <div className="max-w-[1450px] mx-auto px-6 lg:px-11 py-7 lg:py-10 bg-[url('/contactbg.png')] bg-center bg-cover rounded-3xl bg-[#D6E8FF]">
           {/* Contact Info Cards */}
           <ContactCards />

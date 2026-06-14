@@ -79,9 +79,9 @@ export default function WorkProcess() {
                 </motion.div>
               </Link>
             </div>
-            <button className="px-6 py-3 border border-[#2B2B2B] text-[#2B2B2B] rounded-[16px] font-medium text-base hover:bg-gray-100">
+            <Link href="/contact" className="px-6 py-3 border border-[#2B2B2B] text-[#2B2B2B] rounded-[16px] font-medium text-base hover:bg-gray-100">
               Learn more
-            </button>
+            </Link>
           </div>
         </div>
 

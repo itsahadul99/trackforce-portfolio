@@ -5,8 +5,9 @@ import Image from 'next/image';
 import { useState } from "react";
 import { FaArrowRightLong } from 'react-icons/fa6';
 import { IoIosArrowDown } from "react-icons/io";
-import trackforce from '../../../../public/trackforce.png';
 import faqBg from "../../../../public/faqBg.png";
+import trackforce from '../../../../public/trackforce.png';
+import Link from "next/link";
 const faqs = [
     {
         question: "1. What is TrackForce used for?",
@@ -81,30 +82,6 @@ const HomeFaq = () => {
                 <p className="text-gray-600 text-sm sm:text-base mb-6 max-w-lg mt-6">
                     Track employee activity, productivity, and work patterns in one place without disrupting everyday workflows.
                 </p>
-                <div>
-                    <button className="group custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">
-                        <span className='group-hover:italic'>Book a Demo</span>
-                        <FaArrowRightLong className='group-hover:-rotate-[30deg] transition ease-in-out' />
-                        <motion.div
-                            className="ml-2 absolute right-0"
-                            animate={{
-                                x: [0, -190, 0],
-                                opacity: [0, 1, 0, 0, 1, 0],
-                            }}
-                            transition={{
-                                duration: 7,
-                                repeat: Infinity,
-                                repeatType: 'loop',
-                            }}
-                        >
-                            <Image
-                                src={trackforce}
-                                alt="TrackForce Logo"
-                                className="w-8 h-8 group-hover:hidden"
-                            />
-                        </motion.div>
-                    </button>
-                </div>
             </div>
 
             <div className="w-full lg:w-1/2 py-8 lg:py-16 px-0 sm:px-2 lg:px-6 z-10">
@@ -152,8 +129,8 @@ const HomeFaq = () => {
                     })}
                 </div>
 
-                <div className="mt-2">
-                    <button className="group/button custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-medium py-3 px-6 rounded-[14px] flex gap-3 justify-between font-semibold items-center">
+                <div className="mt-3">
+                    <Link href="/contact" className="group/button custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-medium py-3 px-6 rounded-[14px] flex gap-3 justify-between font-semibold items-center">
                         <span className="group-hover/button:italic">Load More</span>
                         <FaArrowRightLong className="group-hover/button:-rotate-[30deg] transition ease-in-out" />
                         <motion.div
@@ -174,7 +151,7 @@ const HomeFaq = () => {
                                 className="w-8 h-8 group-hover/button:hidden"
                             />
                         </motion.div>
-                    </button>
+                    </Link>
                 </div>
             </div>
         </div>

@@ -178,6 +178,7 @@ import footerActiveBg from '../../../../public/footerActive.png';
 import trackforce from '../../../../public/trackforce.png';
 import trackforce_logo from "../../../../public/trackforce_logo.png";
 import Link from "next/link";
+import { FaTiktok, FaYoutube } from "react-icons/fa";
 export default function Footer() {
   return (
     <footer className="group/footer relative bg-[#020617] text-gray-300 pt-20 sm:pt-24 lg:pt-28 pb-10 overflow-hidden transition-colors duration-1000">
@@ -307,15 +308,26 @@ export default function Footer() {
         {/* Bottom line */}
         <div className="border-t border-gray-700/50 mt-12 sm:mt-16 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs sm:text-sm text-gray-400 text-center md:text-left">
-            <p>©{new Date().getFullYear()} trackforce All rights reserved. Developed by AKIJ iBOS</p>
+            <div className="flex gap-1 items-center">
+              <p>©{new Date().getFullYear()} Trackforce All rights reserved. Developed by </p>
+              <a
+                href="https://ibos.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white font-semibold hover:text-cyan-300 transition-all duration-300 hover:translate-x-1"
+              >
+                AKIJ iBOS
+              </a>
+            </div>
 
             <div className="flex gap-4 text-lg text-gray-300">
               <a href="https://www.facebook.com/trackforce.io" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><Facebook size={18} /></a>
               <a href="https://www.linkedin.com/company/trackforceibos/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><Linkedin size={18} /></a>
               <a href="https://x.com/TrackForce_io" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><FaXTwitter size={18} /></a>
-              <a href="https://wa.me/8801329731839" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><FaWhatsapp size={18} /></a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><Instagram size={18} /></a>
+              <a href="https://wa.me/8801581501131" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><FaWhatsapp size={18} /></a>
+              <a href="https://www.youtube.com/@trackforce_io" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><FaYoutube size={18} /></a>
               <a href="https://www.pinterest.com/trackforce_io/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><FaPinterestP size={18} /></a>
+              <a href="https://www.tiktok.com/@trackforce_io" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><FaTiktok size={18} /></a>
             </div>
           </div>
         </div>

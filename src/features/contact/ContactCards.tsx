@@ -22,10 +22,10 @@ const ContactCards = () => {
               Sun-Thu from 9am to 6pm.
             </p>
             <a
-              href="tel:+8801329731839"
+              href="tel:+8801581501131"
               className="text-sm font-semibold text-gray-900 underline"
             >
-              +88 01329-731839
+              +88 01581-501131
             </a>
           </div>
 
