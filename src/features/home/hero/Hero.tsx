@@ -5,12 +5,82 @@ import { useEffect, useRef, useState } from "react";
 import { FiArrowRight } from "react-icons/fi";
 import { TypeAnimation } from "react-type-animation";
 import video_bg from '../../../../public/video_bg.png';
+import StatusModal from "@/components/shared/StatusModal";
 
+const BOOK_DEMO_API_URL = "https://app.trackforce.io/api/PublicBookDemo/submit";
+
+type DemoStatus = "idle" | "loading" | "success" | "error";
 
 const Hero = () => {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const [isFullscreen, setIsFullscreen] = useState(false);
+
+    const [demoMessage, setDemoMessage] = useState("");
+    const [demoStatus, setDemoStatus] = useState<DemoStatus>("idle");
+    const [modal, setModal] = useState<{
+        open: boolean;
+        type: "success" | "error";
+        title: string;
+        description: string;
+    }>({ open: false, type: "success", title: "", description: "" });
+
+    const handleBookDemo = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        if (demoStatus === "loading") return;
+
+        const message = demoMessage.trim();
+        if (!message) {
+            setModal({
+                open: true,
+                type: "error",
+                title: "Message Required",
+                description: "Please tell us a little about what you'd like to see before booking a demo.",
+            });
+            return;
+        }
+
+        setDemoStatus("loading");
+
+        try {
+            const res = await fetch(BOOK_DEMO_API_URL, {
+                method: "POST",
+                headers: {
+                    accept: "*/*",
+                    "Content-Type": "application/json-patch+json",
+                },
+                body: JSON.stringify({ message }),
+            });
+
+            if (!res.ok) {
+                throw new Error(`Request failed with status ${res.status}`);
+            }
+
+            const data = await res.json().catch(() => null);
+
+            setDemoStatus("success");
+            setDemoMessage("");
+            setModal({
+                open: true,
+                type: "success",
+                title: "Demo Request Received!",
+                description:
+                    data?.message ??
+                    "Your demo request has been received. We'll be in touch shortly.",
+            });
+        } catch {
+            setDemoStatus("error");
+            setModal({
+                open: true,
+                type: "error",
+                title: "Something Went Wrong",
+                description:
+                    "We couldn't submit your demo request. Please check your connection and try again.",
+            });
+        }
+    };
+
+    const closeModal = () => setModal((prev) => ({ ...prev, open: false }));
 
     useEffect(() => {
         const handleFullscreenChange = () => {
@@ -83,20 +153,26 @@ const Hero = () => {
                     </div>
                     {/* book a demo */}
                     <div className="relative mt-8 w-full max-w-[480px] mx-auto lg:mx-0 lg:w-fit">
-                        <div className="demo-wrapper flex border rounded-[20px] border-[#1B73E8] overflow-hidden">
+                        <form onSubmit={handleBookDemo} className="demo-wrapper flex border rounded-[20px] border-[#1B73E8] overflow-hidden">
                             <input
                                 type="text"
                                 name="demo"
                                 id="demo"
+                                value={demoMessage}
+                                onChange={(e) => setDemoMessage(e.target.value)}
                                 placeholder="Book a demo"
                                 className="demo-input pl-4 h-[62px] bg-[#FFFFFF12] text-[#626262] flex-1 min-w-0 outline-none border-none text-sm sm:text-lg"
                             />
 
-                            <button className="book-demo bg-white shrink-0 cursor-pointer text-white font-medium text-lg">
-                                <span className="book-demo-text">Book Demo</span>
+                            <button
+                                type="submit"
+                                disabled={demoStatus === "loading"}
+                                className="book-demo bg-white shrink-0 cursor-pointer text-white font-medium text-lg disabled:opacity-60 disabled:cursor-not-allowed"
+                            >
+                                <span className="book-demo-text">{demoStatus === "loading" ? "Booking..." : "Book Demo"}</span>
                                 <FiArrowRight className="text-xl" />
                             </button>
-                        </div>
+                        </form>
 
                         <div className="hidden sm:flex flex-wrap justify-center lg:justify-between gap-x-3 gap-y-1 text-[#ABABAB] mt-3 px-1 text-sm sm:text-base">
                             <span>Free 14-day trial</span>
@@ -326,6 +402,14 @@ const Hero = () => {
                     </div>
                 </div>
             </div>
+
+            <StatusModal
+                open={modal.open}
+                type={modal.type}
+                title={modal.title}
+                description={modal.description}
+                onClose={closeModal}
+            />
         </div>
 
     );

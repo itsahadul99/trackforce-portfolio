@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 
 const cards = [
@@ -67,9 +67,18 @@ const CaseStudyParallax = () => {
     offset: ["start start", "end end"],
   });
 
-  const card1Y = useTransform(scrollYProgress, [0, 0.3, 0.33], [0, 0, -150]);
-  const card2Y = useTransform(scrollYProgress, [0.33, 0.63, 0.66], [0, 0, -150]);
-  const card3Y = useTransform(scrollYProgress, [0.66, 1], [0, -150]);
+  // Smooth the raw scroll progress so the cards ease into place instead of
+  // snapping 1:1 with every scroll tick.
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 30,
+    mass: 0.5,
+    restDelta: 0.001,
+  });
+
+  const card1Y = useTransform(smoothProgress, [0, 0.3, 0.33], [0, 0, -150]);
+  const card2Y = useTransform(smoothProgress, [0.33, 0.63, 0.66], [0, 0, -150]);
+  const card3Y = useTransform(smoothProgress, [0.66, 1], [0, -150]);
 
   const cardYValues = [card1Y, card2Y, card3Y];
 
@@ -115,7 +124,7 @@ const CaseStudyParallax = () => {
         return (
           <div key={index} className="lg:h-[650px] lg:sticky lg:top-30 h-auto" style={{ zIndex: (index + 1) * 10 }}>
             <motion.div
-              style={{ y: cardYValues[index], background: card.gradient }}
+              style={{ y: cardYValues[index], background: card.gradient, willChange: "transform" }}
               className="lg:absolute lg:inset-0 rounded-2xl w-full lg:h-[450px] h-auto overflow-hidden shadow-lg border-2 relative"
             >
               <div className="flex flex-col lg:flex-row items-start lg:items-center h-auto lg:h-full px-6 lg:px-12 gap-6 lg:gap-8">

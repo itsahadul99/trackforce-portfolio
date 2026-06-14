@@ -7,7 +7,6 @@ import { FaArrowRightLong } from 'react-icons/fa6';
 import { IoIosArrowDown } from "react-icons/io";
 import faqBg from "../../../../public/faqBg.png";
 import trackforce from '../../../../public/trackforce.png';
-import Link from "next/link";
 const faqs = [
     {
         question: "1. What is TrackForce used for?",
@@ -34,11 +33,26 @@ const faqs = [
         answer:
             "Yes, when implemented transparently and in compliance with local laws and company policies.",
     },
+    {
+        question: "6. Does TrackForce work on Windows, macOS, and Linux?",
+        answer:
+            "Yes, TrackForce supports Windows, macOS, and Linux, so you can monitor your entire workforce across different operating systems from a single dashboard.",
+    },
+    {
+        question: "7. Is my company's data secure with TrackForce?",
+        answer:
+            "Absolutely. TrackForce uses encrypted data transfer and secure cloud storage, with role-based access controls to keep your monitoring data protected at all times.",
+    },
 ];
+
+const INITIAL_COUNT = 5;
 
 const HomeFaq = () => {
     const [open, setOpen] = useState<number | null>(0);
     const [isHovered, setIsHovered] = useState(false);
+    const [showAll, setShowAll] = useState(false);
+
+    const visibleFaqs = showAll ? faqs : faqs.slice(0, INITIAL_COUNT);
 
     return (
         /* 1. Added mouse enter/leave listeners to track the container hover state */
@@ -86,7 +100,7 @@ const HomeFaq = () => {
 
             <div className="w-full lg:w-1/2 py-8 lg:py-16 px-0 sm:px-2 lg:px-6 z-10">
                 <div className="space-y-3">
-                    {faqs.map((faq, index) => {
+                    {visibleFaqs.map((faq, index) => {
                         const isOpen = open === index;
 
                         return (
@@ -130,9 +144,13 @@ const HomeFaq = () => {
                 </div>
 
                 <div className="mt-3">
-                    <Link href="/contact" className="group/button custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-medium py-3 px-6 rounded-[14px] flex gap-3 justify-between font-semibold items-center">
-                        <span className="group-hover/button:italic">Load More</span>
-                        <FaArrowRightLong className="group-hover/button:-rotate-[30deg] transition ease-in-out" />
+                    <button
+                        type="button"
+                        onClick={() => setShowAll((prev) => !prev)}
+                        className="group/button custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-medium py-3 px-6 rounded-[14px] flex gap-3 justify-between font-semibold items-center"
+                    >
+                        <span className="group-hover/button:italic">{showAll ? "Show Less" : "Load More"}</span>
+                        <FaArrowRightLong className={`transition ease-in-out group-hover/button:-rotate-[30deg] ${showAll ? "rotate-90" : ""}`} />
                         <motion.div
                             className="ml-2 absolute right-0"
                             animate={{
@@ -151,7 +169,7 @@ const HomeFaq = () => {
                                 className="w-8 h-8 group-hover/button:hidden"
                             />
                         </motion.div>
-                    </Link>
+                    </button>
                 </div>
             </div>
         </div>
