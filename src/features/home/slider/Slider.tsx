@@ -37,7 +37,7 @@ export default function Slider() {
   return (
     <div className="py-6 sm:py-8 lg:py-10">
       <Marquee speed={50} gradient={false} pauseOnHover>
-        {logos.map((item, i) => (
+        {[...logos, ...logos, ...logos].map((item, i) => (
           <Link
             key={i}
             href={item.link}
