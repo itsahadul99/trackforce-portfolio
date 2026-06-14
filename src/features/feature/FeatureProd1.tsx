@@ -1,17 +1,15 @@
 'use client';
 
-import Image from 'next/image';
-import React from 'react';
+import FeaturesListMore from '@/components/all/FeaturesListMore';
 import { motion, type Variants } from 'framer-motion';
-const dashboard = '/dashboard.png';
-const activityLogs = '/activity_logs.png';
-const searchLogs = '/search_logs.png';
-const employees = '/employees.png';
-const trackforce = '/trackforce.png';
-import Link from 'next/link';
+import Image from 'next/image';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import '../home/how_trackforce_works/howTrackforceworks.css';
-import FeaturesListMore from '@/components/all/FeaturesListMore';
+import dashboardOverview from '../../../public/home/dashboardOverviewFull.png';
+import projectProgress from '../../../public/home/projectProgress.png';
+import taskProgress from '../../../public/home/taskProgress.png';
+import topEmployees from '../../../public/home/topEmployees.png';
+const trackforce = '/trackforce.png';
 
 const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
     hidden: { opacity: 0, x, y, scale: 0.85 },
@@ -37,38 +35,6 @@ type Props = {
 }
 
 const FeatureProd1 =({title, subTitle, height = '400px', features, txtColor='text-black' }: Props) => {
-    // const features = [
-    //     {
-    //         title: "Live Tracking",
-    //         description:
-    //             "Track real-time online and idle statuses to understand team availability and active work time.",
-    //     },
-    //     {
-    //         title: "Productivity Graphs",
-    //         description:
-    //             "Visualize performance trends with intuitive charts that reveal productivity patterns at a glance.",
-    //     },
-    //     {
-    //         title: "Workflow Overview",
-    //         description:
-    //             "Get a clear snapshot of ongoing tasks, project progress, and team workflow in one unified view.",
-    //     },
-    //     {
-    //         title: "Usage Logs",
-    //         description:
-    //             "Monitor application and website usage with detailed logs to understand how work time is spent.",
-    //     },
-    //     {
-    //         title: "Team Comparison",
-    //         description:
-    //             "Compare performance across teams and individuals to identify top performers and improvement areas.",
-    //     },
-    //     {
-    //         title: "Instant Insights",
-    //         description:
-    //             "Access actionable insights instantly to make faster, smarter decisions driven by real-time data.",
-    //     },
-    // ];
     return (
         <div className="mt-28 text-white flex flex-col lg:flex-row gap-3 items-center justify-between">
             <div className="w-full lg:w-1/2">
@@ -117,7 +83,7 @@ const FeatureProd1 =({title, subTitle, height = '400px', features, txtColor='tex
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={dashboard} alt="Productivity Dashboard" className="w-full" width={800} height={500} />
+                    <Image src={dashboardOverview} alt="Productivity Dashboard" className="w-full" width={800} height={500} />
                 </motion.div>
 
                 {/* Employees - top right, slides from center */}
@@ -128,7 +94,7 @@ const FeatureProd1 =({title, subTitle, height = '400px', features, txtColor='tex
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={employees} alt="Employees" className="w-full" width={400} height={300} />
+                    <Image src={topEmployees} alt="Employees" className="w-full" width={400} height={300} />
                 </motion.div>
 
                 {/* Activity Logs - bottom left, slides from center */}
@@ -139,7 +105,7 @@ const FeatureProd1 =({title, subTitle, height = '400px', features, txtColor='tex
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={activityLogs} alt="Activity Logs" className="w-full" width={400} height={300} />
+                    <Image src={projectProgress} alt="Activity Logs" className="w-full" width={400} height={300} />
                 </motion.div>
 
                 {/* Search Logs - bottom right, slides from center */}
@@ -150,7 +116,7 @@ const FeatureProd1 =({title, subTitle, height = '400px', features, txtColor='tex
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={searchLogs} alt="Search Logs" className="w-full" width={400} height={300} />
+                    <Image src={taskProgress} alt="Search Logs" className="w-full" width={400} height={300} />
                 </motion.div>
             </div>
         </div>

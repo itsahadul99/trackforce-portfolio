@@ -3,8 +3,10 @@
 import { motion, type Variants } from 'framer-motion';
 import Image from "next/image";
 import { FaArrowRightLong } from "react-icons/fa6";
-import trackforce from "../../../public/trackforce.png";
 import desktopApp from "../../../public/about/desktopApp.png";
+import trackforce from "../../../public/trackforce.png";
+
+import whyStand2 from "../../../public/casestudy/whyStand2.png";
 const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
     hidden: { opacity: 0, x, y, scale: 0.85 },
     visible: {
@@ -51,7 +53,7 @@ const AboutVision = () => {
                            viewport={{ once: false, amount: 0.1 }}
                          >
                            <Image
-                             src="/ensure.png"
+                             src={whyStand2}
                              alt="Case Study Hero"
                              width={1200}
                              height={600}

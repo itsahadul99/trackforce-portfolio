@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { motion, type Variants } from 'framer-motion';
-
+import whyStand1 from "../../../public/casestudy/whyStand1.png";
+import whyStand2 from "../../../public/casestudy/whyStand2.png";
 const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
   hidden: { opacity: 0, x, y, scale: 0.85 },
   visible: {
@@ -44,11 +45,11 @@ const CaseStudyWhyStandsOut = () => {
               viewport={{ once: false, amount: 0.1 }}
             >
               <Image
-                src="/time.png"
+                src={whyStand1}
                 alt="Case Study Hero"
                 width={1200}
                 height={600}
-                className="lg:w-[470px] w-full max-w-[320px] object-contain"
+                className="lg:w-[470px] w-full max-w-[320px] lg:max-w-[470px] object-contain"
               />
             </motion.div>
             {/* Ensure image overlay */}
@@ -60,11 +61,11 @@ const CaseStudyWhyStandsOut = () => {
               viewport={{ once: false, amount: 0.1 }}
             >
               <Image
-                src="/ensure.png"
+                src={whyStand2}
                 alt="Case Study Hero"
                 width={1200}
                 height={600}
-                className="lg:w-[440px] w-full max-w-[300px] object-contain"
+                className="lg:w-[440px] w-full max-w-[300px] lg:max-w-[380px] object-contain"
               />
             </motion.div>
 

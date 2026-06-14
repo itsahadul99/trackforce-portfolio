@@ -3,11 +3,10 @@
 import FeaturesListMore from '@/components/all/FeaturesListMore';
 import { motion, type Variants } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
 import { FaArrowRightLong } from 'react-icons/fa6';
-const emailing = '/emailing.png';
-const employeeList = '/employeeList.png';
-const sidebar = '/sidebar.png';
+import employeeList from '../../../public/home/emailing.png';
+import sidebar from '../../../public/home/sidebar.png';
+import emailing from '../../../public/home/snapShots.png';
 const trackforce = '/trackforce.png';
 
 const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
@@ -34,39 +33,6 @@ type Props = {
 }
 
 const FeatureWork1 = ({ title, subTitle, height = '400px', features, txtColor='text-black' }: Props) => {
-
-    // const features = [
-    //     {
-    //         title: "App Tracking",
-    //         description:
-    //             "Track real-time online and idle statuses to understand team availability and active work time.",
-    //     },
-    //     {
-    //         title: "Website Insights",
-    //         description:
-    //             "Analyze website usage patterns to understand how time is spent across browsing activities.",
-    //     },
-    //     {
-    //         title: "Email Monitoring",
-    //         description:
-    //             "Keep an eye on email activity to ensure smooth communication and workplace accountability.",
-    //     },
-    //     {
-    //         title: "File Transfers",
-    //         description:
-    //             "Track file movement across devices to maintain data security and transparent workflows.",
-    //     },
-    //     {
-    //         title: "Team Analytics",
-    //         description:
-    //             "Dive into team-level metrics to measure collaboration, output, and overall performance.",
-    //     },
-    //     {
-    //         title: "Workflow Visibility",
-    //         description:
-    //             "Gain full visibility into workflows to identify bottlenecks and streamline daily operations.",
-    //     },
-    // ];
     return (
         <div className="mt-28 text-white flex flex-col lg:flex-row gap-3 items-center justify-between">
             <div className='w-full lg:w-1/2 relative h-[520px]'>

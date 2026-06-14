@@ -6,7 +6,6 @@ import { useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import trackforce from "../../../public/trackforce.png";
 import { IoIosArrowDown } from "react-icons/io";
-
 const faqs = [
   {
     question: "Centralized Performance Management",

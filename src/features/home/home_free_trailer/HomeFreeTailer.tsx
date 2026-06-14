@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useRef } from 'react';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import trackforce from '../../../../public/trackforce.png';
-import dashboard from '../../../../public/dashboard.png';
+import dashboard from '../../../../public/home/freeTrial.png';
 import Link from 'next/link';
 
 const HomeFreeTailer = () => {
@@ -20,7 +20,7 @@ const HomeFreeTailer = () => {
                     loop
                     muted
                     playsInline
-                    className="absolute inset-0 w-full h-full object-cover z-0"
+                    className="absolute inset-0 w-full h-full object-cover z-10"
                 >
                     <source src="/free-trailer.mp4" type="video/mp4" />
                 </video>
@@ -67,16 +67,16 @@ const HomeFreeTailer = () => {
                     <Link href="/contact" className='py-3 px-6 rounded-[16px] border cursor-pointer'>Book a Demo</Link>
                 </div>
             </div>
-            <div className="hidden lg:block w-1/2 relative z-10 h-[450px] overflow-hidden">
+            <div className="hidden lg:block w-1/2 relative z-50! h-[450px] ">
                 <Image
                     src={dashboard}
                     alt="Dashboard"
                     width={1200}
                     height={800}
                     className="
-                      absolute -bottom-110 -right-6 scale-110
+                      absolute -bottom-36 -right-6 scale-110
                       transition-all duration-600 ease-in-out
-                      group-hover/free_trailer:-translate-y-45
+                      group-hover/free_trailer:-translate-y-36
 
                     "
                 />

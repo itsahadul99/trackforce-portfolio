@@ -5,6 +5,7 @@ import Image from "next/image";
 import { FaArrowRightLong } from "react-icons/fa6";
 import trackforce from "../../../public/trackforce.png";
 
+import vision from '../../../public/about/vision.png';
 const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
     hidden: { opacity: 0, x, y, scale: 0.85 },
     visible: {
@@ -90,7 +91,7 @@ const AboutMission = () => {
                         viewport={{ once: false, amount: 0.1 }}
                     >
                         <Image
-                            src="/vision.png"
+                            src={vision}
                             alt="Case Study Hero"
                             width={1200}
                             height={600}

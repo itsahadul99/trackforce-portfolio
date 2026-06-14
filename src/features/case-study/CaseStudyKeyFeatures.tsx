@@ -1,5 +1,5 @@
 import Image from "next/image";
-
+import keyFeatures from "../../../public/casestudy/keyFeature.png";
 const CaseStudyKeyFeatures = () => {
   return (
     <div className=" py-6 md:py-24 bg-[#e8eefb] bg-[url('/10bestSft.png')] bg-cover bg-center bg-no-repeat">
@@ -11,7 +11,7 @@ const CaseStudyKeyFeatures = () => {
         </h2>
         <div className="w-full mt-5 lg:mt-12 flex justify-center">
           <Image
-            src="/case-study.png"
+            src={keyFeatures}
             alt="Case Study - Key Features Implemented"
             width={800}
             height={500}

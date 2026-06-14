@@ -9,7 +9,7 @@ import AboutVision from './AboutVision'
 
 const About = () => {
     return (
-        <div>
+        <div className='w-full bg-[#DEEDFF]'>
             <AboutHero />
             <AboutWhatWeDo />
             <AboutVision />
