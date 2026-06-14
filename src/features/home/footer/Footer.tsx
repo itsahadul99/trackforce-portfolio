@@ -173,13 +173,39 @@
 import { motion } from "framer-motion";
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import Image from 'next/image';
+import { useState } from "react";
 import { FaArrowRightLong, FaPinterestP, FaWhatsapp, FaXTwitter } from 'react-icons/fa6';
 import footerActiveBg from '../../../../public/footerActive.png';
 import trackforce from '../../../../public/trackforce.png';
 import trackforce_logo from "../../../../public/trackforce_logo.png";
 import Link from "next/link";
 import { FaTiktok, FaYoutube } from "react-icons/fa";
+import StatusModal from "@/components/shared/StatusModal";
+
 export default function Footer() {
+  const [email, setEmail] = useState("");
+  const [modal, setModal] = useState<{
+    open: boolean;
+    type: "success" | "error";
+    title: string;
+    description: string;
+  }>({ open: false, type: "success", title: "", description: "" });
+
+  const handleSubscribe = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // No API yet — just confirm the subscription with our shared modal.
+    setEmail("");
+    setModal({
+      open: true,
+      type: "success",
+      title: "You're Subscribed!",
+      description:
+        "Thanks for subscribing. You'll now receive the latest TrackForce updates straight to your inbox.",
+    });
+  };
+
+  const closeModal = () => setModal((prev) => ({ ...prev, open: false }));
+
   return (
     <footer className="group/footer relative bg-[#020617] text-gray-300 pt-20 sm:pt-24 lg:pt-28 pb-10 overflow-hidden transition-colors duration-1000">
       <div>
@@ -202,14 +228,17 @@ export default function Footer() {
               Advanced Employee Monitoring Software That Keeps Teams Focused, Productive, Secure, and Always On Track
             </p>
 
-            <div className="flex items-center relative bg-white rounded-[14px] overflow-hidden h-14 w-full max-w-[440px] shadow-lg">
+            <form onSubmit={handleSubscribe} className="flex items-center relative bg-white rounded-[14px] overflow-hidden h-14 w-full max-w-[440px] shadow-lg">
               <input
                 type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email address"
                 className="flex-1 min-w-0 px-4 sm:px-5 py-2 text-base sm:text-lg text-black outline-none bg-transparent"
               />
               <div className="mr-1 group/button shrink-0">
-                <button className="group/button custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-medium py-3 px-4 sm:px-6 rounded-[14px] flex gap-2 sm:gap-3 justify-between font-semibold items-center text-sm sm:text-base">
+                <button type="submit" className="group/button custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-medium py-3 px-4 sm:px-6 rounded-[14px] flex gap-2 sm:gap-3 justify-between font-semibold items-center text-sm sm:text-base">
                   <span className='group-hover/button:italic'>Subscribe</span> <FaArrowRightLong className='group-hover/button:-rotate-[30deg] transition ease-in-out' />
                   <motion.div
                     className="ml-2 absolute right-0"
@@ -231,7 +260,7 @@ export default function Footer() {
                   </motion.div>
                 </button>
               </div>
-            </div>
+            </form>
           </div>
 
           {/* Resources */}
@@ -333,6 +362,14 @@ export default function Footer() {
         </div>
 
       </div>
+
+      <StatusModal
+        open={modal.open}
+        type={modal.type}
+        title={modal.title}
+        description={modal.description}
+        onClose={closeModal}
+      />
     </footer>
   );
 }

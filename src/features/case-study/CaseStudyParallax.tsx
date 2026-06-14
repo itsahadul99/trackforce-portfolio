@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { motion, MotionValue, useScroll, useSpring, useTransform } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 
 const cards = [
@@ -48,8 +48,124 @@ const cards = [
   },
 ];
 
+type CardData = (typeof cards)[number];
+
+// Smooth, snappy spring shared by every card-level transform.
+const SPRING = { stiffness: 140, damping: 30, mass: 0.4, restDelta: 0.001 } as const;
+
+const CardContent = ({ card }: { card: CardData }) => (
+  <div className="flex flex-col lg:flex-row items-start lg:items-center h-auto lg:h-full px-6 lg:px-12 gap-6 lg:gap-8">
+    {/* Left - Title */}
+    <div className="w-full lg:w-[280px] shrink-0">
+      <h3 className="text-2xl lg:text-4xl font-bold text-[#1a1a2e] leading-tight">{card.title}</h3>
+    </div>
+
+    {/* Center - Number */}
+    <div className="shrink-0">
+      <span className="text-4xl lg:text-7xl font-bold text-[#2ec4b6]">{card.number}</span>
+    </div>
+
+    {/* Right - Content */}
+    <div className="flex-1">
+      {card.description && <p className="text-[#1a1a2e] text-base lg:text-[20px] mb-3">{card.description}</p>}
+      <ul className="text-[#1a1a2e]/80 text-sm lg:text-[20px] leading-relaxed space-y-2 mb-4">
+        {card.points.map((point, i) => (
+          <li key={i} className="flex items-start gap-2">
+            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#1a1a2e]/60 shrink-0" />
+            {point}
+          </li>
+        ))}
+      </ul>
+      {card.result && (
+        <p className="text-[#1a1a2e] text-sm lg:text-[20px]">
+          <span className="font-bold">Result:</span> {card.result}
+        </p>
+      )}
+    </div>
+  </div>
+);
+
+type ParallaxCardProps = {
+  card: CardData;
+  index: number;
+  total: number;
+  progress: MotionValue<number>;
+};
+
+const ParallaxCard = ({ card, index, total, progress }: ParallaxCardProps) => {
+  const isLast = index === total - 1;
+
+  // The card stays at scale 1 until the NEXT card begins covering it, then eases
+  // down to a depth-appropriate target. The last card never shrinks.
+  const start = (index + 1) / total;
+  const targetScale = 1 - (total - 1 - index) * 0.05;
+
+  const scale = useSpring(
+    useTransform(progress, [start, 1], [1, targetScale]),
+    SPRING
+  );
+  // Covered cards lift slightly so the stack reads with depth; the last card is
+  // never covered, so it rises up more as it scrolls into place at the end.
+  const yInput = isLast ? [(total - 1) / total, 1] : [start, 1];
+  const yOutput = isLast ? [0, -120] : [0, -28];
+  const y = useSpring(useTransform(progress, yInput, yOutput), SPRING);
+
+  return (
+    <div
+      className="lg:h-[650px] lg:sticky h-auto"
+      style={{ top: `calc(7.5rem + ${index * 14}px)`, zIndex: (index + 1) * 10 }}
+    >
+      <motion.div
+        style={{
+          scale,
+          y,
+          background: card.gradient,
+          transformOrigin: "center top",
+          willChange: "transform",
+        }}
+        className="lg:absolute lg:inset-0 rounded-2xl w-full lg:h-[450px] h-auto overflow-hidden shadow-lg border-2 relative"
+      >
+        <CardContent card={card} />
+      </motion.div>
+    </div>
+  );
+};
+
+const StaticCard = ({ card, index }: { card: CardData; index: number }) => (
+  <div className="w-full mb-6" style={{ zIndex: (index + 1) * 10 }}>
+    <div style={{ background: card.gradient }} className="rounded-2xl w-full overflow-hidden shadow-lg border-2 p-6">
+      <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
+        <div className="w-full sm:w-[280px]">
+          <h3 className="text-xl md:text-2xl font-bold text-[#1a1a2e] leading-tight">{card.title}</h3>
+        </div>
+        <div className="flex items-center gap-4">
+          <div className="shrink-0">
+            <span className="text-4xl font-bold text-[#2ec4b6]">{card.number}</span>
+          </div>
+          <div className="flex-1">
+            {card.description && <p className="text-[#1a1a2e] text-sm mb-2">{card.description}</p>}
+            <ul className="text-[#1a1a2e]/80 text-sm leading-relaxed space-y-2 mb-2">
+              {card.points.map((point, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#1a1a2e]/60 shrink-0" />
+                  {point}
+                </li>
+              ))}
+            </ul>
+            {card.result && (
+              <p className="text-[#1a1a2e] text-sm">
+                <span className="font-bold">Result:</span> {card.result}
+              </p>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
 const CaseStudyParallax = () => {
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const [isSmall, setIsSmall] = useState(false);
 
@@ -67,95 +183,24 @@ const CaseStudyParallax = () => {
     offset: ["start start", "end end"],
   });
 
-  // Smooth the raw scroll progress so the cards ease into place instead of
-  // snapping 1:1 with every scroll tick.
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 120,
-    damping: 30,
-    mass: 0.5,
-    restDelta: 0.001,
-  });
-
-  const card1Y = useTransform(smoothProgress, [0, 0.3, 0.33], [0, 0, -150]);
-  const card2Y = useTransform(smoothProgress, [0.33, 0.63, 0.66], [0, 0, -150]);
-  const card3Y = useTransform(smoothProgress, [0.66, 1], [0, -150]);
-
-  const cardYValues = [card1Y, card2Y, card3Y];
-
   return (
     <div
       ref={containerRef}
       className="relative h-fit max-w-[1300] mx-auto mt-12 md:mt-16 lg:mt-28 text-black"
     >
-      {cards.map((card, index) => {
-        if (isSmall) {
-          return (
-            <div key={index} className="w-full mb-6" style={{ zIndex: (index + 1) * 10 }}>
-              <div style={{ background: card.gradient }} className="rounded-2xl w-full overflow-hidden shadow-lg border-2 p-6">
-                <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
-                  <div className="w-full sm:w-[280px]">
-                    <h3 className="text-xl md:text-2xl font-bold text-[#1a1a2e] leading-tight">
-                      {card.title}
-                    </h3>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <div className="shrink-0">
-                      <span className="text-4xl font-bold text-[#2ec4b6]">{card.number}</span>
-                    </div>
-                    <div className="flex-1">
-                      {card.description && <p className="text-[#1a1a2e] text-sm mb-2">{card.description}</p>}
-                      <ul className="text-[#1a1a2e]/80 text-sm leading-relaxed space-y-2 mb-2">
-                        {card.points.map((point, i) => (
-                          <li key={i} className="flex items-start gap-2">
-                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#1a1a2e]/60 shrink-0" />
-                            {point}
-                          </li>
-                        ))}
-                      </ul>
-                      {card.result && <p className="text-[#1a1a2e] text-sm"><span className="font-bold">Result:</span> {card.result}</p>}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          );
-        }
-
-        return (
-          <div key={index} className="lg:h-[650px] lg:sticky lg:top-30 h-auto" style={{ zIndex: (index + 1) * 10 }}>
-            <motion.div
-              style={{ y: cardYValues[index], background: card.gradient, willChange: "transform" }}
-              className="lg:absolute lg:inset-0 rounded-2xl w-full lg:h-[450px] h-auto overflow-hidden shadow-lg border-2 relative"
-            >
-              <div className="flex flex-col lg:flex-row items-start lg:items-center h-auto lg:h-full px-6 lg:px-12 gap-6 lg:gap-8">
-                {/* Left - Title */}
-                <div className="w-full lg:w-[280px] shrink-0">
-                  <h3 className="text-2xl lg:text-4xl font-bold text-[#1a1a2e] leading-tight">{card.title}</h3>
-                </div>
-
-                {/* Center - Number */}
-                <div className="shrink-0">
-                  <span className="text-4xl lg:text-7xl font-bold text-[#2ec4b6]">{card.number}</span>
-                </div>
-
-                {/* Right - Content */}
-                <div className="flex-1">
-                  {card.description && <p className="text-[#1a1a2e] text-base lg:text-[20px] mb-3">{card.description}</p>}
-                  <ul className="text-[#1a1a2e]/80 text-sm lg:text-[20px] leading-relaxed space-y-2 mb-4">
-                    {card.points.map((point, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#1a1a2e]/60 shrink-0" />
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
-                  {card.result && <p className="text-[#1a1a2e] text-sm lg:text-[20px]"><span className="font-bold">Result:</span> {card.result}</p>}
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        );
-      })}
+      {cards.map((card, index) =>
+        isSmall ? (
+          <StaticCard key={index} card={card} index={index} />
+        ) : (
+          <ParallaxCard
+            key={index}
+            card={card}
+            index={index}
+            total={cards.length}
+            progress={scrollYProgress}
+          />
+        )
+      )}
     </div>
   );
 };

@@ -7,9 +7,10 @@
 "use client";
 
 import BookDemoBtn from "@/components/shared/BookDemoBtn";
-import { motion } from "framer-motion";
+import { animate, AnimationPlaybackControls } from "framer-motion";
 import { Play } from "lucide-react";
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 
 const testimonials = [
   {
@@ -90,6 +91,33 @@ const Testimonials = () => {
   const col1 = testimonials.filter((_, i) => i % 2 === 0);
   const col2 = testimonials.filter((_, i) => i % 2 !== 0);
 
+  const col1Ref = useRef<HTMLDivElement>(null);
+  const col2Ref = useRef<HTMLDivElement>(null);
+  const controlsRef = useRef<AnimationPlaybackControls[]>([]);
+
+  useEffect(() => {
+    const controls: AnimationPlaybackControls[] = [];
+    // Each column renders its cards twice; moving by exactly one set (-/+50%)
+    // makes the loop seamless. Linear + no dwell = instant, continuous scroll.
+    if (col1Ref.current) {
+      controls.push(
+        animate(col1Ref.current, { y: ["0%", "-50%"] }, { duration: 25, ease: "linear", repeat: Infinity })
+      );
+    }
+    if (col2Ref.current) {
+      controls.push(
+        animate(col2Ref.current, { y: ["-50%", "0%"] }, { duration: 25, ease: "linear", repeat: Infinity })
+      );
+    }
+    controlsRef.current = controls;
+
+    return () => controls.forEach((c) => c.stop());
+  }, []);
+
+  // Pause both columns on hover, resume from the exact spot on leave.
+  const pause = () => controlsRef.current.forEach((c) => c.pause());
+  const resume = () => controlsRef.current.forEach((c) => c.play());
+
   return (
     <section className="w-full ">
       <div className="max-w-[1300] mx-auto px-4 sm:px-6 xl:px-0">
@@ -127,39 +155,21 @@ const Testimonials = () => {
             {/* fade bottom */}
             <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-[#e4e9fa] to-transparent z-10" />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 h-[500px] sm:h-[600px] overflow-hidden">
-              <motion.div
-                animate={{
-                  y: [0, 0, -300, -300, 0],
-                }}
-                transition={{
-                  duration: 20,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  times: [0, 0.2, 0.5, 0.7, 1],
-                }}
-                className="flex flex-col gap-6"
-              >
-                {col1.map((item, i) => (
+            <div
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 h-[500px] sm:h-[600px] overflow-hidden"
+              onMouseEnter={pause}
+              onMouseLeave={resume}
+            >
+              <div ref={col1Ref} className="flex flex-col gap-6 will-change-transform">
+                {[...col1, ...col1].map((item, i) => (
                   <Card key={i} item={item} />
                 ))}
-              </motion.div>
-              <motion.div
-                animate={{
-                  y: [0, 0, 300, 300, 0],
-                }}
-                transition={{
-                  duration: 20,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  times: [0, 0.2, 0.5, 0.7, 1],
-                }}
-                className="flex flex-col gap-6"
-              >
-                {col2.map((item, i) => (
+              </div>
+              <div ref={col2Ref} className="flex flex-col gap-6 will-change-transform">
+                {[...col2, ...col2].map((item, i) => (
                   <Card key={i} item={item} />
                 ))}
-              </motion.div>
+              </div>
             </div>
           </div>
 
