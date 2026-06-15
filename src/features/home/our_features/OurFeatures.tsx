@@ -1,13 +1,12 @@
 ﻿import Image from "next/image";
 import bar from "../../../../public/bar.png";
 import securityMonitoring from "../../../../public/home/securityMonitoring.png";
+import totalHr from "../../../../public/home/totalHour.png";
 import workEfficiency from "../../../../public/home/workEfficiency.png";
-import totalHr from "../../../../public/totalHr.png";
 // Hover (cross-fade) images
 import productivity from "../../../../public/bar.png";
-import accountability from "../../../../public/totalHr.png";
+import accountability from "../../../../public/home/totalHour.png";
 import efficiency from "../../../../public/home/workEfficiency.png";
-import security from "../../../../public/home/secureMonitoring2.png";
 import './ourFeatures.css';
 const OurFeatures = () => {
     return (
@@ -58,13 +57,13 @@ const OurFeatures = () => {
                                 src={bar}
                                 alt="Productivity tracking"
                                 quality={90}
-                                className="absolute -bottom-16 right-7 transition-[opacity,translate] duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-0 group-hover:translate-y-3"
+                                className="absolute -bottom-22 right-7 transition-[opacity,translate] duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-0 group-hover:translate-y-3"
                             />
                             <Image
                                 src={productivity}
                                 alt="Productivity tracking detailed"
                                 quality={90}
-                                className="absolute -bottom-10 right-7 opacity-0 translate-y-4 transition-[opacity,translate] duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100 group-hover:translate-y-0"
+                                className="absolute -bottom-18 right-7 opacity-0 translate-y-4 transition-[opacity,translate] duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100 group-hover:translate-y-0"
                             />
 
                         </div>
@@ -97,13 +96,13 @@ const OurFeatures = () => {
                                 src={totalHr}
                                 alt="Accountability and transparency"
                                 quality={90}
-                                className="absolute -bottom-14 lg:-bottom-10 -right-10 transition-[opacity,translate] duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-0 group-hover:translate-y-3"
+                                className="absolute -bottom-16 lg:-bottom-16 -right-10 transition-[opacity,translate] duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-0 group-hover:translate-y-3"
                             />
                             <Image
                                 src={accountability}
                                 alt="Accountability and transparency detailed"
                                 quality={90}
-                                className="absolute -bottom-12 lg:-bottom-5 -right-10 opacity-0 translate-y-4 transition-[opacity,translate] duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100 group-hover:translate-y-0"
+                                className="absolute -bottom-12 lg:-bottom-12 -right-10 opacity-0 translate-y-4 transition-[opacity,translate] duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100 group-hover:translate-y-0"
                             />
 
                         </div>
@@ -140,13 +139,13 @@ const OurFeatures = () => {
                                 src={workEfficiency}
                                 alt="Workflow efficiency"
                                 quality={90}
-                                className="absolute -bottom-10 lg:-bottom-14 -right-2 transition-[opacity,translate] duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-0 group-hover:translate-y-3"
+                                className="absolute -bottom-12 lg:-bottom-40 -right-2 transition-[opacity,translate] duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-0 group-hover:translate-y-3"
                             />
                             <Image
                                 src={efficiency}
                                 alt="Workflow efficiency detailed"
                                 quality={90}
-                                className="absolute -bottom-3 lg:-bottom-7 -right-2 opacity-0 translate-y-4 transition-[opacity,translate] duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100 group-hover:translate-y-0"
+                                className="absolute -bottom-3 lg:-bottom-36 -right-2 opacity-0 translate-y-4 transition-[opacity,translate] duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100 group-hover:translate-y-0"
                             />
 
                         </div>
@@ -166,10 +165,10 @@ const OurFeatures = () => {
                                 src={securityMonitoring}
                                 alt="Security monitoring"
                                 quality={90}
-                                className="rounded-ss-2xl scale-y-110 absolute -bottom-26 lg:-bottom-14 -right-10 transition-[opacity,translate] duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-0 group-hover:translate-y-3"
+                                className="rounded-ss-2xl scale-y-110 absolute -bottom-26 lg:-bottom-14 -right-0 transition-[opacity,translate] duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-0 group-hover:translate-y-3"
                             />
                             <Image
-                                src={security}
+                                src={securityMonitoring}
                                 alt="Security monitoring detailed"
                                 quality={90}
                                 className="rounded-ss-2xl scale-y-110 absolute -bottom-26 lg:-bottom-12 -right-0 opacity-0 translate-y-4 transition-[opacity,translate] duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100 group-hover:translate-y-0"
