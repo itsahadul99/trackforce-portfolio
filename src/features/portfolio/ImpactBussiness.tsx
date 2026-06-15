@@ -251,10 +251,10 @@ const ImpactBusiness = () => {
                         {/* Card 2 */}
                         <div className="business-impact-card rounded-3xl p-8 h-76 relative overflow-hidden group">
                             <h3 className="text-xl font-bold text-white mb-3">Increase accountability <br /> across teams</h3>
-                            <p className="w-36 text-base font-normal  z-10 relative">
+                            <p className="max-w-[40%] text-base font-normal  z-10 relative">
                                 Track real work activity in real time, focus on output not screen time, and turn daily actions into clear performance insights.
                             </p>
-                            <Image src={accountability} width={400} height={300} quality={90} alt="Accountability" className="w-[200] absolute -bottom-1 right-0 transition-transform duration-500 group-hover:-translate-y-1" />
+                            <Image src={accountability} width={400} height={300} quality={90} alt="Accountability" className="w-[220] absolute -bottom-20 right-0 transition-transform duration-500 group-hover:-translate-y-1" />
                         </div>
 
                         {/* Card 3 */}
@@ -263,7 +263,7 @@ const ImpactBusiness = () => {
                             <p className="text-base font-normal  z-10 relative">
                                 Maintain transparency across teams, align individual efforts with goals, and build trust using data-backed visibility.
                             </p>
-                            <Image src={strength} width={600} height={550} quality={90} alt="Compliance" className="w-80 absolute -bottom-4 -left-1 transition-transform duration-500 group-hover:translate-x-1" />
+                            <Image src={strength} width={600} height={550} quality={90} alt="Compliance" className="w-[350] absolute -bottom-16 -left-1 object-contain transition-transform duration-500 group-hover:translate-x-1" />
                         </div>
                     </div>
 
@@ -278,7 +278,7 @@ const ImpactBusiness = () => {
                             </div>
                         </div>
 
-                        <Image src={productivity} width={1200} height={800} quality={90} alt="Productivity" className="w-[700] absolute top-1/2 right-5 -translate-y-1/2 transition-transform duration-700 group-hover:scale-101" />
+                        <Image src={productivity} width={1200} height={800} quality={90} alt="Productivity" className="max-w-[800] max-h-[220px] absolute object-fill top-1/2 right-5 -translate-y-1/2 transition-transform duration-700 group-hover:scale-101" />
 
                     </div>
 
@@ -290,7 +290,7 @@ const ImpactBusiness = () => {
                             <p className="w-60 text-base font-normal ">
                                 Monitor sensitive activity, detect risks early, and protect company data without invading employee privacy.
                             </p>
-                            <Image src={improveWorkforce} width={1200} height={800} quality={90} alt="Transparency" className="w-66 absolute -bottom-14 right-0 transition-transform duration-500 group-hover:-translate-y-1" />
+                            <Image src={improveWorkforce} width={1200} height={800} quality={90} alt="Transparency" className="max-w-[300px] max-h-[220px] object-fill absolute -bottom-14 right-0 transition-transform duration-500 group-hover:-translate-y-1" />
                         </div>
 
                         {/* Card 6 */}
@@ -299,7 +299,7 @@ const ImpactBusiness = () => {
                             <p className="text-base font-normal  w-3/4">
                                 Monitor sensitive activity, detect risks early, and protect company data without invading employee privacy.
                             </p>
-                            <Image src={enable} width={1200} height={800} quality={90} alt="Leadership" className="w-[550] absolute -bottom-1 left-1/2 -translate-x-1/2 transition-transform duration-500 group-hover:-translate-y-1" />
+                            <Image src={enable} width={1200} height={800} quality={90} alt="Leadership" className="max-w-[600] absolute object-fill max-h-[220px] -bottom-8 left-1/2 -translate-x-1/2 transition-transform duration-500 group-hover:-translate-y-1" />
                         </div>
                     </div>
                 </div>

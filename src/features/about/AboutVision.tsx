@@ -7,7 +7,7 @@ import desktopApp from "../../../public/about/desktopApp.png";
 import trackforce from "../../../public/trackforce.png";
 
 import Link from 'next/link';
-import whyStand2 from "../../../public/casestudy/whyStand2.png";
+import whyStand2 from "../../../public/about/whyStand.png";
 const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
     hidden: { opacity: 0, x, y, scale: 0.85 },
     visible: {

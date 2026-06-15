@@ -5,6 +5,8 @@ import FeatureProd2 from './FeatureProd2'
 import FeatureWork1 from './FeatureWork1'
 import FeatureWork2 from './FeatureWork2'
 import Optimization from './Optimization'
+import ProductivityDashboard from './ProductivityDashboard'
+import WorkForceMonitoring from './WorkForceMonitoring'
 
 const left_FeatureTrackForceWorks1 = [
   {
@@ -62,72 +64,6 @@ const right_FeatureTrackForceWorks1 = [
   },
 ];
 
-const left_FeatureTrackForceWorks3 = [
-  {
-    title: "Live Tracking",
-    description:
-      "Track real-time online and idle statuses to understand team availability and active work time.",
-  },
-  {
-    title: "Productivity Graphs",
-    description:
-      "Visualize performance trends with intuitive charts that reveal productivity patterns at a glance.",
-  },
-  {
-    title: "Workflow Overview",
-    description:
-      "Get a clear snapshot of ongoing tasks, project progress, and team workflow in one unified view.",
-  },
-  {
-    title: "Usage Logs",
-    description:
-      "Monitor application and website usage with detailed logs to understand how work time is spent.",
-  },
-  {
-    title: "Team Comparison",
-    description:
-      "Compare performance across teams and individuals to identify top performers and improvement areas.",
-  },
-  {
-    title: "Instant Insights",
-    description:
-      "Access actionable insights instantly to make faster, smarter decisions driven by real-time data.",
-  },
-];
-
-const right_FeatureTrackForceWorks3 = [
-  {
-    title: "App Tracking",
-    description:
-      "Track real-time online and idle statuses to understand team availability and active work time.",
-  },
-  {
-    title: "Website Insights",
-    description:
-      "Analyze website usage patterns to understand how time is spent across browsing activities.",
-  },
-  {
-    title: "Email Monitoring",
-    description:
-      "Keep an eye on email activity to ensure smooth communication and workplace accountability.",
-  },
-  {
-    title: "File Transfers",
-    description:
-      "Track file movement across devices to maintain data security and transparent workflows.",
-  },
-  {
-    title: "Team Analytics",
-    description:
-      "Dive into team-level metrics to measure collaboration, output, and overall performance.",
-  },
-  {
-    title: "Workflow Visibility",
-    description:
-      "Gain full visibility into workflows to identify bottlenecks and streamline daily operations.",
-  },
-];
-
 const Feature = () => {
   return (
     <div>
@@ -135,15 +71,8 @@ const Feature = () => {
       <Optimization />
       <div className="bg-[#DEEDFF]">
         <section className="max-w-[1300] mx-auto px-4 md:px-6 lg:px-[93px] py-4 md:py-8 lg:py-[96px]  rounded-2xl bg-cover bg-center bg-no-repeat bg-[url('/feature/feature.png')] overflow-hidden">
-          <FeatureProd1
-            title='Real-Time Dashboard for Complete Visibility'
-            subTitle='Access productivity, activity data, and performance analytics in one intuitive employee monitoring software dashboard.'
-            features={left_FeatureTrackForceWorks3} />
-          <FeatureWork1
-            title="All-in-One Workforce Monitoring Platform"
-            subTitle="Monitor screens, activities, and performance effortlessly - gain real-time visibility, ensure compliance, and improve workforce productivity organization-wide."
-            features={right_FeatureTrackForceWorks3} />
-          <FeatureProd2 />
+         <ProductivityDashboard />
+         <WorkForceMonitoring />
           <FeatureWork2 />
           <FeatureProd1
             title='Time Tracking and Productivity Insights'
