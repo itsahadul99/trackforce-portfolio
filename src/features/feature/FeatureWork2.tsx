@@ -5,9 +5,9 @@ import { motion, type Variants } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaArrowRightLong } from 'react-icons/fa6';
-import employeeList from '../../../public/home/emailing.png';
-import sidebar from '../../../public/home/sidebar.png';
-import emailing from '../../../public/home/snapShots.png';
+import employeeList from '../../../public/feature/empManagement.png';
+import sidebar from '../../../public/feature/empSidebar.png';
+import emailing from '../../../public/feature/device.png';
 const trackforce = '/trackforce.png';
 
 const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({

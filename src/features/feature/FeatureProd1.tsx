@@ -5,10 +5,10 @@ import { motion, type Variants } from 'framer-motion';
 import Image from 'next/image';
 import { FaArrowRightLong } from 'react-icons/fa6';
 import '../home/how_trackforce_works/howTrackforceworks.css';
-import dashboardOverview from '../../../public/home/dashboardOverviewFull.png';
-import projectProgress from '../../../public/home/projectProgress.png';
-import taskProgress from '../../../public/home/taskProgress.png';
-import topEmployees from '../../../public/home/topEmployees.png';
+import dashboardOverview from '../../../public/feature/empSummary.png';
+import projectProgress from '../../../public/feature/taskEff.png';
+import taskProgress from '../../../public/feature/addDep.png';
+import topEmployees from '../../../public/feature/hitmapShort.png';
 import Link from 'next/link';
 const trackforce = '/trackforce.png';
 

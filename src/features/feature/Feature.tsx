@@ -145,7 +145,7 @@ const Feature = () => {
             features={right_FeatureTrackForceWorks3} />
           <FeatureProd2 />
           <FeatureWork2 />
-           <FeatureProd1
+          <FeatureProd1
             title='Time Tracking and Productivity Insights'
             subTitle='Track active and idle time, measure project costs, and analyze performance trends to optimize workforce efficiency using TrackForce’s advanced time tracking software.'
             features={left_FeatureTrackForceWorks1} />

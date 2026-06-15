@@ -4,9 +4,9 @@ import FeaturesListMore from '@/components/all/FeaturesListMore';
 import { motion, type Variants } from 'framer-motion';
 import Image from 'next/image';
 import { FaArrowRightLong } from 'react-icons/fa6';
-import employeeList from '../../../public/home/emailing.png';
-import sidebar from '../../../public/home/sidebar.png';
-import emailing from '../../../public/home/snapShots.png';
+import billing from '../../../public/feature/billing.png';
+import invoice from '../../../public/feature/invoice.png';
+import topSidebar from '../../../public/feature/manageAccSidebar.png';
 import Link from 'next/link';
 const trackforce = '/trackforce.png';
 
@@ -45,7 +45,7 @@ const FeatureWork1 = ({ title, subTitle, height = '400px', features, txtColor='t
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={emailing} alt="Emailing" className="w-full" width={1600} height={1000} quality={90} />
+                    <Image src={billing} alt="Billing" className="w-full" width={1600} height={1000} quality={90} />
                 </motion.div>
 
                 {/* Sidebar - top right, slides from center */}
@@ -56,7 +56,7 @@ const FeatureWork1 = ({ title, subTitle, height = '400px', features, txtColor='t
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={sidebar} alt="Sidebar" className="w-full" width={1600} height={1200} quality={90} />
+                    <Image src={topSidebar} alt="Sidebar" className="w-full" width={1600} height={1200} quality={90} />
                 </motion.div>
 
                 {/* Employee List - bottom left, slides from center */}
@@ -67,7 +67,7 @@ const FeatureWork1 = ({ title, subTitle, height = '400px', features, txtColor='t
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={employeeList} alt="Activity Logs" className="w-full" width={1600} height={1200} quality={90} />
+                    <Image src={invoice} alt="Activity Logs" className="w-full" width={1600} height={1200} quality={90} />
                 </motion.div>
 
 
