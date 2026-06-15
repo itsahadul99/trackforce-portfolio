@@ -235,6 +235,7 @@ const CaseStudyChallengeAndSolution = () => {
               alt="The Challenge"
               width={800}
               height={600}
+              quality={90}
               className="w-full max-w-[480px] object-contain"
             />
           </div>
@@ -250,6 +251,7 @@ const CaseStudyChallengeAndSolution = () => {
               alt="The Solution"
               width={800}
               height={600}
+              quality={90}
               className="w-full max-w-[480px] object-contain"
             />
           </div>

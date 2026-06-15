@@ -46,6 +46,7 @@ const InstallationSection = () => {
           alt="Choose application type"
           width={800}
           height={400}
+          quality={90}
           className="w-full rounded-xl object-contain"
         />
       </div>

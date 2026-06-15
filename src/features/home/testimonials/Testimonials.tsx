@@ -188,7 +188,7 @@ const Card = ({ item }: any) => {
       {/* VIDEO */}
       {item.type === "video" && (
         <div className="relative h-[180px] sm:h-[220px] w-full rounded-xl overflow-hidden">
-          <Image src={item.image} alt={`Video testimonial from ${item.name}, ${item.role}`} fill className="object-cover" />
+          <Image src={item.image} alt={`Video testimonial from ${item.name}, ${item.role}`} fill quality={90} sizes="100vw" className="object-cover" />
 
           <div className="absolute inset-0 flex items-center justify-center">
             <button aria-label={`Play video testimonial from ${item.name}`} className="bg-white/90 p-3 rounded-full shadow">

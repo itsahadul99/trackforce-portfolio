@@ -1,12 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import React from 'react';
 import { motion, type Variants } from 'framer-motion';
-const dashboard = '/dashboard.png';
-const activityLogs = '/activity_logs.png';
-const searchLogs = '/search_logs.png';
-const employees = '/employees.png';
+import dashboardOverview from '../../../public/home/dashboardOverviewFull.png';
+import projectProgress from '../../../public/home/projectProgress.png';
+import taskProgress from '../../../public/home/taskProgress.png';
+import topEmployees from '../../../public/home/topEmployees.png';
 const trackforce = '/trackforce.png';
 import Link from 'next/link';
 import { FaArrowRightLong } from 'react-icons/fa6';
@@ -106,7 +105,7 @@ const FeatureProd2 = () => {
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={dashboard} alt="Productivity Dashboard" className="w-full" width={800} height={500} />
+                    <Image src={dashboardOverview} alt="Productivity Dashboard" className="w-full" width={1600} height={1000} quality={90} />
                 </motion.div>
 
                 {/* Employees - top right, slides from center */}
@@ -117,7 +116,7 @@ const FeatureProd2 = () => {
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={employees} alt="Employees" className="w-full" width={400} height={300} />
+                    <Image src={topEmployees} alt="Employees" className="w-full" width={1600} height={1200} quality={90} />
                 </motion.div>
 
                 {/* Activity Logs - bottom left, slides from center */}
@@ -128,7 +127,7 @@ const FeatureProd2 = () => {
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={activityLogs} alt="Activity Logs" className="w-full" width={400} height={300} />
+                    <Image src={projectProgress} alt="Activity Logs" className="w-full" width={1600} height={1200} quality={90} />
                 </motion.div>
 
                 {/* Search Logs - bottom right, slides from center */}
@@ -139,7 +138,7 @@ const FeatureProd2 = () => {
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={searchLogs} alt="Search Logs" className="w-full" width={400} height={300} />
+                    <Image src={taskProgress} alt="Search Logs" className="w-full" width={1600} height={1200} quality={90} />
                 </motion.div>
             </div>
         </div>

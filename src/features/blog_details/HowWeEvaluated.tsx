@@ -116,6 +116,7 @@ export default function HowWeEvaluated() {
                                     alt="TrackForce"
                                     width={80}
                                     height={80}
+                                    quality={90}
                                     className="object-contain w-14 h-14 md:w-[65] md:h-[65]"
                                 />
                             </motion.div>

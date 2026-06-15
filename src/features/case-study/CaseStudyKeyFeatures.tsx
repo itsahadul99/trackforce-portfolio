@@ -13,8 +13,9 @@ const CaseStudyKeyFeatures = () => {
           <Image
             src={keyFeatures}
             alt="Case Study - Key Features Implemented"
-            width={800}
-            height={500}
+            width={1600}
+            height={1000}
+            quality={90}
             className="w-full max-w-[1200] lg:h-[700] rounded-2xl object-contain"
           />
         </div>

@@ -71,6 +71,7 @@ const CaseStudyHero = () => {
               alt="Case Study Hero"
               width={1200}
               height={600}
+              quality={90}
               className="lg:w-[490px] w-full max-w-[450px] object-contain"
             />
           </motion.div>
@@ -88,6 +89,7 @@ const CaseStudyHero = () => {
               alt="Case Study Hero"
               width={1200}
               height={600}
+              quality={90}
               className="lg:w-[400px] w-full max-w-[380px] lg:max-w-[350px] object-contain"
             />
           </motion.div>

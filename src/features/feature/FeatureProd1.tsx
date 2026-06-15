@@ -84,7 +84,7 @@ const FeatureProd1 =({title, subTitle, height = '400px', features, txtColor='tex
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={dashboardOverview} alt="Productivity Dashboard" className="w-full" width={800} height={500} />
+                    <Image src={dashboardOverview} alt="Productivity Dashboard" className="w-full" width={1600} height={1000} quality={90} />
                 </motion.div>
 
                 {/* Employees - top right, slides from center */}
@@ -95,7 +95,7 @@ const FeatureProd1 =({title, subTitle, height = '400px', features, txtColor='tex
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={topEmployees} alt="Employees" className="w-full" width={400} height={300} />
+                    <Image src={topEmployees} alt="Employees" className="w-full" width={1600} height={1200} quality={90} />
                 </motion.div>
 
                 {/* Activity Logs - bottom left, slides from center */}
@@ -106,7 +106,7 @@ const FeatureProd1 =({title, subTitle, height = '400px', features, txtColor='tex
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={projectProgress} alt="Activity Logs" className="w-full" width={400} height={300} />
+                    <Image src={projectProgress} alt="Activity Logs" className="w-full" width={1600} height={1200} quality={90} />
                 </motion.div>
 
                 {/* Search Logs - bottom right, slides from center */}
@@ -117,7 +117,7 @@ const FeatureProd1 =({title, subTitle, height = '400px', features, txtColor='tex
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={taskProgress} alt="Search Logs" className="w-full" width={400} height={300} />
+                    <Image src={taskProgress} alt="Search Logs" className="w-full" width={1600} height={1200} quality={90} />
                 </motion.div>
             </div>
         </div>

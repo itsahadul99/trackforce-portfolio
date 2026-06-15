@@ -245,7 +245,7 @@ const ImpactBusiness = () => {
                             <p className="text-base font-normal  z-10 relative">
                                 Maintain transparency across teams, align individual efforts with goals, and build trust using data-backed visibility.
                             </p>
-                            <Image src={reduceReporting} width={400} height={300} alt="Reporting" className="absolute -bottom-1 -right-4 transition-transform duration-500 group-hover:-translate-y-1" />
+                            <Image src={reduceReporting} width={400} height={300} quality={90} alt="Reporting" className="absolute -bottom-1 -right-4 transition-transform duration-500 group-hover:-translate-y-1" />
                         </div>
 
                         {/* Card 2 */}
@@ -254,7 +254,7 @@ const ImpactBusiness = () => {
                             <p className="w-36 text-base font-normal  z-10 relative">
                                 Track real work activity in real time, focus on output not screen time, and turn daily actions into clear performance insights.
                             </p>
-                            <Image src={accountability} width={400} height={300} alt="Accountability" className="w-[200] absolute -bottom-1 right-0 transition-transform duration-500 group-hover:-translate-y-1" />
+                            <Image src={accountability} width={400} height={300} quality={90} alt="Accountability" className="w-[200] absolute -bottom-1 right-0 transition-transform duration-500 group-hover:-translate-y-1" />
                         </div>
 
                         {/* Card 3 */}
@@ -263,7 +263,7 @@ const ImpactBusiness = () => {
                             <p className="text-base font-normal  z-10 relative">
                                 Maintain transparency across teams, align individual efforts with goals, and build trust using data-backed visibility.
                             </p>
-                            <Image src={strength} width={600} height={550} alt="Compliance" className="w-80 absolute -bottom-4 -left-1 transition-transform duration-500 group-hover:translate-x-1" />
+                            <Image src={strength} width={600} height={550} quality={90} alt="Compliance" className="w-80 absolute -bottom-4 -left-1 transition-transform duration-500 group-hover:translate-x-1" />
                         </div>
                     </div>
 
@@ -278,7 +278,7 @@ const ImpactBusiness = () => {
                             </div>
                         </div>
 
-                        <Image src={productivity} width={1200} height={800} alt="Productivity" className="w-[700] absolute top-1/2 right-5 -translate-y-1/2 transition-transform duration-700 group-hover:scale-101" />
+                        <Image src={productivity} width={1200} height={800} quality={90} alt="Productivity" className="w-[700] absolute top-1/2 right-5 -translate-y-1/2 transition-transform duration-700 group-hover:scale-101" />
 
                     </div>
 
@@ -290,7 +290,7 @@ const ImpactBusiness = () => {
                             <p className="w-60 text-base font-normal ">
                                 Monitor sensitive activity, detect risks early, and protect company data without invading employee privacy.
                             </p>
-                            <Image src={improveWorkforce} width={1200} height={800} alt="Transparency" className="w-66 absolute -bottom-14 right-0 transition-transform duration-500 group-hover:-translate-y-1" />
+                            <Image src={improveWorkforce} width={1200} height={800} quality={90} alt="Transparency" className="w-66 absolute -bottom-14 right-0 transition-transform duration-500 group-hover:-translate-y-1" />
                         </div>
 
                         {/* Card 6 */}
@@ -299,7 +299,7 @@ const ImpactBusiness = () => {
                             <p className="text-base font-normal  w-3/4">
                                 Monitor sensitive activity, detect risks early, and protect company data without invading employee privacy.
                             </p>
-                            <Image src={enable} width={1200} height={800} alt="Leadership" className="w-[550] absolute -bottom-1 left-1/2 -translate-x-1/2 transition-transform duration-500 group-hover:-translate-y-1" />
+                            <Image src={enable} width={1200} height={800} quality={90} alt="Leadership" className="w-[550] absolute -bottom-1 left-1/2 -translate-x-1/2 transition-transform duration-500 group-hover:-translate-y-1" />
                         </div>
                     </div>
                 </div>

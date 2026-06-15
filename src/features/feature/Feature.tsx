@@ -74,67 +74,67 @@ const right_FeatureTrackForceWorks1 = [
 
 const left_FeatureTrackForceWorks3 = [
   {
-    title: "Active Hours",
+    title: "Live Tracking",
     description:
       "Track real-time online and idle statuses to understand team availability and active work time.",
   },
   {
-    title: "Project Costs",
+    title: "Productivity Graphs",
     description:
-      "Measure project expenses accurately by linking tracked time to budgets and resource allocation.",
+      "Visualize performance trends with intuitive charts that reveal productivity patterns at a glance.",
   },
   {
-    title: "Idle Detection",
+    title: "Workflow Overview",
     description:
-      "Automatically detect idle periods to ensure accurate tracking of true productive work time.",
+      "Get a clear snapshot of ongoing tasks, project progress, and team workflow in one unified view.",
   },
   {
-    title: "Time Reports",
+    title: "Usage Logs",
     description:
-      "Generate detailed time reports to review daily, weekly, and monthly work activity with clarity.",
+      "Monitor application and website usage with detailed logs to understand how work time is spent.",
   },
   {
-    title: "Task Duration",
+    title: "Team Comparison",
     description:
-      "Monitor how long each task takes to complete and identify opportunities to improve efficiency.",
+      "Compare performance across teams and individuals to identify top performers and improvement areas.",
   },
   {
-    title: "Performance Metrics",
+    title: "Instant Insights",
     description:
-      "Analyze key performance indicators to evaluate productivity and drive continuous improvement.",
+      "Access actionable insights instantly to make faster, smarter decisions driven by real-time data.",
   },
 ];
 
 const right_FeatureTrackForceWorks3 = [
   {
-    title: "Automated Invoicing",
+    title: "App Tracking",
     description:
       "Track real-time online and idle statuses to understand team availability and active work time.",
   },
   {
-    title: "Expense Tracking",
+    title: "Website Insights",
     description:
-      "Monitor every expense across projects and teams to keep budgets accurate and under control.",
+      "Analyze website usage patterns to understand how time is spent across browsing activities.",
   },
   {
-    title: "Payment History",
+    title: "Email Monitoring",
     description:
-      "Maintain a complete record of all payments to ensure transparency and easy reconciliation.",
+      "Keep an eye on email activity to ensure smooth communication and workplace accountability.",
   },
   {
-    title: "Tax & Deductions",
+    title: "File Transfers",
     description:
-      "Automate tax calculations and deductions to reduce errors and stay compliant with regulations.",
+      "Track file movement across devices to maintain data security and transparent workflows.",
   },
   {
-    title: "Financial Reports",
+    title: "Team Analytics",
     description:
-      "Generate clear, detailed financial reports to support smarter business decisions.",
+      "Dive into team-level metrics to measure collaboration, output, and overall performance.",
   },
   {
-    title: "Multi-Currency Support",
+    title: "Workflow Visibility",
     description:
-      "Handle invoices and payments in multiple currencies for seamless global operations.",
+      "Gain full visibility into workflows to identify bottlenecks and streamline daily operations.",
   },
 ];
 
@@ -146,16 +146,23 @@ const Feature = () => {
       <div className="bg-[#DEEDFF]">
         <section className="max-w-[1300] mx-auto px-4 md:px-6 lg:px-[93px] py-4 md:py-8 lg:py-[96px]  rounded-2xl bg-cover bg-center bg-no-repeat bg-[url('/feature/feature.png')] overflow-hidden">
           <FeatureProd1
-            title=' Real-Time Dashboard for Complete Visibility'
+            title='Real-Time Dashboard for Complete Visibility'
             subTitle='Access productivity, activity data, and performance analytics in one intuitive employee monitoring software dashboard.'
             features={left_FeatureTrackForceWorks3} />
           <FeatureWork1
             title="All-in-One Workforce Monitoring Platform"
-            subTitle="Monitor teams, optimize performance, and maintain compliance — all from
-                    a single platform built for modern workplaces."
+            subTitle="Monitor screens, activities, and performance effortlessly - gain real-time visibility, ensure compliance, and improve workforce productivity organization-wide."
             features={right_FeatureTrackForceWorks3} />
           <FeatureProd2 />
           <FeatureWork2 />
+           <FeatureProd1
+            title='Time Tracking and Productivity Insights'
+            subTitle='Track active and idle time, measure project costs, and analyze performance trends to optimize workforce efficiency using TrackForce’s advanced time tracking software.'
+            features={left_FeatureTrackForceWorks1} />
+          <FeatureWork1
+            title="Automated Billing, Invoices, and Payment Tracking"
+            subTitle="Simplify financial operations with automated invoicing, accurate billing records, and real-time payment tracking. Gain transparency, prevent errors, and streamline financial management across teams."
+            features={right_FeatureTrackForceWorks1} />
         </section>
       </div>
       <div className='py-28 bg-[#DEEDFF]'>

@@ -73,6 +73,7 @@ const HomeFreeTailer = () => {
                     alt="Dashboard"
                     width={1200}
                     height={800}
+                    quality={90}
                     className="
                       absolute -bottom-36 -right-6 scale-110
                       transition-all duration-600 ease-in-out

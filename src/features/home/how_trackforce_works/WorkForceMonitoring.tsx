@@ -50,7 +50,7 @@ const WorkForceMonitoring = () => {
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={emailing} alt="Emailing" className="w-full" />
+                    <Image src={emailing} alt="Emailing" quality={90} className="w-full" />
                 </motion.div>
 
                 {/* Sidebar - top right, slides from center */}
@@ -61,7 +61,7 @@ const WorkForceMonitoring = () => {
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={sidebar} alt="Sidebar" className="w-full" />
+                    <Image src={sidebar} alt="Sidebar" quality={90} className="w-full" />
                 </motion.div>
 
                 {/* Employee List - bottom left, slides from center */}
@@ -72,7 +72,7 @@ const WorkForceMonitoring = () => {
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={employeeList} alt="Activity Logs" className="w-full" />
+                    <Image src={employeeList} alt="Activity Logs" quality={90} className="w-full" />
                 </motion.div>
 
 

@@ -103,7 +103,7 @@ const RealTime = () => {
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.1 }}
                     >
-                        <Image width={1200} height={800} src={realD} alt="Activity Logs" className="w-[430]" />
+                        <Image width={1200} height={800} quality={90} src={realD} alt="Activity Logs" className="w-[430]" />
                     </motion.div>
 
                     {/* Search Logs - bottom right, slides from center */}
@@ -114,7 +114,7 @@ const RealTime = () => {
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.1 }}
                     >
-                        <Image width={1200} height={800} src={realE} alt="Search Logs" className="w-[400]" />
+                        <Image width={1200} height={800} quality={90} src={realE} alt="Search Logs" className="w-[400]" />
                     </motion.div>
                 </div>
             </div>

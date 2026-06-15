@@ -78,6 +78,7 @@ const HomeFaq = () => {
                 <Image
                     src={faqBg}
                     alt="FAQ Background"
+                    quality={90}
                     className="w-full h-full object-contain"
                 />
             </motion.div>

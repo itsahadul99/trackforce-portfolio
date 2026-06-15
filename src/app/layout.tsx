@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Playball, Rubik } from "next/font/google";
+import { Geist, Playball, Rubik } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/features/navbar/Navbar";
 import Footer from "@/features/home/footer/Footer";
@@ -7,11 +7,6 @@ import { siteUrl, siteName, defaultOgImage } from "@/lib/seo";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
   subsets: ["latin"],
 });
 
@@ -99,8 +94,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Avatar images in Testimonials are served from Unsplash — warm the connection early. */}
+        <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${playball.variable} ${rubik.variable} antialiased relative`}
+        className={`${geistSans.variable} ${playball.variable} ${rubik.variable} antialiased relative`}
       >
         <script
           type="application/ld+json"

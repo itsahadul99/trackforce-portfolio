@@ -42,6 +42,7 @@ const AboutVision = () => {
                              alt="Case Study Hero"
                              width={1200}
                              height={600}
+                             quality={90}
                              className="w-[260px] sm:w-[320px] lg:w-[360] object-contain"
                            />
                          </motion.div>
@@ -58,6 +59,7 @@ const AboutVision = () => {
                              alt="Case Study Hero"
                              width={1200}
                              height={600}
+                             quality={90}
                              className="w-[240px] sm:w-[280px] lg:w-[320] object-contain"
                            />
                          </motion.div>

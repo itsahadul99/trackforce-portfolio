@@ -49,6 +49,7 @@ const CaseStudyWhyStandsOut = () => {
                 alt="Case Study Hero"
                 width={1200}
                 height={600}
+                quality={90}
                 className="lg:w-[470px] w-full max-w-[320px] lg:max-w-[470px] object-contain"
               />
             </motion.div>
@@ -65,6 +66,7 @@ const CaseStudyWhyStandsOut = () => {
                 alt="Case Study Hero"
                 width={1200}
                 height={600}
+                quality={90}
                 className="lg:w-[440px] w-full max-w-[300px] lg:max-w-[380px] object-contain"
               />
             </motion.div>

@@ -367,6 +367,8 @@ const PortfolioParallax = () => {
                   src={card.image}
                   alt={card.title}
                   fill
+                  sizes="100vw"
+                  quality={90}
                   className="object-contain object-center"
                   priority={index === 0}
                 />

@@ -79,7 +79,7 @@ export default function WorkProcess() {
                 </motion.div>
               </Link>
             </div>
-            <Link href="/documentation" className="px-6 py-3 border border-[#2B2B2B] text-[#2B2B2B] rounded-[16px] font-medium text-base hover:bg-gray-100">
+            <Link href="/documentation" aria-label="Learn more about how TrackForce works" className="px-6 py-3 border border-[#2B2B2B] text-[#2B2B2B] rounded-[16px] font-medium text-base hover:bg-gray-100">
               Learn more
             </Link>
           </div>
@@ -170,6 +170,7 @@ export default function WorkProcess() {
                         <Image
                           src={step.img}
                           alt="Dashboard preview"
+                          quality={90}
                           className="w-full h-auto object-cover"
                         />
                       </motion.div>

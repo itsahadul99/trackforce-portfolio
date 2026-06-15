@@ -81,6 +81,7 @@ const AboutValues = () => {
                                 alt="Case Study Hero"
                                 width={1200}
                                 height={600}
+                                quality={90}
                                 className="w-[280px] sm:w-[340px] lg:w-[400] object-contain"
                             />
                         </motion.div>
@@ -98,6 +99,7 @@ const AboutValues = () => {
                                 alt="Case Study Hero"
                                 width={1200}
                                 height={600}
+                                quality={90}
                                 className="w-[240px] sm:w-[300px] lg:w-[350] object-contain"
                             />
                         </motion.div>

@@ -70,7 +70,7 @@ const Parallax = () => {
               className={`flex flex-col gap-3 ${activated.has(1) ? "items-start" : "items-center"}`}
             >
               <div className="mb-3">
-                <Image src={plxLogo1} alt="logo" width={72} height={72} />
+                <Image src={plxLogo1} alt="logo" width={72} height={72} quality={90} />
               </div>
 
               <h3 className="text-xl font-semibold">Productivity</h3>
@@ -89,7 +89,7 @@ const Parallax = () => {
               transition={{ duration: 0.6 }}
               className="absolute z-[99]"
             >
-              <Image src={productivity} alt="parallax" width={750} height={440} />
+              <Image src={productivity} alt="parallax" width={750} height={440} quality={90} />
             </motion.div>
 
           </div>
@@ -117,7 +117,7 @@ const Parallax = () => {
               transition={{ duration: 0.6 }}
               className="absolute z-[99]"
             >
-              <Image src={accountablity} alt="parallax" width={750} height={440} />
+              <Image src={accountablity} alt="parallax" width={750} height={440} quality={90} />
             </motion.div>
 
             <motion.div
@@ -129,7 +129,7 @@ const Parallax = () => {
               className={`flex flex-col gap-3 ${activated.has(2) ? "items-start" : "items-center"}`}
             >
               <div className="mb-3">
-                <Image src={plxLogo2} alt="logo" width={72} height={72} />
+                <Image src={plxLogo2} alt="logo" width={72} height={72} quality={90} />
               </div>
 
               <h3 className="text-xl font-semibold">Accountability</h3>
@@ -164,7 +164,7 @@ const Parallax = () => {
               className={`flex flex-col gap-3 ${activated.has(3) ? "items-start" : "items-center"}`}
             >
               <div className="mb-3">
-                <Image src={plxLogo3} alt="logo" width={72} height={72} />
+                <Image src={plxLogo3} alt="logo" width={72} height={72} quality={90} />
               </div>
 
               <h3 className="text-xl font-semibold">Security</h3>
@@ -182,7 +182,7 @@ const Parallax = () => {
               transition={{ duration: 0.6 }}
               className="absolute z-[99]"
             >
-              <Image src={security} alt="parallax" width={750} height={440} />
+              <Image src={security} alt="parallax" width={750} height={440} quality={90} />
             </motion.div>
 
           </div>
@@ -209,7 +209,7 @@ const Parallax = () => {
               transition={{ duration: 0.6 }}
               className="absolute z-[99]"
             >
-              <Image src={effiency} alt="parallax" width={750} height={440} />
+              <Image src={effiency} alt="parallax" width={750} height={440} quality={90} />
             </motion.div>
 
             <motion.div
@@ -221,7 +221,7 @@ const Parallax = () => {
               className={`flex flex-col gap-3 ${activated.has(4) ? "items-start" : "items-center"}`}
             >
               <div className="mb-3">
-                <Image src={plxLogo4} alt="logo" width={72} height={72} />
+                <Image src={plxLogo4} alt="logo" width={72} height={72} quality={90} />
               </div>
 
               <h3 className="text-xl font-semibold">Efficiency</h3>

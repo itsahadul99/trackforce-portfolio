@@ -105,7 +105,7 @@ const Designed = () => {
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.1 }}
                     >
-                        <Image width={1200} height={800} src={dm1} alt="Activity Logs" className="w-[350]" />
+                        <Image width={1200} height={800} quality={90} src={dm1} alt="Activity Logs" className="w-[350]" />
                     </motion.div>
 
                     {/* Search Logs - bottom right, slides from center */}
@@ -116,7 +116,7 @@ const Designed = () => {
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.1 }}
                     >
-                        <Image width={1200} height={800} src={dm3} alt="Search Logs" className="w-[450]" />
+                        <Image width={1200} height={800} quality={90} src={dm3} alt="Search Logs" className="w-[450]" />
                     </motion.div>
                     {/* Search Logs - bottom right, slides from center */}
                     <motion.div
@@ -126,7 +126,7 @@ const Designed = () => {
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.1 }}
                     >
-                        <Image width={1200} height={800} src={dm2} alt="Search Logs" className="w-[350]" />
+                        <Image width={1200} height={800} quality={90} src={dm2} alt="Search Logs" className="w-[350]" />
                     </motion.div>
                 </div>
             </div>

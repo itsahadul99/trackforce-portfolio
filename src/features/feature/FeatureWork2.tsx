@@ -5,9 +5,9 @@ import { motion, type Variants } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaArrowRightLong } from 'react-icons/fa6';
-const emailing = '/emailing.png';
-const employeeList = '/employeeList.png';
-const sidebar = '/sidebar.png';
+import employeeList from '../../../public/home/emailing.png';
+import sidebar from '../../../public/home/sidebar.png';
+import emailing from '../../../public/home/snapShots.png';
 const trackforce = '/trackforce.png';
 
 const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
@@ -65,7 +65,7 @@ const FeatureWork2 = () => {
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={emailing} alt="Emailing" className="w-full" width={800} height={500} />
+                    <Image src={emailing} alt="Emailing" className="w-full" width={1600} height={1000} quality={90} />
                 </motion.div>
 
                 {/* Sidebar - top right, slides from center */}
@@ -76,7 +76,7 @@ const FeatureWork2 = () => {
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={sidebar} alt="Sidebar" className="w-full" width={400} height={300} />
+                    <Image src={sidebar} alt="Sidebar" className="w-full" width={1600} height={1200} quality={90} />
                 </motion.div>
 
                 {/* Employee List - bottom left, slides from center */}
@@ -87,7 +87,7 @@ const FeatureWork2 = () => {
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={employeeList} alt="Activity Logs" className="w-full" width={400} height={300} />
+                    <Image src={employeeList} alt="Activity Logs" className="w-full" width={1600} height={1200} quality={90} />
                 </motion.div>
 
 

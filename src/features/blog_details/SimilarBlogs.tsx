@@ -35,6 +35,7 @@ const SimilarBlogs = ({ currentSlug }: { currentSlug: string }) => {
                                         alt={card.title}
                                         fill
                                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                        quality={90}
                                         className="object-cover transition-transform duration-800 ease-in-out group-hover:transform-[rotateY(180deg)]"
                                     />
                                     <span className="absolute top-3 right-3 text-xs font-semibold content_title_text_new backdrop-blur bg-[#FFFFFF54]  font-medium px-3 py-1.5 rounded-full">

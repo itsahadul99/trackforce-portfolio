@@ -45,7 +45,7 @@ const FeatureWork1 = ({ title, subTitle, height = '400px', features, txtColor='t
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={emailing} alt="Emailing" className="w-full" width={800} height={500} />
+                    <Image src={emailing} alt="Emailing" className="w-full" width={1600} height={1000} quality={90} />
                 </motion.div>
 
                 {/* Sidebar - top right, slides from center */}
@@ -56,7 +56,7 @@ const FeatureWork1 = ({ title, subTitle, height = '400px', features, txtColor='t
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={sidebar} alt="Sidebar" className="w-full" width={400} height={300} />
+                    <Image src={sidebar} alt="Sidebar" className="w-full" width={1600} height={1200} quality={90} />
                 </motion.div>
 
                 {/* Employee List - bottom left, slides from center */}
@@ -67,7 +67,7 @@ const FeatureWork1 = ({ title, subTitle, height = '400px', features, txtColor='t
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={employeeList} alt="Activity Logs" className="w-full" width={400} height={300} />
+                    <Image src={employeeList} alt="Activity Logs" className="w-full" width={1600} height={1200} quality={90} />
                 </motion.div>
 
 

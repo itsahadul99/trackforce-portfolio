@@ -16,6 +16,7 @@ const MonitoringSoftwareList = () => {
                         <Image
                             src={monitoring_software}
                             alt="Employee monitoring software for startups"
+                            quality={90}
                             className="w-full h-auto object-cover"
                         />
                     </div>

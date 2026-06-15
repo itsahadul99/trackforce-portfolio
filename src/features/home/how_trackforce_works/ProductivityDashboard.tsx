@@ -102,7 +102,7 @@ const ProductivityDashboard = () => {
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={dashboardOverview} alt="Productivity Dashboard" className="w-full" />
+                    <Image src={dashboardOverview} alt="Productivity Dashboard" quality={90} className="w-full" />
                 </motion.div>
 
                 {/* Employees - top right, slides from center */}
@@ -113,7 +113,7 @@ const ProductivityDashboard = () => {
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={topEmployees} alt="Employees" className="w-full" />
+                    <Image src={topEmployees} alt="Employees" quality={90} className="w-full" />
                 </motion.div>
 
                 {/* Activity Logs - bottom left, slides from center */}
@@ -124,7 +124,7 @@ const ProductivityDashboard = () => {
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={projectProgress} alt="Activity Logs" className="w-full" />
+                    <Image src={projectProgress} alt="Activity Logs" quality={90} className="w-full" />
                 </motion.div>
 
                 {/* Search Logs - bottom right, slides from center */}
@@ -135,7 +135,7 @@ const ProductivityDashboard = () => {
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={taskProgress} alt="Search Logs" className="w-full" />
+                    <Image src={taskProgress} alt="Search Logs" quality={90} className="w-full" />
                 </motion.div>
             </div>
         </div>

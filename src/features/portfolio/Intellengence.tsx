@@ -84,7 +84,7 @@ const features = [
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.1 }}
                     >
-                        <Image src={di1} width={1200} height={800} alt="Employees" className="w-[480]" />
+                        <Image src={di1} width={1200} height={800} quality={90} alt="Employees" className="w-[480]" />
                     </motion.div>
 
                     {/* Activity Logs - bottom left, slides from center */}
@@ -95,7 +95,7 @@ const features = [
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.1 }}
                     >
-                        <Image src={di2} width={1200} height={800} alt="Activity Logs" className="w-[250]" />
+                        <Image src={di2} width={1200} height={800} quality={90} alt="Activity Logs" className="w-[250]" />
                     </motion.div>
 
                     {/* Search Logs - bottom right, slides from center */}
@@ -106,7 +106,7 @@ const features = [
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.1 }}
                     >
-                        <Image src={di3} width={1200} height={800} alt="Search Logs" className="w-[280]" />
+                        <Image src={di3} width={1200} height={800} quality={90} alt="Search Logs" className="w-[280]" />
                     </motion.div>
                 </div>
             </div>

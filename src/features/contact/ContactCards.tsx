@@ -14,6 +14,7 @@ const ContactCards = () => {
                 width={400}
                 height={400}
                 alt="contact-card"
+                quality={90}
                 className="w-5"
               />
             </div>
@@ -37,6 +38,7 @@ const ContactCards = () => {
                 width={400}
                 height={400}
                 alt="contact-card"
+                quality={90}
                 className="w-5"
               />
             </div>
@@ -62,6 +64,7 @@ const ContactCards = () => {
                 width={400}
                 height={400}
                 alt="contact-card"
+                quality={90}
                 className="w-5"
               />
             </div>
@@ -83,6 +86,7 @@ const ContactCards = () => {
                 width={400}
                 height={400}
                 alt="contact-card"
+                quality={90}
                 className="w-5"
               />
             </div>

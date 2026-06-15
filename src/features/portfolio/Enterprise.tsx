@@ -60,7 +60,7 @@ const Enterprise = () => {
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.1 }}
                     >
-                        <Image src={enterPriceL1} width={1200} height={800} alt="Emailing" className=" w-[400]" />
+                        <Image src={enterPriceL1} width={1200} height={800} quality={90} alt="Emailing" className=" w-[400]" />
                     </motion.div>
 
                     {/* Employee List - bottom left, slides from center */}
@@ -71,7 +71,7 @@ const Enterprise = () => {
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.1 }}
                     >
-                        <Image src={enterPriceL2} width={1200} height={800} alt="Activity Logs" className="w-[400]" />
+                        <Image src={enterPriceL2} width={1200} height={800} quality={90} alt="Activity Logs" className="w-[400]" />
                     </motion.div>
 
 

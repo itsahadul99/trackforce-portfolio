@@ -294,6 +294,7 @@ const Hero = () => {
                             src={video_bg}
                             alt="TrackForce product video frame"
                             priority
+                            quality={90}
                             className="absolute top-0 left-0 w-full h-full object-cover z-0"
                         />
                     </div>

@@ -57,11 +57,13 @@ const OurFeatures = () => {
                             <Image
                                 src={bar}
                                 alt="Productivity tracking"
+                                quality={90}
                                 className="absolute -bottom-16 right-7 transition-[opacity,translate] duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-0 group-hover:translate-y-3"
                             />
                             <Image
                                 src={productivity}
                                 alt="Productivity tracking detailed"
+                                quality={90}
                                 className="absolute -bottom-10 right-7 opacity-0 translate-y-4 transition-[opacity,translate] duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100 group-hover:translate-y-0"
                             />
 
@@ -94,11 +96,13 @@ const OurFeatures = () => {
                             <Image
                                 src={totalHr}
                                 alt="Accountability and transparency"
+                                quality={90}
                                 className="absolute -bottom-14 lg:-bottom-10 -right-10 transition-[opacity,translate] duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-0 group-hover:translate-y-3"
                             />
                             <Image
                                 src={accountability}
                                 alt="Accountability and transparency detailed"
+                                quality={90}
                                 className="absolute -bottom-12 lg:-bottom-5 -right-10 opacity-0 translate-y-4 transition-[opacity,translate] duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100 group-hover:translate-y-0"
                             />
 
@@ -135,11 +139,13 @@ const OurFeatures = () => {
                             <Image
                                 src={workEfficiency}
                                 alt="Workflow efficiency"
+                                quality={90}
                                 className="absolute -bottom-10 lg:-bottom-14 -right-2 transition-[opacity,translate] duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-0 group-hover:translate-y-3"
                             />
                             <Image
                                 src={efficiency}
                                 alt="Workflow efficiency detailed"
+                                quality={90}
                                 className="absolute -bottom-3 lg:-bottom-7 -right-2 opacity-0 translate-y-4 transition-[opacity,translate] duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100 group-hover:translate-y-0"
                             />
 
@@ -159,11 +165,13 @@ const OurFeatures = () => {
                             <Image
                                 src={securityMonitoring}
                                 alt="Security monitoring"
+                                quality={90}
                                 className="rounded-ss-2xl scale-y-110 absolute -bottom-26 lg:-bottom-14 -right-10 transition-[opacity,translate] duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-0 group-hover:translate-y-3"
                             />
                             <Image
                                 src={security}
                                 alt="Security monitoring detailed"
+                                quality={90}
                                 className="rounded-ss-2xl scale-y-110 absolute -bottom-26 lg:-bottom-12 -right-0 opacity-0 translate-y-4 transition-[opacity,translate] duration-[850ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:opacity-100 group-hover:translate-y-0"
                             />
 
