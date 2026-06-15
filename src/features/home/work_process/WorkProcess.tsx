@@ -79,8 +79,8 @@ export default function WorkProcess() {
                 </motion.div>
               </Link>
             </div>
-            <Link href="/documentation" aria-label="Learn more about how TrackForce works" className="px-6 py-3 border border-[#2B2B2B] text-[#2B2B2B] rounded-[16px] font-medium text-base hover:bg-gray-100">
-              Learn more
+            <Link href="/documentation" className="px-6 py-3 border border-[#2B2B2B] text-[#2B2B2B] rounded-[16px] font-medium text-base hover:bg-gray-100">
+              Learn more<span className="sr-only"> about how TrackForce works</span>
             </Link>
           </div>
         </div>
@@ -111,7 +111,7 @@ export default function WorkProcess() {
                         }
                   }
                   transition={{
-                    width: { duration: 1.1, ease: [0.32, 0.72, 0, 1] },
+                    width: { duration: 0.85, ease: [0.32, 0.72, 0, 1] },
                     opacity: { duration: 0.6, ease: "easeOut" },
                   }}
                   className="relative h-[360px] sm:h-[400px] lg:h-[420px] rounded-2xl px-4 sm:px-5 py-6 sm:py-8 overflow-hidden flex flex-col cursor-pointer shrink-0 w-full lg:w-auto"
@@ -147,25 +147,50 @@ export default function WorkProcess() {
                     {step.title}
                   </h3>
 
-                  {/* Description — smoothly slides between top (active) and bottom (inactive) positions */}
-                  <motion.p
-                    layout
-                    transition={{ duration: 0.9, ease: [0.32, 0.72, 0, 1] }}
-                    className={`text-[#747378] text-[15px] leading-relaxed ${isActive || !isLg ? "" : "mt-auto"}`}
-                  >
-                    {step.desc}
-                  </motion.p>
+                  {/* Description — soft blur+fade between top (active) and bottom (inactive)
+                      positions. The active copy is delayed until the card has (mostly) finished
+                      widening, so the text rewraps while still blurred/invisible and you only see
+                      the final, settled line-wrap fade in — never mid-animation word breaks. */}
+                  {/* mode="wait" keeps exactly one copy alive at a time — the old text fully
+                      exits before the new one mounts — so the two never stack and the text can't
+                      get pinned in the wrong (old) position while changing top<->bottom. The exit
+                      runs fast on its own transition so it doesn't inherit the reveal delay. */}
+                  <AnimatePresence mode="wait" initial={false}>
+                    <motion.p
+                      key={isActive ? "active" : "inactive"}
+                      initial={{ opacity: 0, y: 10, filter: "blur(6px)" }}
+                      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                      exit={{
+                        opacity: 0,
+                        y: -8,
+                        filter: "blur(6px)",
+                        transition: { duration: 0.2, ease: "easeIn" },
+                      }}
+                      transition={{
+                        duration: 0.4,
+                        ease: [0.22, 1, 0.36, 1],
+                        // Reveal only after the card's width morph has settled, so the text never
+                        // rewraps while visible — no breaks, in top or bottom position.
+                        delay: isLg ? 0.55 : 0,
+                      }}
+                      className={`text-pretty text-[#747378] text-[15px] leading-relaxed ${isActive || !isLg ? "" : "mt-auto"}`}
+                    >
+                      {step.desc}
+                    </motion.p>
+                  </AnimatePresence>
 
-                  {/* Image — only on active, fades + slides in */}
+                  {/* Image — only on active. Held until the card has mostly finished widening
+                      (so it pops into its final size instead of stretching during the morph),
+                      then rises + scales + fades in for a polished, settled reveal. */}
                   <AnimatePresence mode="wait">
                     {(isActive || !isLg) && (
                       <motion.div
                         key="img"
-                        initial={{ opacity: 0, y: 40 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 20 }}
-                        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
-                        className="absolute left-5 right-5 bottom-5 rounded-xl overflow-hidden shadow-md"
+                        initial={{ opacity: 0, y: 44, scale: 0.94 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 24, scale: 0.97 }}
+                        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: isLg ? 0.6 : 0.1 }}
+                        className="absolute left-5 right-5 bottom-5 rounded-xl overflow-hidden shadow-md origin-bottom will-change-transform"
                       >
                         <Image
                           src={step.img}

@@ -36,18 +36,21 @@ const Parallax = () => {
     offset: ["start start", "end end"]
   });
 
-  const card1Y = useTransform(scrollYProgress, [0, 0.23, 0.25], [0, 0, -150]);
+  // Each card's lift window is kept non-overlapping (card N finishes exactly
+  // where card N+1 begins) so an already-lifted card never moves again while
+  // the next one rises.
+  const card1Y = useTransform(scrollYProgress, [0, 0.23, 0.15], [0, 0, -150]);
 
-  const card2Y = useTransform(scrollYProgress, [0.25, 0.48, 0.5], [0, 0, -150]);
+  const card2Y = useTransform(scrollYProgress, [0.25, 0.48, 0.25], [0, 0, -150]);
 
-  const card3Y = useTransform(scrollYProgress, [0.5, 0.73, 0.75], [0, 0, -150]);
+  const card3Y = useTransform(scrollYProgress, [0.5, 0.73, 0.5], [0, 0, -150]);
 
-  const card4Y = useTransform(scrollYProgress, [0.75, 1], [0, -150]);
+  const card4Y = useTransform(scrollYProgress, [0.75, 0.95, 0.75], [0, 0, -150]);
 
   return (
     <div
       ref={containerRef}
-      className="relative h-fit max-w-[1300] mx-auto mt-16 sm:mt-20 lg:mt-28 text-black px-4 sm:px-6 xl:px-0"
+      className="relative h-fit max-w-[1300] mx-auto my-16 sm:my-20 lg:my-28 text-black px-4 sm:px-6 xl:px-0"
     >
 
       {/* plx 1 */}
@@ -66,8 +69,8 @@ const Parallax = () => {
                 rest: { x: 0, y: 60 },
                 hover: { x: -430, y: 60 }
               }}
-              transition={{ duration: 0.6 }}
-              className={`flex flex-col gap-3 ${activated.has(1) ? "items-start" : "items-center"}`}
+              transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+              className={`flex flex-col gap-3 will-change-transform ${activated.has(1) ? "items-start" : "items-center"}`}
             >
               <div className="mb-3">
                 <Image src={plxLogo1} alt="logo" width={72} height={72} quality={90} />
@@ -86,8 +89,8 @@ const Parallax = () => {
                 rest: { x: 0, y: 310, opacity: 0.8 },
                 hover: { x: 200, y: 80, opacity: 1 }
               }}
-              transition={{ duration: 0.6 }}
-              className="absolute z-[99]"
+              transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+              className="absolute z-[99] will-change-transform"
             >
               <Image src={productivity} alt="parallax" width={750} height={440} quality={90} />
             </motion.div>
@@ -114,8 +117,8 @@ const Parallax = () => {
                 rest: { x: 0, y: 310, opacity: 0.8 },
                 hover: { x: -200, y: 60, opacity: 1 }
               }}
-              transition={{ duration: 0.6 }}
-              className="absolute z-[99]"
+              transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+              className="absolute z-[99] will-change-transform"
             >
               <Image src={accountablity} alt="parallax" width={750} height={440} quality={90} />
             </motion.div>
@@ -125,8 +128,8 @@ const Parallax = () => {
                 rest: { x: 0, y: 60 },
                 hover: { x: 460, y: 60 }
               }}
-              transition={{ duration: 0.6 }}
-              className={`flex flex-col gap-3 ${activated.has(2) ? "items-start" : "items-center"}`}
+              transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+              className={`flex flex-col gap-3 will-change-transform ${activated.has(2) ? "items-start" : "items-center"}`}
             >
               <div className="mb-3">
                 <Image src={plxLogo2} alt="logo" width={72} height={72} quality={90} />
@@ -160,8 +163,8 @@ const Parallax = () => {
                 rest: { x: 0, y: 60 },
                 hover: { x: -430, y: 60 }
               }}
-              transition={{ duration: 0.6 }}
-              className={`flex flex-col gap-3 ${activated.has(3) ? "items-start" : "items-center"}`}
+              transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+              className={`flex flex-col gap-3 will-change-transform ${activated.has(3) ? "items-start" : "items-center"}`}
             >
               <div className="mb-3">
                 <Image src={plxLogo3} alt="logo" width={72} height={72} quality={90} />
@@ -179,8 +182,8 @@ const Parallax = () => {
                 rest: { x: 0, y: 310, opacity: 0.8 },
                 hover: { x: 200, y: 80, opacity: 1 }
               }}
-              transition={{ duration: 0.6 }}
-              className="absolute z-[99]"
+              transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+              className="absolute z-[99] will-change-transform"
             >
               <Image src={security} alt="parallax" width={750} height={440} quality={90} />
             </motion.div>
@@ -206,8 +209,8 @@ const Parallax = () => {
                 rest: { x: 0, y: 310, opacity: 0.8 },
                 hover: { x: -200, y: 60, opacity: 1 }
               }}
-              transition={{ duration: 0.6 }}
-              className="absolute z-[99]"
+              transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+              className="absolute z-[99] will-change-transform"
             >
               <Image src={effiency} alt="parallax" width={750} height={440} quality={90} />
             </motion.div>
@@ -217,8 +220,8 @@ const Parallax = () => {
                 rest: { x: 0, y: 60 },
                 hover: { x: 460, y: 60 }
               }}
-              transition={{ duration: 0.6 }}
-              className={`flex flex-col gap-3 ${activated.has(4) ? "items-start" : "items-center"}`}
+              transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+              className={`flex flex-col gap-3 will-change-transform ${activated.has(4) ? "items-start" : "items-center"}`}
             >
               <div className="mb-3">
                 <Image src={plxLogo4} alt="logo" width={72} height={72} quality={90} />

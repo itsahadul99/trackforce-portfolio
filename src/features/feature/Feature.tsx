@@ -41,34 +41,24 @@ const left_FeatureTrackForceWorks1 = [
 
 const right_FeatureTrackForceWorks1 = [
   {
-    title: "App Tracking",
+    title: "Automated Invoicing",
     description:
       "Track real-time online and idle statuses to understand team availability and active work time.",
   },
   {
-    title: "Website Insights",
+    title: "Expense Tracking",
     description:
-      "Analyze website usage patterns to understand how time is spent across browsing activities.",
+      "Monitor application and system usage to ensure productive and secure work environments.",
   },
   {
-    title: "Email Monitoring",
+    title: "Payment History",
     description:
-      "Keep an eye on email activity to ensure smooth communication and workplace accountability.",
+      "Assign and track devices across your workforce with complete visibility and accountability.",
   },
   {
-    title: "File Transfers",
+    title: "Financial Reports",
     description:
-      "Track file movement across devices to maintain data security and transparent workflows.",
-  },
-  {
-    title: "Team Analytics",
-    description:
-      "Dive into team-level metrics to measure collaboration, output, and overall performance.",
-  },
-  {
-    title: "Workflow Visibility",
-    description:
-      "Gain full visibility into workflows to identify bottlenecks and streamline daily operations.",
+      "Get a clear view of every department's structure, members, and performance at a glance.",
   },
 ];
 

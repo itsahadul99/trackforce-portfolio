@@ -2,10 +2,8 @@
 
 import Image from 'next/image';
 import { motion, type Variants } from 'framer-motion';
-import dashboardOverview from '../../../public/home/dashboardOverviewFull.png';
-import projectProgress from '../../../public/home/projectProgress.png';
-import taskProgress from '../../../public/home/taskProgress.png';
-import topEmployees from '../../../public/home/topEmployees.png';
+import dashboardOverview from '../../../public/feature/projectDashboard.png';
+import projectProgress from '../../../public/feature/teamWorkload.png';
 const trackforce = '/trackforce.png';
 import Link from 'next/link';
 import { FaArrowRightLong } from 'react-icons/fa6';
@@ -99,7 +97,7 @@ const FeatureProd2 = () => {
             <div className='w-full lg:w-1/2 relative h-[520px]'>
                 {/* Main dashboard - center, fades in from slight scale */}
                 <motion.div
-                    className="object-cover absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[75%] drop-shadow-2xl z-10"
+                    className="object-cover absolute top-[40%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[95%] drop-shadow-2xl z-10"
                     variants={imageVariants(0, 40, 0)}
                     initial="hidden"
                     whileInView="visible"
@@ -108,37 +106,15 @@ const FeatureProd2 = () => {
                     <Image src={dashboardOverview} alt="Productivity Dashboard" className="w-full" width={1600} height={1000} quality={90} />
                 </motion.div>
 
-                {/* Employees - top right, slides from center */}
-                <motion.div
-                    className="object-cover absolute top-0 right-0 w-[45%] drop-shadow-xl z-20"
-                    variants={imageVariants(50, -50, 0.35)}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: false, amount: 0.1 }}
-                >
-                    <Image src={topEmployees} alt="Employees" className="w-full" width={1600} height={1200} quality={90} />
-                </motion.div>
-
-                {/* Activity Logs - bottom left, slides from center */}
-                <motion.div
-                    className="object-cover absolute bottom-0 left-0 w-[40%] drop-shadow-xl z-20"
-                    variants={imageVariants(-50, 50, 0.35)}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: false, amount: 0.1 }}
-                >
-                    <Image src={projectProgress} alt="Activity Logs" className="w-full" width={1600} height={1200} quality={90} />
-                </motion.div>
-
                 {/* Search Logs - bottom right, slides from center */}
                 <motion.div
-                    className="object-cover absolute bottom-0 right-0 w-[38%] drop-shadow-xl z-20"
+                    className="object-cover absolute bottom-0 right-0 w-[80%] drop-shadow-xl z-20"
                     variants={imageVariants(50, 50, 0.35)}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={taskProgress} alt="Search Logs" className="w-full" width={1600} height={1200} quality={90} />
+                    <Image src={projectProgress} alt="Search Logs" className="w-full" width={1600} height={1200} quality={90} />
                 </motion.div>
             </div>
         </div>
