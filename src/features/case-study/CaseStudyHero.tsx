@@ -36,7 +36,7 @@ const CaseStudyHero = () => {
           </h1>
 
           {/* Client Badge */}
-          <div className="relative inline-flex items-center gap-3 px-4 md:px-5 py-2 md:py-4 rounded-xl bg-white/60 backdrop-blur-sm
+          <div className="relative hidden  items-center gap-3 px-4 md:px-5 py-2 md:py-4 rounded-xl bg-white/60 backdrop-blur-sm
             before:absolute before:inset-0 before:rounded-xl before:p-[2px]
             before:bg-gradient-to-r before:from-[#1B73E8] before:to-[#9F60EE]
             before:-z-10 before:content-['']
