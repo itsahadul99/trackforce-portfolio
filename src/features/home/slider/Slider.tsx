@@ -49,7 +49,6 @@ export default function Slider() {
               alt="logo"
               width={200}
               height={40}
-              quality={90}
               className="object-contain rounded-lg cursor-pointer grayscale hover:grayscale-0 hover:scale-105 transition-all duration-300 w-[120px] sm:w-[160px] lg:w-[200px] h-auto"
             />
           </Link>
