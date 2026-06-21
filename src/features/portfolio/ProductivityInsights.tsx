@@ -63,7 +63,7 @@ import PortfolioParallax from "./PortfolioParallax";
 
 const ProductivityInsights = () => {
     return (
-        <div className="bg-[#000000] w-full bg-[url('/portfolioBg.png')] bg-cover bg-center">
+        <div className="bg-[#000000] w-full bg-[url('/portfolioBg.png')] bg-cover bg-center px-4">
             <div className="flex flex-col lg:flex-row justify-between gap-4 max-w-[1300] mx-auto pt-20 md:pt-28 lg:pt-44 pb-12 md:pb-16 lg:pb-20 px-4 md:px-8 lg:px-0">
                 {/* Left Side - Sticky & Centered */}
                 <div className="lg:w-[40%] relative">

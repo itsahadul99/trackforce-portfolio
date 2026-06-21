@@ -186,7 +186,7 @@ const CaseStudyParallax = () => {
   return (
     <div
       ref={containerRef}
-      className="relative h-fit max-w-[1300] mx-auto mt-12 md:mt-16 lg:mt-28 text-black"
+      className="relative h-fit max-w-[1300] mx-auto mt-12 md:mt-16 lg:mt-28 text-black px-4"
     >
       {cards.map((card, index) =>
         isSmall ? (

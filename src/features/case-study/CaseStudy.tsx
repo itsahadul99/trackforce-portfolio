@@ -17,7 +17,7 @@ const CaseStudy = () => {
             <CaseStudyDeployment />
             <CaseStudyResults />
             <CaseStudyWhyStandsOut />
-            <div className='my-28'>
+            <div className='my-28 px-4'>
                 <HomeFreeTailer />
             </div>
         </div>

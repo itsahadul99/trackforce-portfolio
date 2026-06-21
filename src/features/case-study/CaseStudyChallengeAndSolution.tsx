@@ -141,7 +141,7 @@ import Image from "next/image";
 const CaseStudyChallengeAndSolution = () => {
   return (
     <div
-      className="relative bg-cover bg-center bg-no-repeat py-12 md:py-24"
+      className="relative bg-cover bg-center bg-no-repeat py-12 md:py-24 px-4"
       style={{ backgroundImage: "url('/multipleBg.png')" }}
     >
       <div className="w-full mb-12 relative z-10 max-w-[1300px] mx-auto px-4 md:px-0">

@@ -33,7 +33,7 @@ const Home = () => {
                 <HomeFaq />
             </div>
             <HomePricing />
-            <div className='bg-[#DEEDFF] py-12 sm:py-16 lg:py-24'>
+            <div className='bg-[#DEEDFF] py-12 sm:py-16 lg:py-24 px-4'>
                 <HomeFreeTailer />
             </div>
         </div>

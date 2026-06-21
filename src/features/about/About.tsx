@@ -16,7 +16,7 @@ const About = () => {
             <AboutValues />
             <AboutWhyChooseUs />
             <AboutJoinTeam />
-            <div className='bg-[#DEEDFF] pt-5 pb-28'>
+            <div className='bg-[#DEEDFF] pt-5 pb-2 px-4'>
                 <HomeFreeTailer />
             </div>
         </div>

@@ -26,7 +26,7 @@ const Portfolio = () => {
             <Structure />
             <Designed />
             <ImpactBussiness />
-            <div className='my-28'>
+            <div className='my-28 px-4'>
                 <HomeFreeTailer />
             </div>
         </div>

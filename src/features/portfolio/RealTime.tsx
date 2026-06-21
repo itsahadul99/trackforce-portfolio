@@ -44,7 +44,7 @@ const RealTime = () => {
     ];
 
     return (
-        <div className='bg-[#DEEDFF] overflow-hidden bg-[url("/realTimeCommandCenter.png")] bg-no-repeat bg-cover bg-center'>
+        <div className='bg-[#DEEDFF] overflow-hidden bg-[url("/realTimeCommandCenter.png")] bg-no-repeat bg-cover bg-center px-4'>
             <div className="  max-w-[1300] mx-auto  py-24 text-[#2B2B2B] flex flex-col lg:flex-row items-center justify-between">
 
                 <div className="w-full lg:w-1/2">

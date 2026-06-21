@@ -69,7 +69,7 @@ const Feature = () => {
     <div>
       <FeatureHero />
       <Optimization />
-      <div className="bg-[#DEEDFF]">
+      <div className="bg-[#DEEDFF] px-4">
         <section className="max-w-[1300] mx-auto px-4 md:px-6 lg:px-[93px] py-4 md:py-8 lg:py-[96px]  rounded-2xl bg-cover bg-center bg-no-repeat bg-[url('/feature/feature.png')] overflow-hidden">
          <ProductivityDashboard />
          <WorkForceMonitoring />
@@ -84,7 +84,7 @@ const Feature = () => {
             features={right_FeatureTrackForceWorks1} />
         </section>
       </div>
-      <div className='py-28 bg-[#DEEDFF]'>
+      <div className='py-28 bg-[#DEEDFF] px-4'>
         <HomeFreeTailer />
       </div>
     </div>

@@ -8,7 +8,7 @@ const Pricing = () => {
       {/* <PricingHero /> */}
       <HomePricing />
       {/* <Benefits /> */}
-      <div className='bg-[#DEEDFF] py-28 flex flex-col items-center gap-24'>
+      <div className='bg-[#DEEDFF] py-28 flex flex-col items-center gap-24 px-4'>
         <HomeFaq />
         <HomeFreeTailer />
       </div>

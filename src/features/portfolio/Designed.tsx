@@ -51,7 +51,7 @@ const Designed = () => {
         },
     ];
     return (
-        <div className='bg-[#DEEDFF] bg-[url("/designForBg.png")] overflow-hidden bg-no-repeat bg-cover bg-center'>
+        <div className='bg-[#DEEDFF] bg-[url("/designForBg.png")] overflow-hidden bg-no-repeat bg-cover bg-center px-4'>
             <div className="  max-w-[1300] mx-auto py-12 lg:py-24 text-[#2B2B2B] flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0">
 
                 <div className="w-full lg:w-1/2 h-[600]">

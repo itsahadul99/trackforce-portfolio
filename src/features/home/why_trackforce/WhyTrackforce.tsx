@@ -19,7 +19,7 @@ const WhyTrackforce = () => {
 
 
     return (
-        <div className="flex overflow-hidden pb-20 flex-col lg:flex-row lg:justify-between gap-8 lg:gap-2 max-w-[1300] mx-auto mt-16 sm:mt-24 lg:mt-32 px-4 sm:px-6 xl:px-0">
+        <div className="flex overflow-hidden pb-20 flex-col lg:flex-row lg:justify-between gap-8 lg:gap-2 max-w-[1300] mx-auto mt-16 sm:mt-24 lg:mt-32 px-4 sm:px-6">
             <div className="w-full lg:w-1/2 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
                 <div className="content_title_border_new w-fit mb-1">
                     <div className="px-4 py-2 text-sm font-semibold content_title_text_new">
