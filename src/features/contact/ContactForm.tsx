@@ -10,7 +10,7 @@ const API_URL = "https://app.trackforce.io/api/PublicContact/submit";
 type Status = "idle" | "loading" | "success" | "error";
 
 const ContactForm = () => {
-  const [form, setForm] = useState({ name: "", email: "", companyName: "", phoneNumber: "", teamSize: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", companyName: "", phoneNumber: "", teamSize: "", country: "", message: "" });
   const [status, setStatus] = useState<Status>("idle");
   const [modal, setModal] = useState<{
     open: boolean;
@@ -39,7 +39,7 @@ const ContactForm = () => {
         body: JSON.stringify({
           name: form.name,
           email: form.email,
-          message: `${form.message}\n\nCompany: ${form.companyName}\nPhone: ${form.phoneNumber}\nTeam Size: ${form.teamSize}`,
+          message: `${form.message}\n\nCompany: ${form.companyName}\nPhone: ${form.phoneNumber}\nTeam Size: ${form.teamSize}\nCountry: ${form.country}`,
         }),
       });
 
@@ -47,7 +47,7 @@ const ContactForm = () => {
         throw new Error(`Request failed with status ${res.status}`);
       }
       setStatus("success");
-      setForm({ name: "", email: "", companyName: "", phoneNumber: "", teamSize: "", message: "" });
+      setForm({ name: "", email: "", companyName: "", phoneNumber: "", teamSize: "", country: "", message: "" });
       setModal({
         open: true,
         type: "success",
@@ -90,7 +90,7 @@ const ContactForm = () => {
           </div>
 
           <form className="space-y-6" onSubmit={handleSubmit}>
-            <div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <input
                 type="text"
                 name="name"
@@ -100,8 +100,6 @@ const ContactForm = () => {
                 placeholder="First Name"
                 className="w-full bg-transparent text-white placeholder-gray-400 pb-3 border-b border-gray-600 outline-none focus:border-blue-500 transition text-sm"
               />
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <input
                 type="email"
                 name="email"
@@ -109,6 +107,17 @@ const ContactForm = () => {
                 onChange={handleChange}
                 required
                 placeholder="Email"
+                className="w-full bg-transparent text-white placeholder-gray-400 pb-3 border-b border-gray-600 outline-none focus:border-blue-500 transition text-sm"
+              />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <input
+                type="tel"
+                name="phoneNumber"
+                value={form.phoneNumber}
+                onChange={handleChange}
+                required
+                placeholder="Phone Number"
                 className="w-full bg-transparent text-white placeholder-gray-400 pb-3 border-b border-gray-600 outline-none focus:border-blue-500 transition text-sm"
               />
               <input
@@ -122,15 +131,25 @@ const ContactForm = () => {
               />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <input
-                type="number"
-                name="phoneNumber"
-                value={form.phoneNumber}
+              <select
+                name="country"
+                value={form.country}
                 onChange={handleChange}
                 required
-                placeholder="Phone Number"
-                className="w-full bg-transparent text-white placeholder-gray-400 pb-3 border-b border-gray-600 outline-none focus:border-blue-500 transition text-sm"
-              />
+                className="w-full text-white bg-black placeholder-gray-400 pb-3 border-b border-gray-600 outline-none focus:border-blue-500 transition text-sm"
+              >
+                <option value="">Select Country</option>
+                <option value="us">United States</option>
+                <option value="ca">Canada</option>
+                <option value="in">India</option>
+                <option value="uk">United Kingdom</option>
+                <option value="au">Australia</option>
+                <option value="de">Germany</option>
+                <option value="fr">France</option>
+                <option value="jp">Japan</option>
+                <option value="cn">China</option>
+                <option value="br">Brazil</option>
+              </select>
               <select
                 name="teamSize"
                 value={form.teamSize}
