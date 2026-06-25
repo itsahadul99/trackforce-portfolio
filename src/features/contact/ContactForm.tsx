@@ -10,7 +10,7 @@ const API_URL = "https://app.trackforce.io/api/PublicContact/submit";
 type Status = "idle" | "loading" | "success" | "error";
 
 const ContactForm = () => {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", companyName: "", phoneNumber: "", teamSize: "", message: "" });
   const [status, setStatus] = useState<Status>("idle");
   const [modal, setModal] = useState<{
     open: boolean;
@@ -39,6 +39,9 @@ const ContactForm = () => {
         body: JSON.stringify({
           name: form.name,
           email: form.email,
+          companyName: form.companyName,
+          phoneNumber: form.phoneNumber,
+          teamSize: form.teamSize,
           message: form.message,
         }),
       });
@@ -47,7 +50,7 @@ const ContactForm = () => {
         throw new Error(`Request failed with status ${res.status}`);
       }
       setStatus("success");
-      setForm({ name: "", email: "", message: "" });
+      setForm({ name: "", email: "", companyName: "", phoneNumber: "", teamSize: "", message: "" });
       setModal({
         open: true,
         type: "success",
@@ -80,9 +83,14 @@ const ContactForm = () => {
         <div
           className="relative rounded-md p-8 w-full bg-[#0a0a0a] border-4 border-transparent transition-shadow  duration-300 group-hover:[background:linear-gradient(#0a0a0a,#0a0a0a)_padding-box,linear-gradient(90deg,#1B73E8_0%,#9F60EE_100%)_border-box] group-hover:shadow-[0_0_40px_rgba(168,85,247,0.45)]"
         >
-          <h3 className="text-white text-2xl font-semibold mb-8 text-center">
-            Contact form
-          </h3>
+          <div>
+            <h3 className="text-white text-2xl font-semibold mb-2 text-left">
+              Book Your Free Demo
+            </h3>
+            <p className="text-gray-400 text-sm mb-6 text-left">
+              Tell us about your team — we'll tailor the walkthrough.
+            </p>
+          </div>
 
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
@@ -92,11 +100,11 @@ const ContactForm = () => {
                 value={form.name}
                 onChange={handleChange}
                 required
-                placeholder="Name"
+                placeholder="First Name"
                 className="w-full bg-transparent text-white placeholder-gray-400 pb-3 border-b border-gray-600 outline-none focus:border-blue-500 transition text-sm"
               />
             </div>
-            <div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <input
                 type="email"
                 name="email"
@@ -106,6 +114,38 @@ const ContactForm = () => {
                 placeholder="Email"
                 className="w-full bg-transparent text-white placeholder-gray-400 pb-3 border-b border-gray-600 outline-none focus:border-blue-500 transition text-sm"
               />
+              <input
+                type="text"
+                name="companyName"
+                value={form.companyName}
+                onChange={handleChange}
+                required
+                placeholder="Company Name"
+                className="w-full bg-transparent text-white placeholder-gray-400 pb-3 border-b border-gray-600 outline-none focus:border-blue-500 transition text-sm"
+              />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <input
+                type="number"
+                name="phoneNumber"
+                value={form.phoneNumber}
+                onChange={handleChange}
+                required
+                placeholder="Phone Number"
+                className="w-full bg-transparent text-white placeholder-gray-400 pb-3 border-b border-gray-600 outline-none focus:border-blue-500 transition text-sm"
+              />
+              <select
+                name="teamSize"
+                value={form.teamSize}
+                onChange={handleChange}
+                required
+                className="w-full text-white bg-black placeholder-gray-400 pb-3 border-b border-gray-600 outline-none focus:border-blue-500 transition text-sm"
+              >
+                <option value="">Select Team Size</option>
+                <option value="1-10">1-10 employees</option>
+                <option value="11-50">11-50 employees</option>
+                <option value="51-200">51-200 employees</option>
+              </select>
             </div>
             <div>
               <textarea
@@ -123,9 +163,9 @@ const ContactForm = () => {
               type="submit"
               disabled={status === "loading"}
               className="w-full  text-white font-semibold py-4 rounded-md flex items-center justify-center gap-2 transition hover:scale-[1.02] hover:shadow-lg hover:shadow-purple-500/25 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
-              style={{background: "linear-gradient(90deg, #1B73E8 0%, #9F60EE 100%)"}}
+              style={{ background: "linear-gradient(90deg, #1B73E8 0%, #9F60EE 100%)" }}
             >
-              {status === "loading" ? "Sending..." : "Send Message"} <FaArrowRightLong />
+              {status === "loading" ? "Booking..." : "Book Free Demo"} <FaArrowRightLong />
             </button>
           </form>
         </div>

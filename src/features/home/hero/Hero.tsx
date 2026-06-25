@@ -1,12 +1,14 @@
 "use client";
+import StatusModal from "@/components/shared/StatusModal";
+import { Button } from "@/components/ui/button";
 import { motion, Transition } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { FiArrowRight } from "react-icons/fi";
+import { FaArrowRightLong } from "react-icons/fa6";
 import { TypeAnimation } from "react-type-animation";
 import video_bg from '../../../../public/video_bg.png';
-import StatusModal from "@/components/shared/StatusModal";
-
+import trackforce from "../../../../public/trackforce.png";
 const BOOK_DEMO_API_URL = "https://app.trackforce.io/api/PublicBookDemo/submit";
 
 type DemoStatus = "idle" | "loading" | "success" | "error";
@@ -153,26 +155,56 @@ const Hero = () => {
                     </div>
                     {/* book a demo */}
                     <div className="relative mt-8 w-full max-w-[480px] mx-auto lg:mx-0 lg:w-fit">
-                        <form onSubmit={handleBookDemo} className="demo-wrapper flex border rounded-[20px] border-[#1B73E8] overflow-hidden">
-                            <input
-                                type="text"
-                                name="demo"
-                                id="demo"
-                                value={demoMessage}
-                                onChange={(e) => setDemoMessage(e.target.value)}
-                                placeholder="Book a demo"
-                                className="demo-input pl-4 h-[62px] bg-[#FFFFFF12] text-[#626262] flex-1 min-w-0 outline-none border-none text-sm sm:text-lg"
-                            />
+                        <div className="flex flex-col sm:flex-row gap-3">
+                            <a href="https://app.trackforce.io/3/Professional/signup?trial=true" target="_blank" rel="noopener noreferrer" className="group custom-button relative w-fit text-white font-bold py-[14px] px-[22px] rounded-[16px] flex gap-3 justify-between items-center" style={{
+                                background: "linear-gradient(90deg, #1B73E8 0%, #9F60EE 100%)",
+                                boxShadow: "0 0 4px 0 rgba(255, 255, 255, 0.25), 0 4px 15.1px 0 rgba(0, 0, 0, 0.25)"
+                            }}>
+                                <span className='group-hover:italic '>Start Free Trial</span> <FaArrowRightLong className='group-hover:-rotate-[30deg] transition ease-in-out' />
+                                <motion.div
+                                    className="ml-2 absolute right-0"
+                                    animate={{
+                                        x: [0, -190, 0],
+                                        opacity: [0, 1, 0, 0, 1, 0],
+                                    }}
+                                    transition={{
+                                        duration: 7,
+                                        repeat: Infinity,
+                                        repeatType: 'loop',
+                                    }}
+                                >
+                                    <Image
+                                        src={trackforce}
+                                        alt="TrackForce Logo"
+                                        className="w-8 h-8 group-hover:hidden"
+                                    />
+                                </motion.div>
+                            </a>
+                            <Link href={'/contact'} className="group custom-button relative w-fit text-white font-bold py-[14px] px-[22px] rounded-[16px] flex gap-3 justify-between items-center" style={{
 
-                            <button
-                                type="submit"
-                                disabled={demoStatus === "loading"}
-                                className="book-demo bg-white shrink-0 cursor-pointer text-white font-medium text-lg disabled:opacity-60 disabled:cursor-not-allowed"
-                            >
-                                <span className="book-demo-text">{demoStatus === "loading" ? "Booking..." : "Book Demo"}</span>
-                                <FiArrowRight className="text-xl" />
-                            </button>
-                        </form>
+                                boxShadow: "0 0 4px 0 rgba(255, 255, 255, 0.25), 0 4px 15.1px 0 rgba(0, 0, 0, 0.25)"
+                            }}>
+                                <span className='group-hover:italic '>Book a Demo</span>
+                                <motion.div
+                                    className="ml-2 absolute right-0"
+                                    animate={{
+                                        x: [0, -190, 0],
+                                        opacity: [0, 1, 0, 0, 1, 0],
+                                    }}
+                                    transition={{
+                                        duration: 7,
+                                        repeat: Infinity,
+                                        repeatType: 'loop',
+                                    }}
+                                >
+                                    <Image
+                                        src={trackforce}
+                                        alt="TrackForce Logo"
+                                        className="w-8 h-8 group-hover:hidden"
+                                    />
+                                </motion.div>
+                            </Link>
+                        </div>
 
                         <div className="hidden sm:flex flex-wrap justify-center lg:justify-between gap-x-3 gap-y-1 text-[#ABABAB] mt-3 px-1 text-sm sm:text-base">
                             <span>Free 14-day trial</span>
@@ -411,7 +443,7 @@ const Hero = () => {
                 description={modal.description}
                 onClose={closeModal}
             />
-        </div>
+        </div >
 
     );
 };
