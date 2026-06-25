@@ -17,27 +17,25 @@ const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
         transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number], delay },
     },
 });
-const AboutMission = () => {
+type AboutMissionProps = { cms?: Record<string, string> }
+
+const AboutMission = ({ cms = {} }: AboutMissionProps) => {
     return (
         <div className='w-full lg:h-[80vh] flex flex-col lg:flex-row justify-between items-center gap-10 mt-8 lg:mt-0'>
             <div className="w-full lg:w-[50%]">
                 <div className="flex flex-col justify-center">
                     <div className="content_title_border_new w-fit mb-1 button">
                         <div className="px-4 py-2 text-sm font-semibold content_title_text_new">
-                            Mission
+                            {cms.mission_badge || "Mission"}
                         </div>
                     </div>
-                    <h3
-                        className={`text-2xl md:text-[32px] font-semibold leading-tight mb-4 text-black`}
-                    >
-                        Our Mission to Drive
-                        <span className="font-playball font-normal">Transparent</span><br />
-                        Performance
+                    <h3 className={`text-2xl md:text-[32px] font-semibold leading-tight mb-4 text-black`}>
+                        {cms.mission_heading ? cms.mission_heading : (
+                            <>Our Mission to Drive <span className="font-playball font-normal">Transparent</span><br />Performance</>
+                        )}
                     </h3>
-                    <p
-                        className={`text-base leading-relaxed mb-6 text-gray-600`}
-                    >
-                        We aim to redefine productivity by delivering intelligent monitoring and automation tools that enhance efficiency, transparency, and control. Through innovation and precision, we help businesses unlock the full potential of their workforce.
+                    <p className={`text-base leading-relaxed mb-6 text-gray-600`}>
+                        {cms.mission_description || "We aim to redefine productivity by delivering intelligent monitoring and automation tools that enhance efficiency, transparency, and control. Through innovation and precision, we help businesses unlock the full potential of their workforce."}
                     </p>
 
                     <div className="">
@@ -75,8 +73,9 @@ const AboutMission = () => {
                         viewport={{ once: false, amount: 0.1 }}
                     >
                         <Image
-                            src="/2025.png"
-                            alt="Case Study Hero"
+                            src={cms.mission_image1 || "/2025.png"}
+                            onError={(e) => { e.currentTarget.src = "/2025.png"; }}
+                            alt="Mission Image"
                             width={1200}
                             height={600}
                             quality={90}
@@ -93,8 +92,9 @@ const AboutMission = () => {
                         viewport={{ once: false, amount: 0.1 }}
                     >
                         <Image
-                            src={vision}
-                            alt="Case Study Hero"
+                            src={cms.mission_image2 || vision}
+                            onError={(e) => { e.currentTarget.src = vision.src; }}
+                            alt="Vision Image"
                             width={1200}
                             height={600}
                             quality={90}

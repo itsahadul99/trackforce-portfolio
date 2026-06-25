@@ -9,7 +9,9 @@ const API_URL = "https://app.trackforce.io/api/PublicContact/submit";
 
 type Status = "idle" | "loading" | "success" | "error";
 
-const ContactForm = () => {
+type ContactFormProps = { cms?: Record<string, string> }
+
+const ContactForm = ({ cms = {} }: ContactFormProps) => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState<Status>("idle");
   const [modal, setModal] = useState<{
@@ -52,8 +54,7 @@ const ContactForm = () => {
         open: true,
         type: "success",
         title: "Message Sent!",
-        description:
-          "Thank you for reaching out. Our team will get back to you shortly.",
+        description: cms.success_msg || "Thank you for reaching out. Our team will get back to you shortly.",
       });
     } catch {
       setStatus("error");
@@ -81,8 +82,11 @@ const ContactForm = () => {
           className="relative rounded-md p-8 w-full bg-[#0a0a0a] border-4 border-transparent transition-shadow  duration-300 group-hover:[background:linear-gradient(#0a0a0a,#0a0a0a)_padding-box,linear-gradient(90deg,#1B73E8_0%,#9F60EE_100%)_border-box] group-hover:shadow-[0_0_40px_rgba(168,85,247,0.45)]"
         >
           <h3 className="text-white text-2xl font-semibold mb-8 text-center">
-            Contact form
+            {cms.heading || "Contact form"}
           </h3>
+          {cms.subheading && (
+            <p className="text-gray-400 text-sm text-center mb-6">{cms.subheading}</p>
+          )}
 
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
@@ -92,7 +96,7 @@ const ContactForm = () => {
                 value={form.name}
                 onChange={handleChange}
                 required
-                placeholder="Name"
+                placeholder={cms.name_label || "Name"}
                 className="w-full bg-transparent text-white placeholder-gray-400 pb-3 border-b border-gray-600 outline-none focus:border-blue-500 transition text-sm"
               />
             </div>
@@ -103,7 +107,7 @@ const ContactForm = () => {
                 value={form.email}
                 onChange={handleChange}
                 required
-                placeholder="Email"
+                placeholder={cms.email_label || "Email"}
                 className="w-full bg-transparent text-white placeholder-gray-400 pb-3 border-b border-gray-600 outline-none focus:border-blue-500 transition text-sm"
               />
             </div>
@@ -113,7 +117,7 @@ const ContactForm = () => {
                 value={form.message}
                 onChange={handleChange}
                 required
-                placeholder="Message"
+                placeholder={cms.message_label || "Message"}
                 rows={4}
                 className="w-full bg-transparent text-white placeholder-gray-400 pb-3 border-b border-gray-600 outline-none focus:border-blue-500 transition resize-none text-sm"
               />
@@ -125,7 +129,7 @@ const ContactForm = () => {
               className="w-full  text-white font-semibold py-4 rounded-md flex items-center justify-center gap-2 transition hover:scale-[1.02] hover:shadow-lg hover:shadow-purple-500/25 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
               style={{background: "linear-gradient(90deg, #1B73E8 0%, #9F60EE 100%)"}}
             >
-              {status === "loading" ? "Sending..." : "Send Message"} <FaArrowRightLong />
+              {status === "loading" ? "Sending..." : (cms.submit_text || "Send Message")} <FaArrowRightLong />
             </button>
           </form>
         </div>

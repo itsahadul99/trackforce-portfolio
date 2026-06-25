@@ -1,7 +1,13 @@
 "use client";
-const FeatureHero = () => {
+
+type FeatureHeroProps = { cms?: Record<string, string> }
+
+const FeatureHero = ({ cms = {} }: FeatureHeroProps) => {
     return (
-        <section className="relative overflow-hidden bg-[#0a0a1a] pt-32 pb-20 bg-[url('/PortfolioHeroBg.png')] bg-cover bg-center">
+        <section
+            className="relative overflow-hidden bg-[#0a0a1a] pt-32 pb-20 bg-cover bg-center bg-[url('/PortfolioHeroBg.png')]"
+            style={cms.bg_image ? { backgroundImage: `url(${cms.bg_image}), url('/PortfolioHeroBg.png')` } : undefined}
+        >
             {/* Background glow effects */}
             <div className="absolute inset-0">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-blue-600/20 rounded-full blur-[120px]" />
@@ -10,13 +16,11 @@ const FeatureHero = () => {
             </div>
             <div className="relative z-10 text-center text-white max-w-[1300] mx-auto">
                 <h1 className="text-[42px] font-semibold leading-tight">
-                   Complete Solutions for Productive 
+                   {cms.heading || "Complete Solutions for Productive Workforce Management"}
                 </h1>
 
                 <div className="relative inline-block">
                     <h2 className="text-[42px] font-semibold leading-tight">
-                        Workforce Management{" "}
-                        {/* <span className="font-playball font-normal">Results</span> */}
                     </h2>
                     {/* spark animation */}
                     {/* <div className="absolute -right-9 -top-2 rotate-120" >
@@ -70,7 +74,7 @@ const FeatureHero = () => {
                     </div> */}
                 </div>
                 <p className="text-gray-300 text-base mt-6 max-w-2xl mx-auto leading-relaxed">
-                 TrackForce provides transparent employee monitoring tools that strengthen collaboration and enhance performance without disrupting daily workflow.
+                 {cms.description || "TrackForce provides transparent employee monitoring tools that strengthen collaboration and enhance performance without disrupting daily workflow."}
                 </p>
             </div>
         </section>

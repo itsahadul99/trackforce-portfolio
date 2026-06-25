@@ -3,7 +3,14 @@ import ProductivityDashboard from './ProductivityDashboard';
 import WorkForceMonitoring from './WorkForceMonitoring';
 import './howTrackforceworks.css';
 
-const HowTrackforceWorks = () => {
+type HowTrackforceWorksProps = {
+    cms?: {
+        productivity_dashboard?: Record<string, string>
+        workforce_monitoring?: Record<string, string>
+    }
+}
+
+const HowTrackforceWorks = ({ cms = {} }: HowTrackforceWorksProps) => {
     return (
         
         // <section className="max-w-[1300] mx-auto  px-[93px] py-[96px] mt-32 bg-cover bg-center bg-no-repeat bg-[url('/worksBg.png')]">
@@ -22,8 +29,8 @@ const HowTrackforceWorks = () => {
                     transparent monitoring that respects productivity and privacy.
                 </p>
             </div>
-            <ProductivityDashboard />
-            <WorkForceMonitoring />
+            <ProductivityDashboard cms={cms.productivity_dashboard ?? {}} />
+            <WorkForceMonitoring cms={cms.workforce_monitoring ?? {}} />
         </section>
     );
 };

@@ -1,7 +1,13 @@
 "use client";
-const AboutHero = () => {
+
+type AboutHeroProps = { cms?: Record<string, string> }
+
+const AboutHero = ({ cms = {} }: AboutHeroProps) => {
     return (
-        <section className="relative overflow-hidden bg-[#0a0a1a] pt-32 pb-20 bg-[url('/ContactHeroBg.png')] bg-cover bg-center">
+        <section
+            className="relative overflow-hidden bg-[#0a0a1a] pt-32 pb-20 bg-cover bg-center bg-[url('/ContactHeroBg.png')]"
+            style={cms.bg_image ? { backgroundImage: `url(${cms.bg_image}), url('/ContactHeroBg.png')` } : undefined}
+        >
             {/* Background glow effects */}
             <div className="absolute inset-0">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-blue-600/20 rounded-full blur-[120px]" />
@@ -10,12 +16,11 @@ const AboutHero = () => {
             </div>
             <div className="relative z-10 text-center text-white max-w-[1300] mx-auto px-4">
                 <h1 className="text-2xl md:text-[42px] font-semibold leading-tight">
-                    Building Technology that   <span className="font-playball font-normal">Empowers</span>
+                    {cms.heading || <>Building Technology that <span className="font-playball font-normal">Empowers</span> Businesses</>}
                 </h1>
 
                 <div className="relative inline-block">
                     <h2 className="text-3xl md:text-[42px] font-semibold leading-tight">
-                        Businesses
                     </h2>
                     {/* spark animation */}
                     {/* <div className="absolute -right-9 -top-2 rotate-120" >
@@ -69,7 +74,7 @@ const AboutHero = () => {
                     </div> */}
                 </div>
                 <p className="text-gray-300 mt-6 max-w-2xl mx-auto leading-relaxed text-base md:text-lg px-2 md:px-0">
-                    From employee monitoring to enterprise automation, we design intelligent business solutions that simplify operations, strengthen accountability, and help organizations achieve efficiency through real-time visibility and control.
+                    {cms.description || "From employee monitoring to enterprise automation, we design intelligent business solutions that simplify operations, strengthen accountability, and help organizations achieve efficiency through real-time visibility and control."}
                 </p>
             </div>
         </section>

@@ -1,7 +1,8 @@
-import { Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 
-const ContactCards = () => {
+type ContactCardsProps = { cms?: Record<string, string> }
+
+const ContactCards = ({ cms = {} }: ContactCardsProps) => {
   return (
     <section className="py-16">
       <div className="max-w-[1300] mx-auto">
@@ -20,13 +21,13 @@ const ContactCards = () => {
             </div>
             <h3 className="font-bold text-xl text-gray-900 my-3">Call us</h3>
             <p className="text-sm text-gray-600 my-3">
-              Sun-Thu from 9am to 6pm.
+              {cms.hours || "Sun-Thu from 9am to 6pm."}
             </p>
             <a
-              href="tel:+8801581501131"
+              href={`tel:${cms.phone || "+8801581501131"}`}
               className="text-sm font-semibold text-gray-900 underline"
             >
-              +88 01581-501131
+              {cms.phone || "+88 01581-501131"}
             </a>
           </div>
 
@@ -49,10 +50,10 @@ const ContactCards = () => {
               We&apos;re here to help.
             </p>
             <a
-              href="mailto:support@trackforce.io"
+              href={`mailto:${cms.email || "support@trackforce.io"}`}
               className="text-sm font-semibold text-gray-900 underline"
             >
-              support@trackforce.io
+              {cms.email || "support@trackforce.io"}
             </a>
           </div>
 
@@ -72,9 +73,7 @@ const ContactCards = () => {
               Bangladesh office
             </h3>
             <p className="text-sm text-gray-600">
-              6/2 Kazi Nazrul Islam Rd,
-              <br />
-              Dhaka, Bangladesh
+              {cms.address || "6/2 Kazi Nazrul Islam Rd, Dhaka, Bangladesh"}
             </p>
           </div>
 

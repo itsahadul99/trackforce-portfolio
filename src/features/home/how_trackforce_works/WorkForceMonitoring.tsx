@@ -21,22 +21,21 @@ const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
     },
 });
 
-const WorkForceMonitoring = () => {
+type WorkForceMonitoringProps = { cms?: Record<string, string> }
+
+const WorkForceMonitoring = ({ cms = {} }: WorkForceMonitoringProps) => {
     const features = [
         {
-            title: "App Tracking",
-            description:
-                "Understand how work hours are spent across tools and applications.",
+            title: cms.feature1_title || "App Tracking",
+            description: cms.feature1_desc || "Understand how work hours are spent across tools and applications.",
         },
         {
-            title: "Website Insights",
-            description:
-                "See which websites support productive work and which create distractions across your team.",
+            title: cms.feature2_title || "Website Insights",
+            description: cms.feature2_desc || "See which websites support productive work and which create distractions across your team.",
         },
         {
-            title: "Workflow Visibility",
-            description:
-                "Get a clear view of how tasks move through your team so you can spot bottlenecks early.",
+            title: cms.feature3_title || "Workflow Visibility",
+            description: cms.feature3_desc || "Get a clear view of how tasks move through your team so you can spot bottlenecks early.",
         },
     ];
     return (
@@ -80,15 +79,14 @@ const WorkForceMonitoring = () => {
             <div className="w-full lg:w-1/2">
                 <div className="section_title_border w-fit text-[#0C59C0] rounded-full mb-6">
                     <div className="how_trackforce_works px-4 py-2 text-sm font-semibold">
-                        WorkForce Monitoring
+                        {cms.badge || "WorkForce Monitoring"}
                     </div>
                 </div>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 lg:mb-8 leading-tight">
-                    All-in-One Workforce Monitoring Platform
+                    {cms.heading || "All-in-One Workforce Monitoring Platform"}
                 </h2>
                 <p className="text-sm sm:text-base lg:text-lg mb-6 lg:mb-8">
-                    Monitor teams, optimize performance, and maintain compliance — all from
-                    a single platform built for modern workplaces.
+                    {cms.description || "Monitor teams, optimize performance, and maintain compliance — all from a single platform built for modern workplaces."}
                 </p>
 
                 <FeaturesListMore

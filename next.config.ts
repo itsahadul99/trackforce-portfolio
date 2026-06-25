@@ -54,6 +54,27 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "images.unsplash.com",
       },
+      // Admin panel uploaded images (local dev)
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "3001",
+        pathname: "/uploads/**",
+      },
+      // Admin panel uploaded images (production — set ADMIN_BASE_URL hostname here)
+      ...(process.env.ADMIN_BASE_URL
+        ? (() => {
+            try {
+              const u = new URL(process.env.ADMIN_BASE_URL);
+              return [{
+                protocol: u.protocol.replace(":", "") as "http" | "https",
+                hostname: u.hostname,
+                ...(u.port ? { port: u.port } : {}),
+                pathname: "/uploads/**",
+              }];
+            } catch { return []; }
+          })()
+        : []),
     ],
   },
   // Tree-shake large icon barrels so only the icons actually used are bundled.

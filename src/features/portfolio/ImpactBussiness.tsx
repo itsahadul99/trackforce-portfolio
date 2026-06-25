@@ -213,23 +213,25 @@ import enable from '../../../public/portfolio/enable.png'
 import Link from 'next/link';
 const trackforce = '/trackforce.png'
 
-const ImpactBusiness = () => {
+type ImpactBusinessProps = { cms?: Record<string, string> }
+
+const ImpactBusiness = ({ cms = {} }: ImpactBusinessProps) => {
     return (
-        <section className="py-20 px-4 bg-[url('/bussinessImpactBg.png')] bg-cover bg-center">
+        <section className="py-20 px-4 bg-cover bg-center"
+            style={{ backgroundImage: cms.bg_image ? `url(${cms.bg_image}), url('/bussinessImpactBg.png')` : `url('/bussinessImpactBg.png')` }}>
             <div className="max-w-[1300]  mx-auto">
                 {/* Header Section */}
                 <div className="text-center mb-16">
                     <div className="section_title_border w-fit mx-auto text-black rounded-full mb-6">
                         <div className="how_trackforce_works px-4 py-2 text-sm font-semibold">
-                            Impact on Bussiness
+                            {cms.badge || "Impact on Business"}
                         </div>
                     </div>
                     <h2 className="text-[42px] text-white font-semibold leading-tight">
-                        The Business {" "}
-                        <span className="font-playball font-normal">Impact</span>
+                        {cms.heading || <>The Business{" "}<span className="font-playball font-normal">Impact</span></>}
                     </h2>
                     <p className="text-white text-lg">
-                        Organizations using TrackForce can:
+                        {cms.description || "Organizations using TrackForce can:"}
                     </p>
                 </div>
 
@@ -245,7 +247,7 @@ const ImpactBusiness = () => {
                             <p className="text-base font-normal  z-10 relative">
                                 Maintain transparency across teams, align individual efforts with goals, and build trust using data-backed visibility.
                             </p>
-                            <Image src={reduceReporting} width={400} height={300} quality={90} alt="Reporting" className="absolute -bottom-1 -right-4 transition-transform duration-500 group-hover:-translate-y-1" />
+                            <Image src={cms.image1 || reduceReporting} width={400} height={300} quality={90} alt="Reporting" className="absolute -bottom-1 -right-4 transition-transform duration-500 group-hover:-translate-y-1" onError={(e) => { e.currentTarget.src = reduceReporting.src; }} />
                         </div>
 
                         {/* Card 2 */}
@@ -254,7 +256,7 @@ const ImpactBusiness = () => {
                             <p className="max-w-[40%] text-base font-normal  z-10 relative">
                                 Track real work activity in real time, focus on output not screen time, and turn daily actions into clear performance insights.
                             </p>
-                            <Image src={accountability} width={400} height={300} quality={90} alt="Accountability" className="w-[220] absolute -bottom-20 right-0 transition-transform duration-500 group-hover:-translate-y-1" />
+                            <Image src={cms.image2 || accountability} width={400} height={300} quality={90} alt="Accountability" className="w-[220] absolute -bottom-20 right-0 transition-transform duration-500 group-hover:-translate-y-1" onError={(e) => { e.currentTarget.src = accountability.src; }} />
                         </div>
 
                         {/* Card 3 */}
@@ -263,7 +265,7 @@ const ImpactBusiness = () => {
                             <p className="text-base font-normal  z-10 relative">
                                 Maintain transparency across teams, align individual efforts with goals, and build trust using data-backed visibility.
                             </p>
-                            <Image src={strength} width={600} height={550} quality={90} alt="Compliance" className="w-[350] absolute -bottom-16 -left-1 object-contain transition-transform duration-500 group-hover:translate-x-1" />
+                            <Image src={cms.image3 || strength} width={600} height={550} quality={90} alt="Compliance" className="w-[350] absolute -bottom-16 -left-1 object-contain transition-transform duration-500 group-hover:translate-x-1" onError={(e) => { e.currentTarget.src = strength.src; }} />
                         </div>
                     </div>
 
@@ -278,7 +280,7 @@ const ImpactBusiness = () => {
                             </div>
                         </div>
 
-                        <Image src={productivity} width={1200} height={800} quality={90} alt="Productivity" className="max-w-[800] max-h-[220px] absolute object-fill top-1/2 right-5 -translate-y-1/2 transition-transform duration-700 group-hover:scale-101" />
+                        <Image src={cms.image4 || productivity} width={1200} height={800} quality={90} alt="Productivity" className="max-w-[800] max-h-[220px] absolute object-fill top-1/2 right-5 -translate-y-1/2 transition-transform duration-700 group-hover:scale-101" onError={(e) => { e.currentTarget.src = productivity.src; }} />
 
                     </div>
 
@@ -290,7 +292,7 @@ const ImpactBusiness = () => {
                             <p className="w-60 text-base font-normal ">
                                 Monitor sensitive activity, detect risks early, and protect company data without invading employee privacy.
                             </p>
-                            <Image src={improveWorkforce} width={1200} height={800} quality={90} alt="Transparency" className="max-w-[300px] max-h-[220px] object-fill absolute -bottom-14 right-0 transition-transform duration-500 group-hover:-translate-y-1" />
+                            <Image src={cms.image5 || improveWorkforce} width={1200} height={800} quality={90} alt="Transparency" className="max-w-[300px] max-h-[220px] object-fill absolute -bottom-14 right-0 transition-transform duration-500 group-hover:-translate-y-1" onError={(e) => { e.currentTarget.src = improveWorkforce.src; }} />
                         </div>
 
                         {/* Card 6 */}
@@ -299,7 +301,7 @@ const ImpactBusiness = () => {
                             <p className="text-base font-normal  w-3/4">
                                 Monitor sensitive activity, detect risks early, and protect company data without invading employee privacy.
                             </p>
-                            <Image src={enable} width={1200} height={800} quality={90} alt="Leadership" className="max-w-[600] absolute object-fill max-h-[220px] -bottom-8 left-1/2 -translate-x-1/2 transition-transform duration-500 group-hover:-translate-y-1" />
+                            <Image src={cms.image6 || enable} width={1200} height={800} quality={90} alt="Leadership" className="max-w-[600] absolute object-fill max-h-[220px] -bottom-8 left-1/2 -translate-x-1/2 transition-transform duration-500 group-hover:-translate-y-1" onError={(e) => { e.currentTarget.src = enable.src; }} />
                         </div>
                     </div>
                 </div>

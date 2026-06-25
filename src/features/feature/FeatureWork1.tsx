@@ -31,9 +31,10 @@ type Props = {
     bgColor?: string;
     title?: string;
     subTitle?: string;
+    cms?: Record<string, string>;
 }
 
-const FeatureWork1 = ({ title, subTitle, height = '400px', features, txtColor='text-black' }: Props) => {
+const FeatureWork1 = ({ title, subTitle, height = '400px', features, txtColor = 'text-black', cms = {} }: Props) => {
     return (
         <div className="mt-28 text-white flex flex-col lg:flex-row gap-3 items-center justify-between">
             <div className='w-full lg:w-1/2 relative h-[520px]'>
@@ -45,7 +46,7 @@ const FeatureWork1 = ({ title, subTitle, height = '400px', features, txtColor='t
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={billing} alt="Billing" className="w-full" width={1600} height={1000} quality={90} />
+                    <Image src={cms.image1 || billing} onError={(e) => { e.currentTarget.src = billing.src; }} alt="Billing" className="w-full" width={1600} height={1000} quality={90} />
                 </motion.div>
 
                 {/* Sidebar - top right, slides from center */}
@@ -56,7 +57,7 @@ const FeatureWork1 = ({ title, subTitle, height = '400px', features, txtColor='t
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={topSidebar} alt="Sidebar" className="w-full" width={1600} height={1200} quality={90} />
+                    <Image src={cms.image2 || topSidebar} onError={(e) => { e.currentTarget.src = topSidebar.src; }} alt="Sidebar" className="w-full" width={1600} height={1200} quality={90} />
                 </motion.div>
 
                 {/* Employee List - bottom left, slides from center */}
@@ -67,7 +68,7 @@ const FeatureWork1 = ({ title, subTitle, height = '400px', features, txtColor='t
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={invoice} alt="Activity Logs" className="w-full" width={1600} height={1200} quality={90} />
+                    <Image src={cms.image3 || invoice} onError={(e) => { e.currentTarget.src = invoice.src; }} alt="Activity Logs" className="w-full" width={1600} height={1200} quality={90} />
                 </motion.div>
 
 

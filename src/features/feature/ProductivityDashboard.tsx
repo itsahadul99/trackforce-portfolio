@@ -22,7 +22,9 @@ const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
     },
 });
 
-const ProductivityDashboard = () => {
+type ProductivityDashboardProps = { cms?: Record<string, string> }
+
+const ProductivityDashboard = ({ cms = {} }: ProductivityDashboardProps) => {
     const features = [
         {
             title: "Live Tracking",
@@ -112,7 +114,7 @@ const ProductivityDashboard = () => {
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={dashboardOverview} alt="Productivity Dashboard" quality={90} className="w-full" />
+                    <Image src={cms.image1 || dashboardOverview} onError={(e) => { e.currentTarget.src = dashboardOverview.src; }} alt="Productivity Dashboard" quality={90} className="w-full" width={1600} height={1000} />
                 </motion.div>
 
                 {/* Employees - top right, slides from center */}
@@ -123,7 +125,7 @@ const ProductivityDashboard = () => {
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={topEmployees} alt="Employees" quality={90} className="w-full" />
+                    <Image src={cms.image2 || topEmployees} onError={(e) => { e.currentTarget.src = topEmployees.src; }} alt="Employees" quality={90} className="w-full" width={1600} height={1200} />
                 </motion.div>
 
                 {/* Activity Logs - bottom left, slides from center */}
@@ -134,7 +136,7 @@ const ProductivityDashboard = () => {
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={projectProgress} alt="Activity Logs" quality={90} className="w-full" />
+                    <Image src={cms.image3 || projectProgress} onError={(e) => { e.currentTarget.src = projectProgress.src; }} alt="Activity Logs" quality={90} className="w-full" width={1600} height={1200} />
                 </motion.div>
 
                 {/* Search Logs - bottom right, slides from center */}
@@ -145,7 +147,7 @@ const ProductivityDashboard = () => {
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={taskProgress} alt="Search Logs" quality={90} className="w-full" />
+                    <Image src={cms.image4 || taskProgress} onError={(e) => { e.currentTarget.src = taskProgress.src; }} alt="Search Logs" quality={90} className="w-full" width={1600} height={1200} />
                 </motion.div>
             </div>
         </div>

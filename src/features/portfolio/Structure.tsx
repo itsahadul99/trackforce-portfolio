@@ -243,10 +243,13 @@ const Card = ({
     );
 };
 
-const Structure = () => {
+type StructureProps = { cms?: Record<string, string> }
+
+const Structure = ({ cms = {} }: StructureProps) => {
     return (
         <section className="w-full py-12 px-4">
-            <div className="max-w-[1300] bg-[url('/buildForBg.png')] mx-auto relative overflow-hidden bg-[#E9F3FF] rounded-[40px] border border-white/40 p-8 md:p-16 min-h-[600px] flex flex-col lg:flex-row items-center gap-12">
+            <div className="max-w-[1300] mx-auto relative overflow-hidden bg-[#E9F3FF] rounded-[40px] border border-white/40 p-8 md:p-16 min-h-[600px] flex flex-col lg:flex-row items-center gap-12"
+                style={{ backgroundImage: cms.bg_image ? `url(${cms.bg_image}), url('/buildForBg.png')` : `url('/buildForBg.png')` }}>
 
                 {/* Background */}
                 <div className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] bg-blue-400/20 blur-[120px] rounded-full" />
@@ -261,12 +264,11 @@ const Structure = () => {
                     className="w-full lg:w-2/5 flex flex-col justify-center items-start px-2 md:px-8"
                 >
                     <h2 className="text-[42px] font-semibold mb-2 text-black">
-                        Built for Enterprise Structure
+                        {cms.heading || "Built for Enterprise Structure"}
                     </h2>
 
                     <p className="text-gray-600 text-base mb-6 max-w-lg mt-6">
-                        Hierarchy-Based Access Control, <br />
-                        TrackForce ensures secure, structured access:
+                        {cms.description || <>Hierarchy-Based Access Control, <br />TrackForce ensures secure, structured access:</>}
                     </p>
 
                     <div className="">

@@ -11,7 +11,9 @@ const BOOK_DEMO_API_URL = "https://app.trackforce.io/api/PublicBookDemo/submit";
 
 type DemoStatus = "idle" | "loading" | "success" | "error";
 
-const Hero = () => {
+type HeroProps = { cms?: Record<string, string> }
+
+const Hero = ({ cms = {} }: HeroProps) => {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const [isFullscreen, setIsFullscreen] = useState(false);
@@ -112,7 +114,10 @@ const Hero = () => {
     const path = "M1.37062 48.9656C18.3278 26.677 58.5996 25.7684 74.2747 26.7115";
 
     return (
-        <div className="overflow-hidden bg-cover bg-center bg-no-repeat bg-[url('/HeroBg.png')]">
+        <div
+            className="overflow-hidden bg-cover bg-center bg-no-repeat bg-[url('/HeroBg.png')]"
+            style={cms.bg_image ? { backgroundImage: `url(${cms.bg_image}), url('/HeroBg.png')` } : undefined}
+        >
             <div className="max-w-[1300] mx-auto px-4 sm:px-6 lg:px-4 pt-20 lg:pt-0 pb-16 lg:pb-0 flex flex-col lg:flex-row lg:justify-between items-center gap-12 lg:gap-0 min-h-screen lg:h-full">
                 <div className="w-full lg:w-1/2 space-y-4 text-center lg:text-left">
                     {/* Top Badge */}
@@ -123,12 +128,11 @@ const Hero = () => {
                     {/* Main headline */}
                     <div >
                         <h1 className="space-y-2 sm:space-y-3 text-white text-3xl sm:text-4xl md:text-[42px] lg:text-[42px] font-semibold leading-tight">
-                            <p> Employeee Activity Tracking</p>
-                            {/* <p>   That Shows <span className="real_work">Real Work,</span></p> */}
+                            <p> {cms.heading_line1 || "Employeee Activity Tracking"}</p>
                             <p>   That Shows{" "}
                                 <TypeAnimation
                                     sequence={[
-                                        "Real Work,",
+                                        cms.heading_line2 || "Real Work,",
                                         3000,
                                         "",
                                         500,
@@ -139,17 +143,19 @@ const Hero = () => {
                                     className="font-playball font-normal"
                                 />
                             </p>
-                            <p>   Not Just Screen Time</p>
+                            <p>   {cms.heading_line3 || "Not Just Screen Time"}</p>
                         </h1>
                     </div>
                     {/* Subtitle / description */}
                     <div className="text-sm sm:text-base lg:text-[18px] text-[#ABABAB] mt-5">
-                        <p>
-                            TrackTrackForce gives you real-time visibility into team productivity,
-                        </p>
-                        <p>
-                            activity patterns, and performance — no guesswork, no blind spots.
-                        </p>
+                        {cms.subheading ? (
+                            <p>{cms.subheading}</p>
+                        ) : (
+                            <>
+                                <p>TrackTrackForce gives you real-time visibility into team productivity,</p>
+                                <p>activity patterns, and performance — no guesswork, no blind spots.</p>
+                            </>
+                        )}
                     </div>
                     {/* book a demo */}
                     <div className="relative mt-8 w-full max-w-[480px] mx-auto lg:mx-0 lg:w-fit">
@@ -245,7 +251,7 @@ const Hero = () => {
                             src="/trackforce_video.mp4"
                             controls
                             preload="none"
-                            poster="/thumbnail.png"
+                            poster={cms.video_thumbnail || "/thumbnail.png"}
                             playsInline
                             onClick={handleVideoClick}
                             onPlay={() => setIsPlaying(true)}

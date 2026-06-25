@@ -1,4 +1,5 @@
 import Feature from '@/features/feature/Feature'
+import { getPageContent } from '@/lib/cms'
 import { buildMetadata, buildBreadcrumbJsonLd } from '@/lib/seo'
 
 export const metadata = buildMetadata({
@@ -13,14 +14,16 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Features", path: "/feature" },
 ])
 
-export default function FeaturePage() {
+export default async function FeaturePage() {
+  const cms = await getPageContent('features')
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <Feature />
+      <Feature cms={cms} />
     </>
   )
 }

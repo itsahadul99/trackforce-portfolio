@@ -12,22 +12,24 @@ import Designed from './Designed'
 import ImpactBussiness from './ImpactBussiness'
 import HomeFreeTailer from '../home/home_free_trailer/HomeFreeTailer'
 
-const Portfolio = () => {
+type PortfolioProps = { cms?: Record<string, Record<string, string>> }
+
+const Portfolio = ({ cms = {} }: PortfolioProps) => {
     return (
         <div>
-            <PortfolioHero />
-            <Solution />
-            <ProductivityInsights />
-            <RealTime />
-            <Enterprise />
-            <Decisions />
-            <Intellengence />
-            <Configure />
-            <Structure />
-            <Designed />
-            <ImpactBussiness />
+            <PortfolioHero cms={cms.hero ?? {}} />
+            <Solution cms={cms.solution ?? {}} />
+            <ProductivityInsights cms={cms.productivity_insights ?? {}} />
+            <RealTime cms={cms.real_time ?? {}} />
+            <Enterprise cms={cms.enterprise ?? {}} />
+            <Decisions cms={cms.decisions ?? {}} />
+            <Intellengence cms={cms.intelligence ?? {}} />
+            <Configure cms={cms.configure ?? {}} />
+            <Structure cms={cms.structure ?? {}} />
+            <Designed cms={cms.designed ?? {}} />
+            <ImpactBussiness cms={cms.impact ?? {}} />
             <div className='my-28 px-4'>
-                <HomeFreeTailer />
+                <HomeFreeTailer cms={cms.free_trailer ?? {}} />
             </div>
         </div>
     )

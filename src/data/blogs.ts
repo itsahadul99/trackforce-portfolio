@@ -354,3 +354,75 @@ export const getSimilarBlogs = (
     limit: number = 3
 ): BlogPost[] =>
     blogs.filter((b) => b.slug !== currentSlug).slice(0, limit);
+
+// ─── CMS-aware async helpers ───────────────────────────────────────────────
+// These try the admin panel first and fall back to local hardcoded data.
+
+import type { CmsBlogPost } from "@/lib/cms";
+
+function cmsPostToLocal(post: CmsBlogPost, index: number): BlogPost {
+    let content: ContentBlock[];
+    try {
+        const parsed = JSON.parse(post.content);
+        if (Array.isArray(parsed)) {
+            content = parsed as ContentBlock[];
+        } else {
+            content = [{ type: "p", text: post.content }];
+        }
+    } catch {
+        content = post.content
+            ? post.content.split("\n\n").filter(Boolean).map((t) => ({ type: "p" as const, text: t }))
+            : [{ type: "p", text: post.excerpt }];
+    }
+
+    const words = post.title.split(" ");
+    const midpoint = Math.ceil(words.length / 2);
+
+    return {
+        id: index + 1000,
+        slug: post.slug,
+        image: post.image || "/post-1.png",
+        tag: post.tag,
+        title: post.title,
+        excerpt: post.excerpt,
+        date: post.date,
+        author: post.author,
+        hero: {
+            titleTop: words.slice(0, midpoint).join(" "),
+            titleItalic: words.slice(midpoint).join(" "),
+        },
+        content,
+    };
+}
+
+export async function getAllBlogPosts(): Promise<BlogPost[]> {
+    try {
+        const { getBlogPosts } = await import("@/lib/cms");
+        const cmsPosts = await getBlogPosts();
+        if (cmsPosts && cmsPosts.length > 0) {
+            return cmsPosts.map(cmsPostToLocal);
+        }
+    } catch {
+        // fall through to local
+    }
+    return blogs;
+}
+
+export async function getBlogPostBySlug(slug: string): Promise<BlogPost | undefined> {
+    try {
+        const { getBlogPost } = await import("@/lib/cms");
+        const cmsPost = await getBlogPost(slug);
+        if (cmsPost) return cmsPostToLocal(cmsPost, 0);
+    } catch {
+        // fall through to local
+    }
+    return getBlogBySlug(slug);
+}
+
+export async function getSimilarBlogsAsync(
+    currentSlug: string,
+    limit: number = 3
+): Promise<BlogPost[]> {
+    const all = await getAllBlogPosts();
+    return all.filter((b) => b.slug !== currentSlug).slice(0, limit);
+}

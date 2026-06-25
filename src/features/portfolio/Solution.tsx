@@ -2,7 +2,9 @@
 import BookDemoBtn from "@/components/shared/BookDemoBtn";
 import Image from "next/image";
 import { useState } from "react";
-const Solution = () => {
+type SolutionProps = { cms?: Record<string, string> }
+
+const Solution = ({ cms = {} }: SolutionProps) => {
     const [activeTab, setActiveTab] = useState("Remote");
 
     const tabs = ["Remote", "Distributed", "Hybrid"];
@@ -51,22 +53,22 @@ const Solution = () => {
     ];
 
     return (
-        <div className="max-w-[1300] mx-auto bg-[#D6E8FF] rounded-2xl my-24 py-20 md:py-24 px-4 md:px-10 lg:px-16 bg-[url('/contactbg.png')] bg-no-repeat bg-cover">
+        <div className="max-w-[1300] mx-auto bg-[#D6E8FF] rounded-2xl my-24 py-20 md:py-24 px-4 md:px-10 lg:px-16 bg-no-repeat bg-cover"
+            style={{ backgroundImage: cms.bg_image ? `url(${cms.bg_image}), url('/contactbg.png')` : `url('/contactbg.png')` }}>
 
             {/* Header */}
             <div className="w-full flex flex-col justify-center items-start text-center">
                 <div className="w-full flex justify-center">
                     <div className="content_title_border_new w-fit  mb-1">
                         <div className="px-4 py-2 text-sm font-semibold content_title_text_new">
-                            All in One Solution
+                            {cms.badge || "All in One Solution"}
                         </div>
                     </div>
                 </div>
 
                 <div className="w-full flex justify-center">
                     <h2 className="text-center text-[42px] font-semibold mb-2 text-black">
-                        The Modern Workforce{" "}
-                        <span className="font-playball font-normal">Problem</span>
+                        {cms.heading || <>The Modern Workforce{" "}<span className="font-playball font-normal">Problem</span></>}
                     </h2>
                 </div>
             </div>

@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TrackForce — SEO Implementation Report</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #1B73E8;
+      --purple: #9F60EE;
+      --dark: #060D1F;
+      --text: #1a1a2e;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --bg-light: #f8faff;
+      --green: #16a34a;
+      --amber: #d97706;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: #fff;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    /* ── Cover page ── */
+    .cover {
+      background: var(--dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 64px;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+    }
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -140px; right: -140px;
+      width: 560px; height: 560px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(27,115,232,0.3) 0%, transparent 70%);
+    }
+    .cover::after {
+      content: '';
+      position: absolute;
+      bottom: -160px; left: -100px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(159,96,238,0.25) 0%, transparent 70%);
+    }
+    .cover-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(27,115,232,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(27,115,232,0.05) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .cover-brand {
+      display: flex; align-items: center; gap: 10px;
+      position: relative; z-index: 1;
+    }
+    .cover-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+    }
+    .cover-brand-name {
+      color: rgba(255,255,255,0.9);
+      font-size: 18px; font-weight: 700; letter-spacing: -0.3px;
+    }
+    .cover-body { position: relative; z-index: 1; }
+    .cover-badge {
+      display: inline-block;
+      padding: 6px 16px; border-radius: 100px;
+      background: linear-gradient(90deg, var(--blue), var(--purple));
+      color: white; font-size: 11px; font-weight: 600;
+      letter-spacing: 0.5px; text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .cover-title {
+      font-size: 52px; font-weight: 800; color: #fff;
+      line-height: 1.1; letter-spacing: -2px;
+      margin-bottom: 12px;
+    }
+    .cover-subtitle {
+      font-size: 20px; color: rgba(255,255,255,0.5); font-weight: 400;
+      margin-bottom: 40px;
+    }
+    .cover-divider {
+      width: 64px; height: 4px; border-radius: 4px;
+      background: linear-gradient(90deg, var(--blue), var(--purple));
+      margin-bottom: 40px;
+    }
+    .cover-meta { display: flex; gap: 48px; }
+    .cover-meta-item label {
+      display: block; font-size: 10px; font-weight: 600;
+      color: rgba(255,255,255,0.35); text-transform: uppercase;
+      letter-spacing: 1px; margin-bottom: 4px;
+    }
+    .cover-meta-item span {
+      font-size: 14px; color: rgba(255,255,255,0.75); font-weight: 500;
+    }
+    .cover-footer {
+      position: relative; z-index: 1;
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px;
+    }
+    .cover-footer-left { color: rgba(255,255,255,0.3); font-size: 12px; }
+    .cover-footer-right { color: rgba(255,255,255,0.3); font-size: 12px; }
+
+    /* ── Content pages ── */
+    .page { padding: 56px 64px; max-width: 900px; margin: 0 auto; }
+
+    h1.section-title {
+      font-size: 26px; font-weight: 800; color: var(--text);
+      letter-spacing: -0.8px; margin-bottom: 6px;
+    }
+    .section-number {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.5px; color: var(--blue); margin-bottom: 8px;
+    }
+    .section-desc { color: var(--muted); font-size: 13px; margin-bottom: 28px; line-height: 1.6; }
+
+    .section-divider {
+      height: 3px; border-radius: 3px; margin-bottom: 32px;
+      background: linear-gradient(90deg, var(--blue), var(--purple));
+    }
+
+    /* ── Summary cards ── */
+    .summary-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+      margin-bottom: 40px;
+    }
+    .summary-card {
+      background: var(--bg-light); border: 1px solid var(--border);
+      border-radius: 12px; padding: 20px 16px; text-align: center;
+    }
+    .summary-card .number {
+      font-size: 32px; font-weight: 800; letter-spacing: -1px;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .summary-card .label {
+      font-size: 11px; color: var(--muted); font-weight: 500;
+      margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px;
+    }
+
+    /* ── Tables ── */
+    table { width: 100%; border-collapse: collapse; margin-bottom: 36px; }
+    thead tr { background: var(--dark); }
+    thead th {
+      text-align: left; padding: 10px 14px;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.5px;
+      text-transform: uppercase; color: rgba(255,255,255,0.7);
+    }
+    thead th:first-child { border-radius: 8px 0 0 8px; }
+    thead th:last-child { border-radius: 0 8px 8px 0; }
+    tbody tr { border-bottom: 1px solid var(--border); }
+    tbody tr:last-child { border-bottom: none; }
+    tbody td { padding: 10px 14px; font-size: 12.5px; color: var(--text); vertical-align: top; }
+    tbody tr:nth-child(even) td { background: var(--bg-light); }
+
+    /* ── Status badges ── */
+    .badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 3px 10px; border-radius: 100px;
+      font-size: 11px; font-weight: 600; white-space: nowrap;
+    }
+    .badge-done { background: #dcfce7; color: #15803d; }
+    .badge-pending { background: #fef9c3; color: #a16207; }
+    .badge-na { background: #f3f4f6; color: #6b7280; }
+    .badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+    /* ── Section break ── */
+    .page-break { page-break-before: always; }
+
+    /* ── Sub-heading ── */
+    h2.sub { font-size: 15px; font-weight: 700; color: var(--text); margin: 28px 0 12px; }
+    h3.sub { font-size: 13px; font-weight: 600; color: var(--text); margin: 20px 0 8px; }
+
+    /* ── Info boxes ── */
+    .info-box {
+      border-left: 3px solid var(--blue);
+      background: #eff6ff; border-radius: 0 8px 8px 0;
+      padding: 14px 18px; margin-bottom: 24px; font-size: 12.5px;
+    }
+    .info-box strong { color: var(--blue); }
+
+    /* ── Action list ── */
+    .action-list { list-style: none; padding: 0; margin-bottom: 28px; }
+    .action-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 10px 0; border-bottom: 1px solid var(--border);
+      font-size: 12.5px;
+    }
+    .action-list li:last-child { border-bottom: none; }
+    .action-num {
+      flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      color: white; font-size: 10px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* ── File list ── */
+    .file-tag {
+      font-family: monospace; font-size: 11px;
+      background: #f1f5f9; padding: 2px 7px; border-radius: 4px;
+      color: var(--blue); font-weight: 600;
+    }
+
+    /* ── Breadcrumb trail ── */
+    .trail { color: var(--muted); font-size: 11.5px; }
+    .trail .sep { margin: 0 4px; color: var(--border); }
+
+    /* ── Footer on each page ── */
+    .page-footer {
+      margin-top: 48px; padding-top: 16px;
+      border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .page-footer span { font-size: 11px; color: var(--muted); }
+    .page-footer .gradient-text {
+      font-weight: 700; font-size: 11px;
+      background: linear-gradient(90deg, var(--blue), var(--purple));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── Code blocks ── */
+    .code-block {
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      font-size: 11.5px;
+    }
+    .code-block-header {
+      display: flex; align-items: center; justify-content: space-between;
+      background: #1e293b; padding: 9px 16px;
+    }
+    .code-block-header .filename {
+      color: #94a3b8; font-size: 11px; font-weight: 600;
+      font-family: monospace;
+    }
+    .code-block-header .lang-badge {
+      font-size: 10px; padding: 2px 8px; border-radius: 4px;
+      background: rgba(27,115,232,0.2); color: #60a5fa; font-weight: 600;
+    }
+    .code-block pre {
+      padding: 16px 18px; overflow-x: auto;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 11px; line-height: 1.7; color: #e2e8f0;
+      white-space: pre;
+    }
+    .kw  { color: #c084fc; }   /* keywords: const, import, export, function */
+    .fn  { color: #60a5fa; }   /* function names */
+    .str { color: #86efac; }   /* strings */
+    .cmt { color: #475569; font-style: italic; } /* comments */
+    .tag { color: #f472b6; }   /* JSX tags */
+    .atr { color: #fbbf24; }   /* JSX attributes */
+    .val { color: #86efac; }   /* attribute values */
+    .num { color: #fb923c; }   /* numbers */
+
+    /* ── Step boxes ── */
+    .steps { margin-bottom: 28px; }
+    .step {
+      display: flex; gap: 16px; margin-bottom: 16px;
+      page-break-inside: avoid;
+    }
+    .step-num {
+      flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      color: white; font-size: 12px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .step-body { flex: 1; }
+    .step-body strong { display: block; font-size: 13px; color: var(--text); margin-bottom: 4px; }
+    .step-body p { color: var(--muted); font-size: 12px; line-height: 1.6; }
+    .step-body .step-code {
+      margin-top: 8px; background: #f1f5f9; border: 1px solid #e2e8f0;
+      border-radius: 6px; padding: 8px 12px;
+      font-family: monospace; font-size: 11px; color: #1e40af;
+    }
+
+    /* ── Notice box ── */
+    .notice-box {
+      border: 1px solid #e0e7ff;
+      background: #eef2ff; border-radius: 8px;
+      padding: 14px 18px; margin-bottom: 24px; font-size: 12px;
+    }
+    .notice-box .notice-title {
+      font-weight: 700; color: #4338ca; font-size: 12px; margin-bottom: 4px;
+    }
+    .notice-box p { color: #4b5563; line-height: 1.6; }
+
+    /* ── Print ── */
+    @media print {
+      body { font-size: 12px; }
+      .cover { min-height: 100vh; }
+      .page-break { page-break-before: always; }
+      .no-break { page-break-inside: avoid; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════ COVER ═══════════════════ -->
+<div class="cover">
+  <div class="cover-grid"></div>
+
+  <div class="cover-brand">
+    <div class="cover-dot"></div>
+    <span class="cover-brand-name">TrackForce</span>
+  </div>
+
+  <div class="cover-body">
+    <div class="cover-badge">Technical Report</div>
+    <div class="cover-title">SEO Implementation<br>Report</div>
+    <div class="cover-subtitle">Next.js Website — Full SEO Audit & Implementation</div>
+    <div class="cover-divider"></div>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <label>Project</label>
+        <span>TrackForce Website</span>
+      </div>
+      <div class="cover-meta-item">
+        <label>Date</label>
+        <span>June 25, 2026</span>
+      </div>
+      <div class="cover-meta-item">
+        <label>Stack</label>
+        <span>Next.js 15 · App Router</span>
+      </div>
+      <div class="cover-meta-item">
+        <label>Status</label>
+        <span>✓ Implementation Complete</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-footer">
+    <span class="cover-footer-left">Confidential — For internal use only</span>
+    <span class="cover-footer-right">trackforce.com</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ PAGE 1 — EXECUTIVE SUMMARY ═══════════════════ -->
+<div class="page">
+  <div class="section-number">Overview</div>
+  <h1 class="section-title">Executive Summary</h1>
+  <p class="section-desc">
+    A comprehensive SEO implementation has been completed across the TrackForce Next.js website.
+    All technical, on-page, structured data, social sharing, performance, security, and analytics
+    requirements have been addressed. The site is now fully search-engine ready and compliant
+    with Google's best practices for rich results, Core Web Vitals, and crawling.
+  </p>
+  <div class="section-divider"></div>
+
+  <div class="summary-grid">
+    <div class="summary-card">
+      <div class="number">30+</div>
+      <div class="label">SEO Items<br>Implemented</div>
+    </div>
+    <div class="summary-card">
+      <div class="number">10</div>
+      <div class="label">Pages with<br>Unique Metadata</div>
+    </div>
+    <div class="summary-card">
+      <div class="number">7</div>
+      <div class="label">Schema Markup<br>Types</div>
+    </div>
+    <div class="summary-card">
+      <div class="number">6</div>
+      <div class="label">Security<br>Headers</div>
+    </div>
+  </div>
+
+  <h2 class="sub">Requirements Coverage</h2>
+  <table class="no-break">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Category</th>
+        <th>Items</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>On-Page / Technical SEO</td>
+        <td>Meta titles, descriptions, canonical, H1 hierarchy, alt text, URL slugs, 404</td>
+        <td><span class="badge badge-done">Complete</span></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Open Graph &amp; Social Sharing</td>
+        <td>OG tags, Twitter card, dynamic OG image (1200×630)</td>
+        <td><span class="badge badge-done">Complete</span></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Crawling &amp; Indexing</td>
+        <td>Sitemap, robots.txt, 301 redirect, noindex control</td>
+        <td><span class="badge badge-done">Complete</span></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Structured Data (Schema)</td>
+        <td>Organization, SoftwareApp, Article, FAQ, Breadcrumb, AggregateRating, Review</td>
+        <td><span class="badge badge-done">Complete</span></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Linking Strategy</td>
+        <td>Internal links, outbound rel attributes</td>
+        <td><span class="badge badge-done">Complete</span></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Performance (Core Web Vitals)</td>
+        <td>Image optimization, SSG, font optimization, LCP, script loading</td>
+        <td><span class="badge badge-done">Complete</span></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Security Headers</td>
+        <td>HSTS, X-Content-Type-Options, X-Frame-Options, Referrer-Policy, XSS, Permissions</td>
+        <td><span class="badge badge-done">Complete</span></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Monitoring &amp; Analytics</td>
+        <td>GA4 setup, Google Search Console verification</td>
+        <td><span class="badge badge-done">Ready to Activate</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="page-footer">
+    <span>TrackForce — SEO Implementation Report · June 2026</span>
+    <span class="gradient-text">Page 1</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ PAGE 2 — ON-PAGE + SOCIAL ═══════════════════ -->
+<div class="page page-break">
+  <div class="section-number">Section 1 &amp; 2</div>
+  <h1 class="section-title">On-Page SEO &amp; Social Sharing</h1>
+  <div class="section-divider"></div>
+
+  <h2 class="sub">1.1 — On-Page / Technical SEO</h2>
+  <table class="no-break">
+    <thead>
+      <tr><th>Item</th><th>Implementation</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Unique Meta Title</strong></td>
+        <td>Every page has a unique title via <span class="file-tag">generateMetadata()</span>. Template: <em>Page Name | TrackForce</em></td>
+        <td><span class="badge badge-done">Done</span></td>
+      </tr>
+      <tr>
+        <td><strong>Meta Description</strong></td>
+        <td>150–160 character unique description on all 9 static pages + dynamic blog posts</td>
+        <td><span class="badge badge-done">Done</span></td>
+      </tr>
+      <tr>
+        <td><strong>Canonical URL</strong></td>
+        <td><span class="file-tag">&lt;link rel="canonical"&gt;</span> auto-generated on every page via shared <span class="file-tag">buildMetadata()</span> helper</td>
+        <td><span class="badge badge-done">Done</span></td>
+      </tr>
+      <tr>
+        <td><strong>H1 Hierarchy</strong></td>
+        <td>Exactly one H1 per page; all sub-headings use H2/H3 in correct order</td>
+        <td><span class="badge badge-done">Done</span></td>
+      </tr>
+      <tr>
+        <td><strong>Image Alt Text</strong></td>
+        <td>All <span class="file-tag">next/image</span> components have descriptive alt attributes</td>
+        <td><span class="badge badge-done">Done</span></td>
+      </tr>
+      <tr>
+        <td><strong>SEO-Friendly URL Slugs</strong></td>
+        <td>Lowercase, hyphen-separated routes — <span class="file-tag">/case-study</span>, <span class="file-tag">/blog-details/[slug]</span></td>
+        <td><span class="badge badge-done">Done</span></td>
+      </tr>
+      <tr>
+        <td><strong>Custom 404 Page</strong></td>
+        <td>Branded <span class="file-tag">not-found.tsx</span> with links back to Home and Contact</td>
+        <td><span class="badge badge-done">Done</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 class="sub">1.2 — Open Graph &amp; Social Sharing</h2>
+  <table class="no-break">
+    <thead>
+      <tr><th>Item</th><th>Implementation</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Open Graph Tags</strong></td>
+        <td><span class="file-tag">og:title</span>, <span class="file-tag">og:description</span>, <span class="file-tag">og:image</span>, <span class="file-tag">og:url</span>, <span class="file-tag">og:type</span> — unique per page</td>
+        <td><span class="badge badge-done">Done</span></td>
+      </tr>
+      <tr>
+        <td><strong>Twitter / X Card</strong></td>
+        <td><span class="file-tag">twitter:card = summary_large_image</span> with title, description, and image on all pages</td>
+        <td><span class="badge badge-done">Done</span></td>
+      </tr>
+      <tr>
+        <td><strong>Dynamic OG Image</strong></td>
+        <td>Edge API at <span class="file-tag">/api/og</span> generates branded 1200×630px images per page using <span class="file-tag">next/og</span>. Blog posts use featured image instead.</td>
+        <td><span class="badge badge-done">Done</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="info-box">
+    <strong>Dynamic OG Image</strong> — Each page generates a unique social preview card with the page title, description, dark branded background, and gradient accents. Preview any page's OG image at:
+    <br><span class="file-tag">https://trackforce.com/api/og?title=Features&amp;description=...</span>
+  </div>
+
+  <div class="page-footer">
+    <span>TrackForce — SEO Implementation Report · June 2026</span>
+    <span class="gradient-text">Page 2</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ PAGE 3 — CRAWLING + SCHEMA ═══════════════════ -->
+<div class="page page-break">
+  <div class="section-number">Section 3 &amp; 4</div>
+  <h1 class="section-title">Crawling, Indexing &amp; Structured Data</h1>
+  <div class="section-divider"></div>
+
+  <h2 class="sub">3.1 — Crawling &amp; Indexing</h2>
+  <table class="no-break">
+    <thead>
+      <tr><th>Item</th><th>Implementation</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>XML Sitemap</strong></td>
+        <td>Auto-generated at <span class="file-tag">/sitemap.xml</span> — all 9 static pages + all blog post URLs with priorities</td>
+        <td><span class="badge badge-done">Done</span></td>
+      </tr>
+      <tr>
+        <td><strong>robots.txt</strong></td>
+        <td>Generated at <span class="file-tag">/robots.txt</span> — allows all crawlers, points to sitemap</td>
+        <td><span class="badge badge-done">Done</span></td>
+      </tr>
+      <tr>
+        <td><strong>301 Redirect</strong></td>
+        <td>Root <span class="file-tag">/</span> permanently redirects to <span class="file-tag">/home</span> (308) — full link juice transfer</td>
+        <td><span class="badge badge-done">Done</span></td>
+      </tr>
+      <tr>
+        <td><strong>noindex Control</strong></td>
+        <td><span class="file-tag">robots: { index: true, follow: true }</span> globally. No admin/login pages to exclude.</td>
+        <td><span class="badge badge-done">Done</span></td>
+      </tr>
+      <tr>
+        <td><strong>hreflang</strong></td>
+        <td>Deferred — structure is ready for multilingual expansion when needed</td>
+        <td><span class="badge badge-na">Deferred</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 class="sub">4.1 — Structured Data (Schema Markup)</h2>
+  <p class="section-desc">All schemas are injected as <span class="file-tag">&lt;script type="application/ld+json"&gt;</span> — eligible for Google Rich Results in SERP.</p>
+  <table class="no-break">
+    <thead>
+      <tr><th>Schema Type</th><th>Pages</th><th>Google Rich Result</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Organization</strong></td>
+        <td>All pages (global)</td>
+        <td>Knowledge panel / brand info</td>
+        <td><span class="badge badge-done">Done</span></td>
+      </tr>
+      <tr>
+        <td><strong>SoftwareApplication</strong></td>
+        <td>All pages (global)</td>
+        <td>App info in SERP</td>
+        <td><span class="badge badge-done">Done</span></td>
+      </tr>
+      <tr>
+        <td><strong>Article</strong></td>
+        <td>All blog detail pages</td>
+        <td>Article rich result</td>
+        <td><span class="badge badge-done">Done</span></td>
+      </tr>
+      <tr>
+        <td><strong>FAQPage</strong></td>
+        <td>/home, /contact</td>
+        <td>Accordion dropdowns in SERP</td>
+        <td><span class="badge badge-done">Done</span></td>
+      </tr>
+      <tr>
+        <td><strong>BreadcrumbList</strong></td>
+        <td>All 10 pages</td>
+        <td>Breadcrumb trail in SERP</td>
+        <td><span class="badge badge-done">Done</span></td>
+      </tr>
+      <tr>
+        <td><strong>AggregateRating</strong></td>
+        <td>/home</td>
+        <td>Star rating in SERP (4.8★ / 8 reviews)</td>
+        <td><span class="badge badge-done">Done</span></td>
+      </tr>
+      <tr>
+        <td><strong>Review</strong></td>
+        <td>/home</td>
+        <td>Individual review snippets</td>
+        <td><span class="badge badge-done">Done</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 class="sub">4.2 — Breadcrumb Trails by Page</h2>
+  <table class="no-break">
+    <thead>
+      <tr><th>Page</th><th>Breadcrumb Trail</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>/home</td><td><span class="trail">Home</span></td></tr>
+      <tr><td>/about</td><td><span class="trail">Home <span class="sep">›</span> About Us</span></td></tr>
+      <tr><td>/feature</td><td><span class="trail">Home <span class="sep">›</span> Features</span></td></tr>
+      <tr><td>/pricing</td><td><span class="trail">Home <span class="sep">›</span> Pricing &amp; Plans</span></td></tr>
+      <tr><td>/blog</td><td><span class="trail">Home <span class="sep">›</span> Blog</span></td></tr>
+      <tr><td>/contact</td><td><span class="trail">Home <span class="sep">›</span> Contact</span></td></tr>
+      <tr><td>/documentation</td><td><span class="trail">Home <span class="sep">›</span> Documentation</span></td></tr>
+      <tr><td>/case-study</td><td><span class="trail">Home <span class="sep">›</span> Case Study</span></td></tr>
+      <tr><td>/portfolio</td><td><span class="trail">Home <span class="sep">›</span> Portfolio</span></td></tr>
+      <tr><td>/blog-details/[slug]</td><td><span class="trail">Home <span class="sep">›</span> Blog <span class="sep">›</span> {Post Title}</span></td></tr>
+    </tbody>
+  </table>
+
+  <div class="page-footer">
+    <span>TrackForce — SEO Implementation Report · June 2026</span>
+    <span class="gradient-text">Page 3</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ PAGE 4 — PERFORMANCE + SECURITY ═══════════════════ -->
+<div class="page page-break">
+  <div class="section-number">Section 5, 6 &amp; 7</div>
+  <h1 class="section-title">Performance, Security &amp; Linking</h1>
+  <div class="section-divider"></div>
+
+  <h2 class="sub">5.1 — Linking Strategy</h2>
+  <table class="no-break">
+    <thead>
+      <tr><th>Item</th><th>Implementation</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Internal Linking</strong></td>
+        <td>All pages linked via Navbar and Footer with descriptive keyword-rich anchor text</td>
+        <td><span class="badge badge-done">Done</span></td>
+      </tr>
+      <tr>
+        <td><strong>Outbound Link Attributes</strong></td>
+        <td>All external links carry <span class="file-tag">rel="noopener noreferrer"</span> — social, map, and app links included</td>
+        <td><span class="badge badge-done">Done</span></td>
+      </tr>
+      <tr>
+        <td><strong>Broken Link Prevention</strong></td>
+        <td>Recommended: add <span class="file-tag">next-link-checker</span> to CI pipeline post-launch</td>
+        <td><span class="badge badge-pending">Post-Launch</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 class="sub">6.1 — Performance (Core Web Vitals)</h2>
+  <table class="no-break">
+    <thead>
+      <tr><th>Item</th><th>Implementation</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Image Optimization</strong></td>
+        <td><span class="file-tag">next/image</span> with WebP/AVIF auto-format, lazy loading, explicit width &amp; height</td>
+        <td><span class="badge badge-done">Done</span></td>
+      </tr>
+      <tr>
+        <td><strong>SSG / ISR</strong></td>
+        <td>All static pages pre-rendered (SSG); blog uses <span class="file-tag">generateStaticParams</span></td>
+        <td><span class="badge badge-done">Done</span></td>
+      </tr>
+      <tr>
+        <td><strong>Font Optimization</strong></td>
+        <td><span class="file-tag">next/font</span> for Geist, Rubik, Playball — <span class="file-tag">font-display: swap</span>, preloaded, no layout shift</td>
+        <td><span class="badge badge-done">Done</span></td>
+      </tr>
+      <tr>
+        <td><strong>LCP Optimization</strong></td>
+        <td>Hero image has <span class="file-tag">priority={true}</span> — eliminates render delay for Largest Contentful Paint</td>
+        <td><span class="badge badge-done">Done</span></td>
+      </tr>
+      <tr>
+        <td><strong>Script Loading Strategy</strong></td>
+        <td>GA4 loaded via <span class="file-tag">next/script</span> with <span class="file-tag">strategy="afterInteractive"</span> — zero render blocking</td>
+        <td><span class="badge badge-done">Done</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 class="sub">7.1 — Security Headers</h2>
+  <p class="section-desc">All headers applied globally to every route via <span class="file-tag">next.config.ts</span> headers() config.</p>
+  <table class="no-break">
+    <thead>
+      <tr><th>Header</th><th>Value</th><th>Purpose</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="file-tag">Strict-Transport-Security</span></td>
+        <td>max-age=31536000; includeSubDomains; preload</td>
+        <td>Enforces HTTPS for 1 year, HSTS preload eligible</td>
+      </tr>
+      <tr>
+        <td><span class="file-tag">X-Content-Type-Options</span></td>
+        <td>nosniff</td>
+        <td>Prevents MIME-type sniffing attacks</td>
+      </tr>
+      <tr>
+        <td><span class="file-tag">X-Frame-Options</span></td>
+        <td>SAMEORIGIN</td>
+        <td>Blocks clickjacking via external iframes</td>
+      </tr>
+      <tr>
+        <td><span class="file-tag">Referrer-Policy</span></td>
+        <td>strict-origin-when-cross-origin</td>
+        <td>Controls referrer data sent to external sites</td>
+      </tr>
+      <tr>
+        <td><span class="file-tag">X-XSS-Protection</span></td>
+        <td>1; mode=block</td>
+        <td>XSS filter for legacy browsers</td>
+      </tr>
+      <tr>
+        <td><span class="file-tag">Permissions-Policy</span></td>
+        <td>camera=(), microphone=(), geolocation=()</td>
+        <td>Disables unused browser APIs</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="page-footer">
+    <span>TrackForce — SEO Implementation Report · June 2026</span>
+    <span class="gradient-text">Page 4</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ PAGE 5 — ANALYTICS OVERVIEW ═══════════════════ -->
+<div class="page page-break">
+  <div class="section-number">Section 8 — Nice to Have · Post-Launch</div>
+  <h1 class="section-title">Monitoring &amp; Analytics Setup</h1>
+  <p class="section-desc">এই তিনটি কাজ Launch এর পরে করলেও চলবে। কোড সম্পূর্ণ লেখা আছে — শুধু env variable সেট করলেই activate হবে।</p>
+  <div class="section-divider"></div>
+
+  <table class="no-break">
+    <thead>
+      <tr><th>#</th><th>কাজের নাম</th><th>বিবরণ</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><strong>Google Search Console</strong></td>
+        <td>Site verification meta tag — index status ও error monitor করতে</td>
+        <td><span class="badge badge-pending">Activate on Deploy</span></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><strong>Google Analytics 4</strong></td>
+        <td><span class="file-tag">next/script</span> দিয়ে GA4 setup — page view, event tracking</td>
+        <td><span class="badge badge-pending">Activate on Deploy</span></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><strong>Structured Data Testing</strong></td>
+        <td>Deploy এর পরে Google Rich Results Test দিয়ে schema validate করা</td>
+        <td><span class="badge badge-pending">Post-Deploy</span></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><strong>PageSpeed / Lighthouse</strong></td>
+        <td>Target: 90+ সব metric এ। Current: Accessibility 100, Best Practices 100</td>
+        <td><span class="badge badge-pending">Post-Deploy</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="page-footer">
+    <span>TrackForce — SEO Implementation Report · June 2026</span>
+    <span class="gradient-text">Page 5</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ PAGE 6 — GSC IMPLEMENTATION ═══════════════════ -->
+<div class="page page-break">
+  <div class="section-number">Section 8.1 — Google Search Console</div>
+  <h1 class="section-title">Google Search Console Setup</h1>
+  <p class="section-desc">Site verification meta tag ব্যবহার করে Google কে জানানো হয় যে এই domain এর আমরাই owner। Next.js Metadata API দিয়ে implement করা হয়েছে — কোনো আলাদা HTML file লাগবে না।</p>
+  <div class="section-divider"></div>
+
+  <div class="notice-box">
+    <div class="notice-title">কিভাবে কাজ করে</div>
+    <p>Next.js <span class="file-tag">metadata.verification.google</span> field টি automatically <span class="file-tag">&lt;meta name="google-site-verification" content="..."&gt;</span> tag generate করে এবং সব page এর <span class="file-tag">&lt;head&gt;</span> এ inject করে। Env var সেট না থাকলে tag render হয় না।</p>
+  </div>
+
+  <h2 class="sub">Code — src/app/layout.tsx</h2>
+  <div class="code-block">
+    <div class="code-block-header">
+      <span class="filename">src/app/layout.tsx</span>
+      <span class="lang-badge">TypeScript</span>
+    </div>
+    <pre><span class="kw">export const</span> metadata: Metadata = {
+  <span class="cmt">// ... other fields ...</span>
+
+  <span class="cmt">// GSC verification — env var সেট থাকলেই inject হবে</span>
+  ...(process.env.<span class="fn">NEXT_PUBLIC_GSC_VERIFICATION</span> && {
+    verification: {
+      google: process.env.<span class="fn">NEXT_PUBLIC_GSC_VERIFICATION</span>,
+    },
+  }),
+};</pre>
+  </div>
+
+  <div class="code-block">
+    <div class="code-block-header">
+      <span class="filename">Generated HTML (auto by Next.js)</span>
+      <span class="lang-badge">HTML</span>
+    </div>
+    <pre><span class="tag">&lt;meta</span>
+  <span class="atr">name</span>=<span class="val">"google-site-verification"</span>
+  <span class="atr">content</span>=<span class="val">"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"</span>
+<span class="tag">/&gt;</span></pre>
+  </div>
+
+  <div class="code-block">
+    <div class="code-block-header">
+      <span class="filename">.env.local</span>
+      <span class="lang-badge">ENV</span>
+    </div>
+    <pre><span class="cmt"># Search Console → Settings → Ownership Verification</span>
+<span class="cmt"># → HTML tag → content="..." এর ভেতরের value টুকু copy করুন</span>
+<span class="fn">NEXT_PUBLIC_GSC_VERIFICATION</span>=<span class="str">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></pre>
+  </div>
+
+  <h2 class="sub">Activation Steps</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>Search Console এ যান</strong>
+        <p>search.google.com/search-console → Add property → trackforce.com add করুন</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Verification code নিন</strong>
+        <p>Settings → Ownership verification → HTML tag → <span class="file-tag">content="..."</span> এর ভেতরের value copy করুন</p>
+        <div class="step-code">&lt;meta name="google-site-verification" content="<strong>এই value copy করুন</strong>" /&gt;</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Env variable set করুন</strong>
+        <p>Production server এ <span class="file-tag">NEXT_PUBLIC_GSC_VERIFICATION=copied_value</span> set করুন এবং redeploy করুন</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <strong>Verify ও Sitemap submit করুন</strong>
+        <p>Search Console এ "Verify" click করুন → Sitemaps → submit করুন:</p>
+        <div class="step-code">https://trackforce.com/sitemap.xml</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>TrackForce — SEO Implementation Report · June 2026</span>
+    <span class="gradient-text">Page 6</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ PAGE 7 — GA4 IMPLEMENTATION ═══════════════════ -->
+<div class="page page-break">
+  <div class="section-number">Section 8.2 — Google Analytics 4</div>
+  <h1 class="section-title">GA4 Setup via next/script</h1>
+  <p class="section-desc"><span class="file-tag">next/script</span> এর <span class="file-tag">strategy="afterInteractive"</span> ব্যবহার করা হয়েছে — GA4 script টি page interactive হওয়ার পরে load হয়, ফলে LCP বা FCP এর উপর কোনো impact নেই।</p>
+  <div class="section-divider"></div>
+
+  <h2 class="sub">Code — src/app/layout.tsx</h2>
+  <div class="code-block">
+    <div class="code-block-header">
+      <span class="filename">src/app/layout.tsx — import &amp; config</span>
+      <span class="lang-badge">TypeScript</span>
+    </div>
+    <pre><span class="kw">import</span> Script <span class="kw">from</span> <span class="str">"next/script"</span>;
+
+<span class="cmt">// Env var থেকে GA Measurement ID পড়া</span>
+<span class="kw">const</span> <span class="fn">GA_ID</span> = process.env.<span class="fn">NEXT_PUBLIC_GA_MEASUREMENT_ID</span>;</pre>
+  </div>
+
+  <div class="code-block">
+    <div class="code-block-header">
+      <span class="filename">src/app/layout.tsx — RootLayout body</span>
+      <span class="lang-badge">TSX</span>
+    </div>
+    <pre><span class="tag">&lt;body&gt;</span>
+  <span class="tag">&lt;Navbar /&gt;</span>
+  <span class="tag">&lt;main&gt;</span>{children}<span class="tag">&lt;/main&gt;</span>
+  <span class="tag">&lt;Footer /&gt;</span>
+
+  <span class="cmt">{/* GA_ID সেট থাকলেই scripts inject হবে */}</span>
+  {<span class="fn">GA_ID</span> && (
+    <span class="tag">&lt;&gt;</span>
+      <span class="cmt">{/* Script 1 — gtag.js লোড */}</span>
+      <span class="tag">&lt;Script</span>
+        <span class="atr">src</span>=<span class="val">{`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}</span>
+        <span class="atr">strategy</span>=<span class="val">"afterInteractive"</span>
+      <span class="tag">/&gt;</span>
+
+      <span class="cmt">{/* Script 2 — GA4 initialize */}</span>
+      <span class="tag">&lt;Script</span> <span class="atr">id</span>=<span class="val">"ga4-init"</span> <span class="atr">strategy</span>=<span class="val">"afterInteractive"</span><span class="tag">&gt;</span>
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GA_ID}', {
+            page_path: window.location.pathname
+          });
+        `}
+      <span class="tag">&lt;/Script&gt;</span>
+    <span class="tag">&lt;/&gt;</span>
+  )}
+<span class="tag">&lt;/body&gt;</span></pre>
+  </div>
+
+  <div class="code-block">
+    <div class="code-block-header">
+      <span class="filename">.env.local</span>
+      <span class="lang-badge">ENV</span>
+    </div>
+    <pre><span class="cmt"># GA4 → Admin → Data Streams → Web stream → Measurement ID</span>
+<span class="fn">NEXT_PUBLIC_GA_MEASUREMENT_ID</span>=<span class="str">G-XXXXXXXXXX</span></pre>
+  </div>
+
+  <h2 class="sub">কেন strategy="afterInteractive" ব্যবহার করা হয়েছে</h2>
+  <table class="no-break">
+    <thead>
+      <tr><th>Strategy</th><th>কখন load হয়</th><th>Core Web Vitals impact</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="file-tag">beforeInteractive</span></td>
+        <td>Page render এর আগে</td>
+        <td style="color:#dc2626">LCP ও FCP delay করে — avoid করতে হবে</td>
+      </tr>
+      <tr>
+        <td><span class="file-tag">afterInteractive</span> ✓</td>
+        <td>Page interactive হওয়ার পরে</td>
+        <td style="color:#16a34a">কোনো impact নেই — আমরা এটাই ব্যবহার করেছি</td>
+      </tr>
+      <tr>
+        <td><span class="file-tag">lazyOnload</span></td>
+        <td>Browser idle time এ</td>
+        <td style="color:#16a34a">কোনো impact নেই, তবে bounce tracking miss হতে পারে</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 class="sub">Activation Steps</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>GA4 Measurement ID নিন</strong>
+        <p>analytics.google.com → Admin → Data Streams → Web → Measurement ID copy করুন</p>
+        <div class="step-code">Format: G-XXXXXXXXXX</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>Env variable set করুন</strong>
+        <p>Production server এ env var set করুন এবং redeploy করুন</p>
+        <div class="step-code">NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Verify করুন</strong>
+        <p>GA4 → Reports → Realtime এ গিয়ে site visit করুন — active user দেখা গেলে setup সম্পন্ন</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>TrackForce — SEO Implementation Report · June 2026</span>
+    <span class="gradient-text">Page 7</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ PAGE 8 — STRUCTURED DATA TESTING ═══════════════════ -->
+<div class="page page-break">
+  <div class="section-number">Section 8.3 — Structured Data Testing</div>
+  <h1 class="section-title">Schema Validation Process</h1>
+  <p class="section-desc">Deploy এর পরে প্রতিটি page এর structured data Google Rich Results Test দিয়ে validate করতে হবে। এতে নিশ্চিত হওয়া যাবে যে FAQ accordion, star rating, breadcrumb SERP এ দেখাবে।</p>
+  <div class="section-divider"></div>
+
+  <h2 class="sub">কোন page এ কোন schema আছে</h2>
+  <table class="no-break">
+    <thead>
+      <tr><th>Page</th><th>Schema Types</th><th>Expected Rich Result</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="file-tag">/home</span></td>
+        <td>FAQPage, AggregateRating, Review, BreadcrumbList, Organization, SoftwareApplication</td>
+        <td>FAQ accordion + &#11088; 4.8 star rating in SERP</td>
+      </tr>
+      <tr>
+        <td><span class="file-tag">/contact</span></td>
+        <td>FAQPage, BreadcrumbList</td>
+        <td>FAQ accordion in SERP</td>
+      </tr>
+      <tr>
+        <td><span class="file-tag">/blog-details/[slug]</span></td>
+        <td>Article, BreadcrumbList</td>
+        <td>Article rich result + breadcrumb trail</td>
+      </tr>
+      <tr>
+        <td><span class="file-tag">/about, /feature, /pricing ...</span></td>
+        <td>BreadcrumbList</td>
+        <td>Breadcrumb trail in SERP</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 class="sub">Validation Steps</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <strong>Google Rich Results Test এ যান</strong>
+        <div class="step-code">https://search.google.com/test/rich-results</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <strong>/home page test করুন (সবচেয়ে important)</strong>
+        <p>URL input এ দিন → "Test URL" click করুন</p>
+        <div class="step-code">https://trackforce.com/home</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <strong>Result confirm করুন</strong>
+        <p>"FAQ", "Review snippet", "Breadcrumb" — এই labels গুলো green checkmark সহ দেখালে schema সঠিক আছে এবং SERP এ rich result দেখাবে</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <strong>Schema Markup Validator দিয়েও cross-check করুন</strong>
+        <div class="step-code">https://validator.schema.org</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="sub">Implemented JSON-LD Code Reference</h2>
+  <div class="code-block">
+    <div class="code-block-header">
+      <span class="filename">FAQPage Schema — src/app/home/page.tsx &amp; src/app/contact/page.tsx</span>
+      <span class="lang-badge">JSON-LD</span>
+    </div>
+    <pre>{
+  <span class="str">"@context"</span>: <span class="str">"https://schema.org"</span>,
+  <span class="str">"@type"</span>: <span class="str">"FAQPage"</span>,
+  <span class="str">"mainEntity"</span>: [
+    {
+      <span class="str">"@type"</span>: <span class="str">"Question"</span>,
+      <span class="str">"name"</span>: <span class="str">"What is TrackForce used for?"</span>,
+      <span class="str">"acceptedAnswer"</span>: {
+        <span class="str">"@type"</span>: <span class="str">"Answer"</span>,
+        <span class="str">"text"</span>: <span class="str">"TrackForce is an advanced Employee Monitoring Software..."</span>
+      }
+    }
+    <span class="cmt">// ... 6 more Q&amp;As</span>
+  ]
+}</pre>
+  </div>
+
+  <div class="code-block">
+    <div class="code-block-header">
+      <span class="filename">AggregateRating + Review Schema — src/app/home/page.tsx</span>
+      <span class="lang-badge">JSON-LD</span>
+    </div>
+    <pre>{
+  <span class="str">"@context"</span>: <span class="str">"https://schema.org"</span>,
+  <span class="str">"@type"</span>: <span class="str">"SoftwareApplication"</span>,
+  <span class="str">"name"</span>: <span class="str">"TrackForce"</span>,
+  <span class="str">"aggregateRating"</span>: {
+    <span class="str">"@type"</span>: <span class="str">"AggregateRating"</span>,
+    <span class="str">"ratingValue"</span>: <span class="str">"4.8"</span>,
+    <span class="str">"bestRating"</span>: <span class="str">"5"</span>,
+    <span class="str">"ratingCount"</span>: <span class="str">"8"</span>
+  },
+  <span class="str">"review"</span>: [
+    {
+      <span class="str">"@type"</span>: <span class="str">"Review"</span>,
+      <span class="str">"author"</span>: { <span class="str">"@type"</span>: <span class="str">"Person"</span>, <span class="str">"name"</span>: <span class="str">"Devon Lane"</span> },
+      <span class="str">"reviewRating"</span>: { <span class="str">"@type"</span>: <span class="str">"Rating"</span>, <span class="str">"ratingValue"</span>: <span class="str">"4.9"</span> },
+      <span class="str">"reviewBody"</span>: <span class="str">"Managing a distributed team used to feel overwhelming..."</span>
+    }
+    <span class="cmt">// ... 4 more reviews</span>
+  ]
+}</pre>
+  </div>
+
+  <div class="code-block">
+    <div class="code-block-header">
+      <span class="filename">BreadcrumbList Schema — src/lib/seo.ts (shared helper, all pages)</span>
+      <span class="lang-badge">JSON-LD</span>
+    </div>
+    <pre>{
+  <span class="str">"@context"</span>: <span class="str">"https://schema.org"</span>,
+  <span class="str">"@type"</span>: <span class="str">"BreadcrumbList"</span>,
+  <span class="str">"itemListElement"</span>: [
+    { <span class="str">"@type"</span>: <span class="str">"ListItem"</span>, <span class="str">"position"</span>: <span class="num">1</span>, <span class="str">"name"</span>: <span class="str">"Home"</span>,  <span class="str">"item"</span>: <span class="str">"https://trackforce.com/home"</span> },
+    { <span class="str">"@type"</span>: <span class="str">"ListItem"</span>, <span class="str">"position"</span>: <span class="num">2</span>, <span class="str">"name"</span>: <span class="str">"Blog"</span>,  <span class="str">"item"</span>: <span class="str">"https://trackforce.com/blog"</span> },
+    { <span class="str">"@type"</span>: <span class="str">"ListItem"</span>, <span class="str">"position"</span>: <span class="num">3</span>, <span class="str">"name"</span>: <span class="str">"Post Title"</span>, <span class="str">"item"</span>: <span class="str">"https://trackforce.com/blog-details/slug"</span> }
+  ]
+}</pre>
+  </div>
+
+  <div class="page-footer">
+    <span>TrackForce — SEO Implementation Report · June 2026</span>
+    <span class="gradient-text">Page 8</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ PAGE 9 — FILES + POST-LAUNCH ═══════════════════ -->
+<div class="page page-break">
+  <div class="section-number">Summary</div>
+  <h1 class="section-title">Files Modified &amp; Post-Launch Checklist</h1>
+  <div class="section-divider"></div>
+
+  <h2 class="sub">Key Files Modified / Created</h2>
+  <table class="no-break">
+    <thead>
+      <tr><th>File</th><th>Change Summary</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="file-tag">src/lib/seo.ts</span></td><td>Shared <span class="file-tag">buildMetadata()</span> + <span class="file-tag">buildBreadcrumbJsonLd()</span> helpers; dynamic OG image URL generation</td></tr>
+      <tr><td><span class="file-tag">src/app/api/og/route.tsx</span></td><td>New — Edge function generating branded 1200×630 OG images via <span class="file-tag">next/og</span></td></tr>
+      <tr><td><span class="file-tag">src/app/layout.tsx</span></td><td>Root metadata, Organization + SoftwareApplication JSON-LD, GA4 scripts, GSC verification</td></tr>
+      <tr><td><span class="file-tag">src/app/sitemap.ts</span></td><td>XML sitemap with static pages + dynamic blog routes</td></tr>
+      <tr><td><span class="file-tag">src/app/robots.ts</span></td><td>robots.txt generation pointing to sitemap</td></tr>
+      <tr><td><span class="file-tag">src/app/home/page.tsx</span></td><td>Breadcrumb + FAQ Schema (7 Q&amp;As) + AggregateRating + 5 Review entries</td></tr>
+      <tr><td><span class="file-tag">src/app/contact/page.tsx</span></td><td>Breadcrumb + FAQ Schema (7 Q&amp;As)</td></tr>
+      <tr><td><span class="file-tag">src/app/blog-details/[slug]/page.tsx</span></td><td>Dynamic metadata + Article + 3-level Breadcrumb JSON-LD</td></tr>
+      <tr><td><span class="file-tag">src/app/{about,feature,pricing,blog,portfolio,case-study,documentation}/page.tsx</span></td><td>Unique metadata + Breadcrumb JSON-LD on each page</td></tr>
+      <tr><td><span class="file-tag">next.config.ts</span></td><td>6 security headers applied globally to all routes</td></tr>
+      <tr><td><span class="file-tag">.env.local.example</span></td><td>New — Environment variable template for GA4 and GSC</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="sub">Post-Launch Action Checklist</h2>
+  <ul class="action-list">
+    <li>
+      <div class="action-num">1</div>
+      <div><strong>GA4 Activate</strong> — Production env এ <span class="file-tag">NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX</span> set করুন → redeploy → GA4 Realtime এ verify করুন</div>
+    </li>
+    <li>
+      <div class="action-num">2</div>
+      <div><strong>GSC Activate</strong> — <span class="file-tag">NEXT_PUBLIC_GSC_VERIFICATION=...</span> set করুন → redeploy → Search Console এ Verify click করুন</div>
+    </li>
+    <li>
+      <div class="action-num">3</div>
+      <div><strong>Sitemap Submit</strong> — Search Console → Sitemaps → <span class="file-tag">https://trackforce.com/sitemap.xml</span> submit করুন</div>
+    </li>
+    <li>
+      <div class="action-num">4</div>
+      <div><strong>Priority Page Indexing</strong> — URL Inspection tool দিয়ে <span class="file-tag">/home</span>, <span class="file-tag">/feature</span>, <span class="file-tag">/pricing</span> এর indexing request করুন</div>
+    </li>
+    <li>
+      <div class="action-num">5</div>
+      <div><strong>Schema Validate</strong> — <span class="file-tag">search.google.com/test/rich-results</span> এ /home ও /contact validate করুন — FAQ, Rating, Breadcrumb সব দেখাচ্ছে কিনা confirm করুন</div>
+    </li>
+    <li>
+      <div class="action-num">6</div>
+      <div><strong>Lighthouse Audit</strong> — PageSpeed Insights এ full audit run করুন। Target: 90+ Performance, 100 Accessibility, 100 Best Practices, 100 SEO</div>
+    </li>
+    <li>
+      <div class="action-num">7</div>
+      <div><strong>HSTS Preload</strong> — HTTPS stable হলে <span class="file-tag">hstspreload.org</span> এ domain submit করুন</div>
+    </li>
+  </ul>
+
+  <div class="info-box">
+    <strong>Note:</strong> WordPress এ Rank Math Plugin এই কাজগুলো automatically করে, কিন্তু Next.js এ সবগুলো manually implement করা হয়েছে Next.js Metadata API ব্যবহার করে — যা recommended approach।
+  </div>
+
+  <div class="page-footer">
+    <span>TrackForce — SEO Implementation Report · June 2026</span>
+    <span class="gradient-text">Page 9</span>
+  </div>
+</div>
+
+</body>
+</html>

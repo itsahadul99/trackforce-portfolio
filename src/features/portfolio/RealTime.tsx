@@ -19,7 +19,9 @@ const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
         transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number], delay },
     },
 });
-const RealTime = () => {
+type RealTimeProps = { cms?: Record<string, string> }
+
+const RealTime = ({ cms = {} }: RealTimeProps) => {
     const features = [
         {
             title: "Live online / idle status tracking",
@@ -44,13 +46,14 @@ const RealTime = () => {
     ];
 
     return (
-        <div className='bg-[#DEEDFF] overflow-hidden bg-[url("/realTimeCommandCenter.png")] bg-no-repeat bg-cover bg-center px-4'>
+        <div className='bg-[#DEEDFF] overflow-hidden bg-no-repeat bg-cover bg-center px-4'
+            style={{ backgroundImage: cms.bg_image ? `url(${cms.bg_image}), url('/realTimeCommandCenter.png')` : `url('/realTimeCommandCenter.png')` }}>
             <div className="  max-w-[1300] mx-auto  py-24 text-[#2B2B2B] flex flex-col lg:flex-row items-center justify-between">
 
                 <div className="w-full lg:w-1/2">
 
                     <h2 className="text-4xl font-bold mb-8">
-                        Real-Time Command Center
+                        {cms.heading || "Real-Time Command Center"}
                     </h2>
                     <div>
                         <h3 className="text-2xl font-bold">
@@ -103,7 +106,7 @@ const RealTime = () => {
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.1 }}
                     >
-                        <Image width={1200} height={800} quality={90} src={realD} alt="Activity Logs" className="w-[430]" />
+                        <Image width={1200} height={800} quality={90} src={cms.image1 || realD} alt="Activity Logs" className="w-[430]" onError={(e) => { e.currentTarget.src = realD.src; }} />
                     </motion.div>
 
                     {/* Search Logs - bottom right, slides from center */}
@@ -114,7 +117,7 @@ const RealTime = () => {
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.1 }}
                     >
-                        <Image width={1200} height={800} quality={90} src={realE} alt="Search Logs" className="w-[400]" />
+                        <Image width={1200} height={800} quality={90} src={cms.image2 || realE} alt="Search Logs" className="w-[400]" onError={(e) => { e.currentTarget.src = realE.src; }} />
                     </motion.div>
                 </div>
             </div>

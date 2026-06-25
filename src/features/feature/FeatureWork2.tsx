@@ -21,7 +21,9 @@ const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
     },
 });
 
-const FeatureWork2 = () => {
+type FeatureWork2Props = { cms?: Record<string, string> }
+
+const FeatureWork2 = ({ cms = {} }: FeatureWork2Props) => {
     const features = [
         {
             title: "User Onboarding",
@@ -65,7 +67,7 @@ const FeatureWork2 = () => {
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={emailing} alt="Emailing" className="w-full" width={1600} height={1000} quality={90} />
+                    <Image src={cms.image1 || emailing} onError={(e) => { e.currentTarget.src = emailing.src; }} alt="Emailing" className="w-full" width={1600} height={1000} quality={90} />
                 </motion.div>
 
                 {/* Sidebar - top right, slides from center */}
@@ -76,7 +78,7 @@ const FeatureWork2 = () => {
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={sidebar} alt="Sidebar" className="w-full" width={1600} height={1200} quality={90} />
+                    <Image src={cms.image2 || sidebar} onError={(e) => { e.currentTarget.src = sidebar.src; }} alt="Sidebar" className="w-full" width={1600} height={1200} quality={90} />
                 </motion.div>
 
                 {/* Employee List - bottom left, slides from center */}
@@ -87,7 +89,7 @@ const FeatureWork2 = () => {
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={employeeList} alt="Activity Logs" className="w-full" width={1600} height={1200} quality={90} />
+                    <Image src={cms.image3 || employeeList} onError={(e) => { e.currentTarget.src = employeeList.src; }} alt="Activity Logs" className="w-full" width={1600} height={1200} quality={90} />
                 </motion.div>
 
 

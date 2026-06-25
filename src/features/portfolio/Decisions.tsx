@@ -96,7 +96,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const Decisions = () => {
+type DecisionsProps = { cms?: Record<string, string> }
+
+const Decisions = ({ cms = {} }: DecisionsProps) => {
 
     const leftVariant = {
         hidden: { opacity: 0, x: -100, },
@@ -137,14 +139,14 @@ const Decisions = () => {
     };
 
     return (
-        <div className="bg-[#DEEDFF] py-24 bg-[url('/decisionBg.png')] overflow-hidden bg-no-repeat bg-cover bg-center">
+        <div className="bg-[#DEEDFF] py-24 overflow-hidden bg-no-repeat bg-cover bg-center"
+            style={{ backgroundImage: cms.bg_image ? `url(${cms.bg_image}), url('/decisionBg.png')` : `url('/decisionBg.png')` }}>
             <div className="max-w-[1300] mx-auto px-4">
 
                 {/* Title */}
                 <div className="flex justify-center">
                     <h2 className="text-[42px] font-semibold text-center">
-                        <span className="font-playball font-normal">Data</span>{" "}
-                        That Drives Decisions
+                        {cms.heading || <><span className="font-playball font-normal">Data</span>{" "}That Drives Decisions</>}
                     </h2>
                 </div>
 

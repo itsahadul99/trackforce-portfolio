@@ -36,7 +36,9 @@ const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
         transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number], delay },
     },
 });
-const Enterprise = () => {
+type EnterpriseProps = { cms?: Record<string, string> }
+
+const Enterprise = ({ cms = {} }: EnterpriseProps) => {
     const features = [
   { icon: <FaCamera />, text: "Smart Screenshot Capture" },
   { icon: <MdScreenShare />, text: "Screen Recording Logs" },
@@ -49,7 +51,8 @@ const Enterprise = () => {
   { icon: <FaCalendarAlt />, text: "Online Meeting Detection" },
 ];
     return (
-        <div className='bg-black py-20 bg-[url("/enterpriseBg.png")] overflow-hidden bg-no-repeat bg-cover bg-center'>
+        <div className='bg-black py-20 overflow-hidden bg-no-repeat bg-cover bg-center'
+            style={{ backgroundImage: cms.bg_image ? `url(${cms.bg_image}), url('/enterpriseBg.png')` : `url('/enterpriseBg.png')` }}>
             <div className="max-w-[1300] mx-auto text-white flex flex-col lg:flex-row gap-3 items-center justify-between">
                 <div className='w-full lg:w-1/2 relative h-[520px]'>
                     {/* Main dashboard - center, fades in from slight scale */}
@@ -60,7 +63,7 @@ const Enterprise = () => {
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.1 }}
                     >
-                        <Image src={enterPriceL1} width={1200} height={800} quality={90} alt="Emailing" className=" w-[400]" />
+                        <Image src={cms.image1 || enterPriceL1} width={1200} height={800} quality={90} alt="Emailing" className=" w-[400]" onError={(e) => { e.currentTarget.src = enterPriceL1.src; }} />
                     </motion.div>
 
                     {/* Employee List - bottom left, slides from center */}
@@ -71,7 +74,7 @@ const Enterprise = () => {
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.1 }}
                     >
-                        <Image src={enterPriceL2} width={1200} height={800} quality={90} alt="Activity Logs" className="w-[400]" />
+                        <Image src={cms.image2 || enterPriceL2} width={1200} height={800} quality={90} alt="Activity Logs" className="w-[400]" onError={(e) => { e.currentTarget.src = enterPriceL2.src; }} />
                     </motion.div>
 
 
@@ -79,8 +82,7 @@ const Enterprise = () => {
                 <div className="w-full lg:w-1/2">
 
                     <h2 className="text-[42px] font-semibold text- leading-tight mb-6">
-                        Enterprise-Level <span className="font-playball font-normal">Monitoring</span>{" "}
-                        Engine
+                        {cms.heading || <>Enterprise-Level <span className="font-playball font-normal">Monitoring</span>{" "}Engine</>}
                     </h2>
 
 

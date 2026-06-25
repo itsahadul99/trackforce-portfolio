@@ -1,3 +1,4 @@
+import { getFaqs, getPageContent, getTestimonials } from '@/lib/cms'
 import HomeFaq from './home_faq/HomeFaq'
 import HomeFreeTailer from './home_free_trailer/HomeFreeTailer'
 import Hero from './hero/Hero'
@@ -11,30 +12,39 @@ import WhyChooseUs from './why_choose_us/WhyChooseUs'
 import WhyTrackforce from './why_trackforce/WhyTrackforce'
 import WorkProcess from './work_process/WorkProcess'
 
-const Home = () => {
+const Home = async () => {
+    const [faqs, testimonials, cms] = await Promise.all([
+        getFaqs('home'),
+        getTestimonials(),
+        getPageContent('home'),
+    ])
+
     return (
         <div>
-            <Hero />
+            <Hero cms={cms.hero ?? {}} />
             <div className='bg-[#DEEDFF] '>
                 <div className=" bg-cover bg-center bg-no-repeat bg-[url('/home-plx-bg.png')]">
                     <Slider />
-                    <WhyTrackforce />
-                    <Parallax />
+                    <WhyTrackforce cms={cms.why_trackforce ?? {}} />
+                    <Parallax cms={cms.parallax ?? {}} />
                 </div>
-                <HowTrackforceWorks />
-                <WorkProcess />
+                <HowTrackforceWorks cms={{
+                    productivity_dashboard: cms.productivity_dashboard ?? {},
+                    workforce_monitoring: cms.workforce_monitoring ?? {},
+                }} />
+                <WorkProcess cms={cms.work_process ?? {}} />
             </div>
             <OurFeatures />
             <div className='bg-[#DEEDFF] py-12 sm:py-16 lg:py-24'>
-                <Testimonials />
+                <Testimonials initialTestimonials={testimonials} />
             </div>
             <WhyChooseUs />
             <div className='bg-[#DEEDFF] py-12 sm:py-16 lg:py-24'>
-                <HomeFaq />
+                <HomeFaq initialFaqs={faqs} />
             </div>
             <HomePricing />
             <div className='bg-[#DEEDFF] py-12 sm:py-16 lg:py-24 px-4'>
-                <HomeFreeTailer />
+                <HomeFreeTailer cms={cms.free_trailer ?? {}} />
             </div>
         </div>
     )

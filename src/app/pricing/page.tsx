@@ -1,4 +1,5 @@
 import Pricing from "@/features/pricing/Pricing";
+import { getFaqs } from "@/lib/cms";
 import { buildMetadata, buildBreadcrumbJsonLd } from "@/lib/seo";
 
 export const metadata = buildMetadata({
@@ -13,14 +14,16 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Pricing & Plans", path: "/pricing" },
 ])
 
-export default function PricingPage() {
+export default async function PricingPage() {
+  const faqs = await getFaqs('pricing')
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <Pricing />
+      <Pricing faqs={faqs} />
     </>
   );
 }

@@ -1,23 +1,30 @@
-import { getSimilarBlogs } from "@/data/blogs";
-import Image from "next/image";
+import { getSimilarBlogsAsync } from "@/data/blogs";
+import { getPageContent } from "@/lib/cms";
+import BlogCardImage from "@/components/shared/BlogCardImage";
 import Link from "next/link";
 
-const SimilarBlogs = ({ currentSlug }: { currentSlug: string }) => {
-    const similarBlogs = getSimilarBlogs(currentSlug, 3);
+const SimilarBlogs = async ({ currentSlug }: { currentSlug: string }) => {
+    const [similarBlogs, cms] = await Promise.all([
+        getSimilarBlogsAsync(currentSlug, 3),
+        getPageContent('blog'),
+    ]);
+    const s = cms.similar ?? {};
     return (
         <section className="relative overflow-hidden py-12 md:py-24 px-4">
-            <div className="max-w-[1300] mx-auto  relative rounded-3xl overflow-hidden bg-[url('/simmilerBlog.png')] bg-no-repeat bg-cover bg-center p-6 md:p-14" style={
-                {
-                    boxShadow: "0 0 34.5px 0 rgba(0, 0, 0, 0.13)"
-                }
-            }>
+            <div
+                className="max-w-[1300] mx-auto relative rounded-3xl overflow-hidden bg-no-repeat bg-cover bg-center p-6 md:p-14"
+                style={{
+                    backgroundImage: s.bg_image ? `url(${s.bg_image}), url('/simmilerBlog.png')` : `url('/simmilerBlog.png')`,
+                    boxShadow: "0 0 34.5px 0 rgba(0, 0, 0, 0.13)",
+                }}
+            >
                 {/* left glow */}
                 <div className="absolute -left-20 top-1/3 w-[320px] h-[320px] bg-blue-500/30 rounded-full blur-[110px]" />
 
                 <div className="relative z-10">
                     {/* Heading */}
                     <h2 className="text-2xl md:text-3xl font-bold text-center text-[#0a0a1a] mb-10">
-                        Similar blog you can explore
+                        {s.heading || "Similar blog you can explore"}
                     </h2>
 
                     {/* Cards grid */}
@@ -30,14 +37,7 @@ const SimilarBlogs = ({ currentSlug }: { currentSlug: string }) => {
                                 style={{ background: "var(--Linear, linear-gradient(270deg, rgba(255, 255, 255, 0.39) 0%, rgba(210, 228, 255, 0.39) 100%))", boxShadow: "0 0 34.5px 0 rgba(0, 0, 0, 0.13)" }}
                             >
                                 <div className="relative w-full h-50 perspective-[1000px]">
-                                    <Image
-                                        src={card.image}
-                                        alt={card.title}
-                                        fill
-                                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                        quality={90}
-                                        className="object-cover transition-transform duration-800 ease-in-out group-hover:transform-[rotateY(180deg)]"
-                                    />
+                                    <BlogCardImage src={card.image} alt={card.title} />
                                     <span className="absolute top-3 right-3 text-xs font-semibold content_title_text_new backdrop-blur bg-[#FFFFFF54]  font-medium px-3 py-1.5 rounded-full">
                                         {card.tag}
                                     </span>

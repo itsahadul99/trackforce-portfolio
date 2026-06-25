@@ -23,22 +23,21 @@ const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
     },
 });
 
-const ProductivityDashboard = () => {
+type ProductivityDashboardProps = { cms?: Record<string, string> }
+
+const ProductivityDashboard = ({ cms = {} }: ProductivityDashboardProps) => {
     const features = [
         {
-            title: "Live activity tracking",
-            description:
-                "TrackForce boosts operational efficiency by optimizing workflows, reducing manual overhead, and enabling teams to execute faster with precision.",
+            title: cms.feature1_title || "Live activity tracking",
+            description: cms.feature1_desc || "TrackForce boosts operational efficiency by optimizing workflows, reducing manual overhead, and enabling teams to execute faster with precision.",
         },
         {
-            title: "Productivity trend analysis",
-            description:
-                "Visualize performance trends with intuitive charts that reveal productivity patterns at a glance.",
+            title: cms.feature2_title || "Productivity trend analysis",
+            description: cms.feature2_desc || "Visualize performance trends with intuitive charts that reveal productivity patterns at a glance.",
         },
         {
-            title: "Workflow and time allocation insights",
-            description:
-                "See where time goes across projects and tasks to balance workloads and plan smarter.",
+            title: cms.feature3_title || "Workflow and time allocation insights",
+            description: cms.feature3_desc || "See where time goes across projects and tasks to balance workloads and plan smarter.",
         },
     ];
     return (
@@ -46,17 +45,15 @@ const ProductivityDashboard = () => {
             <div className="w-full lg:w-1/2">
                 <div className="section_title_border w-fit text-[#0C59C0] rounded-full mb-6">
                     <div className="how_trackforce_works px-4 py-2 text-sm font-semibold">
-                        Productivity Dashboard
+                        {cms.badge || "Productivity Dashboard"}
                     </div>
                 </div>
 
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 lg:mb-8 leading-tight">
-                    Real-Time Dashboard for Complete Visibility
+                    {cms.heading || "Real-Time Dashboard for Complete Visibility"}
                 </h2>
                 <p className="text-sm sm:text-base lg:text-lg mb-6 lg:mb-8">
-                    Monitor employee activity, productivity trends, and performance
-                    metrics from one centralized dashboard – updated in real time for
-                    faster, smarter decisions.
+                    {cms.description || "Monitor employee activity, productivity trends, and performance metrics from one centralized dashboard – updated in real time for faster, smarter decisions."}
                 </p>
 
                 <FeaturesListMore

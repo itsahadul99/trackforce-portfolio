@@ -4,7 +4,7 @@ import { motion, Transition } from "framer-motion";
 import ContactCards from "./ContactCards";
 import ContactFaq from "./ContactFaq";
 import ContactForm from "./ContactForm";
-
+import type { CmsPageContent } from "@/lib/cms";
 
 const commonTransition: Transition = {
   duration: 1.2,
@@ -14,14 +14,20 @@ const commonTransition: Transition = {
   repeatDelay: 0.8
 };
 
+type ContactProps = { cms?: CmsPageContent }
 
-const Contact = () => {
+const Contact = ({ cms = {} }: ContactProps) => {
+  const hero = cms.hero ?? {}
+  const info = cms.info ?? {}
 
 
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-[#000000] pt-32 pb-20 bg-[url(/ContactHeroBg.png)] bg-cover bg-center" >
+      <section
+        className="relative overflow-hidden bg-[#000000] pt-32 pb-20 bg-cover bg-center bg-[url('/ContactHeroBg.png')]"
+        style={hero.bg_image ? { backgroundImage: `url(${hero.bg_image}), url('/ContactHeroBg.png')` } : undefined}
+      >
         {/* Background glow effects */}
         <div className="absolute inset-0">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-blue-600/20 rounded-full blur-[120px]" />
@@ -30,13 +36,12 @@ const Contact = () => {
         </div>
         <div className="relative z-10 text-center text-white max-w-[1300px] mx-auto">
           <h1 className="text-[42px] font-semibold leading-tight">
-            Let&apos;s Talk
+            {hero.heading || "Let's Talk"}
           </h1>
 
           <div className="relative inline-block">
             <h2 className="text-[42px] font-semibold leading-tight">
-              We&apos;re Always{" "}
-              <span className="font-playball font-normal">in Sync.</span>
+              {hero.subheading || <>We&apos;re Always{" "}<span className="font-playball font-normal">in Sync.</span></>}
             </h2>
             {/* spark animation */}
             <div className="absolute -right-9 -top-2 rotate-120" >
@@ -90,9 +95,7 @@ const Contact = () => {
             </div>
           </div>
           <p className="text-gray-300 text-base mt-6 max-w-2xl mx-auto leading-relaxed">
-            Whether you&apos;re exploring workforce monitoring, need help with
-            setup, or want to optimize productivity, the TrackForce team is here
-            to guide you every step of the way.
+            {hero.description || "Whether you're exploring workforce monitoring, need help with setup, or want to optimize productivity, the TrackForce team is here to guide you every step of the way."}
           </p>
         </div>
       </section>
@@ -100,15 +103,15 @@ const Contact = () => {
       <div className="bg-white py-16 lg:py-28 px-6 xxl:px-[120px]">
         <div className="max-w-[1450px] mx-auto px-6 lg:px-11 py-7 lg:py-10 bg-[url('/contactbg.png')] bg-center bg-cover rounded-3xl bg-[#D6E8FF]">
           {/* Contact Info Cards */}
-          <ContactCards />
+          <ContactCards cms={info} />
 
           {/* FAQ + Contact Form Section */}
           <section>
             <div className="max-w-[1300] mx-auto flex flex-col xl:flex-row items-center gap-10">
               {/* FAQ */}
-              <ContactFaq />
+              <ContactFaq cms={cms.faq ?? {}} />
               {/* Contact Form */}
-              <ContactForm />
+              <ContactForm cms={cms.form ?? {}} />
             </div>
           </section>
         </div>

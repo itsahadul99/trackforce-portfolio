@@ -64,28 +64,35 @@ const right_FeatureTrackForceWorks1 = [
   },
 ];
 
-const Feature = () => {
+type FeatureProps = { cms?: Record<string, Record<string, string>> }
+
+const Feature = ({ cms = {} }: FeatureProps) => {
   return (
     <div>
-      <FeatureHero />
-      <Optimization />
+      <FeatureHero cms={cms.hero ?? {}} />
+      <Optimization cms={cms.optimization ?? {}} />
       <div className="bg-[#DEEDFF] px-4">
-        <section className="max-w-[1300] mx-auto px-4 md:px-6 lg:px-[93px] py-4 md:py-8 lg:py-[96px]  rounded-2xl bg-cover bg-center bg-no-repeat bg-[url('/feature/feature.png')] overflow-hidden">
-         <ProductivityDashboard />
-         <WorkForceMonitoring />
-          <FeatureWork2 />
+        <section
+          className="max-w-[1300] mx-auto px-4 md:px-6 lg:px-[93px] py-4 md:py-8 lg:py-[96px] rounded-2xl bg-cover bg-center bg-no-repeat overflow-hidden"
+          style={{ backgroundImage: (cms.feature_section ?? {}).bg_image ? `url(${(cms.feature_section ?? {}).bg_image}), url(‘/feature/feature.png’)` : `url(‘/feature/feature.png’)` }}
+        >
+         <ProductivityDashboard cms={cms.productivity ?? {}} />
+         <WorkForceMonitoring cms={cms.monitoring ?? {}} />
+          <FeatureWork2 cms={cms.employee_management ?? {}} />
           <FeatureProd1
-            title='Time Tracking and Productivity Insights'
-            subTitle='Track active and idle time, measure project costs, and analyze performance trends to optimize workforce efficiency using TrackForce’s advanced time tracking software.'
-            features={left_FeatureTrackForceWorks1} />
+            title="Time Tracking and Productivity Insights"
+            subTitle="Track active and idle time, measure project costs, and analyze performance trends to optimize workforce efficiency using TrackForce's advanced time tracking software."
+            features={left_FeatureTrackForceWorks1}
+            cms={cms.time_tracking ?? {}} />
           <FeatureWork1
             title="Automated Billing, Invoices, and Payment Tracking"
             subTitle="Simplify financial operations with automated invoicing, accurate billing records, and real-time payment tracking. Gain transparency, prevent errors, and streamline financial management across teams."
-            features={right_FeatureTrackForceWorks1} />
+            features={right_FeatureTrackForceWorks1}
+            cms={cms.billing ?? {}} />
         </section>
       </div>
       <div className='py-28 bg-[#DEEDFF] px-4'>
-        <HomeFreeTailer />
+        <HomeFreeTailer cms={cms.free_trailer ?? {}} />
       </div>
     </div>
   )

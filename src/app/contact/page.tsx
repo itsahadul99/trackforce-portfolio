@@ -1,4 +1,5 @@
 import Contact from "@/features/contact/Contact";
+import { getPageContent } from "@/lib/cms";
 import { buildMetadata, buildBreadcrumbJsonLd } from "@/lib/seo";
 
 export const metadata = buildMetadata({
@@ -76,7 +77,9 @@ const faqJsonLd = {
   ],
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const cms = await getPageContent('contact')
+
   return (
     <>
       <script
@@ -87,7 +90,7 @@ export default function ContactPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <Contact />
+      <Contact cms={cms} />
     </>
   );
 }

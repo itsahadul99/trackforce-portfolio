@@ -76,10 +76,15 @@ const Connector = ({ kind, side, position, delay = 0 }: ConnectorProps) => {
     );
 };
 
-export default function Optimization() {
+type OptimizationProps = { cms?: Record<string, string> }
+
+export default function Optimization({ cms = {} }: OptimizationProps) {
     return (
         <div className="w-full  px-4 bg-[#DEEDFF] py-14 lg:py-24 overflow-hidden">
-            <div className="max-w-[1300] mx-auto relative rounded-3xl overflow-hidden bg-[url(/featurebg.png)] bg-center bg-cover py-16 md:p-14 " style={{ boxShadow: "filter(0px 0px 34.5px 0px #00000021)" }}>
+            <div
+                className="max-w-[1300] mx-auto relative rounded-3xl overflow-hidden bg-center bg-cover py-16 md:p-14"
+                style={{ boxShadow: "filter(0px 0px 34.5px 0px #00000021)", backgroundImage: cms.bg_image ? `url(${cms.bg_image}), url('/featurebg.png')` : `url('/featurebg.png')` }}
+            >
                 {/* left glow */}
                 <div className="absolute -left-20 top-1/3 w-[320px] h-[320px] bg-blue-500/30 rounded-full blur-[110px] " />
 

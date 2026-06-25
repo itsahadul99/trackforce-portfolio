@@ -22,7 +22,9 @@ const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
     },
 });
 
-const Designed = () => {
+type DesignedProps = { cms?: Record<string, string> }
+
+const Designed = ({ cms = {} }: DesignedProps) => {
     const features = [
         {
             title: "Dashboard-first clarity",
@@ -51,13 +53,14 @@ const Designed = () => {
         },
     ];
     return (
-        <div className='bg-[#DEEDFF] bg-[url("/designForBg.png")] overflow-hidden bg-no-repeat bg-cover bg-center px-4'>
+        <div className='bg-[#DEEDFF] overflow-hidden bg-no-repeat bg-cover bg-center px-4'
+            style={{ backgroundImage: cms.bg_image ? `url(${cms.bg_image}), url('/designForBg.png')` : `url('/designForBg.png')` }}>
             <div className="  max-w-[1300] mx-auto py-12 lg:py-24 text-[#2B2B2B] flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0">
 
                 <div className="w-full lg:w-1/2 h-[600]">
 
                     <h2 className="text-[42px] font-semibold text- leading-tight mb-6">
-                        Designed for  Makers <span className="font-playball font-normal">Decision</span>{" "}
+                        {cms.heading || <>Designed for Makers <span className="font-playball font-normal">Decision</span></>}
                     </h2>
                     <div className='mb-10'>
                         <p>The UX strategy focused on:</p>
@@ -105,7 +108,7 @@ const Designed = () => {
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.1 }}
                     >
-                        <Image width={1200} height={800} quality={90} src={dm1} alt="Activity Logs" className="w-[350]" />
+                        <Image width={1200} height={800} quality={90} src={cms.image1 || dm1} alt="Activity Logs" className="w-[350]" onError={(e) => { e.currentTarget.src = dm1.src; }} />
                     </motion.div>
 
                     {/* Search Logs - bottom right, slides from center */}
@@ -116,7 +119,7 @@ const Designed = () => {
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.1 }}
                     >
-                        <Image width={1200} height={800} quality={90} src={dm3} alt="Search Logs" className="w-[450]" />
+                        <Image width={1200} height={800} quality={90} src={cms.image3 || dm3} alt="Search Logs" className="w-[450]" onError={(e) => { e.currentTarget.src = dm3.src; }} />
                     </motion.div>
                     {/* Search Logs - bottom right, slides from center */}
                     <motion.div
@@ -126,7 +129,7 @@ const Designed = () => {
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.1 }}
                     >
-                        <Image width={1200} height={800} quality={90} src={dm2} alt="Search Logs" className="w-[350]" />
+                        <Image width={1200} height={800} quality={90} src={cms.image2 || dm2} alt="Search Logs" className="w-[350]" onError={(e) => { e.currentTarget.src = dm2.src; }} />
                     </motion.div>
                 </div>
             </div>

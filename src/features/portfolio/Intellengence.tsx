@@ -23,7 +23,9 @@ const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
     },
 });
 
-const Intellengence = () => {
+type IntellengenceProps = { cms?: Record<string, string> }
+
+const Intellengence = ({ cms = {} }: IntellengenceProps) => {
     
 const features = [
   { icon: <span className='text-[8px]'><FaCircle /></span>, text: "CPU & RAM usage" },
@@ -34,12 +36,12 @@ const features = [
 ];
     return (
 
-        <div className=" py-24 bg-[url('/deivceInteBg.png')] bg-no-repeat bg-cover bg-center px-4">
+        <div className=" py-24 bg-no-repeat bg-cover bg-center px-4"
+            style={{ backgroundImage: cms.bg_image ? `url(${cms.bg_image}), url('/deivceInteBg.png')` : `url('/deivceInteBg.png')` }}>
             <div className="max-w-[1300] mx-auto text-white flex gap-3 items-center justify-between">
                 <div className="w-full lg:w-1/2">
                     <h2 className="text-[42px] font-semibold text- leading-tight mb-6">
-                        Device Intelligence<span className="font-playball font-normal"> {" "}Layer</span>{" "}
-
+                        {cms.heading || <>Device Intelligence<span className="font-playball font-normal"> {" "}Layer</span></>}
                     </h2>
 
                     <p className="text-lg  mb-8">
@@ -84,7 +86,7 @@ const features = [
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.1 }}
                     >
-                        <Image src={di1} width={1200} height={800} quality={90} alt="Employees" className="w-[480]" />
+                        <Image src={cms.image1 || di1} width={1200} height={800} quality={90} alt="Employees" className="w-[480]" onError={(e) => { e.currentTarget.src = di1.src; }} />
                     </motion.div>
 
                     {/* Activity Logs - bottom left, slides from center */}
@@ -95,7 +97,7 @@ const features = [
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.1 }}
                     >
-                        <Image src={di2} width={1200} height={800} quality={90} alt="Activity Logs" className="w-[250]" />
+                        <Image src={cms.image2 || di2} width={1200} height={800} quality={90} alt="Activity Logs" className="w-[250]" onError={(e) => { e.currentTarget.src = di2.src; }} />
                     </motion.div>
 
                     {/* Search Logs - bottom right, slides from center */}
@@ -106,7 +108,7 @@ const features = [
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.1 }}
                     >
-                        <Image src={di3} width={1200} height={800} quality={90} alt="Search Logs" className="w-[280]" />
+                        <Image src={cms.image3 || di3} width={1200} height={800} quality={90} alt="Search Logs" className="w-[280]" onError={(e) => { e.currentTarget.src = di3.src; }} />
                     </motion.div>
                 </div>
             </div>

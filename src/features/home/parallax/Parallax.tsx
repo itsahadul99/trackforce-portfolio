@@ -1,5 +1,3 @@
-
-
 "use client";
 
 import Image from "next/image";
@@ -15,11 +13,13 @@ import productivity from "../../../../public/home/productivity.png";
 import security from "../../../../public/home/security.png";
 import effiency from "../../../../public/home/efficiency.png";
 
+type ParallaxProps = { cms?: Record<string, string> }
+
 // Persists across unmount/remount so cards stay "set" when the section
 // scrolls out of view and back in.
 const persistedActivated = new Set<number>();
 
-const Parallax = () => {
+const Parallax = ({ cms = {} }: ParallaxProps) => {
   const containerRef = useRef(null);
   const [activated, setActivated] = useState<Set<number>>(
     () => new Set(persistedActivated)
@@ -36,208 +36,126 @@ const Parallax = () => {
     offset: ["start start", "end end"]
   });
 
-  // Each card's lift window is kept non-overlapping (card N finishes exactly
-  // where card N+1 begins) so an already-lifted card never moves again while
-  // the next one rises.
   const card1Y = useTransform(scrollYProgress, [0, 0.23, 0.15], [0, 0, -150]);
-
   const card2Y = useTransform(scrollYProgress, [0.25, 0.48, 0.25], [0, 0, -150]);
-
   const card3Y = useTransform(scrollYProgress, [0.5, 0.73, 0.5], [0, 0, -150]);
-
   const card4Y = useTransform(scrollYProgress, [0.75, 0.95, 0.75], [0, 0, -150]);
+
+  const cards = [
+    {
+      n: 1,
+      cardY: card1Y,
+      zIndex: "z-10",
+      gradient: "linear-gradient(180deg, #CFE4FE 0%, #83CFD9 100%)",
+      imgSide: "right" as const,
+      title: cms.card1_title || "Productivity",
+      desc: cms.card1_desc || "Measure real output through active work, application usage, and task behavior — not idle time.",
+      logo: cms.card1_logo || plxLogo1,
+      image: cms.card1_image || productivity,
+    },
+    {
+      n: 2,
+      cardY: card2Y,
+      zIndex: "z-20",
+      gradient: "linear-gradient(180deg, #D3E5FF 0%, #C0B2FB 100%)",
+      imgSide: "left" as const,
+      title: cms.card2_title || "Accountability",
+      desc: cms.card2_desc || "With detailed reporting and workforce analytics, TrackForce builds transparency, tracks progress, and enables data-driven decisions with full operational visibility.",
+      logo: cms.card2_logo || plxLogo2,
+      image: cms.card2_image || accountablity,
+    },
+    {
+      n: 3,
+      cardY: card3Y,
+      zIndex: "z-30",
+      gradient: "linear-gradient(180deg, #D8E9FE 0%, #BEF8CE 100%)",
+      imgSide: "right" as const,
+      title: cms.card3_title || "Security",
+      desc: cms.card3_desc || "It safeguards sensitive data through proactive insider threat detection & activity monitoring.",
+      logo: cms.card3_logo || plxLogo3,
+      image: cms.card3_image || security,
+    },
+    {
+      n: 4,
+      cardY: card4Y,
+      zIndex: "z-40",
+      gradient: "linear-gradient(180deg, #DFE6F2 53.53%, #F2D7BF 100%)",
+      imgSide: "left" as const,
+      title: cms.card4_title || "Efficiency",
+      desc: cms.card4_desc || "TrackForce boosts operational efficiency by optimizing workflows, reducing manual overhead, and enabling teams to execute faster with precision.",
+      logo: cms.card4_logo || plxLogo4,
+      image: cms.card4_image || effiency,
+    },
+  ];
 
   return (
     <div
       ref={containerRef}
       className="relative h-fit max-w-[1300] mx-auto my-16 sm:my-20 lg:my-28 text-black px-4 sm:px-6 xl:px-0"
     >
-
-      {/* plx 1 */}
-      <div className="h-[520px] sm:h-[600px] lg:h-[650px] sticky top-20 lg:top-30 z-10">
-        <motion.div
-          style={{ y: card1Y, background: "linear-gradient(180deg, #CFE4FE 0%, #83CFD9 100%)",boxShadow: "0 0 34.5px 0 rgba(0, 0, 0, 0.13)" }}
-          initial={activated.has(1) ? "hover" : "rest"}
-          animate={activated.has(1) ? "hover" : "rest"}
-          onMouseEnter={() => activate(1)}
-          className=" absolute inset-0 rounded-2xl w-full h-[380px] sm:h-[420px] lg:h-[450px] overflow-hidden px-4 sm:px-6 xl:px-0"
-        >
-          <div className="relative flex flex-col items-center text-center">
-
+      {cards.map(({ n, cardY, zIndex, gradient, imgSide, title, desc, logo, image }) => {
+        const isRight = imgSide === "right";
+        return (
+          <div key={n} className={`h-[520px] sm:h-[600px] lg:h-[650px] sticky top-20 lg:top-30 ${zIndex}`}>
             <motion.div
-              variants={{
-                rest: { x: 0, y: 60 },
-                hover: { x: -430, y: 60 }
-              }}
-              transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-              className={`flex flex-col gap-3 will-change-transform ${activated.has(1) ? "items-start" : "items-center"}`}
+              style={{ y: cardY, background: gradient, boxShadow: "0 0 34.5px 0 rgba(0, 0, 0, 0.13)" }}
+              initial={activated.has(n) ? "hover" : "rest"}
+              animate={activated.has(n) ? "hover" : "rest"}
+              onMouseEnter={() => activate(n)}
+              className={`absolute inset-0 rounded-2xl w-full h-[380px] sm:h-[420px] lg:h-[450px] overflow-hidden px-4 sm:px-6 ${isRight ? "xl:px-0" : "lg:px-0"}`}
             >
-              <div className="mb-3">
-                <Image src={plxLogo1} alt="logo" width={72} height={72} quality={90} />
+              <div className="relative flex flex-col items-center text-center">
+
+                {/* Image — left side cards show image first in DOM order */}
+                {!isRight && (
+                  <motion.div
+                    variants={{
+                      rest: { x: 0, y: 310, opacity: 0.8 },
+                      hover: { x: -200, y: 60, opacity: 1 },
+                    }}
+                    transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+                    className="absolute z-[99] will-change-transform"
+                  >
+                    <Image src={image} alt={title} width={750} height={440} quality={90} />
+                  </motion.div>
+                )}
+
+                {/* Text content */}
+                <motion.div
+                  variants={{
+                    rest: { x: 0, y: 60 },
+                    hover: { x: isRight ? -430 : 460, y: 60 },
+                  }}
+                  transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+                  className={`flex flex-col gap-3 will-change-transform ${activated.has(n) ? "items-start" : "items-center"}`}
+                >
+                  <div className="mb-3">
+                    <Image src={logo} alt="logo" width={72} height={72} quality={90} />
+                  </div>
+                  <h3 className="text-xl font-semibold">{title}</h3>
+                  <p className={`w-full max-w-xs sm:w-72 ${activated.has(n) ? "text-left" : ""} text-sm sm:text-base px-4 sm:px-0`}>
+                    {desc}
+                  </p>
+                </motion.div>
+
+                {/* Image — right side cards show image after text */}
+                {isRight && (
+                  <motion.div
+                    variants={{
+                      rest: { x: 0, y: 310, opacity: 0.8 },
+                      hover: { x: 200, y: 80, opacity: 1 },
+                    }}
+                    transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+                    className="absolute z-[99] will-change-transform"
+                  >
+                    <Image src={image} alt={title} width={750} height={440} quality={90} />
+                  </motion.div>
+                )}
               </div>
-
-              <h3 className="text-xl font-semibold">Productivity</h3>
-
-              <p className={`w-full max-w-xs sm:w-72 ${activated.has(1) ? "text-left" : ""} text-sm sm:text-base px-4 sm:px-0`}>
-                Measure real output through active work, application usage,
-                and task behavior — not idle time.
-              </p>
             </motion.div>
-
-            <motion.div
-              variants={{
-                rest: { x: 0, y: 310, opacity: 0.8 },
-                hover: { x: 200, y: 80, opacity: 1 }
-              }}
-              transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute z-[99] will-change-transform"
-            >
-              <Image src={productivity} alt="parallax" width={750} height={440} quality={90} />
-            </motion.div>
-
           </div>
-        </motion.div>
-      </div>
-
-
-      {/* plx 2 */}
-      <div className="h-[520px] sm:h-[600px] lg:h-[650px] sticky top-20 lg:top-30 z-20">
-        <motion.div
-          style={{ y: card2Y, background: "linear-gradient(180deg, #D3E5FF 0%, #C0B2FB 100%)", boxShadow: "0 0 34.5px 0 rgba(0, 0, 0, 0.13)" }}
-
-          initial={activated.has(2) ? "hover" : "rest"}
-          animate={activated.has(2) ? "hover" : "rest"}
-          onMouseEnter={() => activate(2)}
-          className="absolute inset-0 rounded-2xl w-full h-[380px] sm:h-[420px] lg:h-[450px] overflow-hidden px-4 sm:px-6 lg:px-0"
-        >
-          <div className="relative flex flex-col items-center text-center">
-
-            <motion.div
-              variants={{
-                rest: { x: 0, y: 310, opacity: 0.8 },
-                hover: { x: -200, y: 60, opacity: 1 }
-              }}
-              transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute z-[99] will-change-transform"
-            >
-              <Image src={accountablity} alt="parallax" width={750} height={440} quality={90} />
-            </motion.div>
-
-            <motion.div
-              variants={{
-                rest: { x: 0, y: 60 },
-                hover: { x: 460, y: 60 }
-              }}
-              transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-              className={`flex flex-col gap-3 will-change-transform ${activated.has(2) ? "items-start" : "items-center"}`}
-            >
-              <div className="mb-3">
-                <Image src={plxLogo2} alt="logo" width={72} height={72} quality={90} />
-              </div>
-
-              <h3 className="text-xl font-semibold">Accountability</h3>
-
-              <p className={`w-full max-w-xs sm:w-72 ${activated.has(2) ? "text-left" : ""} text-sm sm:text-base px-4 sm:px-0`}>
-                With detailed reporting and workforce analytics, TrackForce builds transparency, tracks progress, and enables data-driven decisions with full operational visibility.
-              </p>
-            </motion.div>
-
-          </div>
-        </motion.div>
-      </div>
-
-
-      {/* plx 3 */}
-      <div className="h-[520px] sm:h-[600px] lg:h-[650px] sticky top-20 lg:top-30 z-30">
-        <motion.div
-          style={{ y: card3Y, background: "linear-gradient(180deg, #D8E9FE 0%, #BEF8CE 100%)", boxShadow: "0 0 34.5px 0 rgba(0, 0, 0, 0.13)" }}
-          initial={activated.has(3) ? "hover" : "rest"}
-          animate={activated.has(3) ? "hover" : "rest"}
-          onMouseEnter={() => activate(3)}
-          className="absolute inset-0 rounded-2xl w-full h-[380px] sm:h-[420px] lg:h-[450px] overflow-hidden px-4 sm:px-6 lg:px-0"
-
-        >
-          <div className="relative flex flex-col items-center text-center">
-            <motion.div
-              variants={{
-                rest: { x: 0, y: 60 },
-                hover: { x: -430, y: 60 }
-              }}
-              transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-              className={`flex flex-col gap-3 will-change-transform ${activated.has(3) ? "items-start" : "items-center"}`}
-            >
-              <div className="mb-3">
-                <Image src={plxLogo3} alt="logo" width={72} height={72} quality={90} />
-              </div>
-
-              <h3 className="text-xl font-semibold">Security</h3>
-
-              <p className={`w-full max-w-xs sm:w-72 ${activated.has(3) ? "text-left" : ""} text-sm sm:text-base px-4 sm:px-0`}>
-                It safeguards sensitive data through proactive insider threat detection & activity monitoring.
-              </p>
-            </motion.div>
-
-            <motion.div
-              variants={{
-                rest: { x: 0, y: 310, opacity: 0.8 },
-                hover: { x: 200, y: 80, opacity: 1 }
-              }}
-              transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute z-[99] will-change-transform"
-            >
-              <Image src={security} alt="parallax" width={750} height={440} quality={90} />
-            </motion.div>
-
-          </div>
-        </motion.div>
-      </div>
-
-
-      {/* plx 4 */}
-      <div className="h-[520px] sm:h-[600px] lg:h-[650px] sticky top-20 lg:top-30 z-40">
-        <motion.div
-          style={{ y: card4Y, background: "linear-gradient(180deg, #DFE6F2 53.53%, #F2D7BF 100%)",boxShadow: "0 0 34.5px 0 rgba(0, 0, 0, 0.13)" }}
-          initial={activated.has(4) ? "hover" : "rest"}
-          animate={activated.has(4) ? "hover" : "rest"}
-          onMouseEnter={() => activate(4)}
-          className="absolute inset-0 rounded-2xl w-full h-[380px] sm:h-[420px] lg:h-[450px] overflow-hidden px-4 sm:px-6 lg:px-0"
-        >
-          <div className="relative flex flex-col items-center text-center">
-
-            <motion.div
-              variants={{
-                rest: { x: 0, y: 310, opacity: 0.8 },
-                hover: { x: -200, y: 60, opacity: 1 }
-              }}
-              transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute z-[99] will-change-transform"
-            >
-              <Image src={effiency} alt="parallax" width={750} height={440} quality={90} />
-            </motion.div>
-
-            <motion.div
-              variants={{
-                rest: { x: 0, y: 60 },
-                hover: { x: 460, y: 60 }
-              }}
-              transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-              className={`flex flex-col gap-3 will-change-transform ${activated.has(4) ? "items-start" : "items-center"}`}
-            >
-              <div className="mb-3">
-                <Image src={plxLogo4} alt="logo" width={72} height={72} quality={90} />
-              </div>
-
-              <h3 className="text-xl font-semibold">Efficiency</h3>
-
-              <p className={`w-full max-w-xs sm:w-72 ${activated.has(4) ? "text-left" : ""} text-sm sm:text-base px-4 sm:px-0`}>
-                TrackForce boosts operational efficiency by optimizing workflows, reducing manual overhead, and enabling teams to execute faster with precision.
-              </p>
-            </motion.div>
-
-          </div>
-        </motion.div>
-      </div>
-
+        );
+      })}
     </div>
   );
 };

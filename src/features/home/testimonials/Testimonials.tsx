@@ -11,83 +11,37 @@ import { animate, AnimationPlaybackControls } from "framer-motion";
 import { Play } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import type { CmsTestimonial } from "@/lib/cms";
 
-const testimonials = [
-  {
-    sl: 1,
-    name: "Devon Lane",
-    role: "HR Manager, L'Oréal",
-    text: `"Managing a distributed team used to feel overwhelming, but TrackForce changed everything. We now have real-time visibility into our workflows, making collaboration smoother and decisions much more confident."`,
-    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop&crop=faces",
-    type: "text",
-    rate: 4.9,
-  },
-  {
-    sl: 2,
-    name: "Savannah Nguyen",
-    role: "Marketing Head, eBay",
-    text: `"TrackForce has completely redefined how we manage campaigns. The real-time insights and intuitive interface allow us to optimize faster and stay ahead of deadlines effortlessly."`,
-    avatar: "https://images.unsplash.com/photo-1554151228-14d9def656e4?w=200&h=200&fit=crop&crop=faces",
-    type: "text",
-    rate: 4.8,
-  },
-  {
-    sl: 3,
-    name: "Jerome Bell",
-    role: "IT Manager, IBM",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=500&fit=crop",
-    avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&h=200&fit=crop&crop=faces",
-    type: "video",
-    rate: 4.7,
-  },
-  {
-    sl: 4,
-    name: "Jane Cooper",
-    role: "CEO, Louis Vuitton",
-    text: `"Before TrackForce, our operations felt fragmented and difficult to track. Now, everything is centralized, structured, and incredibly easy to monitor."`,
-    avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&h=200&fit=crop&crop=faces",
-    type: "rating",
-    rate: 4.9,
-  },
-  {
-    sl: 5,
-    name: "Ralph Edwards",
-    role: "CTO, Ferrari",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=500&fit=crop",
-    avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&h=200&fit=crop&crop=faces",
-    type: "video",
-    rate: 4.6,
-  },
-  {
-    sl: 6,
-    name: "Jane Cooper",
-    role: "CEO, Louis Vuitton",
-    text: `"TrackForce brought all our tools and workflows into one unified platform. It simplified our processes and gave us the clarity we were missing."`,
-    avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&h=200&fit=crop&crop=faces",
-    type: "rating",
-    rate: 5.0,
-  },
-  {
-    sl: 7,
-    name: "Ralph Edwards",
-    role: "CTO, Ferrari",
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=500&fit=crop",
-    avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&h=200&fit=crop&crop=faces",
-    type: "video",
-    rate: 4.5,
-  },
-  {
-    sl: 8,
-    name: "Savannah Nguyen",
-    role: "Marketing Head, eBay",
-    text: `"A reliable and intuitive platform for tracking team productivity. It’s fast, easy to use, and genuinely improves how we manage day-to-day operations."`,
-    avatar: "https://images.unsplash.com/photo-1554151228-14d9def656e4?w=200&h=200&fit=crop&crop=faces",
-    type: "text",
-    rate: 4.8,
-  },
+const HARDCODED_TESTIMONIALS = [
+  { sl: 1, name: "Devon Lane", role: "HR Manager, L’Oréal", text: `"Managing a distributed team used to feel overwhelming, but TrackForce changed everything. We now have real-time visibility into our workflows, making collaboration smoother and decisions much more confident."`, avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop&crop=faces", type: "text", rate: 4.9 },
+  { sl: 2, name: "Savannah Nguyen", role: "Marketing Head, eBay", text: `"TrackForce has completely redefined how we manage campaigns. The real-time insights and intuitive interface allow us to optimize faster and stay ahead of deadlines effortlessly."`, avatar: "https://images.unsplash.com/photo-1554151228-14d9def656e4?w=200&h=200&fit=crop&crop=faces", type: "text", rate: 4.8 },
+  { sl: 3, name: "Jerome Bell", role: "IT Manager, IBM", image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=500&fit=crop", avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&h=200&fit=crop&crop=faces", type: "video", rate: 4.7 },
+  { sl: 4, name: "Jane Cooper", role: "CEO, Louis Vuitton", text: `"Before TrackForce, our operations felt fragmented and difficult to track. Now, everything is centralized, structured, and incredibly easy to monitor."`, avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&h=200&fit=crop&crop=faces", type: "rating", rate: 4.9 },
+  { sl: 5, name: "Ralph Edwards", role: "CTO, Ferrari", image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=500&fit=crop", avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&h=200&fit=crop&crop=faces", type: "video", rate: 4.6 },
+  { sl: 6, name: "Jane Cooper", role: "CEO, Louis Vuitton", text: `"TrackForce brought all our tools and workflows into one unified platform. It simplified our processes and gave us the clarity we were missing."`, avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&h=200&fit=crop&crop=faces", type: "rating", rate: 5.0 },
+  { sl: 7, name: "Ralph Edwards", role: "CTO, Ferrari", image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=500&fit=crop", avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=200&h=200&fit=crop&crop=faces", type: "video", rate: 4.5 },
+  { sl: 8, name: "Savannah Nguyen", role: "Marketing Head, eBay", text: `"A reliable and intuitive platform for tracking team productivity. It’s fast, easy to use, and genuinely improves how we manage day-to-day operations."`, avatar: "https://images.unsplash.com/photo-1554151228-14d9def656e4?w=200&h=200&fit=crop&crop=faces", type: "text", rate: 4.8 },
 ];
 
-const Testimonials = () => {
+interface TestimonialsProps {
+  initialTestimonials?: CmsTestimonial[];
+}
+
+const Testimonials = ({ initialTestimonials }: TestimonialsProps) => {
+  const testimonials = initialTestimonials && initialTestimonials.length > 0
+    ? initialTestimonials.map((t, i) => ({
+        sl: i + 1,
+        name: t.name,
+        role: `${t.role}${t.company ? `, ${t.company}` : ""}`,
+        text: t.text ? `"${t.text}"` : undefined,
+        image: t.videoUrl ?? undefined,
+        avatar: t.avatar,
+        type: t.type as "text" | "video" | "rating",
+        rate: t.rating,
+      }))
+    : HARDCODED_TESTIMONIALS;
+
   const col1 = testimonials.filter((_, i) => i % 2 === 0);
   const col2 = testimonials.filter((_, i) => i % 2 !== 0);
 

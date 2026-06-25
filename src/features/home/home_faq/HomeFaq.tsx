@@ -7,47 +7,29 @@ import { FaArrowRightLong } from 'react-icons/fa6';
 import { IoIosArrowDown } from "react-icons/io";
 import faqBg from "../../../../public/faqBg.png";
 import trackforce from '../../../../public/trackforce.png';
-const faqs = [
-    {
-        question: "1. What is TrackForce used for?",
-        answer:
-            "TrackForce is an advanced Employee Monitoring Software that helps businesses track productivity, monitor activity, and ensure data security through real-time analytics and detailed reports.",
-    },
-    {
-        question: "2. Can TrackForce monitor remote employees?",
-        answer:
-            "Yes, TrackForce can monitor remote employees by tracking activity, applications used, websites visited, and productivity metrics in real time.",
-    },
-    {
-        question: "3. How does TrackForce improve productivity?",
-        answer:
-            "It provides analytics, reports, and activity tracking so managers can identify inefficiencies and improve workflow.",
-    },
-    {
-        question: "4. What kind of activities can TrackForce monitor?",
-        answer:
-            "TrackForce can monitor app usage, websites visited, screenshots, keystrokes, and productivity patterns.",
-    },
-    {
-        question: "5. Is employee monitoring legal and ethical?",
-        answer:
-            "Yes, when implemented transparently and in compliance with local laws and company policies.",
-    },
-    {
-        question: "6. Does TrackForce work on Windows, macOS, and Linux?",
-        answer:
-            "Yes, TrackForce supports Windows, macOS, and Linux, so you can monitor your entire workforce across different operating systems from a single dashboard.",
-    },
-    {
-        question: "7. Is my company's data secure with TrackForce?",
-        answer:
-            "Absolutely. TrackForce uses encrypted data transfer and secure cloud storage, with role-based access controls to keep your monitoring data protected at all times.",
-    },
+import type { CmsFaq } from "@/lib/cms";
+
+const HARDCODED_FAQS = [
+    { question: "1. What is TrackForce used for?", answer: "TrackForce is an advanced Employee Monitoring Software that helps businesses track productivity, monitor activity, and ensure data security through real-time analytics and detailed reports." },
+    { question: "2. Can TrackForce monitor remote employees?", answer: "Yes, TrackForce can monitor remote employees by tracking activity, applications used, websites visited, and productivity metrics in real time." },
+    { question: "3. How does TrackForce improve productivity?", answer: "It provides analytics, reports, and activity tracking so managers can identify inefficiencies and improve workflow." },
+    { question: "4. What kind of activities can TrackForce monitor?", answer: "TrackForce can monitor app usage, websites visited, screenshots, keystrokes, and productivity patterns." },
+    { question: "5. Is employee monitoring legal and ethical?", answer: "Yes, when implemented transparently and in compliance with local laws and company policies." },
+    { question: "6. Does TrackForce work on Windows, macOS, and Linux?", answer: "Yes, TrackForce supports Windows, macOS, and Linux, so you can monitor your entire workforce across different operating systems from a single dashboard." },
+    { question: "7. Is my company's data secure with TrackForce?", answer: "Absolutely. TrackForce uses encrypted data transfer and secure cloud storage, with role-based access controls to keep your monitoring data protected at all times." },
 ];
 
 const INITIAL_COUNT = 5;
 
-const HomeFaq = () => {
+interface HomeFaqProps {
+    initialFaqs?: CmsFaq[];
+}
+
+const HomeFaq = ({ initialFaqs }: HomeFaqProps) => {
+    const rawFaqs = initialFaqs && initialFaqs.length > 0
+        ? initialFaqs.map((f, i) => ({ question: `${i + 1}. ${f.question}`, answer: f.answer }))
+        : HARDCODED_FAQS;
+    const faqs = rawFaqs;
     const [open, setOpen] = useState<number | null>(0);
     const [isHovered, setIsHovered] = useState(false);
     const [showAll, setShowAll] = useState(false);

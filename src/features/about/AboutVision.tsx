@@ -19,9 +19,14 @@ const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
     },
 });
 
-const AboutVision = () => {
+type AboutVisionProps = { cms?: Record<string, string> }
+
+const AboutVision = ({ cms = {} }: AboutVisionProps) => {
     return (
-        <div className="lg:h-[75vh] max-w-[1300] mx-4 lg:mx-auto bg-gradient-to-r from-[#0a0a2e] via-[#0d1033] to-[#0a0a2e] rounded-3xl mt-12 lg:mt-24 p-6 md:p-10 lg:p-12 relative overflow-hidden bg-[url('/whyTStandBg.png')] bg-cover bg-center bg-no-repeat">
+        <div
+            className="lg:h-[75vh] max-w-[1300] mx-4 lg:mx-auto bg-gradient-to-r from-[#0a0a2e] via-[#0d1033] to-[#0a0a2e] rounded-3xl mt-12 lg:mt-24 p-6 md:p-10 lg:p-12 relative overflow-hidden bg-cover bg-center bg-no-repeat bg-[url('/whyTStandBg.png')]"
+            style={cms.bg_image ? { backgroundImage: `url(${cms.bg_image}), url('/whyTStandBg.png')` } : undefined}
+        >
             {/* Glow effects */}
             <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-green-500/10 rounded-full blur-[120px]" />
             <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-blue-500/10 rounded-full blur-[120px]" />
@@ -38,8 +43,9 @@ const AboutVision = () => {
                            viewport={{ once: false, amount: 0.1 }}
                          >
                            <Image
-                             src={desktopApp}
-                             alt="Case Study Hero"
+                             src={cms.image1 || desktopApp}
+                             onError={(e) => { e.currentTarget.src = desktopApp.src; }}
+                             alt="Desktop App Preview"
                              width={1200}
                              height={600}
                              quality={90}
@@ -55,8 +61,9 @@ const AboutVision = () => {
                            viewport={{ once: false, amount: 0.1 }}
                          >
                            <Image
-                             src={whyStand2}
-                             alt="Case Study Hero"
+                             src={cms.image2 || whyStand2}
+                             onError={(e) => { e.currentTarget.src = whyStand2.src; }}
+                             alt="Why TrackForce"
                              width={1200}
                              height={600}
                              quality={90}
@@ -79,15 +86,13 @@ const AboutVision = () => {
                         <h3
                             className={`text-2xl md:text-[32px] font-semibold leading-tight mb-4  text-white`}
                         >
-                            Shaping the Future of Intelligent  <br />  and
-                            <span className="font-playball font-normal"> Accountable </span>{" "}
-                            Workplaces
+                            {cms.heading || <>Shaping the Future of Intelligent <br /> and <span className="font-playball font-normal"> Accountable </span>{" "} Workplaces</>}
                         </h3>
 
                         <p
                             className={`text-base leading-relaxed mb-6 text-gray-300`}
                         >
-                            To become the leading global platform for workforce visibility. Empowering every organization to operate with clarity, confidence, and measurable impact through real-time insights and automation.
+                            {cms.description || "To become the leading global platform for workforce visibility. Empowering every organization to operate with clarity, confidence, and measurable impact through real-time insights and automation."}
                         </p>
 
 

@@ -16,9 +16,14 @@ const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
         transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number], delay },
     },
 });
-const AboutValues = () => {
+type AboutValuesProps = { cms?: Record<string, string> }
+
+const AboutValues = ({ cms = {} }: AboutValuesProps) => {
     return (
-        <div className='w-full bg-[url("/ourValues.png")] bg-cover bg-center bg-no-repeat overflow-hidden py-12 lg:py-24 px-4'>
+        <div
+            className='w-full bg-cover bg-center bg-no-repeat overflow-hidden py-12 lg:py-24 px-4 bg-[url("/ourValues.png")]'
+            style={cms.bg_image ? { backgroundImage: `url(${cms.bg_image}), url('/ourValues.png')` } : undefined}
+        >
             <div className='flex flex-col lg:flex-row justify-between items-center gap-10 max-w-[1300] mx-auto px-4 lg:px-0'>
                 <div className="w-full lg:w-[50%]">
                     <div className="flex flex-col justify-center">
@@ -31,15 +36,13 @@ const AboutValues = () => {
                         <h3
                             className={`text-2xl md:text-[32px] font-semibold leading-tight mb-4 text-black`}
                         >
-                            Core Principles That Drive  <br />
-                            <span className="font-playball font-normal">Transparency</span> {" "}
-                            and Excellence
+                            {cms.heading || <>Core Principles That Drive <br /> <span className="font-playball font-normal">Transparency</span>{" "} and Excellence</>}
                         </h3>
 
                         <p
                             className={`text-base leading-relaxed mb-6 text-gray-600`}
                         >
-                            We believe in transparency, integrity, and innovation. Every solution we build reflects our commitment to accountability, data accuracy, and empowering people with technology that makes work simpler and smarter.
+                            {cms.description || "We believe in transparency, integrity, and innovation. Every solution we build reflects our commitment to accountability, data accuracy, and empowering people with technology that makes work simpler and smarter."}
                         </p>
 
                         <div className="">
@@ -77,8 +80,9 @@ const AboutValues = () => {
                             viewport={{ once: false, amount: 0.1 }}
                         >
                             <Image
-                                src={coreValue}
-                                alt="Case Study Hero"
+                                src={cms.image1 || coreValue}
+                                onError={(e) => { e.currentTarget.src = coreValue.src; }}
+                                alt="Core Values"
                                 width={1200}
                                 height={600}
                                 quality={90}
@@ -95,8 +99,9 @@ const AboutValues = () => {
                             viewport={{ once: false, amount: 0.1 }}
                         >
                             <Image
-                                src="/values2.png"
-                                alt="Case Study Hero"
+                                src={cms.image2 || "/values2.png"}
+                                onError={(e) => { e.currentTarget.src = "/values2.png"; }}
+                                alt="Values"
                                 width={1200}
                                 height={600}
                                 quality={90}

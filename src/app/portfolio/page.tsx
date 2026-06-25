@@ -1,4 +1,5 @@
 import Portfolio from '@/features/portfolio/Portfolio'
+import { getPageContent } from '@/lib/cms'
 import { buildMetadata, buildBreadcrumbJsonLd } from '@/lib/seo'
 import React from 'react'
 
@@ -14,14 +15,16 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: "Portfolio", path: "/portfolio" },
 ])
 
-export default function PortfolioPage() {
+export default async function PortfolioPage() {
+    const cms = await getPageContent('portfolio')
+
     return (
         <>
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
             />
-            <Portfolio />
+            <Portfolio cms={cms} />
         </>
     )
 }

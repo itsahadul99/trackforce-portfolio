@@ -7,18 +7,20 @@ import CaseStudyParallax from './CaseStudyParallax'
 import CaseStudyResults from './CaseStudyResults'
 import CaseStudyWhyStandsOut from './CaseStudyWhyStandsOut'
 
-const CaseStudy = () => {
+type CaseStudyProps = { cms?: Record<string, Record<string, string>> }
+
+const CaseStudy = ({ cms = {} }: CaseStudyProps) => {
     return (
         <div>
-            <CaseStudyHero />
-            <CaseStudyChallengeAndSolution />
-            <CaseStudyKeyFeatures />
-            <CaseStudyParallax />
-            <CaseStudyDeployment />
-            <CaseStudyResults />
-            <CaseStudyWhyStandsOut />
+            <CaseStudyHero cms={cms.hero ?? {}} />
+            <CaseStudyChallengeAndSolution cms={cms.challenge ?? {}} />
+            <CaseStudyKeyFeatures cms={cms.key_features ?? {}} />
+            <CaseStudyParallax cms={cms.parallax ?? {}} />
+            <CaseStudyDeployment cms={cms.deployment ?? {}} />
+            <CaseStudyResults cms={cms.results ?? {}} />
+            <CaseStudyWhyStandsOut cms={cms.why_stands_out ?? {}} />
             <div className='my-28 px-4'>
-                <HomeFreeTailer />
+                <HomeFreeTailer cms={cms.free_trailer ?? {}} />
             </div>
         </div>
     )

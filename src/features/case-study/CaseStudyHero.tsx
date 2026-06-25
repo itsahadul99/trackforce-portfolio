@@ -14,9 +14,14 @@ const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
   },
 });
 
-const CaseStudyHero = () => {
+type CaseStudyHeroProps = { cms?: Record<string, string> }
+
+const CaseStudyHero = ({ cms = {} }: CaseStudyHeroProps) => {
   return (
-    <div className="overflow-hidden py-12 bg-cover bg-center bg-no-repeat bg-[url('/caseStudyBg.png')]">
+    <div
+      className="overflow-hidden py-12 bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: cms.bg_image ? `url(${cms.bg_image}), url('/caseStudyBg.png')` : `url('/caseStudyBg.png')` }}
+    >
 
       <div className="  max-w-[1300px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-10 h-auto lg:h-[calc(100vh-200px)] px-4 md:px-8">
         {/* Left Content */}
@@ -24,15 +29,13 @@ const CaseStudyHero = () => {
           {/* Case Study Badge */}
           <div className="content_title_border_new w-fit  mb-1">
             <div className="px-4 py-2 text-sm font-semibold content_title_text_new">
-              Case Study
+              {cms.badge || "Case Study"}
             </div>
           </div>
 
           {/* Main Headline */}
           <h1 className="text-3xl md:text-4xl lg:text-[42px] font-bold text-[#1a1a2e] leading-tight">
-            Transforming Workforce{" "}
-            <span className="font-playball font-normal italic">Productivity</span>{" "}
-            with Intelligent Monitoring
+            {cms.heading || <>Transforming Workforce{" "}<span className="font-playball font-normal italic">Productivity</span>{" "}with Intelligent Monitoring</>}
           </h1>
 
           {/* Client Badge */}
@@ -67,12 +70,13 @@ const CaseStudyHero = () => {
             viewport={{ once: false, amount: 0.1 }}
           >
             <Image
-              src="/case-stud-hero-female.png"
+              src={cms.image1 || "/case-stud-hero-female.png"}
               alt="Case Study Hero"
               width={1200}
               height={600}
               quality={90}
               className="lg:w-[490px] w-full max-w-[450px] object-contain"
+              onError={(e) => { e.currentTarget.src = "/case-stud-hero-female.png"; }}
             />
           </motion.div>
 
@@ -85,12 +89,13 @@ const CaseStudyHero = () => {
             viewport={{ once: false, amount: 0.1 }}
           >
             <Image
-              src="/case-stud-hero-welcome.png"
+              src={cms.image2 || "/case-stud-hero-welcome.png"}
               alt="Case Study Hero"
               width={1200}
               height={600}
               quality={90}
               className="lg:w-[400px] w-full max-w-[380px] lg:max-w-[350px] object-contain"
+              onError={(e) => { e.currentTarget.src = "/case-stud-hero-welcome.png"; }}
             />
           </motion.div>
 

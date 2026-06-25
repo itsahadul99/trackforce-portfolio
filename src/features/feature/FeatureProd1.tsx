@@ -31,11 +31,12 @@ type Props = {
     }[];
     txtColor?: string;
     bgColor?: string;
-      title?: string;
+    title?: string;
     subTitle?: string;
+    cms?: Record<string, string>;
 }
 
-const FeatureProd1 =({title, subTitle, height = '400px', features, txtColor='text-black' }: Props) => {
+const FeatureProd1 = ({ title, subTitle, height = '400px', features, txtColor = 'text-black', cms = {} }: Props) => {
     return (
         <div className="mt-28 text-white flex flex-col lg:flex-row gap-3 items-center justify-between">
             <div className="w-full lg:w-1/2">
@@ -84,7 +85,7 @@ const FeatureProd1 =({title, subTitle, height = '400px', features, txtColor='tex
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={dashboardOverview} alt="Productivity Dashboard" className="w-full" width={1600} height={1000} quality={90} />
+                    <Image src={cms.image1 || dashboardOverview} onError={(e) => { e.currentTarget.src = dashboardOverview.src; }} alt="Productivity Dashboard" className="w-full" width={1600} height={1000} quality={90} />
                 </motion.div>
 
                 {/* Employees - top right, slides from center */}
@@ -95,7 +96,7 @@ const FeatureProd1 =({title, subTitle, height = '400px', features, txtColor='tex
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={topEmployees} alt="Employees" className="w-full" width={1600} height={1200} quality={90} />
+                    <Image src={cms.image2 || topEmployees} onError={(e) => { e.currentTarget.src = topEmployees.src; }} alt="Employees" className="w-full" width={1600} height={1200} quality={90} />
                 </motion.div>
 
                 {/* Activity Logs - bottom left, slides from center */}
@@ -106,7 +107,7 @@ const FeatureProd1 =({title, subTitle, height = '400px', features, txtColor='tex
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={projectProgress} alt="Activity Logs" className="w-full" width={1600} height={1200} quality={90} />
+                    <Image src={cms.image3 || projectProgress} onError={(e) => { e.currentTarget.src = projectProgress.src; }} alt="Activity Logs" className="w-full" width={1600} height={1200} quality={90} />
                 </motion.div>
 
                 {/* Search Logs - bottom right, slides from center */}
@@ -117,7 +118,7 @@ const FeatureProd1 =({title, subTitle, height = '400px', features, txtColor='tex
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={taskProgress} alt="Search Logs" className="w-full" width={1600} height={1200} quality={90} />
+                    <Image src={cms.image4 || taskProgress} onError={(e) => { e.currentTarget.src = taskProgress.src; }} alt="Search Logs" className="w-full" width={1600} height={1200} quality={90} />
                 </motion.div>
             </div>
         </div>

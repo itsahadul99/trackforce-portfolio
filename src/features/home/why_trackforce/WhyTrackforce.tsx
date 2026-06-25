@@ -15,7 +15,9 @@ const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
 });
 
 
-const WhyTrackforce = () => {
+type WhyTrackforceProps = { cms?: Record<string, string> }
+
+const WhyTrackforce = ({ cms = {} }: WhyTrackforceProps) => {
 
 
     return (
@@ -23,15 +25,14 @@ const WhyTrackforce = () => {
             <div className="w-full lg:w-1/2 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
                 <div className="content_title_border_new w-fit mb-1">
                     <div className="px-4 py-2 text-sm font-semibold content_title_text_new">
-                        Why Trackforce
-
+                        {cms.badge || "Why Trackforce"}
                     </div>
                 </div>
                 <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold mb-2 text-black leading-tight">
-                    Employee Monitoring Built for <span className="font-playball font-normal">Smarter Workflows</span>
+                    {cms.heading || <>Employee Monitoring Built for <span className="font-playball font-normal">Smarter Workflows</span></>}
                 </h2>
                 <p className="text-gray-600 text-sm sm:text-base mb-6 max-w-lg mt-6">
-                    TrackForce delivers real-time visibility, accountability, and performance insights — helping teams work better, not harder.
+                    {cms.description || "TrackForce delivers real-time visibility, accountability, and performance insights — helping teams work better, not harder."}
                 </p>
                 <BookDemoBtn />
             </div>

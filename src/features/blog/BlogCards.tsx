@@ -1,7 +1,7 @@
 "use client";
 
 import BookDemoBtn from "@/components/shared/BookDemoBtn";
-import { blogs as cards } from "@/data/blogs";
+import { blogs as HARDCODED_CARDS, type BlogPost } from "@/data/blogs";
 import { motion } from 'framer-motion';
 import Image from "next/image";
 import Link from "next/link";
@@ -18,7 +18,13 @@ const sortOptions: { value: SortOption; label: string }[] = [
     { value: "title-desc", label: "Title (Z–A)" },
 ];
 
-const BlogCards = () => {
+interface BlogCardsProps {
+    initialCards?: BlogPost[];
+    cms?: Record<string, string>;
+}
+
+const BlogCards = ({ initialCards, cms = {} }: BlogCardsProps) => {
+    const cards = initialCards && initialCards.length > 0 ? initialCards : HARDCODED_CARDS;
     const [activeFilter, setActiveFilter] = useState<string>("All Post");
     const [searchOpen, setSearchOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
@@ -92,7 +98,7 @@ const BlogCards = () => {
         sortOptions.find((o) => o.value === sortBy)?.label ?? "Sort by";
 
     return (
-        <section className="bg-[#DEEDFF]  max-w-[1300] mx-auto p-4 md:p-8 lg:p-14 rounded-2xl my-24 bg-[url('/blogBg.png')] bg-no-repeat bg-cover bg-top">
+        <section className="bg-[#DEEDFF] max-w-[1300] mx-auto p-4 md:p-8 lg:p-14 rounded-2xl my-24 bg-no-repeat bg-cover bg-top" style={{ backgroundImage: "url('/blogBg.png')" }}>
             <div className="max-w-[1200px] xl:max-w-[1300px] mx-auto ">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center justify-center rounded-2xl overflow-hidden ">
                     <motion.div
@@ -102,7 +108,7 @@ const BlogCards = () => {
                         transition={{ duration: 0.3, ease: "easeOut" }}
                         className="relative w-full h-[320px] lg:h-[380px] "
                     >
-                        <Image
+                        {/* <Image
                             src="/feature-blog.png"
                             alt="Fortune 100 Company Optimizes Hybrid Work"
                             fill
@@ -110,7 +116,7 @@ const BlogCards = () => {
                             quality={90}
                             className="object-cover rounded-2xl"
                             priority
-                        />
+                        /> */}
                     </motion.div>
 
                     <motion.div
@@ -123,19 +129,17 @@ const BlogCards = () => {
                         <div className='flex'>
                             <div className="flex justify-center ">
                                 <div className="content_title_border_new w-fit">
-                                    <div className="px-4 py-2 text-sm font-semibold content_title_text_new">Software</div>
+                                    <div className="px-4 py-2 text-sm font-semibold content_title_text_new">{cms.badge || "Software"}</div>
                                 </div>
                             </div>
                         </div>
                         <h2 className="text-[42px] font-semibold text-black">
-                            Fortune 100 Company <br /> Optimizes  <span className="font-playball font-normal">Hybrid Work</span>
+                            {cms.heading || <>Fortune 100 Company <br /> Optimizes  <span className="font-playball font-normal">Hybrid Work</span></>}
                         </h2>
                         <div className="mt-5">
-                            <p className="text-sm text-gray-500 mb-2">April 15, 2025</p>
+                            <p className="text-sm text-gray-500 mb-2">{cms.date || "April 15, 2025"}</p>
                             <p className="text-[15px] text-gray-600 leading-relaxed mb-8 max-w-xl">
-                                A Fortune 100 company tracks remote vs. in-office productivity by
-                                centralizing employee location and activity data in a single
-                                dashboard, revealing policy violations and performance gaps.
+                                {cms.description || "A Fortune 100 company tracks remote vs. in-office productivity by centralizing employee location and activity data in a single dashboard, revealing policy violations and performance gaps."}
                             </p>
                         </div>
                         <div className="">
@@ -253,14 +257,14 @@ const BlogCards = () => {
                                 style={{background: "var(--Linear, linear-gradient(270deg, rgba(255, 255, 255, 0.39) 0%, rgba(210, 228, 255, 0.39) 100%))", boxShadow: "0 0 34.5px 0 rgba(0, 0, 0, 0.13)"}}
                             >
                                 <div className="relative w-full h-50 perspective-[1000px]">
-                                    <Image
+                                    {/* <Image
                                         src={card.image}
                                         alt={card.title}
                                         fill
                                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                         quality={90}
                                         className="object-cover transition-transform duration-800 ease-in-out group-hover:transform-[rotateY(180deg)]"
-                                    />
+                                    /> */}
                                     <span className="absolute top-3 right-3 text-xs font-semibold content_title_text_new backdrop-blur bg-[#FFFFFF54]  font-medium px-3 py-1.5 rounded-full">
                                         {card.tag}
                                     </span>

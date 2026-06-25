@@ -11,9 +11,14 @@ const commonTransition: Transition = {
   repeatDelay: 0.8
 };
 
-const BlogHero = () => {
+type BlogHeroProps = { cms?: Record<string, string> }
+
+const BlogHero = ({ cms = {} }: BlogHeroProps) => {
     return (
-        <section className="relative overflow-hidden bg-[#000000] pt-32 pb-20 bg-[url('/ContactHeroBg.png')] bg-cover bg-center">
+        <section
+            className="relative overflow-hidden bg-[#000000] pt-32 pb-20 bg-cover bg-center bg-[url('/ContactHeroBg.png')]"
+            style={cms.bg_image ? { backgroundImage: `url(${cms.bg_image}), url('/ContactHeroBg.png')` } : undefined}
+        >
             {/* Background glow effects */}
             <div className="absolute inset-0">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-blue-600/20 rounded-full blur-[120px]" />
@@ -22,13 +27,12 @@ const BlogHero = () => {
             </div>
             <div className="relative z-10 text-center text-white max-w-[1300] mx-auto">
                 <h1 className="text-[42px] font-semibold leading-tight">
-                    Real Customers
+                    {cms.heading || "Real Customers"}
                 </h1>
 
                 <div className="relative inline-block">
                     <h2 className="text-[42px] font-semibold leading-tight">
-                        Real{" "}
-                        <span className="font-playball font-normal">Results</span>
+                        {cms.subheading || <>Real{" "}<span className="font-playball font-normal">Results</span></>}
                     </h2>
                     {/* spark animation */}
                     {/* <div className="absolute -right-9 -top-2 rotate-120" >
@@ -82,7 +86,7 @@ const BlogHero = () => {
                     </div> */}
                 </div>
                 <p className="text-gray-300 text-base mt-6 max-w-2xl mx-auto leading-relaxed">
-                  Meet TrackForce’s customers around the globe and discover the impact that partnering with TrackForce can create.
+                  {cms.description || "Meet TrackForce’s customers around the globe and discover the impact that partnering with TrackForce can create."}
                 </p>
             </div>
         </section>

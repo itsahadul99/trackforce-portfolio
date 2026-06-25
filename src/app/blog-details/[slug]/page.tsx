@@ -1,9 +1,10 @@
 import BlogDetails from "@/features/blog_details/BlogDetails";
-import { blogs, getBlogBySlug } from "@/data/blogs";
+import { blogs, getAllBlogPosts, getBlogPostBySlug } from "@/data/blogs";
 import { notFound } from "next/navigation";
 import { buildMetadata, buildBreadcrumbJsonLd, siteName, siteUrl } from "@/lib/seo";
 import type { Metadata } from "next";
 
+// Static params from local data (build-time); CMS slugs are handled dynamically at runtime
 export function generateStaticParams() {
     return blogs.map((b) => ({ slug: b.slug }));
 }
@@ -14,7 +15,7 @@ export async function generateMetadata({
     params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
     const { slug } = await params;
-    const blog = getBlogBySlug(slug);
+    const blog = await getBlogPostBySlug(slug);
     if (!blog) return {};
     const base = buildMetadata({
         title: blog.title,
@@ -39,7 +40,7 @@ export default async function BlogDetailsPage({
     params: Promise<{ slug: string }>;
 }) {
     const { slug } = await params;
-    const blog = getBlogBySlug(slug);
+    const blog = await getBlogPostBySlug(slug);
     if (!blog) notFound();
 
     const breadcrumbJsonLd = buildBreadcrumbJsonLd([

@@ -21,7 +21,9 @@ const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
     },
 });
 
-const WorkForceMonitoring = () => {
+type WorkForceMonitoringProps = { cms?: Record<string, string> }
+
+const WorkForceMonitoring = ({ cms = {} }: WorkForceMonitoringProps) => {
     const features = [
         {
             title: "App Tracking",
@@ -65,7 +67,7 @@ const WorkForceMonitoring = () => {
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={emailing} alt="Emailing" quality={90} className="w-full" />
+                    <Image src={cms.image1 || emailing} onError={(e) => { e.currentTarget.src = emailing.src; }} alt="Emailing" quality={90} className="w-full" width={1600} height={1000} />
                 </motion.div>
 
                 {/* Sidebar - top right, slides from center */}
@@ -76,7 +78,7 @@ const WorkForceMonitoring = () => {
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={sidebar} alt="Sidebar" quality={90} className="w-full" />
+                    <Image src={cms.image2 || sidebar} onError={(e) => { e.currentTarget.src = sidebar.src; }} alt="Sidebar" quality={90} className="w-full" width={1600} height={1200} />
                 </motion.div>
 
                 {/* Employee List - bottom left, slides from center */}
@@ -87,7 +89,7 @@ const WorkForceMonitoring = () => {
                     whileInView="visible"
                     viewport={{ once: false, amount: 0.1 }}
                 >
-                    <Image src={employeeList} alt="Activity Logs" quality={90} className="w-full" />
+                    <Image src={cms.image3 || employeeList} onError={(e) => { e.currentTarget.src = employeeList.src; }} alt="Activity Logs" quality={90} className="w-full" width={1600} height={1200} />
                 </motion.div>
 
 

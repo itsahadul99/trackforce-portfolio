@@ -3,7 +3,7 @@
 import { motion, MotionValue, useScroll, useSpring, useTransform } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 
-const cards = [
+const DEFAULT_CARDS = [
   {
     number: "01",
     title: "Real-Time Productivity Dashboard",
@@ -48,7 +48,7 @@ const cards = [
   },
 ];
 
-type CardData = (typeof cards)[number];
+type CardData = (typeof DEFAULT_CARDS)[number];
 
 // Smooth, snappy spring shared by every card-level transform.
 const SPRING = { stiffness: 140, damping: 30, mass: 0.4, restDelta: 0.001 } as const;
@@ -164,7 +164,14 @@ const StaticCard = ({ card, index }: { card: CardData; index: number }) => (
   </div>
 );
 
-const CaseStudyParallax = () => {
+type ParallaxProps = { cms?: Record<string, string> }
+
+const CaseStudyParallax = ({ cms = {} }: ParallaxProps) => {
+  const cards = DEFAULT_CARDS.map((card, i) => ({
+    ...card,
+    title: cms[`card${i + 1}_title`] || card.title,
+  }));
+
   const containerRef = useRef<HTMLDivElement>(null);
 
   const [isSmall, setIsSmall] = useState(false);

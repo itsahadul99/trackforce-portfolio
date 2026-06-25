@@ -55,9 +55,14 @@ const features = [
   },
 ];
 
-const AboutJoinTeam = () => {
+type AboutJoinTeamProps = { cms?: Record<string, string> }
+
+const AboutJoinTeam = ({ cms = {} }: AboutJoinTeamProps) => {
   return (
-    <section className="w-full py-12 lg:py-24 bg-[url('/joinOurTeam.png')] bg-cover bg-center bg-no-repeat">
+    <section
+      className="w-full py-12 lg:py-24 bg-cover bg-center bg-no-repeat bg-[url('/joinOurTeam.png')]"
+      style={cms.bg_image ? { backgroundImage: `url(${cms.bg_image}), url('/joinOurTeam.png')` } : undefined}
+    >
       <div className="max-w-[1300px] mx-auto px-4">
         <div className="flex flex-col md:flex-row gap-8 w-full">
           {/* Left: Features Card */}
@@ -96,16 +101,14 @@ const AboutJoinTeam = () => {
           <div className="w-full md:w-2/5 flex flex-col justify-center items-start px-2 md:px-8">
             <div className="content_title_border_new w-fit mb-1">
               <div className="px-4 py-2 text-sm font-semibold content_title_text_new">
-                Join our team
+                {cms.badge || "Join our team"}
               </div>
             </div>
             <h2 className="text-2xl md:text-[42px] font-semibold mb-2 text-black">
-              Build the future of productivity with{" "}
-              <span className="font-playball font-normal">TrackForce</span>
+              {cms.heading || <>Build the future of productivity with{" "}<span className="font-playball font-normal">TrackForce</span></>}
             </h2>
             <p className="text-gray-600 text-base mb-6 max-w-lg mt-6">
-              We&apos;re building smarter employee monitoring and workforce
-              management solutions that make a real impact.
+              {cms.description || "We're building smarter employee monitoring and workforce management solutions that make a real impact."}
             </p>
           </div>
         </div>

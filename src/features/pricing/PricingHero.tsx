@@ -14,7 +14,8 @@ const commonTransition: Transition = {
 
 const PricingHero = () => {
     return (
-        < section className="relative overflow-hidden bg-[#FFF] pt-32 pb-20 bg-[url(/PriceHeroBg.png)] bg-cover bg-center" >
+        < section className="relative overflow-hidden bg-[#FFF] pt-32 pb-20 bg-cover bg-center"
+           style={{ backgroundImage: `url('/PriceHeroBg.png')` }} >
             {/* Background glow effects */}
             < div className="absolute inset-0" >
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-blue-600/20 rounded-full blur-[120px]" />

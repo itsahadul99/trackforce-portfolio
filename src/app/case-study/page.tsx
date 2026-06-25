@@ -1,4 +1,5 @@
 import CaseStudy from '@/features/case-study/CaseStudy'
+import { getPageContent } from '@/lib/cms'
 import { buildMetadata, buildBreadcrumbJsonLd } from '@/lib/seo'
 
 export const metadata = buildMetadata({
@@ -13,14 +14,16 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: "Case Study", path: "/case-study" },
 ])
 
-export default function CaseStudyPage() {
+export default async function CaseStudyPage() {
+    const cms = await getPageContent('case-study')
+
     return (
         <>
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
             />
-            <CaseStudy />
+            <CaseStudy cms={cms} />
         </>
     )
 }

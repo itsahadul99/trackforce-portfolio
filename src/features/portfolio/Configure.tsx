@@ -152,7 +152,9 @@ import { FaArrowRightLong } from "react-icons/fa6";
 
 const trackforce = "/trackforce.png";
 
-const Configure = () => {
+type ConfigureProps = { cms?: Record<string, string> }
+
+const Configure = ({ cms = {} }: ConfigureProps) => {
     // 🔥 same animation as Decisions
     const leftVariant = {
         hidden: { opacity: 0, x: -100 },
@@ -225,7 +227,8 @@ const Configure = () => {
     ];
 
     return (
-        <section className="w-full py-24 bg-[#DEEDFF] overflow-hidden bg-[url('/flexibleConBg.png')] bg-cover bg-center">
+        <section className="w-full py-24 bg-[#DEEDFF] overflow-hidden bg-cover bg-center"
+            style={{ backgroundImage: cms.bg_image ? `url(${cms.bg_image}), url('/flexibleConBg.png')` : `url('/flexibleConBg.png')` }}>
             <div className="max-w-[1300] mx-auto">
                 <div className="flex flex-col md:flex-row gap-8 w-full px-4">
 
@@ -271,19 +274,16 @@ const Configure = () => {
                     >
                         <div className="content_title_border_new w-fit  mb-1">
                             <div className="px-4 py-2 text-sm font-semibold content_title_text_new">
-                                Why Choose Us
+                                {cms.badge || "Why Choose Us"}
                             </div>
                         </div>
 
                         <h2 className="text-[42px] font-semibold mb-2 text-black">
-                            Flexible. <br />
-                            Configurable. <br />
-                            <span className="font-playball font-normal">Scalable.</span>
+                            {cms.heading || <>Flexible. <br />Configurable. <br /><span className="font-playball font-normal">Scalable.</span></>}
                         </h2>
 
                         <p className="text-gray-600 text-base mb-6 max-w-lg mt-6">
-                            Every organization works differently. <br />
-                            Enterprise-ready from day one.
+                            {cms.description || <>Every organization works differently. <br />Enterprise-ready from day one.</>}
                         </p>
 
                         <div className="">
