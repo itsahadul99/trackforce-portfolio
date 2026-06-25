@@ -39,10 +39,7 @@ const ContactForm = () => {
         body: JSON.stringify({
           name: form.name,
           email: form.email,
-          companyName: form.companyName,
-          phoneNumber: form.phoneNumber,
-          teamSize: form.teamSize,
-          message: form.message,
+          message: `${form.message}\n\nCompany: ${form.companyName}\nPhone: ${form.phoneNumber}\nTeam Size: ${form.teamSize}`,
         }),
       });
 
