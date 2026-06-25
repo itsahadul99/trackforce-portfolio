@@ -25,12 +25,11 @@ ENV NODE_ENV=production
 ENV PORT=80
 ENV HOSTNAME=0.0.0.0
 
-RUN corepack enable
-
-COPY package.json pnpm-lock.yaml* ./
-RUN pnpm install --prod --frozen-lockfile
-
-COPY --from=build /app/.next ./.next
+# Copy the standalone server bundle (includes all runtime deps)
+COPY --from=build /app/.next/standalone ./
+# Copy static assets (_next/static/*)
+COPY --from=build /app/.next/static ./.next/static
+# Copy public folder (images, fonts, etc.)
 COPY --from=build /app/public ./public
 
 EXPOSE 80
