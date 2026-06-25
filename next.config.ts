@@ -1,6 +1,47 @@
 import type { NextConfig } from "next";
 
+const securityHeaders = [
+  // Force HTTPS for 1 year; include subdomains
+  {
+    key: "Strict-Transport-Security",
+    value: "max-age=31536000; includeSubDomains; preload",
+  },
+  // Prevent MIME-type sniffing
+  {
+    key: "X-Content-Type-Options",
+    value: "nosniff",
+  },
+  // Block clickjacking — only same origin can iframe this site
+  {
+    key: "X-Frame-Options",
+    value: "SAMEORIGIN",
+  },
+  // Control how much referrer info is sent to external sites
+  {
+    key: "Referrer-Policy",
+    value: "strict-origin-when-cross-origin",
+  },
+  // Basic XSS protection for older browsers
+  {
+    key: "X-XSS-Protection",
+    value: "1; mode=block",
+  },
+  // Disable browser features not needed by this site
+  {
+    key: "Permissions-Policy",
+    value: "camera=(), microphone=(), geolocation=(), interest-cohort=()",
+  },
+];
+
 const nextConfig: NextConfig = {
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: securityHeaders,
+      },
+    ];
+  },
   images: {
     // Serve modern formats to browsers that support them (next/image content images).
     formats: ["image/avif", "image/webp"],

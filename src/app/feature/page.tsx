@@ -1,5 +1,5 @@
 import Feature from '@/features/feature/Feature'
-import { buildMetadata } from '@/lib/seo'
+import { buildMetadata, buildBreadcrumbJsonLd } from '@/lib/seo'
 
 export const metadata = buildMetadata({
   title: "Features",
@@ -8,8 +8,19 @@ export const metadata = buildMetadata({
   path: "/feature",
 })
 
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: "Home", path: "/home" },
+  { name: "Features", path: "/feature" },
+])
+
 export default function FeaturePage() {
   return (
-   <Feature/>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <Feature />
+    </>
   )
 }

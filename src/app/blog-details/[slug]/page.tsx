@@ -1,7 +1,7 @@
 import BlogDetails from "@/features/blog_details/BlogDetails";
 import { blogs, getBlogBySlug } from "@/data/blogs";
 import { notFound } from "next/navigation";
-import { buildMetadata, siteName, siteUrl } from "@/lib/seo";
+import { buildMetadata, buildBreadcrumbJsonLd, siteName, siteUrl } from "@/lib/seo";
 import type { Metadata } from "next";
 
 export function generateStaticParams() {
@@ -42,6 +42,12 @@ export default async function BlogDetailsPage({
     const blog = getBlogBySlug(slug);
     if (!blog) notFound();
 
+    const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+        { name: "Home", path: "/home" },
+        { name: "Blog", path: "/blog" },
+        { name: blog.title, path: `/blog-details/${blog.slug}` },
+    ])
+
     const articleJsonLd = {
         "@context": "https://schema.org",
         "@type": "Article",
@@ -60,6 +66,10 @@ export default async function BlogDetailsPage({
 
     return (
         <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+            />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}

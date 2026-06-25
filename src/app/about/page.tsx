@@ -1,5 +1,5 @@
 import About from '@/features/about/About'
-import { buildMetadata } from '@/lib/seo'
+import { buildMetadata, buildBreadcrumbJsonLd } from '@/lib/seo'
 import React from 'react'
 
 export const metadata = buildMetadata({
@@ -9,8 +9,19 @@ export const metadata = buildMetadata({
   path: "/about",
 })
 
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: "Home", path: "/home" },
+  { name: "About Us", path: "/about" },
+])
+
 export default function AboutPage() {
   return (
-    <About/>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <About />
+    </>
   )
 }

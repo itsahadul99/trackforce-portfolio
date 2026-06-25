@@ -1,5 +1,5 @@
 import Pricing from "@/features/pricing/Pricing";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, buildBreadcrumbJsonLd } from "@/lib/seo";
 
 export const metadata = buildMetadata({
   title: "Pricing & Plans",
@@ -8,6 +8,19 @@ export const metadata = buildMetadata({
   path: "/pricing",
 });
 
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: "Home", path: "/home" },
+  { name: "Pricing & Plans", path: "/pricing" },
+])
+
 export default function PricingPage() {
-  return <Pricing />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <Pricing />
+    </>
+  );
 }

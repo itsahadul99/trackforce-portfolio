@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Playball, Rubik } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/features/navbar/Navbar";
 import Footer from "@/features/home/footer/Footer";
 import { siteUrl, siteName, defaultOgImage } from "@/lib/seo";
+
+const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -65,6 +68,11 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  ...(process.env.NEXT_PUBLIC_GSC_VERIFICATION && {
+    verification: {
+      google: process.env.NEXT_PUBLIC_GSC_VERIFICATION,
+    },
+  }),
 };
 
 const organizationJsonLd = {
@@ -107,7 +115,23 @@ export default function RootLayout({
         />
         <Navbar />
         <main>{children}</main>
-         <Footer />
+        <Footer />
+        {GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_ID}', { page_path: window.location.pathname });
+              `}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   );
