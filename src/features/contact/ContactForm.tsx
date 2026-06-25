@@ -20,7 +20,7 @@ const ContactForm = () => {
   }>({ open: false, type: "success", title: "", description: "" });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -74,7 +74,7 @@ const ContactForm = () => {
 
   return (
     <div className="w-full xl:w-1/2 h-hit flex justify-center xl:justify-end">
-      <div className="relative w-full max-w-[480px] p-4 group">
+      <div className="relative w-full max-w-[500px] p-4 group">
         {/* Corner brackets - flush on idle, move outward on hover */}
         <span className="pointer-events-none absolute top-3 left-3 w-20 h-20 border-t-4 border-l-4 border-[#1D72E7] rounded-tl-lg group-hover:-translate-x-10 group-hover:-translate-y-10 transition-all duration-500 ease-in-out" />
         <span className="pointer-events-none absolute top-3 right-3 w-20 h-20 border-t-4 border-r-4 border-[#1D72E7] rounded-tr-lg group-hover:translate-x-10 group-hover:-translate-y-10 transition-all duration-500 ease-in-out" />
@@ -168,6 +168,29 @@ const ContactForm = () => {
               {status === "loading" ? "Booking..." : "Book Free Demo"} <FaArrowRightLong />
             </button>
           </form>
+          <div className="mt-4 space-y-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 justify-between">
+              <div className="flex gap-2 items-center">
+                <div className="w-3 h-3 rounded-full bg-blue-500"></div>
+                <span className="text-white/80 text-xs">Free 45-min product demo</span>
+              </div>
+              <div className="flex gap-2 items-center">
+                <div className="w-3 h-3 rounded-full bg-blue-500"></div>
+                <span className="text-white/80 text-xs">No commitment required</span>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 justify-between">
+              <div className="flex gap-2 items-center">
+                <div className="w-3 h-3 rounded-full bg-blue-500"></div>
+                <span className="text-white/80 text-xs">Custom launch roadmap</span>
+              </div>
+              <div className="flex gap-2 items-center">
+                <div className="w-3 h-3 rounded-full bg-blue-500"></div>
+                <span className="text-white/80 text-xs">Response within 24 hours</span>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
 
