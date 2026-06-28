@@ -54,6 +54,12 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "images.unsplash.com",
       },
+      // Supabase Storage (media uploads from admin panel)
+      {
+        protocol: "https",
+        hostname: "*.supabase.co",
+        pathname: "/storage/v1/object/public/**",
+      },
       // Admin panel uploaded images (local dev)
       {
         protocol: "http",

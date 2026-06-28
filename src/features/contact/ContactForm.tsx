@@ -9,7 +9,7 @@ const API_URL = "https://app.trackforce.io/api/PublicContact/submit";
 
 type Status = "idle" | "loading" | "success" | "error";
 
-const ContactForm = (cms: any) => {
+const ContactForm = ({ cms = {} }: { cms?: any }) => {
   const [form, setForm] = useState({ name: "", email: "", companyName: "", phoneNumber: "", teamSize: "", country: "", message: "" });
   const [status, setStatus] = useState<Status>("idle");
   const [modal, setModal] = useState<{
@@ -84,7 +84,7 @@ const ContactForm = (cms: any) => {
             {cms.heading || "  Book Your Free Demo"}
             </h3>
           {cms.subheading && (
-            <p className="text-gray-400 text-sm text-center mb-6">{cms.subheading}</p>
+            <p className="text-gray-400 text-sm text-left mb-6">{cms.subheading}</p>
           )}
             <p className="text-gray-400 text-sm mb-6 text-left">
               Tell us about your team — we'll tailor the walkthrough.

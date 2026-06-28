@@ -108,15 +108,15 @@ const BlogCards = ({ initialCards, cms = {} }: BlogCardsProps) => {
                         transition={{ duration: 0.3, ease: "easeOut" }}
                         className="relative w-full h-[320px] lg:h-[380px] "
                     >
-                        {/* <Image
-                            src="/feature-blog.png"
-                            alt="Fortune 100 Company Optimizes Hybrid Work"
+                        <Image
+                            src={cms.image || "/feature-blog.png"}
+                            alt={cms.heading?.toString() || "Featured blog post"}
                             fill
                             sizes="(max-width: 1024px) 100vw, 50vw"
                             quality={90}
                             className="object-cover rounded-2xl"
                             priority
-                        /> */}
+                        />
                     </motion.div>
 
                     <motion.div
@@ -257,14 +257,14 @@ const BlogCards = ({ initialCards, cms = {} }: BlogCardsProps) => {
                                 style={{background: "var(--Linear, linear-gradient(270deg, rgba(255, 255, 255, 0.39) 0%, rgba(210, 228, 255, 0.39) 100%))", boxShadow: "0 0 34.5px 0 rgba(0, 0, 0, 0.13)"}}
                             >
                                 <div className="relative w-full h-50 perspective-[1000px]">
-                                    {/* <Image
-                                        src={card.image}
+                                    <Image
+                                        src={card.image || "/post-1.png"}
                                         alt={card.title}
                                         fill
                                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                         quality={90}
-                                        className="object-cover transition-transform duration-800 ease-in-out group-hover:transform-[rotateY(180deg)]"
-                                    /> */}
+                                        className="object-cover"
+                                    />
                                     <span className="absolute top-3 right-3 text-xs font-semibold content_title_text_new backdrop-blur bg-[#FFFFFF54]  font-medium px-3 py-1.5 rounded-full">
                                         {card.tag}
                                     </span>

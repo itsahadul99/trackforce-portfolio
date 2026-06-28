@@ -182,7 +182,11 @@ import Link from "next/link";
 import { FaTiktok, FaYoutube } from "react-icons/fa";
 import StatusModal from "@/components/shared/StatusModal";
 
-export default function Footer() {
+export default function Footer({ cms = {} }: { cms?: any }) {
+  const brand   = cms.brand   ?? {};
+  const contact = cms.contact ?? {};
+  const social  = cms.social  ?? {};
+  const bottom  = cms.bottom  ?? {};
   const [email, setEmail] = useState("");
   const [modal, setModal] = useState<{
     open: boolean;
@@ -220,12 +224,16 @@ export default function Footer() {
           <div className="max-w-full lg:max-w-[380px] sm:col-span-2 lg:col-span-1">
             {/* Logo */}
             <div className="flex items-center gap-2 mb-4">
-              <Image src={trackforce_logo} width={42} height={31} alt="Trackforce logo" />
+              {brand.logo_url ? (
+                <img src={brand.logo_url} width={42} height={31} alt="Trackforce logo" className="w-[42px] h-[31px] object-contain" onError={(e) => { (e.currentTarget as HTMLImageElement).src = "/trackforce_logo.png"; }} />
+              ) : (
+                <Image src={trackforce_logo} width={42} height={31} alt="Trackforce logo" />
+              )}
               <span className="text-2xl sm:text-3xl font-medium text-white">TrackForce</span>
             </div>
 
             <p className="text-sm text-gray-200 mb-6 leading-relaxed font-normal">
-              Advanced Employee Monitoring Software That Keeps Teams Focused, Productive, Secure, and Always On Track
+              {brand.description || "Advanced Employee Monitoring Software That Keeps Teams Focused, Productive, Secure, and Always On Track"}
             </p>
 
             <form onSubmit={handleSubscribe} className="flex items-center relative bg-white rounded-[14px] overflow-hidden h-14 w-full max-w-[440px] shadow-lg">
@@ -290,45 +298,49 @@ export default function Footer() {
             <ul className="space-y-4 text-sm text-gray-200">
               <li>
                 <a
-                  href="tel:+8801329731839"
+                  href={`tel:${(contact.phone || "+8801329731839").replace(/\s/g, "")}`}
                   className="flex items-center gap-3 hover:text-white transition-all duration-300 hover:translate-x-1"
                 >
-                  <Phone size={16} /> +88 01329-731839
+                  <Phone size={16} /> {contact.phone || "+88 01329-731839"}
                 </a>
               </li>
 
               <li>
                 <a
-                  href="mailto:support@trackforce.io"
+                  href={`mailto:${contact.email || "support@trackforce.io"}`}
                   className="flex items-center gap-3 hover:text-white transition-all duration-300 hover:translate-x-1"
                 >
-                  <Mail size={16} /> support@trackforce.io
+                  <Mail size={16} /> {contact.email || "support@trackforce.io"}
                 </a>
               </li>
 
-              <li>
-                <a
-                  href="https://www.google.com/maps/search/?api=1&query=6%2F2+Kazi+Nazrul+Islam+Rd%2C+Dhaka%2C+Bangladesh"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-3 hover:text-white transition-all duration-300 hover:translate-x-1"
-                >
-                  <MapPin size={16} className="mt-1 shrink-0" />
-                  <span>6/2 Kazi Nazrul Islam Rd, Dhaka, Bangladesh</span>
-                </a>
-              </li>
+              {(contact.address1 || true) && (
+                <li>
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(contact.address1 || "6/2 Kazi Nazrul Islam Rd, Dhaka, Bangladesh")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-3 hover:text-white transition-all duration-300 hover:translate-x-1"
+                  >
+                    <MapPin size={16} className="mt-1 shrink-0" />
+                    <span>{contact.address1 || "6/2 Kazi Nazrul Islam Rd, Dhaka, Bangladesh"}</span>
+                  </a>
+                </li>
+              )}
 
-              <li>
-                <a
-                  href="https://www.google.com/maps/search/?api=1&query=945+Taraval+St+%231083%2C+San+Francisco%2C+CA+94116%2C+USA"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-3 hover:text-white transition-all duration-300 hover:translate-x-1"
-                >
-                  <MapPin size={16} className="mt-1 shrink-0" />
-                  <span>945 Taraval St #1083, San Francisco, CA 94116, USA</span>
-                </a>
-              </li>
+              {(contact.address2 || true) && (
+                <li>
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(contact.address2 || "945 Taraval St #1083, San Francisco, CA 94116, USA")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-3 hover:text-white transition-all duration-300 hover:translate-x-1"
+                  >
+                    <MapPin size={16} className="mt-1 shrink-0" />
+                    <span>{contact.address2 || "945 Taraval St #1083, San Francisco, CA 94116, USA"}</span>
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
 
@@ -337,26 +349,18 @@ export default function Footer() {
         {/* Bottom line */}
         <div className="border-t border-gray-700/50 mt-12 sm:mt-16 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs sm:text-sm text-gray-400 text-center md:text-left">
-            <div className="flex gap-1 items-center">
-              <p>©{new Date().getFullYear()} Trackforce All rights reserved. Developed by </p>
-              <a
-                href="https://ibos.io/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white font-semibold hover:text-cyan-300 transition-all duration-300 hover:translate-x-1"
-              >
-                AKIJ iBOS
-              </a>
-            </div>
+            <p className="text-gray-400 text-xs sm:text-sm">
+              {bottom.copyright || `©${new Date().getFullYear()} Trackforce All rights reserved. Developed by AKIJ iBOS`}
+            </p>
 
             <div className="flex gap-4 text-lg text-gray-300">
-              <a href="https://www.facebook.com/trackforce.io" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><Facebook size={18} /></a>
-              <a href="https://www.linkedin.com/company/trackforceibos/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><Linkedin size={18} /></a>
-              <a href="https://x.com/TrackForce_io" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><FaXTwitter size={18} /></a>
-              <a href="https://wa.me/8801581501131" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><FaWhatsapp size={18} /></a>
-              <a href="https://www.youtube.com/@trackforce_io" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><FaYoutube size={18} /></a>
-              <a href="https://www.pinterest.com/trackforce_io/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><FaPinterestP size={18} /></a>
-              <a href="https://www.tiktok.com/@trackforce_io" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><FaTiktok size={18} /></a>
+              <a href={social.facebook_url  || "https://www.facebook.com/trackforce.io"} target="_blank" rel="noopener noreferrer" aria-label="Facebook"    className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><Facebook size={18} /></a>
+              <a href={social.linkedin_url  || "https://www.linkedin.com/company/trackforceibos/"} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"    className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><Linkedin size={18} /></a>
+              <a href={social.twitter_url   || "https://x.com/TrackForce_io"} target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><FaXTwitter size={18} /></a>
+              <a href={social.whatsapp_url  || "https://wa.me/8801581501131"} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"    className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><FaWhatsapp size={18} /></a>
+              <a href={social.youtube_url   || "https://www.youtube.com/@trackforce_io"} target="_blank" rel="noopener noreferrer" aria-label="YouTube"     className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><FaYoutube size={18} /></a>
+              <a href={social.pinterest_url || "https://www.pinterest.com/trackforce_io/"} target="_blank" rel="noopener noreferrer" aria-label="Pinterest"   className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><FaPinterestP size={18} /></a>
+              <a href={social.tiktok_url    || "https://www.tiktok.com/@trackforce_io"} target="_blank" rel="noopener noreferrer" aria-label="TikTok"      className="inline-flex hover:text-white transition-all duration-300 hover:-translate-y-1"><FaTiktok size={18} /></a>
             </div>
           </div>
         </div>

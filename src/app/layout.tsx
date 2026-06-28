@@ -1,10 +1,12 @@
+import ClarityAnalytics from "@/components/shared/Clearity";
+import Footer from "@/features/home/footer/Footer";
+import Navbar from "@/features/navbar/Navbar";
+import { getPageContent, getSiteSettings, getContent } from "@/lib/cms";
+import { defaultOgImage, siteName, siteUrl } from "@/lib/seo";
 import type { Metadata } from "next";
 import { Geist, Playball, Rubik } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import Navbar from "@/features/navbar/Navbar";
-import Footer from "@/features/home/footer/Footer";
-import { siteUrl, siteName, defaultOgImage } from "@/lib/seo";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
@@ -95,11 +97,20 @@ const organizationJsonLd = {
   ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [footerCms, homeCms, siteSettings] = await Promise.all([
+    getPageContent("footer"),
+    getPageContent("home"),
+    getSiteSettings(),
+  ]);
+  const logoUrl =
+    getContent(homeCms, "navbar", "logo_url") ||
+    siteSettings?.logoUrl ||
+    undefined;
   return (
     <html lang="en">
       <head>
@@ -113,9 +124,10 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
-        <Navbar />
+        <Navbar logoUrl={logoUrl} />
+        <ClarityAnalytics />
         <main>{children}</main>
-        <Footer />
+        <Footer cms={footerCms} />
         {GA_ID && (
           <>
             <Script

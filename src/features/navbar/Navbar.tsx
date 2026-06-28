@@ -7,7 +7,7 @@ import trackforce_logo from "../../../public/trackforce_logo.png"
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const Navbar = () => {
+const Navbar = ({ logoUrl }: { logoUrl?: string }) => {
     const [scrolled, setScrolled] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
     const [resourcesOpen, setResourcesOpen] = useState(false);
@@ -51,7 +51,11 @@ const Navbar = () => {
 
                 {/* Left - Logo */}
                 <Link className="flex items-center gap-2 cursor-pointer shrink-0" href="/home" onClick={closeMobile}>
-                    <Image src={trackforce_logo} width={42} height={31} alt="Trackforce logo" className="w-8 h-6 sm:w-10 sm:h-7 lg:w-[42px] lg:h-[31px]" />
+                    {logoUrl ? (
+                        <img src={logoUrl} width={42} height={31} alt="Trackforce logo" className="w-8 h-6 sm:w-10 sm:h-7 lg:w-[42px] lg:h-[31px] object-contain" onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }} />
+                    ) : (
+                        <Image src={trackforce_logo} width={42} height={31} alt="Trackforce logo" className="w-8 h-6 sm:w-10 sm:h-7 lg:w-[42px] lg:h-[31px]" />
+                    )}
                     <span className="text-xl sm:text-2xl lg:text-3xl font-medium">TrackForce</span>
                 </Link>
 

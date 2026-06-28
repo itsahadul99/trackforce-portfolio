@@ -7,7 +7,7 @@ import { useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { IoIosArrowDown } from "react-icons/io";
 import trackforce from "../../../public/trackforce.png";
-const faqs = [
+const DEFAULT_ITEMS = [
   {
     question: "Centralized Performance Management",
     answer:
@@ -25,15 +25,18 @@ const faqs = [
   },
 ];
 
-
-
-const AboutWhyChooseUs = () => {
+const AboutWhyChooseUs = ({ cms = {} }: { cms?: any }) => {
+  const items = [
+    { question: cms.item1_question || DEFAULT_ITEMS[0].question, answer: cms.item1_answer || DEFAULT_ITEMS[0].answer },
+    { question: cms.item2_question || DEFAULT_ITEMS[1].question, answer: cms.item2_answer || DEFAULT_ITEMS[1].answer },
+    { question: cms.item3_question || DEFAULT_ITEMS[2].question, answer: cms.item3_answer || DEFAULT_ITEMS[2].answer },
+  ];
 
   const [open, setOpen] = useState<number | null>(0);
 
 
   return (
-    <section className="w-full bg-gradient-to-b from-[#e8ecf8] via-[#edf0fa] to-[#e8ecf8] py-12 lg:pt-24 bg-[url('/whyChoiceUs.png')] bg-cover bg-center bg-no-repeat">
+    <section className="w-full bg-gradient-to-b from-[#e8ecf8] via-[#edf0fa] to-[#e8ecf8] py-12 lg:pt-24 bg-[url('/whyChoiceUs.png')] bg-cover bg-center bg-no-repeat" style={cms.bg_image ? { backgroundImage: `url(${cms.bg_image}), url('/whyChoiceUs.png')` } : undefined}>
       <div className="max-w-[1300px] mx-auto px-4">
         <div className="flex flex-col md:flex-row gap-8 items-start justify-between">
           {/* Left Side */}
@@ -41,26 +44,24 @@ const AboutWhyChooseUs = () => {
             <div className="mb-4">
               <div className="content_title_border_new w-fit mb-1">
                 <div className="px-4 py-2 text-sm font-semibold content_title_text_new">
-                  Why choose us
+                  {cms.badge || "Why choose us"}
                 </div>
               </div>
             </div>
 
             <h2 className="text-2xl md:text-[42px] font-semibold text-black leading-tight mb-6">
-              Smarter <span className="font-playball font-normal">tools</span>{" "}
-              for a more efficient team
+              {cms.heading || <>Smarter <span className="font-playball font-normal">tools</span>{" "}for a more efficient team</>}
             </h2>
 
             <p className="text-gray-600 text-base leading-relaxed">
-              TrackForce simplifies teamwork with visibility, automation, and
-              insights to boost productivity effortlessly.
+              {cms.description || "TrackForce simplifies teamwork with visibility, automation, and insights to boost productivity effortlessly."}
             </p>
           </div>
 
           {/* Right Side - Accordion */}
           <div className="w-full md:w-1/2 py-8 md:py-16">
             <div className="space-y-3">
-              {faqs.map((faq, index) => {
+              {items.map((faq, index) => {
                 const isOpen = open === index;
 
                 return (
@@ -104,8 +105,8 @@ const AboutWhyChooseUs = () => {
             </div>
 
             <div className="mt-8">
-              <Link href="/feature" className="group/button custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-medium py-3 px-6 rounded-[14] flex gap-3 justify-between font-semibold items-center">
-                <span className="group-hover/button:italic">Load More</span>
+              <Link href={cms.cta_url || "/feature"} className="group/button custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-medium py-3 px-6 rounded-[14] flex gap-3 justify-between font-semibold items-center">
+                <span className="group-hover/button:italic">{cms.cta_text || "Load More"}</span>
                 <FaArrowRightLong className="group-hover/button:-rotate-[30deg] transition ease-in-out" />
                 <motion.div
                   className="ml-2 absolute right-0"

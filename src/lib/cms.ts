@@ -34,6 +34,15 @@ export type CmsTestimonial = {
   active: boolean;
 };
 
+export type CmsSliderLogo = {
+  id: string;
+  image: string;
+  url: string;
+  alt: string;
+  order: number;
+  active: boolean;
+};
+
 export type CmsBlogPost = {
   id: string;
   slug: string;
@@ -67,6 +76,10 @@ async function safeFetch<T>(url: string, fallback: T): Promise<T> {
   } catch {
     return fallback;
   }
+}
+
+export async function getSliderLogos(): Promise<CmsSliderLogo[]> {
+  return safeFetch<CmsSliderLogo[]>(`${ADMIN}/api/public/slider`, []);
 }
 
 export async function getFaqs(page?: string): Promise<CmsFaq[]> {

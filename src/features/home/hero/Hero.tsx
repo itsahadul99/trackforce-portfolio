@@ -165,7 +165,7 @@ const Hero = ({ cms = {} }: HeroProps) => {
                                 background: "linear-gradient(90deg, #1B73E8 0%, #9F60EE 100%)",
                                 boxShadow: "0 0 4px 0 rgba(255, 255, 255, 0.25), 0 4px 15.1px 0 rgba(0, 0, 0, 0.25)"
                             }}>
-                                <span className='group-hover:italic '>Start Free Trial</span> <FaArrowRightLong className='group-hover:-rotate-[30deg] transition ease-in-out' />
+                                <span className='group-hover:italic '>{cms.cta_primary}</span> <FaArrowRightLong className='group-hover:-rotate-[30deg] transition ease-in-out' />
                                 {/* <motion.div
                                     className="ml-2 absolute right-0"
                                     animate={{
@@ -189,7 +189,7 @@ const Hero = ({ cms = {} }: HeroProps) => {
 
                                 boxShadow: "0 0 4px 0 rgba(255, 255, 255, 0.25), 0 4px 15.1px 0 rgba(0, 0, 0, 0.25)"
                             }}>
-                                <span className='group-hover:italic '>Book a Demo</span>
+                                <span className='group-hover:italic '>{cms.cta_secondary}</span>
                                 <motion.div
                                     className="ml-2 absolute right-0"
                                     animate={{
