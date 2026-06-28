@@ -51,10 +51,10 @@ const WhyTrackforce = ({ cms = {} }: WhyTrackforceProps) => {
                         viewport={{ once: false, amount: 0.1 }}
                     >
                         <ProgressCircle
-                            percentage={80}
+                            percentage={cms.stat1_value ? parseInt(cms.stat1_value) : 80}
                             strokeWidth={20}
                             strokeColor={'#0BC5D1'}
-                            label="Better Remote Work Efficiency"
+                            label={cms.stat1_label || "Reduced Employee Turnover"}
                             hoverBackground="linear-gradient(180deg, #FFFFFF 0%, #E6F9FA 48.87%, #0BC5D1 100%)"
                             hoverBorder="2px solid #0BC5D1"
                             hoverBoxShadow="-14.34px 43.2px 52.87px 0px #514E782E, 1.55px 2.32px 0px 0px #FFFFFF99 inset"
@@ -71,10 +71,10 @@ const WhyTrackforce = ({ cms = {} }: WhyTrackforceProps) => {
                         viewport={{ once: false, amount: 0.1 }}
                     >
                         <ProgressCircle
-                            percentage={50}
+                            percentage={cms.stat2_value ? parseInt(cms.stat2_value) : 50}
                             strokeWidth={20}
                             strokeColor={'#FFB93B'}
-                            label="Prevented Data Breaches"
+                            label={cms.stat2_label || "Prevented Data Breaches"}
                             hoverBackground="linear-gradient(180deg, #FFFFFF 0%, #FFF9E9 49.1%, #FFD66B 100%)"
                             hoverBorder="2px solid #FFD66B"
                             hoverBoxShadow="-14.34px 43.2px 52.87px 0px #514E782E, 1.55px 2.32px 0px 0px #FFFFFF99 inset"
@@ -91,10 +91,10 @@ const WhyTrackforce = ({ cms = {} }: WhyTrackforceProps) => {
                         viewport={{ once: false, amount: 0.1 }}
                     >
                         <ProgressCircle
-                            percentage={60}
+                            percentage={cms.stat3_value ? parseInt(cms.stat3_value) : 60}
                             strokeWidth={20}
                             strokeColor={'#FF8F6B'}
-                            label="Increased Productivity"
+                            label={cms.stat3_label || "Increased Productivity"}
                             hoverBackground="linear-gradient(180deg, #FFFFFF 0%, #FFF3F0 49.83%, #FF8F6B 100%)"
                             hoverBorder="1px solid #FF8F6B"
                             hoverBoxShadow="-14.34px 43.2px 52.87px 0px #514E782E, 1.55px 2.32px 0px 0px #FFFFFF99 inset"

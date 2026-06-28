@@ -82,6 +82,23 @@ export async function getSliderLogos(): Promise<CmsSliderLogo[]> {
   return safeFetch<CmsSliderLogo[]>(`${ADMIN}/api/public/slider`, []);
 }
 
+export type CmsHowSection = {
+  id: string;
+  badge: string;
+  heading: string;
+  description: string;
+  feature1Title: string; feature1Desc: string;
+  feature2Title: string; feature2Desc: string;
+  feature3Title: string; feature3Desc: string;
+  image1: string; image2: string; image3: string;
+  ctaText: string; ctaUrl: string;
+  order: number; active: boolean;
+};
+
+export async function getHowSections(): Promise<CmsHowSection[]> {
+  return safeFetch<CmsHowSection[]>(`${ADMIN}/api/public/how-sections`, []);
+}
+
 export async function getFaqs(page?: string): Promise<CmsFaq[]> {
   const url = page
     ? `${ADMIN}/api/public/faqs?page=${page}`
