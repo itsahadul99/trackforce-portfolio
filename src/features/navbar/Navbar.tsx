@@ -81,7 +81,7 @@ const Navbar = () => {
                 {/* Right (desktop) */}
                 <div className="hidden md:flex items-center gap-3 lg:gap-4">
                     <Link href={"/contact"} className="flex items-center gap-2 px-3 lg:px-4 py-2 rounded-xl border border-white text-sm lg:text-base text-white hover:text-gray-300 transition">
-                        Contact us <FiPhone size={14} />
+                        Let's Talk <FiPhone size={14} />
                     </Link>
                     <a href="https://app.trackforce.io/3/Professional/signup?trial=true" target="_blank" rel="noopener noreferrer" className="px-4 lg:px-5 py-2 lg:py-[11px] rounded-xl bg-white text-gray-700 text-sm font-semibold hover:bg-gray-200 transition">
                         Free Trial
@@ -135,7 +135,7 @@ const Navbar = () => {
                     {/* Mobile-only CTA buttons (visible on small screens where desktop CTAs are hidden) */}
                     <li className="md:hidden flex flex-col gap-3 pt-3 mt-2 border-t border-white/15">
                         <Link href={"/contact"} onClick={closeMobile} className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-white text-white">
-                            Contact us <FiPhone size={14} />
+                           Let's Talk <FiPhone size={14} />
                         </Link>
                         <a
                             href="https://app.trackforce.io/3/Professional/signup?trial=true"

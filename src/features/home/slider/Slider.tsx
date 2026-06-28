@@ -31,12 +31,16 @@ const logos = [
     src: "/creatibuzz.png",
     link: "https://creatibuzz.com",
   },
+  {
+    src: "/travilo.png",
+    link: "https://travilo.io",
+  },
 ];
 
 export default function Slider() {
   return (
     <div className="py-6 sm:py-8 lg:py-10">
-      <Marquee speed={50} gradient={false} pauseOnHover>
+      <Marquee speed={50} gradient={false} pauseOnHover className="min-h-[80px]">
         {[...logos, ...logos, ...logos].map((item, i) => (
           <Link
             key={i}
@@ -49,7 +53,7 @@ export default function Slider() {
               alt="logo"
               width={200}
               height={40}
-              className="object-contain rounded-lg cursor-pointer grayscale hover:grayscale-0 hover:scale-105 transition-all duration-300 w-[120px] sm:w-[160px] lg:w-[200px] h-auto"
+              className="object-contain rounded-lg cursor-pointer  hover:scale-125 transition-all duration-300 w-[120px] sm:w-[160px] lg:w-[200px] h-auto"
             />
           </Link>
         ))}
