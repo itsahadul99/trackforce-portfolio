@@ -31,7 +31,7 @@ export default function MarqueeSlider({ logos }: { logos: Logo[] }) {
               alt={item.alt || "logo"}
               width={200}
               height={40}
-              className="object-contain max-h-[40px] rounded-lg cursor-pointer hover:scale-125 transition-all duration-300 w-[120px] sm:w-[160px] lg:w-[200px] h-auto"
+              className="object-contain max-h-[64px] rounded-lg cursor-pointer hover:scale-125 transition-all duration-300 w-[120px] sm:w-[160px] lg:w-[200px] h-auto"
             />
           </Link>
         ))}

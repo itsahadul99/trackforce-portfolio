@@ -160,7 +160,7 @@ const Hero = ({ cms = {} }: HeroProps) => {
                     </div>
                     {/* book a demo */}
                     <div className="relative mt-8 w-full max-w-[480px] mx-auto lg:mx-0 lg:w-fit">
-                        <div className="flex flex-col sm:flex-row gap-3">
+                        <div className="flex flex-col sm:flex-row justify-start items-center gap-3">
                             <a href="https://app.trackforce.io/3/Professional/signup?trial=true" target="_blank" rel="noopener noreferrer" className="group custom-button relative w-fit text-white font-bold py-[14px] px-[22px] rounded-[16px] flex gap-3 justify-between items-center" style={{
                                 background: "linear-gradient(90deg, #1B73E8 0%, #9F60EE 100%)",
                                 boxShadow: "0 0 4px 0 rgba(255, 255, 255, 0.25), 0 4px 15.1px 0 rgba(0, 0, 0, 0.25)"
