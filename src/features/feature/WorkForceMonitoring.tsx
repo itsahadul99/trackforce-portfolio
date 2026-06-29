@@ -57,7 +57,7 @@ const WorkForceMonitoring = ({ cms = {} }: WorkForceMonitoringProps) => {
         },
     ];
     return (
-        <div className="mt-16 sm:mt-20 lg:mt-28 text-white flex flex-col-reverse lg:flex-row gap-12 lg:gap-3 items-center lg:justify-between">
+        <div className="mt-16 sm:mt-20 lg:mt-28 text-white flex flex-col-reverse lg:flex-row gap-12 lg:gap-3 items-center lg:justify-between bg-[url('/feature/feature.png')]">
             <div className='w-full lg:w-1/2 relative h-[320px] sm:h-[420px] lg:h-[520px]'>
                 {/* Main dashboard - center, fades in from slight scale */}
                 <motion.div

@@ -71,10 +71,10 @@ const Feature = ({ cms = {} }: FeatureProps) => {
     <div>
       <FeatureHero cms={cms.hero ?? {}} />
       <Optimization cms={cms.optimization ?? {}} />
-      <div className="bg-[#DEEDFF] px-4">
+      <div className="bg-[#DEEDFF] px-4 ">
         <section
           className="max-w-[1300] mx-auto px-4 md:px-6 lg:px-[93px] py-4 md:py-8 lg:py-[96px] rounded-2xl bg-cover bg-center bg-no-repeat overflow-hidden"
-          style={{ backgroundImage: (cms.feature_section ?? {}).bg_image ? `url(${(cms.feature_section ?? {}).bg_image}), url(‘/feature/feature.png’)` : `url(‘/feature/feature.png’)` }}
+          style={{ backgroundImage: (cms.feature_section ?? {}).bg_image ? `url(${(cms.feature_section ?? {}).bg_image}), url('/feature/feature.png')` : `url('/feature/feature.png')` }}
         >
          <ProductivityDashboard cms={cms.productivity ?? {}} />
          <WorkForceMonitoring cms={cms.monitoring ?? {}} />
