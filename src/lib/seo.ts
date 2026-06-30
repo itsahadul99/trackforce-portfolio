@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://trackforce.io";
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://portfolio.trackforce.io";
 
 export const siteName = "TrackForce";
 
