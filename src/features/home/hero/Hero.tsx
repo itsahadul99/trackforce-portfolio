@@ -113,7 +113,7 @@ const Hero = ({ cms = {} }: HeroProps) => {
     };
 
     const path = "M1.37062 48.9656C18.3278 26.677 58.5996 25.7684 74.2747 26.7115";
-
+console.log("cms.bg_image", cms);
     return (
         <div
             className="overflow-hidden bg-cover bg-center bg-no-repeat bg-[url('/HeroBg.png')]"

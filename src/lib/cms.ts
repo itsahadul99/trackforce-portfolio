@@ -4,7 +4,7 @@
  * when the admin panel is offline.
  */
 
-const ADMIN = process.env.ADMIN_API_URL ?? "http://localhost:3001";
+const ADMIN = process.env.ADMIN_API_URL ?? "https://backend-trackforce.onrender.com";
 
 // ─── Types ──────────────────────────────────────────────────────────────────
 
@@ -65,9 +65,9 @@ export type CmsSettings = {
 
 // ─── Fetchers ────────────────────────────────────────────────────────────────
 
-async function safeFetch<T>(url: string, fallback: T, tags: string[]): Promise<T> {
+async function safeFetch<T>(url: string, fallback: T): Promise<T> {
   try {
-    const res = await fetch(url, { next: { tags, revalidate: 3600 } });
+    const res = await fetch(url, { cache: "no-store" });
     if (!res.ok) return fallback;
     return (await res.json()) as T;
   } catch {
@@ -76,7 +76,7 @@ async function safeFetch<T>(url: string, fallback: T, tags: string[]): Promise<T
 }
 
 export async function getSliderLogos(): Promise<CmsSliderLogo[]> {
-  return safeFetch<CmsSliderLogo[]>(`${ADMIN}/api/public/slider`, [], ["slider"]);
+  return safeFetch<CmsSliderLogo[]>(`${ADMIN}/api/public/slider`, []);
 }
 
 export type CmsHowSection = {
@@ -93,42 +93,34 @@ export type CmsHowSection = {
 };
 
 export async function getHowSections(): Promise<CmsHowSection[]> {
-  return safeFetch<CmsHowSection[]>(`${ADMIN}/api/public/how-sections`, [], ["how-sections"]);
+  return safeFetch<CmsHowSection[]>(`${ADMIN}/api/public/how-sections`, []);
 }
 
 export async function getFaqs(page?: string): Promise<CmsFaq[]> {
   const url = page
     ? `${ADMIN}/api/public/faqs?page=${page}`
     : `${ADMIN}/api/public/faqs`;
-  return safeFetch<CmsFaq[]>(url, [], ["faqs"]);
+  return safeFetch<CmsFaq[]>(url, []);
 }
 
 export async function getTestimonials(): Promise<CmsTestimonial[]> {
-  return safeFetch<CmsTestimonial[]>(`${ADMIN}/api/public/testimonials`, [], ["testimonials"]);
+  return safeFetch<CmsTestimonial[]>(`${ADMIN}/api/public/testimonials`, []);
 }
 
 export async function getPageContent(page: string): Promise<CmsPageContent> {
-  return safeFetch<CmsPageContent>(
-    `${ADMIN}/api/public/content?page=${page}`,
-    {},
-    ["content", `content-${page}`]
-  );
+  return safeFetch<CmsPageContent>(`${ADMIN}/api/public/content?page=${page}`, {});
 }
 
 export async function getBlogPosts(): Promise<CmsBlogPost[]> {
-  return safeFetch<CmsBlogPost[]>(`${ADMIN}/api/public/blog`, [], ["blog"]);
+  return safeFetch<CmsBlogPost[]>(`${ADMIN}/api/public/blog`, []);
 }
 
 export async function getBlogPost(slug: string): Promise<CmsBlogPost | null> {
-  return safeFetch<CmsBlogPost | null>(
-    `${ADMIN}/api/public/blog?slug=${slug}`,
-    null,
-    ["blog"]
-  );
+  return safeFetch<CmsBlogPost | null>(`${ADMIN}/api/public/blog?slug=${slug}`, null);
 }
 
 export async function getSiteSettings(): Promise<CmsSettings | null> {
-  return safeFetch<CmsSettings | null>(`${ADMIN}/api/public/settings`, null, ["settings"]);
+  return safeFetch<CmsSettings | null>(`${ADMIN}/api/public/settings`, null);
 }
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
