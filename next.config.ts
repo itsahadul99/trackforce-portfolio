@@ -60,6 +60,11 @@ const nextConfig: NextConfig = {
         hostname: "*.supabase.co",
         pathname: "/storage/v1/object/public/**",
       },
+      {
+        protocol: "https",
+        hostname: "backend-trackforce.onrender.com",
+        pathname: "/**",
+      },
       // Admin panel uploaded images (local dev)
       {
         protocol: "http",
