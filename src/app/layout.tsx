@@ -1,7 +1,7 @@
 import ClarityAnalytics from "@/components/shared/Clearity";
 import Footer from "@/features/home/footer/Footer";
 import Navbar from "@/features/navbar/Navbar";
-import { getPageContent, getSiteSettings, getContent } from "@/lib/cms";
+import { getContent, getPageContent, getSiteSettings } from "@/lib/cms";
 import { defaultOgImage, siteName, siteUrl } from "@/lib/seo";
 import type { Metadata } from "next";
 import { Geist, Playball, Rubik } from "next/font/google";
@@ -144,6 +144,19 @@ export default async function RootLayout({
             </Script>
           </>
         )}
+        <Script type="text/javascript">
+          {`
+            var Tawk_API=Tawk_API||{ }, Tawk_LoadStart=new Date();
+            (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/6a421647762a271d420a0a16/1js92e20f';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+            })();
+          `}
+        </Script>
       </body>
     </html>
   );
