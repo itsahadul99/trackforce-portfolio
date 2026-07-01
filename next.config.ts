@@ -57,8 +57,8 @@ const nextConfig: NextConfig = {
       // Supabase Storage (media uploads from admin panel)
       {
         protocol: "https",
-        hostname: "*.supabase.co",
-        pathname: "/storage/v1/object/public/**",
+        hostname: "portfolio-admin.ibos.io",
+        pathname: "/**",
       },
       {
         protocol: "https",
