@@ -49,6 +49,7 @@ const nextConfig: NextConfig = {
     // Whitelist the higher quality levels we use on content images.
     // (Next 16 only allows `quality` values listed here; default is [75].)
     qualities: [75, 90, 100],
+     dangerouslyAllowLocalIP: true,
     remotePatterns: [
       {
         protocol: "https",
@@ -57,7 +58,7 @@ const nextConfig: NextConfig = {
       // Supabase Storage (media uploads from admin panel)
       {
         protocol: "https",
-        hostname: "portfolio-admin.ibos.io",
+        hostname: "admin.trackforce.io",
         pathname: "/**",
       },
       {
