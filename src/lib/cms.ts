@@ -4,7 +4,7 @@
  * when the admin panel is offline.
  */
 
-const ADMIN = process.env.ADMIN_API_URL ?? "http://localhost:80/backend";
+const ADMIN = process.env.ADMIN_API_URL ?? "https://admin.trackforce.io/backend";
 
 // ─── Types ──────────────────────────────────────────────────────────────────
 
@@ -76,7 +76,7 @@ async function safeFetch<T>(url: string, fallback: T): Promise<T> {
 }
 
 export async function getSliderLogos(): Promise<CmsSliderLogo[]> {
-  return safeFetch<CmsSliderLogo[]>(`http://localhost:80/backend/api/public/slider`, []);
+  return safeFetch<CmsSliderLogo[]>(`https://admin.trackforce.io/backend/api/public/slider`, []);
 }
 
 export type CmsHowSection = {
@@ -93,34 +93,34 @@ export type CmsHowSection = {
 };
 
 export async function getHowSections(): Promise<CmsHowSection[]> {
-  return safeFetch<CmsHowSection[]>(`http://localhost:80/backend/api/public/how-sections`, []);
+  return safeFetch<CmsHowSection[]>(`https://admin.trackforce.io/backend/api/public/how-sections`, []);
 }
 
 export async function getFaqs(page?: string): Promise<CmsFaq[]> {
   const url = page
-    ? `http://localhost:80/backend/api/public/faqs?page=${page}`
-    : `http://localhost:80/backend/api/public/faqs`;
+    ? `https://admin.trackforce.io/backend/api/public/faqs?page=${page}`
+    : `https://admin.trackforce.io/backend/api/public/faqs`;
   return safeFetch<CmsFaq[]>(url, []);
 }
 
 export async function getTestimonials(): Promise<CmsTestimonial[]> {
-  return safeFetch<CmsTestimonial[]>(`http://localhost:80/backend/api/public/testimonials`, []);
+  return safeFetch<CmsTestimonial[]>(`https://admin.trackforce.io/backend/api/public/testimonials`, []);
 }
 
 export async function getPageContent(page: string): Promise<CmsPageContent> {
-  return safeFetch<CmsPageContent>(`http://localhost:80/backend/api/public/content?page=${page}`, {});
+  return safeFetch<CmsPageContent>(`https://admin.trackforce.io/backend/api/public/content?page=${page}`, {});
 }
 
 export async function getBlogPosts(): Promise<CmsBlogPost[]> {
-  return safeFetch<CmsBlogPost[]>(`http://localhost:80/backend/api/public/blog`, []);
+  return safeFetch<CmsBlogPost[]>(`https://admin.trackforce.io/backend/api/public/blog`, []);
 }
 
 export async function getBlogPost(slug: string): Promise<CmsBlogPost | null> {
-  return safeFetch<CmsBlogPost | null>(`http://localhost:80/backend/api/public/blog?slug=${slug}`, null);
+  return safeFetch<CmsBlogPost | null>(`https://admin.trackforce.io/backend/api/public/blog?slug=${slug}`, null);
 }
 
 export async function getSiteSettings(): Promise<CmsSettings | null> {
-  return safeFetch<CmsSettings | null>(`http://localhost:80/backend/api/public/settings`, null);
+  return safeFetch<CmsSettings | null>(`https://admin.trackforce.io/backend/api/public/settings`, null);
 }
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
