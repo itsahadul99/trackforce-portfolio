@@ -2,6 +2,7 @@
 "use client";
 import ProgressCircle from "@/components/graph/ProgressCircle";
 import BookDemoBtn from "@/components/shared/BookDemoBtn";
+import RichText from "@/components/shared/RichText";
 import { motion, Variants } from "framer-motion";
 const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
     hidden: { opacity: 1, x, y, scale: 0.85 },
@@ -31,9 +32,7 @@ const WhyTrackforce = ({ cms = {} }: WhyTrackforceProps) => {
                 <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold mb-2 text-black leading-tight">
                     {cms.heading || <>Employee Monitoring Built for <span className="font-playball font-normal">Smarter Workflows</span></>}
                 </h2>
-                <p className="text-gray-600 text-sm sm:text-base mb-6 max-w-lg mt-6">
-                    {cms.description || "TrackForce delivers real-time visibility, accountability, and performance insights — helping teams work better, not harder."}
-                </p>
+                <RichText className="text-gray-600 text-sm sm:text-base mb-6 max-w-lg mt-6" html={cms.description || "TrackForce delivers real-time visibility, accountability, and performance insights — helping teams work better, not harder."} />
                 <BookDemoBtn />
             </div>
 

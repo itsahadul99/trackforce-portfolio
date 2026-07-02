@@ -3,6 +3,7 @@
 import { motion, Transition } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import RichText from "@/components/shared/RichText";
 
 
 const commonTransition: Transition = {
@@ -41,9 +42,7 @@ const PortfolioHero = ({ cms = {} }: PortfolioHeroProps) => {
                     {cms.heading || <>Workforce Intelligence for High-Performance{" "}<span className="font-playball font-normal">Teams</span></>}
                 </h1>
 
-                <p className="text-gray-300 text-base mt-6 max-w-2xl mx-auto leading-relaxed">
-                    {cms.description || "An enterprise-grade employee monitoring & productivity intelligence platform developed by Akij iBOS Limited."}
-                </p>
+                <RichText className="text-gray-300 text-base mt-6 max-w-2xl mx-auto leading-relaxed" html={cms.description || "An enterprise-grade employee monitoring & productivity intelligence platform developed by Akij iBOS Limited."} />
 
                 <div className="w-full flex justify-center">
                     <div className="relative flex flex-col md:flex-row w-fit gap-6 justify-center items-center mt-10">

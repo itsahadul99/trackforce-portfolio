@@ -20,6 +20,9 @@ export type BlogPost = {
         titleItalic: string;
     };
     content: ContentBlock[];
+    /** Rich HTML body authored in the admin Quill editor. When set, it is
+     *  rendered instead of the legacy `content` blocks. */
+    contentHtml?: string;
 };
 
 export const blogs: BlogPost[] = [
@@ -361,18 +364,29 @@ export const getSimilarBlogs = (
 import type { CmsBlogPost } from "@/lib/cms";
 
 function cmsPostToLocal(post: CmsBlogPost, index: number): BlogPost {
-    let content: ContentBlock[];
-    try {
-        const parsed = JSON.parse(post.content);
-        if (Array.isArray(parsed)) {
-            content = parsed as ContentBlock[];
-        } else {
-            content = [{ type: "p", text: post.content }];
+    // The admin panel now authors the blog body as HTML (Quill). Legacy posts
+    // may still store a JSON array of ContentBlocks — support both.
+    let content: ContentBlock[] = [];
+    let contentHtml: string | undefined;
+    const raw = (post.content ?? "").trim();
+
+    if (raw.startsWith("[")) {
+        // Legacy JSON block format
+        try {
+            const parsed = JSON.parse(raw);
+            if (Array.isArray(parsed)) {
+                content = parsed as ContentBlock[];
+            } else {
+                contentHtml = raw;
+            }
+        } catch {
+            contentHtml = raw;
         }
-    } catch {
-        content = post.content
-            ? post.content.split("\n\n").filter(Boolean).map((t) => ({ type: "p" as const, text: t }))
-            : [{ type: "p", text: post.excerpt }];
+    } else if (raw) {
+        // HTML (or plain text) body
+        contentHtml = raw;
+    } else {
+        content = [{ type: "p", text: post.excerpt }];
     }
 
     const words = post.title.split(" ");
@@ -392,6 +406,7 @@ function cmsPostToLocal(post: CmsBlogPost, index: number): BlogPost {
             titleItalic: words.slice(midpoint).join(" "),
         },
         content,
+        contentHtml,
     };
 }
 

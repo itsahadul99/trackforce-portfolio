@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, type Variants } from 'framer-motion';
 import whyStand1 from "../../../public/casestudy/whyStand1.png";
 import whyStand2 from "../../../public/casestudy/whyStand2.png";
+import RichText from "@/components/shared/RichText";
 
 const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
   hidden: { opacity: 0, x, y, scale: 0.85 },
@@ -94,9 +95,7 @@ const CaseStudyWhyStandsOut = ({ cms = {} }: Props) => {
               ))}
             </ul>
 
-            <p className="text-white/60 text-base md:text-lg leading-relaxed">
-              {cms.description || "TrackForce is not just monitoring software — it is a workforce intelligence engine built for modern enterprises."}
-            </p>
+            <RichText className="text-white/60 text-base md:text-lg leading-relaxed" html={cms.description || "TrackForce is not just monitoring software — it is a workforce intelligence engine built for modern enterprises."} />
           </div>
         </div>
       </div>

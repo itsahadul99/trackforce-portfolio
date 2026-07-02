@@ -1,6 +1,7 @@
 'use client';
 
 import FeaturesListMore from '@/components/all/FeaturesListMore';
+import RichText from '@/components/shared/RichText';
 import { motion, type Variants } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -71,7 +72,7 @@ export default function HowSection({ section, reversed }: Props) {
         {section.heading}
       </h2>
       {section.description && (
-        <p className="text-sm sm:text-base lg:text-lg mb-6 lg:mb-8">{section.description}</p>
+        <RichText className="text-sm sm:text-base lg:text-lg mb-6 lg:mb-8" html={section.description} />
       )}
       {features.length > 0 && (
         <FeaturesListMore

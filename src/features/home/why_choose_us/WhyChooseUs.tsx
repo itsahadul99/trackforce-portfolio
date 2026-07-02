@@ -8,6 +8,7 @@ import AutomicIcon from './automic';
 import CustomMonitoringIcon from './customMonitoring';
 import SecureIcon from './secure';
 import Link from 'next/link';
+import RichText from '@/components/shared/RichText';
 const WhyChooseUs = () => {
   const features = [
     {
@@ -113,7 +114,7 @@ const WhyChooseUs = () => {
                   <span className="flex shrink-0 items-center justify-center w-10 h-10 rounded-full text-xl font-bold" style={{ backgroundColor: f.color }}>{f.icon}</span>
                   <div>
                     <h3 className="font-semibold text-white group-hover/why_left:text-black text-base sm:text-lg mb-1">{f.title}</h3>
-                    <p className="text-white group-hover/why_left:text-black text-xs sm:text-sm leading-relaxed ">{f.desc}</p>
+                    <RichText className="text-white group-hover/why_left:text-black text-xs sm:text-sm leading-relaxed " html={f.desc} />
                   </div>
                 </li>
               ))}

@@ -1,4 +1,5 @@
 import { BlogPost } from "@/data/blogs";
+import RichText from "@/components/shared/RichText";
 
 const BlogDetailsContent = ({ blog }: { blog: BlogPost }) => {
     return (
@@ -13,7 +14,13 @@ const BlogDetailsContent = ({ blog }: { blog: BlogPost }) => {
                 </div>
 
                 <div className="relative z-10 text-white w-full">
-                    {blog.content.map((block, idx) => {
+                    {blog.contentHtml ? (
+                        <RichText
+                            html={blog.contentHtml}
+                            className="text-gray-300 text-base leading-relaxed"
+                        />
+                    ) : (
+                        blog.content.map((block, idx) => {
                         switch (block.type) {
                             case "p":
                                 return (
@@ -62,7 +69,8 @@ const BlogDetailsContent = ({ blog }: { blog: BlogPost }) => {
                             default:
                                 return null;
                         }
-                    })}
+                        })
+                    )}
                 </div>
             </div>
         </section>

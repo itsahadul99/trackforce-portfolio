@@ -2,6 +2,7 @@
 import BookDemoBtn from "@/components/shared/BookDemoBtn";
 import Image from "next/image";
 import { useState } from "react";
+import RichText from "@/components/shared/RichText";
 type SolutionProps = { cms?: Record<string, string> }
 
 const Solution = ({ cms = {} }: SolutionProps) => {
@@ -134,9 +135,7 @@ const Solution = ({ cms = {} }: SolutionProps) => {
                                     </h3>
                                 </div>
 
-                                <p className="text-gray-700 text-sm md:text-base leading-relaxed transition-all duration-300 group-hover:text-[15.5px]">
-                                    {card.desc}
-                                </p>
+                                <RichText className="text-gray-700 text-sm md:text-base leading-relaxed transition-all duration-300 group-hover:text-[15.5px]" html={card.desc} />
 
                             </div>
                         </div>

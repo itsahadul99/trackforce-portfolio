@@ -1,3 +1,5 @@
+import RichText from "@/components/shared/RichText";
+
 type Props = { cms?: Record<string, string> }
 
 const CaseStudyDeployment = ({ cms = {} }: Props) => {
@@ -13,9 +15,7 @@ const CaseStudyDeployment = ({ cms = {} }: Props) => {
             <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold text-[#1a1a2e] leading-tight mb-4">
               {cms.heading || <>Our <span className="font-playball font-normal">Deployment</span><br />Strategy</>}
             </h2>
-            <p className="text-[#1a1a2e]/70 text-base md:text-lg leading-relaxed">
-              {cms.description || "TrackForce simplifies teamwork with visibility, automation, and insights to boost productivity effortlessly."}
-            </p>
+            <RichText className="text-[#1a1a2e]/70 text-base md:text-lg leading-relaxed" html={cms.description || "TrackForce simplifies teamwork with visibility, automation, and insights to boost productivity effortlessly."} />
           </div>
 
           {/* Right */}

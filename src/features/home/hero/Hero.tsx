@@ -1,4 +1,5 @@
 "use client";
+import RichText from "@/components/shared/RichText";
 import StatusModal from "@/components/shared/StatusModal";
 import { motion, Transition } from "framer-motion";
 import Image from "next/image";
@@ -150,7 +151,7 @@ console.log("cms.bg_image", cms);
                     {/* Subtitle / description */}
                     <div className="text-sm sm:text-base lg:text-[18px] text-[#ABABAB] mt-5">
                         {cms.subheading ? (
-                            <p>{cms.subheading}</p>
+                            <RichText html={cms.subheading} />
                         ) : (
                             <>
                                 <p>TrackTrackForce gives you real-time visibility into team productivity,</p>

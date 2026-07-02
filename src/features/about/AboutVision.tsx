@@ -7,6 +7,7 @@ import desktopApp from "../../../public/about/desktopApp.png";
 import trackforce from "../../../public/trackforce.png";
 
 import Link from 'next/link';
+import RichText from "@/components/shared/RichText";
 import whyStand2 from "../../../public/about/whyStand.png";
 const imageVariants = (x: number, y: number, delay: number = 0): Variants => ({
     hidden: { opacity: 0, x, y, scale: 0.85 },
@@ -89,11 +90,10 @@ const AboutVision = ({ cms = {} }: AboutVisionProps) => {
                             {cms.heading || <>Shaping the Future of Intelligent <br /> and <span className="font-playball font-normal"> Accountable </span>{" "} Workplaces</>}
                         </h3>
 
-                        <p
-                            className={`text-base leading-relaxed mb-6 text-gray-300`}
-                        >
-                            {cms.description || "To become the leading global platform for workforce visibility. Empowering every organization to operate with clarity, confidence, and measurable impact through real-time insights and automation."}
-                        </p>
+                        <RichText
+                            className="text-base leading-relaxed mb-6 text-gray-300"
+                            html={cms.description || "To become the leading global platform for workforce visibility. Empowering every organization to operate with clarity, confidence, and measurable impact through real-time insights and automation."}
+                        />
 
 
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, Transition } from "framer-motion";
+import RichText from "@/components/shared/RichText";
 
 
 const commonTransition: Transition = {
@@ -85,9 +86,7 @@ const BlogHero = ({ cms = {} }: BlogHeroProps) => {
 
                     </div> */}
                 </div>
-                <p className="text-gray-300 text-base mt-6 max-w-2xl mx-auto leading-relaxed">
-                  {cms.description || "Meet TrackForce’s customers around the globe and discover the impact that partnering with TrackForce can create."}
-                </p>
+                <RichText className="text-gray-300 text-base mt-6 max-w-2xl mx-auto leading-relaxed" html={cms.description || "Meet TrackForce’s customers around the globe and discover the impact that partnering with TrackForce can create."} />
             </div>
         </section>
     )

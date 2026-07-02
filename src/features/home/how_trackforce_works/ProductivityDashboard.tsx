@@ -1,6 +1,7 @@
 'use client';
 
 import FeaturesListMore from '@/components/all/FeaturesListMore';
+import RichText from '@/components/shared/RichText';
 import { motion, type Variants } from 'framer-motion';
 import Image from 'next/image';
 import { FaArrowRightLong } from 'react-icons/fa6';
@@ -52,9 +53,7 @@ const ProductivityDashboard = ({ cms = {} }: ProductivityDashboardProps) => {
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 lg:mb-8 leading-tight">
                     {cms.heading || "Real-Time Dashboard for Complete Visibility"}
                 </h2>
-                <p className="text-sm sm:text-base lg:text-lg mb-6 lg:mb-8">
-                    {cms.description || "Monitor employee activity, productivity trends, and performance metrics from one centralized dashboard – updated in real time for faster, smarter decisions."}
-                </p>
+                <RichText className="text-sm sm:text-base lg:text-lg mb-6 lg:mb-8" html={cms.description || "Monitor employee activity, productivity trends, and performance metrics from one centralized dashboard – updated in real time for faster, smarter decisions."} />
 
                 <FeaturesListMore
                     height={"280px"}

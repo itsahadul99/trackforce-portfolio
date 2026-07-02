@@ -4,6 +4,7 @@ import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
 import { useRef } from 'react';
 import { FaArrowRightLong } from 'react-icons/fa6';
+import RichText from '@/components/shared/RichText';
 import trackforce from '../../../../public/trackforce.png';
 import dashboard from '../../../../public/home/freeTrial.png';
 import Link from 'next/link';
@@ -39,9 +40,7 @@ const HomeFreeTailer = ({ cms = {} }: HomeFreeTailerProps) => {
                         <>Start Your 30-Day <br className="hidden sm:block" /> <span className="font-playball font-normal">Free</span> TrackForce Trial</>
                     )}
                 </h2>
-                <p className="text-sm sm:text-base lg:text-lg mb-6 lg:mb-8">
-                    {cms.description || "Monitor employee activity, productivity trends, and performance metrics from one centralized dashboard – updated in real time for faster, smarter decisions."}
-                </p>
+                <RichText className="text-sm sm:text-base lg:text-lg mb-6 lg:mb-8" html={cms.description || "Monitor employee activity, productivity trends, and performance metrics from one centralized dashboard – updated in real time for faster, smarter decisions."} />
 
                 <div className="mt-8 lg:mt-12 flex flex-wrap justify-center lg:justify-start gap-4 lg:gap-5">
                     <a

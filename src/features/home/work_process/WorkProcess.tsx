@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from 'next/link';
 import { useEffect, useState } from "react";
 import { FaArrowRightLong } from 'react-icons/fa6';
+import RichText from '@/components/shared/RichText';
 import connectTeam from '../../../../public/home/connectTeam.png';
 import monitorAnalyze from '../../../../public/home/monitorAnalysis.png';
 import optimizePerformance from '../../../../public/home/optimizePermomence.png';
@@ -72,9 +73,7 @@ export default function WorkProcess({ cms = {} }: WorkProcessProps) {
             )}
           </h2>
 
-          <p className="text-gray-600 text-sm sm:text-base lg:text-[16px] leading-relaxed max-w-sm mx-auto lg:mx-0">
-            {cms.description || "TrackForce gives you real-time visibility, accountability, and performance insights to manage teams efficiently and securely."}
-          </p>
+          <RichText className="text-gray-600 text-sm sm:text-base lg:text-[16px] leading-relaxed max-w-sm mx-auto lg:mx-0" html={cms.description || "TrackForce gives you real-time visibility, accountability, and performance insights to manage teams efficiently and securely."} />
 
           <div className="flex items-center justify-center lg:justify-start gap-4 pt-2 flex-wrap">
             <div>
@@ -146,7 +145,7 @@ export default function WorkProcess({ cms = {} }: WorkProcessProps) {
                   </h3>
 
                   <AnimatePresence mode="wait" initial={false}>
-                    <motion.p
+                    <motion.div
                       key={isActive ? "active" : "inactive"}
                       initial={{ opacity: 0, y: 10, filter: "blur(6px)" }}
                       animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -154,8 +153,8 @@ export default function WorkProcess({ cms = {} }: WorkProcessProps) {
                       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1], delay: isLg ? 0.55 : 0 }}
                       className={`text-pretty text-[#747378] text-[15px] leading-relaxed ${isActive || !isLg ? "" : "mt-auto"}`}
                     >
-                      {step.desc}
-                    </motion.p>
+                      <RichText html={step.desc} />
+                    </motion.div>
                   </AnimatePresence>
 
                   <AnimatePresence mode="wait">

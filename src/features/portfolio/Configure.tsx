@@ -149,6 +149,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { FaArrowRightLong } from "react-icons/fa6";
+import RichText from "@/components/shared/RichText";
 
 const trackforce = "/trackforce.png";
 
@@ -282,9 +283,11 @@ const Configure = ({ cms = {} }: ConfigureProps) => {
                             {cms.heading || <>Flexible. <br />Configurable. <br /><span className="font-playball font-normal">Scalable.</span></>}
                         </h2>
 
-                        <p className="text-gray-600 text-base mb-6 max-w-lg mt-6">
-                            {cms.description || <>Every organization works differently. <br />Enterprise-ready from day one.</>}
-                        </p>
+                        {cms.description ? (
+                            <RichText className="text-gray-600 text-base mb-6 max-w-lg mt-6" html={cms.description} />
+                        ) : (
+                            <p className="text-gray-600 text-base mb-6 max-w-lg mt-6"><>Every organization works differently. <br />Enterprise-ready from day one.</></p>
+                        )}
 
                         <div className="">
                             <Link href="/documentation" className="group custom-button relative w-fit bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 text-white font-bold py-3 px-6 rounded-[16px] flex gap-3 justify-between items-center">

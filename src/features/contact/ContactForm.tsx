@@ -4,6 +4,7 @@
 import { useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import StatusModal from "@/components/shared/StatusModal";
+import RichText from "@/components/shared/RichText";
 
 const API_URL = "https://app.trackforce.io/api/PublicContact/submit";
 
@@ -84,7 +85,7 @@ const ContactForm = ({ cms = {} }: { cms?: any }) => {
             {cms.heading || "  Book Your Free Demo"}
             </h3>
           {cms.subheading && (
-            <p className="text-gray-400 text-sm text-left mb-6">{cms.subheading}</p>
+            <RichText className="text-gray-400 text-sm text-left mb-6" html={cms.subheading} />
           )}
             <p className="text-gray-400 text-sm mb-6 text-left">
               Tell us about your team — we'll tailor the walkthrough.

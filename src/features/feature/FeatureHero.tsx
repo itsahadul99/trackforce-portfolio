@@ -1,5 +1,7 @@
 "use client";
 
+import RichText from "@/components/shared/RichText";
+
 type FeatureHeroProps = { cms?: Record<string, string> }
 
 const FeatureHero = ({ cms = {} }: FeatureHeroProps) => {
@@ -73,9 +75,7 @@ const FeatureHero = ({ cms = {} }: FeatureHeroProps) => {
 
                     </div> */}
                 </div>
-                <p className="text-gray-300 text-base mt-6 max-w-2xl mx-auto leading-relaxed">
-                 {cms.description || "TrackForce provides transparent employee monitoring tools that strengthen collaboration and enhance performance without disrupting daily workflow."}
-                </p>
+                <RichText className="text-gray-300 text-base mt-6 max-w-2xl mx-auto leading-relaxed" html={cms.description || "TrackForce provides transparent employee monitoring tools that strengthen collaboration and enhance performance without disrupting daily workflow."} />
             </div>
         </section>
     )

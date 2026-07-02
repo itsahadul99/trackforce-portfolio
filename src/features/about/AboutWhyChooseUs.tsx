@@ -7,6 +7,7 @@ import { useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { IoIosArrowDown } from "react-icons/io";
 import trackforce from "../../../public/trackforce.png";
+import RichText from "@/components/shared/RichText";
 const DEFAULT_ITEMS = [
   {
     question: "Centralized Performance Management",
@@ -53,9 +54,7 @@ const AboutWhyChooseUs = ({ cms = {} }: { cms?: any }) => {
               {cms.heading || <>Smarter <span className="font-playball font-normal">tools</span>{" "}for a more efficient team</>}
             </h2>
 
-            <p className="text-gray-600 text-base leading-relaxed">
-              {cms.description || "TrackForce simplifies teamwork with visibility, automation, and insights to boost productivity effortlessly."}
-            </p>
+            <RichText className="text-gray-600 text-base leading-relaxed" html={cms.description || "TrackForce simplifies teamwork with visibility, automation, and insights to boost productivity effortlessly."} />
           </div>
 
           {/* Right Side - Accordion */}

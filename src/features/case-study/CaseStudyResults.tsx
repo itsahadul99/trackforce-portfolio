@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { motion, Variants } from "framer-motion";
+import RichText from "@/components/shared/RichText";
 
 const CURVE_DEPTH = 80;
 
@@ -117,9 +118,7 @@ const CaseStudyResults = ({ cms = {} }: Props) => {
           <h2 className="text-4xl md:text-[42px] font-bold text-[#1a1a2e] mb-3">
             {cms.heading || <>Measurable Business <span className="font-serif italic font-normal">Results</span></>}
           </h2>
-          <p className="text-[#1a1a2e]/70 text-lg">
-            {cms.subheading || "Within months of implementation, Akij iBOS achieved:"}
-          </p>
+          <RichText className="text-[#1a1a2e]/70 text-lg" html={cms.subheading || "Within months of implementation, Akij iBOS achieved:"} />
         </div>
 
         <div ref={containerRef} className="max-w-2xl mx-auto relative min-h-[600px]">
@@ -178,7 +177,7 @@ const CaseStudyResults = ({ cms = {} }: Props) => {
                 </div>
                 <motion.div className="bg-white rounded-full px-10 py-4 flex-1 shadow-sm border border-black/5">
                   <h3 className="text-sm md:text-base font-bold text-[#1a1a2e] mb-0.5">{item.title}</h3>
-                  <p className="text-[#1a1a2e]/60 text-xs md:text-sm">{item.desc}</p>
+                  <RichText className="text-[#1a1a2e]/60 text-xs md:text-sm" html={item.desc} />
                 </motion.div>
               </motion.div>
             ))}

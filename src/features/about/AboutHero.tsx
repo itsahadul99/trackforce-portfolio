@@ -1,5 +1,7 @@
 "use client";
 
+import RichText from "@/components/shared/RichText";
+
 type AboutHeroProps = { cms?: Record<string, string> }
 
 const AboutHero = ({ cms = {} }: AboutHeroProps) => {
@@ -73,9 +75,7 @@ const AboutHero = ({ cms = {} }: AboutHeroProps) => {
 
                     </div> */}
                 </div>
-                <p className="text-gray-300 mt-6 max-w-2xl mx-auto leading-relaxed text-base md:text-lg px-2 md:px-0">
-                    {cms.description || "From employee monitoring to enterprise automation, we design intelligent business solutions that simplify operations, strengthen accountability, and help organizations achieve efficiency through real-time visibility and control."}
-                </p>
+                <RichText className="text-gray-300 mt-6 max-w-2xl mx-auto leading-relaxed text-base md:text-lg px-2 md:px-0" html={cms.description || "From employee monitoring to enterprise automation, we design intelligent business solutions that simplify operations, strengthen accountability, and help organizations achieve efficiency through real-time visibility and control."} />
             </div>
         </section>
     )

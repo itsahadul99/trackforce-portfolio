@@ -2,6 +2,7 @@
 
 import { motion, MotionValue, useScroll, useSpring, useTransform } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
+import RichText from "@/components/shared/RichText";
 
 const DEFAULT_CARDS = [
   {
@@ -67,7 +68,7 @@ const CardContent = ({ card }: { card: CardData }) => (
 
     {/* Right - Content */}
     <div className="flex-1">
-      {card.description && <p className="text-[#1a1a2e] text-base lg:text-[20px] mb-3">{card.description}</p>}
+      {card.description && <RichText className="text-[#1a1a2e] text-base lg:text-[20px] mb-3" html={card.description} />}
       <ul className="text-[#1a1a2e]/80 text-sm lg:text-[20px] leading-relaxed space-y-2 mb-4">
         {card.points.map((point, i) => (
           <li key={i} className="flex items-start gap-2">
@@ -143,7 +144,7 @@ const StaticCard = ({ card, index }: { card: CardData; index: number }) => (
             <span className="text-4xl font-bold text-[#2ec4b6]">{card.number}</span>
           </div>
           <div className="flex-1">
-            {card.description && <p className="text-[#1a1a2e] text-sm mb-2">{card.description}</p>}
+            {card.description && <RichText className="text-[#1a1a2e] text-sm mb-2" html={card.description} />}
             <ul className="text-[#1a1a2e]/80 text-sm leading-relaxed space-y-2 mb-2">
               {card.points.map((point, i) => (
                 <li key={i} className="flex items-start gap-2">

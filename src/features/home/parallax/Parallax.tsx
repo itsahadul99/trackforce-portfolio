@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
+import RichText from "@/components/shared/RichText";
 
 import plxLogo1 from "../../../../public/paralax-logo-1.png";
 import plxLogo2 from "../../../../public/paralax-logo-2.png";
@@ -133,9 +134,7 @@ const Parallax = ({ cms = {} }: ParallaxProps) => {
                     <Image src={logo} alt="logo" width={72} height={72} quality={90} />
                   </div>
                   <h3 className="text-xl font-semibold">{title}</h3>
-                  <p className={`w-full max-w-xs sm:w-72 ${activated.has(n) ? "text-left" : ""} text-sm sm:text-base px-4 sm:px-0`}>
-                    {desc}
-                  </p>
+                  <RichText className={`w-full max-w-xs sm:w-72 ${activated.has(n) ? "text-left" : ""} text-sm sm:text-base px-4 sm:px-0`} html={desc} />
                 </motion.div>
 
                 {/* Image — right side cards show image after text */}

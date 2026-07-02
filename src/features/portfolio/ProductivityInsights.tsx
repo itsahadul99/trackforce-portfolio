@@ -60,6 +60,7 @@
 "use client";
 
 import PortfolioParallax from "./PortfolioParallax";
+import RichText from "@/components/shared/RichText";
 
 type ProductivityInsightsProps = { cms?: Record<string, string> }
 
@@ -83,9 +84,11 @@ const ProductivityInsights = ({ cms = {} }: ProductivityInsightsProps) => {
                             </h2>
                         </div>
 
-                        <p className="text-gray-300 text-base mt-6  leading-relaxed">
-                            {cms.description || <>TrackForce is not just monitoring software. <br />It&apos;s a workforce intelligence platform designed to:</>}
-                        </p>
+                        {cms.description ? (
+                            <RichText className="text-gray-300 text-base mt-6  leading-relaxed" html={cms.description} />
+                        ) : (
+                            <p className="text-gray-300 text-base mt-6  leading-relaxed"><>TrackForce is not just monitoring software. <br />It&apos;s a workforce intelligence platform designed to:</></p>
+                        )}
                     </div>
                 </div>
 

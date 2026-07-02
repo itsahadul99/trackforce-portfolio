@@ -211,6 +211,7 @@ import productivity from '../../../public/portfolio/productivity.png'
 import improveWorkforce from '../../../public/portfolio/improveWorkforce.png'
 import enable from '../../../public/portfolio/enable.png'
 import Link from 'next/link';
+import RichText from "@/components/shared/RichText";
 const trackforce = '/trackforce.png'
 
 type ImpactBusinessProps = { cms?: Record<string, string> }
@@ -230,9 +231,7 @@ const ImpactBusiness = ({ cms = {} }: ImpactBusinessProps) => {
                     <h2 className="text-[42px] text-white font-semibold leading-tight">
                         {cms.heading || <>The Business{" "}<span className="font-playball font-normal">Impact</span></>}
                     </h2>
-                    <p className="text-white text-lg">
-                        {cms.description || "Organizations using TrackForce can:"}
-                    </p>
+                    <RichText className="text-white text-lg" html={cms.description || "Organizations using TrackForce can:"} />
                 </div>
 
                 {/* Cards Grid */}

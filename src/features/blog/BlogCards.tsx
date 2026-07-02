@@ -1,6 +1,7 @@
 "use client";
 
 import BookDemoBtn from "@/components/shared/BookDemoBtn";
+import RichText from "@/components/shared/RichText";
 import { blogs as HARDCODED_CARDS, type BlogPost } from "@/data/blogs";
 import { motion } from 'framer-motion';
 import Image from "next/image";
@@ -138,9 +139,7 @@ const BlogCards = ({ initialCards, cms = {} }: BlogCardsProps) => {
                         </h2>
                         <div className="mt-5">
                             <p className="text-sm text-gray-500 mb-2">{cms.date || "April 15, 2025"}</p>
-                            <p className="text-[15px] text-gray-600 leading-relaxed mb-8 max-w-xl">
-                                {cms.description || "A Fortune 100 company tracks remote vs. in-office productivity by centralizing employee location and activity data in a single dashboard, revealing policy violations and performance gaps."}
-                            </p>
+                            <RichText className="text-[15px] text-gray-600 leading-relaxed mb-8 max-w-xl" html={cms.description || "A Fortune 100 company tracks remote vs. in-office productivity by centralizing employee location and activity data in a single dashboard, revealing policy violations and performance gaps."} />
                         </div>
                         <div className="">
                             <BookDemoBtn />

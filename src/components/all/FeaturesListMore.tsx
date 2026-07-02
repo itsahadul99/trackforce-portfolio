@@ -70,6 +70,7 @@
 import React, { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link';
+import RichText from '@/components/shared/RichText';
 
 type Props = {
     height?: number | string;
@@ -135,9 +136,7 @@ const FeaturesListMore = ({
                                                 transition={{ duration: 0.35, ease: 'easeOut' }}
                                                 className="overflow-hidden"
                                             >
-                                                <p className={`${descColor} text-[15px] leading-relaxed mb-4 mt-2 ${txtColor} `}>
-                                                    {feature.description}
-                                                </p>
+                                                <RichText className={`${descColor} text-[15px] leading-relaxed mb-4 mt-2 ${txtColor} `} html={feature.description} />
                                                 <Link
                                                     href="/documentation"
                                                     className="text-[#1a73e8] font-bold text-[15px] flex items-center group"

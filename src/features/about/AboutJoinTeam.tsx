@@ -9,6 +9,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import React from "react";
+import RichText from "@/components/shared/RichText";
 
 const features = [
   {
@@ -88,9 +89,7 @@ const AboutJoinTeam = ({ cms = {} }: AboutJoinTeamProps) => {
                     <h4 className="font-semibold text-gray-900 text-lg mb-1">
                       {f.title}
                     </h4>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {f.desc}
-                    </p>
+                    <RichText className="text-gray-600 text-sm leading-relaxed" html={f.desc} />
                   </div>
                 </li>
               ))}
@@ -107,9 +106,7 @@ const AboutJoinTeam = ({ cms = {} }: AboutJoinTeamProps) => {
             <h2 className="text-2xl md:text-[42px] font-semibold mb-2 text-black">
               {cms.heading || <>Build the future of productivity with{" "}<span className="font-playball font-normal">TrackForce</span></>}
             </h2>
-            <p className="text-gray-600 text-base mb-6 max-w-lg mt-6">
-              {cms.description || "We're building smarter employee monitoring and workforce management solutions that make a real impact."}
-            </p>
+            <RichText className="text-gray-600 text-base mb-6 max-w-lg mt-6" html={cms.description || "We're building smarter employee monitoring and workforce management solutions that make a real impact."} />
           </div>
         </div>
       </div>

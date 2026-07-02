@@ -1,6 +1,7 @@
 'use client';
 
 import FeaturesListMore from '@/components/all/FeaturesListMore';
+import RichText from '@/components/shared/RichText';
 import { motion, type Variants } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -85,9 +86,7 @@ const WorkForceMonitoring = ({ cms = {} }: WorkForceMonitoringProps) => {
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 lg:mb-8 leading-tight">
                     {cms.heading || "All-in-One Workforce Monitoring Platform"}
                 </h2>
-                <p className="text-sm sm:text-base lg:text-lg mb-6 lg:mb-8">
-                    {cms.description || "Monitor teams, optimize performance, and maintain compliance — all from a single platform built for modern workplaces."}
-                </p>
+                <RichText className="text-sm sm:text-base lg:text-lg mb-6 lg:mb-8" html={cms.description || "Monitor teams, optimize performance, and maintain compliance — all from a single platform built for modern workplaces."} />
 
                 <FeaturesListMore
                     height={"280px"}
