@@ -41,7 +41,7 @@ const Home = async () => {
             <div className='bg-[#DEEDFF] py-12 sm:py-16 lg:py-24'>
                 <HomeFaq initialFaqs={faqs} />
             </div>
-            <HomePricing />
+            <HomePricing cms={cms.pricing ?? {}} />
             <div className='bg-[#DEEDFF] py-12 sm:py-16 lg:py-24 px-4'>
                 <HomeFreeTailer cms={cms.free_trailer ?? {}} />
             </div>

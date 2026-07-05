@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
+import RichText from "@/components/shared/RichText";
 
 /* ---- API types ---- */
 type ApiPricing = {
@@ -87,7 +88,9 @@ const mapApiPlan = (plan: ApiPlan): Plan => {
   };
 };
 
-const HomePricing = () => {
+type HomePricingProps = { cms?: Record<string, string> };
+
+const HomePricing = ({ cms = {} }: HomePricingProps) => {
   /* 1. Track whether the user is on a mobile/tablet screen */
   const [isMobile, setIsMobile] = useState(false);
 
@@ -143,21 +146,33 @@ const HomePricing = () => {
   );
 
   return (
-    <section className="pt-32 sm:pt-36 pb-16 sm:pb-24 bg-cover bg-center bg-no-repeat bg-[url('/home-price-bg.png')] overflow-hidden">
+    <section
+      className="pt-32 sm:pt-36 pb-16 sm:pb-24 bg-cover bg-center bg-no-repeat bg-[url('/home-price-bg.png')] overflow-hidden"
+      style={
+        cms.bg_image
+          ? { backgroundImage: `url(${cms.bg_image}), url('/home-price-bg.png')` }
+          : {}
+      }
+    >
       {/* Fixed: Added 'px' to max-w-[1300px] */}
       <div className="max-w-[1300px] mx-auto px-4 sm:px-6 xl:px-0">
         <div className="container mx-auto text-center relative z-10">
           <div className="section_title_border w-fit mx-auto text-black rounded-full mb-6">
             <div className="how_trackforce_works px-4 py-2 text-sm font-semibold">
-              Pricing
+              {cms.badge || "Pricing"}
             </div>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold mb-6 text-white leading-tight">
-            <span className="font-playball font-normal">Price plans </span> that click
+            {cms.heading ? (
+              cms.heading
+            ) : (
+              <><span className="font-playball font-normal">Price plans </span> that click</>
+            )}
           </h2>
-          <p className="text-sm sm:text-base lg:text-lg max-w-3xl mx-auto text-white">
-            Every TrackForce plan includes the core monitoring, productivity, and security features your team needs — no hidden add-ons, no feature lock-ins.
-          </p>
+          <RichText
+            className="text-sm sm:text-base lg:text-lg max-w-3xl mx-auto text-white"
+            html={cms.description || "Every TrackForce plan includes the core monitoring, productivity, and security features your team needs — no hidden add-ons, no feature lock-ins."}
+          />
 
           {/* Billing period toggle */}
           <div className="mt-8 flex justify-center">
@@ -180,7 +195,7 @@ const HomePricing = () => {
                     {option}
                     {option === "yearly" && (
                       <span className="ml-2 rounded-full bg-emerald-700 px-2 py-0.5 text-[10px] font-bold text-white">
-                        Save up to 20%
+                        {cms.yearly_badge || "Save up to 20%"}
                       </span>
                     )}
                   </button>
