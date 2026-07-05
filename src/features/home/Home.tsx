@@ -18,7 +18,6 @@ const Home = async () => {
         getTestimonials(),
         getPageContent('home'),
     ])
-console.log("cms", cms);
     return (
         <div>
             <Hero cms={cms.hero ?? {}} />

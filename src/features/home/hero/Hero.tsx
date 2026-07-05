@@ -114,7 +114,6 @@ const Hero = ({ cms = {} }: HeroProps) => {
     };
 
     const path = "M1.37062 48.9656C18.3278 26.677 58.5996 25.7684 74.2747 26.7115";
-console.log("cms.bg_image", cms);
     return (
         <div
             className="overflow-hidden bg-cover bg-center bg-no-repeat bg-[url('/HeroBg.png')]"
@@ -166,7 +165,7 @@ console.log("cms.bg_image", cms);
                                 background: "linear-gradient(90deg, #1B73E8 0%, #9F60EE 100%)",
                                 boxShadow: "0 0 4px 0 rgba(255, 255, 255, 0.25), 0 4px 15.1px 0 rgba(0, 0, 0, 0.25)"
                             }}>
-                                <span className='group-hover:italic '>{cms.cta_primary ?? "Start Free Trial"}</span> <FaArrowRightLong className='group-hover:-rotate-[30deg] transition ease-in-out' />
+                                <span className='group-hover:italic '>{cms.cta_primary || "Start Free Trial"}</span> <FaArrowRightLong className='group-hover:-rotate-[30deg] transition ease-in-out' />
                                 {/* <motion.div
                                     className="ml-2 absolute right-0"
                                     animate={{
@@ -190,7 +189,7 @@ console.log("cms.bg_image", cms);
 
                                 boxShadow: "0 0 4px 0 rgba(255, 255, 255, 0.25), 0 4px 15.1px 0 rgba(0, 0, 0, 0.25)"
                             }}>
-                                <span className='group-hover:italic '>{cms.cta_secondary ?? "Book a Demo"}</span>
+                                <span className='group-hover:italic '>{cms.cta_secondary || "Book a Demo"}</span>
                                 <motion.div
                                     className="ml-2 absolute right-0"
                                     animate={{
