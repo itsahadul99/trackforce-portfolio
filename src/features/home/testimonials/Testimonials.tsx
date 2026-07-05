@@ -26,9 +26,10 @@ const HARDCODED_TESTIMONIALS = [
 
 interface TestimonialsProps {
   initialTestimonials?: CmsTestimonial[];
+  cms?: Record<string, string>;
 }
 
-const Testimonials = ({ initialTestimonials }: TestimonialsProps) => {
+const Testimonials = ({ initialTestimonials, cms = {} }: TestimonialsProps) => {
   const testimonials = initialTestimonials && initialTestimonials.length > 0
     ? initialTestimonials.map((t, i) => ({
         sl: i + 1,
@@ -81,18 +82,20 @@ const Testimonials = ({ initialTestimonials }: TestimonialsProps) => {
           <div className="w-full lg:w-[35%] flex flex-col justify-center text-center lg:text-left items-center lg:items-start">
                 <div className="content_title_border_new w-fit mb-1">
                   <div className="px-4 py-2 text-sm font-semibold content_title_text_new">
-                Testimonials
+                {cms.badge || "Testimonials"}
               </div>
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold mb-2 text-black leading-tight">
-              <span className="font-playball font-normal">Trusted</span> By
-              Leading Companies
+              {cms.heading ? (
+                cms.heading
+              ) : (
+                <><span className="font-playball font-normal">Trusted</span> By Leading Companies</>
+              )}
             </h2>
 
             <p className="text-gray-600 text-sm sm:text-base mt-6">
-              The best proof of TrackForce’s impact comes from teams
-              transforming how they work.
+              {cms.description || "The best proof of TrackForce’s impact comes from teams transforming how they work."}
             </p>
 
             <div className="mt-5">

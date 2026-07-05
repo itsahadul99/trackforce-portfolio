@@ -5,20 +5,28 @@ import DocSidebar from "./DocSidebar";
 import DocContent from "./DocContent";
 import HomeFreeTailer from "../home/home_free_trailer/HomeFreeTailer";
 
-const Documentation = () => {
+type DocumentationProps = { cms?: Record<string, Record<string, string>> };
+
+const Documentation = ({ cms = {} }: DocumentationProps) => {
     const [activeSection, setActiveSection] = useState("installation");
     const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
+    const hero = cms.hero ?? {};
+
+    /* Admin-added sections (extra1-3): shown in the sidebar only when a menu label is set */
+    const extraItems = [1, 2, 3]
+        .map((i) => ({ id: `extra-${i}`, label: (cms[`extra${i}`] ?? {}).menu_label }))
+        .filter((item): item is { id: string; label: string } => Boolean(item.label));
 
     return (
         <div className="relative bg-white min-h-screen py-12">
             {/* Background images */}
             <div
                 className="absolute top-0 left-0 w-full h-1/2 bg-cover bg-center bg-no-repeat pointer-events-none"
-                style={{ backgroundImage: "url('/docbg1.png')" }}
+                style={{ backgroundImage: hero.bg_image1 ? `url(${hero.bg_image1}), url('/docbg1.png')` : "url('/docbg1.png')" }}
             />
             <div
                 className="absolute bottom-0 left-0 w-full h-1/2 bg-cover bg-center bg-no-repeat pointer-events-none"
-                style={{ backgroundImage: "url('/docbg2.png')" }}
+                style={{ backgroundImage: hero.bg_image2 ? `url(${hero.bg_image2}), url('/docbg2.png')` : "url('/docbg2.png')" }}
             />
             <div className="relative z-10 w-full max-w-[1300px] mx-auto px-4 py-12 lg:py-20">
                 {/* Mobile toggle */}
@@ -46,12 +54,14 @@ const Documentation = () => {
                         }}
                         isOpen={mobileSidebarOpen}
                         onClose={() => setMobileSidebarOpen(false)}
+                        cms={cms.sidebar ?? {}}
+                        extraItems={extraItems}
                     />
-                    <DocContent activeSection={activeSection} />
+                    <DocContent activeSection={activeSection} cms={cms} />
                 </div>
             </div>
             <div className='mb-28 relative z-10'>
-                <HomeFreeTailer />
+                <HomeFreeTailer cms={cms.free_trailer ?? {}} />
             </div>
         </div>
     );

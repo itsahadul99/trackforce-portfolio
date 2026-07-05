@@ -33,13 +33,13 @@ const Home = async () => {
                 }} />
                 <WorkProcess cms={cms.work_process ?? {}} />
             </div>
-            <OurFeatures />
+            <OurFeatures cms={cms.our_features ?? {}} />
             <div className='bg-[#DEEDFF] py-12 sm:py-16 lg:py-24'>
-                <Testimonials initialTestimonials={testimonials} />
+                <Testimonials initialTestimonials={testimonials} cms={cms.testimonials ?? {}} />
             </div>
-            <WhyChooseUs />
+            <WhyChooseUs cms={cms.why_choose_us ?? {}} />
             <div className='bg-[#DEEDFF] py-12 sm:py-16 lg:py-24'>
-                <HomeFaq initialFaqs={faqs} />
+                <HomeFaq initialFaqs={faqs} cms={cms.faq ?? {}} />
             </div>
             <HomePricing cms={cms.pricing ?? {}} />
             <div className='bg-[#DEEDFF] py-12 sm:py-16 lg:py-24 px-4'>

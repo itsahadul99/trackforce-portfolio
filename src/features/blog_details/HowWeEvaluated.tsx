@@ -73,10 +73,12 @@ const Connector = ({ kind, side, position, delay = 0 }: ConnectorProps) => {
     );
 };
 
-export default function HowWeEvaluated() {
+type HowWeEvaluatedProps = { cms?: Record<string, string> };
+
+export default function HowWeEvaluated({ cms = {} }: HowWeEvaluatedProps) {
     return (
         <div className="w-full  px-4 bg-[#DEEDFF] py-14 lg:py-24 ">
-            <div className="max-w-[1300] mx-auto relative rounded-3xl overflow-hidden bg-center bg-cover px-4 py-12 md:p-14" style={{ boxShadow: "filter(0px 0px 34.5px 0px #00000021)", backgroundImage: "url('/featurebg.png')" }}>
+            <div className="max-w-[1300] mx-auto relative rounded-3xl overflow-hidden bg-center bg-cover px-4 py-12 md:p-14" style={{ boxShadow: "filter(0px 0px 34.5px 0px #00000021)", backgroundImage: cms.bg_image ? `url(${cms.bg_image}), url('/featurebg.png')` : "url('/featurebg.png')" }}>
                 {/* left glow */}
                 <div className="absolute -left-20 top-1/3 w-[320px] h-[320px] bg-blue-500/30 rounded-full blur-[110px] " />
 
@@ -84,13 +86,15 @@ export default function HowWeEvaluated() {
                     {/* Title */}
                     <div className="text-center mb-10 md:mb-14">
                         <h2 className="text-2xl md:text-4xl lg:text-[42px] font-bold text-[#0a0a1a]">
-                            How We Evaluated These {" "}
-                            <span className="font-playball font-normal">Tools</span>
-
+                            {cms.heading ? (
+                                cms.heading
+                            ) : (
+                                <>How We Evaluated These {" "}<span className="font-playball font-normal">Tools</span></>
+                            )}
                         </h2>
                         <div className=" flex items-center justify-center text-center">
                             <p className="w-[750] text-[#2B2B2B] text-sm md:text-base mt-3">
-                               Each platform in this list was evaluated based on:
+                               {cms.description || "Each platform in this list was evaluated based on:"}
                             </p>
                         </div>
                     </div>
@@ -112,7 +116,7 @@ export default function HowWeEvaluated() {
                                 transition={{ duration: 1.8, ease: "easeOut", repeat: Infinity }}
                             >
                                 <Image
-                                    src={evulated_center_logo}
+                                    src={cms.logo || evulated_center_logo}
                                     alt="TrackForce"
                                     width={80}
                                     height={80}
@@ -126,7 +130,7 @@ export default function HowWeEvaluated() {
                         <div className="w-full md:w-auto md:absolute md:left-0 md:top-[10%]">
                             <div className="relative bg-white w-full md:w-80 text-center rounded-full shadow-md px-6 py-3 md:px-7 md:py-4">
                                 <p className="text-[#0a0a1a] font-semibold text-sm md:text-base md:whitespace-nowrap">
-                                   Real-time productivity track
+                                   {cms.pill1 || "Real-time productivity track"}
                                 </p>
                                 <Connector kind="curve" side="left" position="top" delay={0} />
                             </div>
@@ -134,7 +138,7 @@ export default function HowWeEvaluated() {
                         <div className="w-full md:w-auto md:absolute md:left-0 md:top-1/2 md:-translate-y-1/2">
                             <div className="relative w-full md:w-80 text-center bg-white rounded-full shadow-md px-6 py-3 md:px-7 md:py-4">
                                 <p className="text-[#0a0a1a] font-semibold text-sm md:text-base md:whitespace-nowrap">
-                                   Reporting depth & clarity
+                                   {cms.pill2 || "Reporting depth & clarity"}
                                 </p>
                                 <Connector kind="straight" side="left" position="middle" delay={0.2} />
                             </div>
@@ -142,7 +146,7 @@ export default function HowWeEvaluated() {
                         <div className="w-full md:w-auto md:absolute md:left-0 md:bottom-[10%]">
                             <div className="relative w-full md:w-80 text-center bg-white rounded-full shadow-md px-6 py-3 md:px-7 md:py-4">
                                 <p className="text-[#0a0a1a] font-semibold text-sm md:text-base md:whitespace-nowrap">
-                                  Ease of onboarding
+                                  {cms.pill3 || "Ease of onboarding"}
                                 </p>
                                 <Connector kind="curve" side="left" position="bottom" delay={0.4} />
                             </div>
@@ -152,7 +156,7 @@ export default function HowWeEvaluated() {
                         <div className="w-full md:w-auto md:absolute md:right-0 md:top-[10%]">
                             <div className="relative w-full md:w-80 text-center bg-white rounded-full shadow-md px-6 py-3 md:px-7 md:py-4">
                                 <p className="text-[#0a0a1a] font-semibold text-sm md:text-base md:whitespace-nowrap">
-                                  Role-based access control
+                                  {cms.pill4 || "Role-based access control"}
                                 </p>
                                 <Connector kind="curve" side="right" position="top" delay={0.1} />
                             </div>
@@ -160,7 +164,7 @@ export default function HowWeEvaluated() {
                         <div className="w-full md:w-auto md:absolute md:right-0 md:top-1/2 md:-translate-y-1/2">
                             <div className="relative w-full md:w-80 text-center bg-white rounded-full shadow-md px-6 py-3 md:px-7 md:py-4">
                                 <p className="text-[#0a0a1a] font-semibold text-sm md:text-base md:whitespace-nowrap">
-                                   Startup scalability
+                                   {cms.pill5 || "Startup scalability"}
                                 </p>
                                 <Connector kind="straight" side="right" position="middle" delay={0.3} />
                             </div>
@@ -168,7 +172,7 @@ export default function HowWeEvaluated() {
                         <div className="w-full md:w-auto md:absolute md:right-0 md:bottom-[10%]">
                             <div className="relative w-full md:w-80 text-center bg-white rounded-full shadow-md px-6 py-3 md:px-7 md:py-4">
                                 <p className="text-[#0a0a1a] font-semibold text-sm md:text-base md:whitespace-nowrap">
-                                   Transparency and flexibility
+                                   {cms.pill6 || "Transparency and flexibility"}
                                 </p>
                                 <Connector kind="curve" side="right" position="bottom" delay={0.5} />
                             </div>

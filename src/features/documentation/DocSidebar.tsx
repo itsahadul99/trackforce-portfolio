@@ -19,9 +19,21 @@ interface DocSidebarProps {
   onSectionChange: (id: string) => void;
   isOpen?: boolean;
   onClose?: () => void;
+  cms?: Record<string, string>;
+  extraItems?: { id: string; label: string }[];
 }
 
-const DocSidebar = ({ activeSection, onSectionChange, isOpen = false, onClose }: DocSidebarProps) => {
+const DocSidebar = ({ activeSection, onSectionChange, isOpen = false, onClose, cms = {}, extraItems = [] }: DocSidebarProps) => {
+  const items = [
+    ...menuItems.map((item, i) => ({
+      ...item,
+      label: cms[`item${i + 1}`] || item.label,
+    })),
+    ...extraItems.map((item, i) => ({
+      ...item,
+      label: `${menuItems.length + i + 1}. ${item.label}`,
+    })),
+  ];
   return (
     <>
       {/* Backdrop for mobile overlay */}
@@ -55,7 +67,7 @@ const DocSidebar = ({ activeSection, onSectionChange, isOpen = false, onClose }:
         </div>
 
         <nav className="flex flex-col">
-          {menuItems.map((item) => (
+          {items.map((item) => (
             <button
               key={item.id}
               onClick={() => {
@@ -83,12 +95,26 @@ const DocSidebar = ({ activeSection, onSectionChange, isOpen = false, onClose }:
         </nav>
 
         <div className="mt-6 lg:mt-8">
-          <button className="w-full flex items-center justify-center gap-2 bg-[#1a1a2e] text-white text-sm font-medium px-4 py-3 rounded-lg hover:bg-[#2a2a3e] transition-colors">
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-            </svg>
-            Download User Guide
-          </button>
+          {cms.download_url ? (
+            <a
+              href={cms.download_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full flex items-center justify-center gap-2 bg-[#1a1a2e] text-white text-sm font-medium px-4 py-3 rounded-lg hover:bg-[#2a2a3e] transition-colors"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              {cms.download_label || "Download User Guide"}
+            </a>
+          ) : (
+            <button className="w-full flex items-center justify-center gap-2 bg-[#1a1a2e] text-white text-sm font-medium px-4 py-3 rounded-lg hover:bg-[#2a2a3e] transition-colors">
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              {cms.download_label || "Download User Guide"}
+            </button>
+          )}
         </div>
       </motion.div>
     </>

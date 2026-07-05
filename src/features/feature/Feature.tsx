@@ -1,7 +1,6 @@
 import HomeFreeTailer from '../home/home_free_trailer/HomeFreeTailer'
 import FeatureHero from './FeatureHero'
 import FeatureProd1 from './FeatureProd1'
-import FeatureProd2 from './FeatureProd2'
 import FeatureWork1 from './FeatureWork1'
 import FeatureWork2 from './FeatureWork2'
 import Optimization from './Optimization'

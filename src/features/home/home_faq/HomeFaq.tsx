@@ -23,9 +23,10 @@ const INITIAL_COUNT = 5;
 
 interface HomeFaqProps {
     initialFaqs?: CmsFaq[];
+    cms?: Record<string, string>;
 }
 
-const HomeFaq = ({ initialFaqs }: HomeFaqProps) => {
+const HomeFaq = ({ initialFaqs, cms = {} }: HomeFaqProps) => {
     const rawFaqs = initialFaqs && initialFaqs.length > 0
         ? initialFaqs.map((f, i) => ({ question: `${i + 1}. ${f.question}`, answer: f.answer }))
         : HARDCODED_FAQS;
@@ -69,15 +70,19 @@ const HomeFaq = ({ initialFaqs }: HomeFaqProps) => {
             <div className="w-full lg:w-1/2 flex flex-col justify-center items-center lg:items-start text-center lg:text-left z-10">
                 <div className="content_title_border_new w-fit mb-1">
                     <div className="px-4 py-1 text-sm font-semibold content_title_text_new">
-                        FAQ
+                        {cms.badge || "FAQ"}
                     </div>
                 </div>
                 <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-semibold mb-2 text-black leading-tight">
-                    Got a <span className="font-playball font-normal">Question?</span> <br className="hidden sm:block" />
-                    We&apos;re Here to Help
+                    {cms.heading ? (
+                        cms.heading
+                    ) : (
+                        <>Got a <span className="font-playball font-normal">Question?</span> <br className="hidden sm:block" />
+                        We&apos;re Here to Help</>
+                    )}
                 </h2>
                 <p className="text-gray-600 text-sm sm:text-base mb-6 max-w-lg mt-6">
-                    Track employee activity, productivity, and work patterns in one place without disrupting everyday workflows.
+                    {cms.description || "Track employee activity, productivity, and work patterns in one place without disrupting everyday workflows."}
                 </p>
             </div>
 

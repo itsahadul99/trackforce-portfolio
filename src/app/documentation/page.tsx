@@ -1,4 +1,5 @@
 import Documentation from '@/features/documentation/Documentation'
+import { getPageContent } from '@/lib/cms'
 import { buildMetadata, buildBreadcrumbJsonLd } from '@/lib/seo'
 import React from 'react'
 
@@ -14,14 +15,15 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: "Documentation", path: "/documentation" },
 ])
 
-export default function DocPage() {
+export default async function DocPage() {
+  const cms = await getPageContent('documentation')
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <Documentation />
+      <Documentation cms={cms} />
     </>
   )
 }

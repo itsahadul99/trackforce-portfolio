@@ -16,7 +16,7 @@ const BlogDetails = async ({ blog }: { blog: BlogPost }) => {
             <BlogDetailsHero blog={blog} />
             <BlogDetailsContent blog={blog} />
             <div className='bg-[#DEEDFF] py-20'>
-                <HowWeEvaluated />
+                <HowWeEvaluated cms={cms.how_evaluated ?? {}} />
                 <MonitoringSoftwareList />
             </div>
             <SimilarBlogs currentSlug={blog.slug} />
