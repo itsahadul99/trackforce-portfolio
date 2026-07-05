@@ -4,11 +4,9 @@
  * when the admin panel is offline.
  */
 
-// Production runs on the same server as the backend, and admin.trackforce.io
-// is not reachable from inside that server — use the local port there.
-// 127.0.0.1 (not localhost): Node fetch resolves localhost to IPv6 ::1 first
-// and does not fall back to IPv4, so it fails against an IPv4-only listener.
-const ADMIN ="https://admin.trackforce.io/backend";
+import { unstable_rethrow } from "next/navigation";
+
+const ADMIN = "https://admin.trackforce.io/backend";
 
 // ─── Types ──────────────────────────────────────────────────────────────────
 
@@ -76,14 +74,12 @@ async function safeFetch<T>(url: string, fallback: T): Promise<T> {
       console.error(`[cms] ${res.status} ${res.statusText} for ${url} — using fallback`);
       return fallback;
     }
-    if (!res.ok) {
-      console.error(`[cms] ${res.status} ${res.statusText} for ${url} — using fallback`);
-      return fallback;
-    }
     return (await res.json()) as T;
   } catch (err) {
-    console.error(`[cms] fetch failed for ${url} — using fallback:`, err instanceof Error ? err.message : err);
-  } catch (err) {
+    // Next.js signals "this page must be dynamic" by throwing internal
+    // errors from no-store fetches during prerendering. Swallowing them
+    // would bake the fallback content into the static build.
+    unstable_rethrow(err);
     console.error(`[cms] fetch failed for ${url} — using fallback:`, err instanceof Error ? err.message : err);
     return fallback;
   }
