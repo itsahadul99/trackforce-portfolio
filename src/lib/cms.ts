@@ -4,7 +4,12 @@
  * when the admin panel is offline.
  */
 
-const ADMIN = "https://admin.trackforce.io/backend";
+// Production runs on the same server as the backend, and admin.trackforce.io
+// is not reachable from inside that server — use the local port there.
+const ADMIN =
+  process.env.NODE_ENV === "production"
+    ? "http://localhost:80/backend"
+    : "https://admin.trackforce.io/backend";
 
 // ─── Types ──────────────────────────────────────────────────────────────────
 
@@ -68,9 +73,13 @@ export type CmsSettings = {
 async function safeFetch<T>(url: string, fallback: T): Promise<T> {
   try {
     const res = await fetch(url, { cache: "no-store" });
-    if (!res.ok) return fallback;
+    if (!res.ok) {
+      console.error(`[cms] ${res.status} ${res.statusText} for ${url} — using fallback`);
+      return fallback;
+    }
     return (await res.json()) as T;
-  } catch {
+  } catch (err) {
+    console.error(`[cms] fetch failed for ${url} — using fallback:`, err instanceof Error ? err.message : err);
     return fallback;
   }
 }
