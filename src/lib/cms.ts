@@ -6,7 +6,7 @@
 
 import { unstable_rethrow } from "next/navigation";
 
-const ADMIN = "https://admin.trackforce.io/backend";
+const ADMIN = process.env.ADMIN_API_URL || "https://admin.trackforce.io/backend";
 
 // ─── Types ──────────────────────────────────────────────────────────────────
 
