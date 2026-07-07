@@ -159,5 +159,17 @@ Sync all remaining hardcoded components with CMS. Home: OurFeatures (badge/headi
 ## Query-52
 Make HomePricing.tsx dynamic. Plans were already API-driven (PublicPricing API); section header was hardcoded. HomePricing now accepts optional cms prop: badge, heading, description (RichText), yearly_badge ("Save up to 20%" tag), bg_image (multi-layer fallback to /home-price-bg.png). Home.tsx passes cms.pricing. Admin home page schema gets new "pricing" section with those 5 fields.
 
+## Query-55
+Audit the site against TrackForce_Website_Tracking_and_Audit_Guide.md and report. Findings: GA4 (gtag, no cross-domain linker for app.trackforce.io), Clarity installed, GSC verification env value looks like a filename not a token, no GTM/Meta Pixel/LinkedIn tag, zero conversion events (trial_cta_click etc.), SEO/schema/sitemap all in place, Tawk.to present.
+
+## Query-56
+Fix 0% counters and footer dead links. ProgressCircle: infinite loop animation (reset to 0% every cycle) replaced with whileInView once (viewport 0.5, easeOut 2s) — counts up once and stays at final value. Footer: /faq → /home#faq (added id="faq" to HomeFaq wrapper), /blogs → /blog, logo+wordmark wrapped in Link to /home, "Resorces" typo → "Resources".
+
+## Query-57
+Fix user's GA4 cross-domain linker attempt: linker was passed as a 4th arg to gtag('config') (silently ignored) — merged into the single config object alongside page_path, domains set to ['trackforce.io', 'app.trackforce.io'] (root domain covers all subdomains via suffix matching).
+
+## Query-58
+Sync NEXT_PUBLIC_CLARITY_ID into the admin env editor. The admin panel's API now lives in a separate Express backend (A:\Projects\trackforce-portfolio-backend — admin app's /backend/* rewrites there; commit "feat: remove backend" removed the Next.js API routes). Added NEXT_PUBLIC_CLARITY_ID to PORTFOLIO_ALLOWED_VARS in backend src/routes/settings.ts and to PortfolioEnvForm.tsx (type, initial state, field with hint) in the admin. Note: NEXT_PUBLIC_* vars are build-time — portfolio needs rebuild after env edits.
+
 ## Query-50
 Sync Portfolio module. All 12 sub-components (PortfolioHero, Solution, ProductivityInsights, RealTime, Enterprise, Decisions, Intellengence, Configure, Structure, Designed, ImpactBussiness, PortfolioParallax) now accept optional cms prop with hardcoded fallbacks. Background image URLs moved from className to inline style throughout. onError fallback added to all Image components. Portfolio.tsx wires all 12 sections plus free_trailer. Admin portfolio page schema rewritten with all 12 sections: hero, solution, productivity_insights, real_time (image1/2), enterprise (image1/2), decisions, intelligence (image1/2/3), configure (badge/heading/description), structure (heading/description), designed (image1/2/3), impact (badge/heading/description + image1-6), free_trailer. PortfolioParallax supports 5 cards with card1-5_title and card1-5_image CMS keys.

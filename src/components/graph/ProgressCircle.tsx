@@ -91,15 +91,13 @@ const ProgressCircle: React.FC<ProgressCircleProps> = ({
                     strokeDasharray={circumference}
                     strokeDashoffset={dashOffset}
                     strokeWidth={strokeWidth} // fixed
-                    animate={{
-                        strokeDashoffset: [circumference, circumference - (percentage / 100) * circumference],
+                    whileInView={{
+                        strokeDashoffset: circumference - (percentage / 100) * circumference,
                     }}
+                    viewport={{ once: true, amount: 0.5 }}
                     transition={{
                         duration: 2,
-                        repeat: Infinity,
-                        repeatType: "loop",
-                        ease: "linear",
-                        repeatDelay: 2,
+                        ease: "easeOut",
                     }}
                 />
 

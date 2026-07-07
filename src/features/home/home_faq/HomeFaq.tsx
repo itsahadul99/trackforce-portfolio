@@ -41,6 +41,7 @@ const HomeFaq = ({ initialFaqs, cms = {} }: HomeFaqProps) => {
         /* 1. Added mouse enter/leave listeners to track the container hover state */
         /* 2. Fixed 'max-w-[1300]' to 'max-w-[1300px]' */
         <div
+            id="faq"
             className="flex flex-col lg:flex-row lg:justify-between gap-8 lg:gap-2 max-w-[1300px] mx-auto px-4 sm:px-6 xl:px-0 relative overflow-hidden"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}

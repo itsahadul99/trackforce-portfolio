@@ -223,14 +223,14 @@ export default function Footer({ cms = {} }: { cms?: any }) {
           {/* Logo + subscribe */}
           <div className="max-w-full lg:max-w-[380px] sm:col-span-2 lg:col-span-1">
             {/* Logo */}
-            <div className="flex items-center gap-2 mb-4">
+            <Link href="/home" className="flex items-center gap-2 mb-4 w-fit">
               {brand.logo_url ? (
                 <img src={brand.logo_url} width={42} height={31} alt="Trackforce logo" className="w-[42px] h-[31px] object-contain" onError={(e) => { (e.currentTarget as HTMLImageElement).src = "/trackforce_logo.png"; }} />
               ) : (
                 <Image src={trackforce_logo} width={42} height={31} alt="Trackforce logo" />
               )}
               <span className="text-2xl sm:text-3xl font-medium text-white">TrackForce</span>
-            </div>
+            </Link>
 
             <p className="text-sm text-gray-200 mb-6 leading-relaxed font-normal">
               {brand.description || "Advanced Employee Monitoring Software That Keeps Teams Focused, Productive, Secure, and Always On Track"}
@@ -273,11 +273,11 @@ export default function Footer({ cms = {} }: { cms?: any }) {
 
           {/* Resources */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Resorces</h3>
+            <h3 className="text-white font-semibold mb-4">Resources</h3>
             <ul className="space-y-3 text-sm text-gray-200 *:block">
               <li><Link href="/about" className="hover:text-white cursor-pointer inline-block transition-all duration-300 hover:translate-x-1">About us</Link></li>
-              <li><Link href="/faq" className="hover:text-white cursor-pointer inline-block transition-all duration-300 hover:translate-x-1">FAQ</Link></li>
-              <li><Link href="/blogs" className="hover:text-white cursor-pointer inline-block transition-all duration-300 hover:translate-x-1">Blogs</Link></li>
+              <li><Link href="/home#faq" className="hover:text-white cursor-pointer inline-block transition-all duration-300 hover:translate-x-1">FAQ</Link></li>
+              <li><Link href="/blog" className="hover:text-white cursor-pointer inline-block transition-all duration-300 hover:translate-x-1">Blogs</Link></li>
             </ul>
           </div>
 
